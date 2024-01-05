@@ -79,3 +79,6 @@ for more information [visit here](https://compodoc.app/guides/usage.html)
 # set NODE_OPTIONS=--openssl-legacy-provider
 # npm run start
 # Open chrome browser with ->  http://localhost:4200/
+
+## URL configuration
+- src/app/app-config.ts -> everestUrl|SSOUrl|apiMainUrl
