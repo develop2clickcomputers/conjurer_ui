@@ -78,3 +78,4 @@ for more information [visit here](https://compodoc.app/guides/usage.html)
 ## If process.binding('http_parser') is deprecated occured run below commands
 # set NODE_OPTIONS=--openssl-legacy-provider
 # npm run start
+# Open chrome browser with ->  http://localhost:4200/
