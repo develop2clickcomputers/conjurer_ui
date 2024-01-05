@@ -1,0 +1,880 @@
+<div class="b47PM-wrapper logged-in">
+  <!-- "logged-in" add this class when user login successfully -->
+
+  <!-- Header Part Html Starts -->
+  <app-authorised-header></app-authorised-header>
+  <!-- Header Part Html Ends -->
+
+  <!-- Main Display Html Starts -->
+
+  <!-- Loader section -->
+  <div class="b47PM-center-body" *ngIf="!investments">
+    <div class="container b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <img src="../asstes/img/loader/page_loading.gif">
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="investmentError">
+    <div class="container b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1 grey-quad" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h4>Oops! Something went wrong!!!</h4>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="investments.length == 0">
+    <div class="container b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1 grey-quad" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <img src="/assets/img/investments/investment-plan-icon.png" alt="">
+              <p>
+                Consolidate your investment portfolio and see a summary sorted by institution, asset categories and security names. PiMoney
+                shows your profits/losses up to date both at a consolidated level and at individual asset level. You'll now
+                be empowered to make smarter investment decisions.
+              </p>
+              <h4>You haven't added any investment account, <span class="blue"><a href ng-click="redirectToOverviewToAddAccount('addAccount')">You should get started now.</a></span></h4>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" ng-show="investments.length > 0">
+    <div class="container b47PM-container investment-landing-page">
+
+      <div class="misc-table-showcase">
+        <div class="b47PM-financesTab-quad1">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs investment-tabs" role="tablist">
+            <li role="presentation" class="active pull-right">
+              <a href data-target="#Assets-content" aria-controls="home" role="tab" data-toggle="tab" ng-click="vm.drawBankChart()">Holdings</a>
+            </li>
+            <li role="presentation" class="pull-right">
+              <a href data-target="#Transactions-content" aria-controls="profile" role="tab" data-toggle="tab" ng-click="vm.drawCreditCardChart()">Transactions</a>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="Assets-content">
+              <div class="row clearfix">
+                <div class="col-md-12" style="margin-top: 15px;">
+                  <div class="col-xs-12 col-sm-7 col-md-8 investment-graph-quad1" align="center">
+                    <header style="z-index: 1;" class="pull-right">
+                      <span>View by</span>
+                      <select class="form-control" [(ngModel)]="investmentView" (change)="changeInvestmentView(investmentView)" style="width: 164px;">
+                            <option value="view1">Account and Asset</option>
+                            <option value="view2">Account</option>
+                          </select>
+                    </header>
+                  </div>
+                </div>
+              </div>
+              <!-- view 1 account level  -->
+              <div class="table b47PM-misc-table1 investmentTbl1" [hidden]="!view1">
+                <header class="clearfix">
+                  <div>&nbsp;</div>
+                  <div style="width: 24%">INSTITUTION</div>
+                  <div style="width: 26%;">ACCOUNT NAME</div>
+                  <div style="width: 19%;">ACCOUNT NO.</div>
+                  <div>CURRENCY</div>
+                  <!-- <div style="text-align: right;width: 21%;">TOTAL CURRENT VALUE</div> -->
+                  <!--<div>TOTAL <br>PROFIT/LOSS</div>
+                      <div>TOTAL <br>PROFIT/LOSS(%)</div>-->
+                </header>
+                <div class="tbl-body">
+                  <div class="record-row" *ngFor="let investment of investments; let i = index;">
+                    <!-- First level-->
+                    <table width="100%" class="table inner-data-table expand">
+                      <thead>
+                        <tr>
+                          <th>
+                            <a class="toggle-expand-btn" (click)="investment.account = !investment.account">
+                                  <i class="fa fa-plus-circle" id="expand_collapse1_{{i}}" aria-hidden="true"></i>
+                                  <!--<i class="fa fa-minus-circle" aria-hidden="true"></i>-->
+                                </a>
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.institutionName}}
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.accountName | ValidateValue}}
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.accountNumber}}
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.currency}}
+                          </th>
+                          <!-- <th class="truncatequd">
+                             <span>{{investment.totalCurrentValue | NumberFormatWithCurrencySymbol:investment.holdingAcctValuationCurrency}}</span> 
+                          </th> -->
+                        </tr>
+                      </thead>
+                      <tbody *ngIf="investment.account" id="investmentHoldingAssetTable1_{{i}}"> <!-- display: none; -->
+                        <tr>
+                          <td colspan="8">
+                            <div class="table b47PM-misc-table1 investmentTbl2 expand">
+                              <div class="tbl-body">
+                                <div class="record-row">
+                                  <!-- 2nd level -->
+                                  <table width="100%" class="table inner-data-table investmentTbl3">
+                                    <tbody id="investmentHoldingAssetByCategoryTable">
+                                      <tr>
+                                        <td colspan="6" style="padding:0">
+                                          <table class="investmentTxnPrvTbl custom-invst-table" style="margin-bottom: 20px;width: 98%;float: right;">
+                                            <thead>
+                                              <tr>
+                                                <th style="text-align: center;">&nbsp;</th>
+                                                <th>Description</th>
+                                                <th>
+                                                  Start Date
+                                                </th>
+                                                <th>Quantity/Notional</th>
+                                                <th align="right">
+                                                  Cost
+                                                </th>
+                                                <th align="right">
+                                                  Market Value
+                                                </th>
+                                                <th align="right">
+                                                  Value in {{investment.currency}}
+                                                </th>
+                                              </tr>
+                                              <tr>
+                                                <th>&nbsp;</th>
+                                                <th>ISIN</th>
+                                                <th>Maturity Date</th>
+                                                <th>Accrued Int.</th>
+                                                <th align="right">
+                                                  Av. Cost Price
+                                                </th>
+                                                <th align="right">Market Price</th>
+                                                <th align="right">Unrealizied P/L</th>
+                                              </tr>
+                                              <tr>
+                                                <th>&nbsp;</th>
+                                                <th>Currency - Security Type / SubType</th>
+                                                <th>Coupon</th>
+                                                <th>&nbsp;</th>
+                                                <th align="right">
+                                                  Strike Price
+                                                </th>
+                                                <th align="right">Last price date</th>
+                                                <th align="right">&nbsp;</th>
+                                                <!-- <th align="right">&nbsp;</th>
+                                                <th style="text-align: right">Fx. Rate</th> -->
+                                              </tr>
+                                            </thead>
+                                            <tbody *ngFor="let investmentHoldingAssetData of investment.investmentHoldingAssetData; let j = index;">
+                                              <!-- Third level -->
+                                              <!--  | orderBy:orderByColumn:reverseOrder -->
+                                              <ng-container *ngFor="let asset of investmentHoldingAssetData.investmentHoldingAssetByCategoryData; let k = index;">
+                                              <tr style="cursor: pointer;" (click)="editAssetByAccount(j, asset)" class="edit_investment_asset_row1 cursor edit_row"> <!-- (click)="editAssetByAccount(j, asset)" -->
+                                                <td class="restrictClickChange">
+                                                  &nbsp;
+                                                </td>
+                                                <td> <!-- description -->
+                                                  <span [hidden]="asset.editAccountAsset">{{asset.holdingAssetDescription}}</span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" name="description" [(ngModel)]="asset.holdingAssetDescription" class="form-control" disabled>
+                                                  <br />
+                                                  <span [hidden]="asset.editAccountAsset">{{asset.holdingAssetISIN | ValidateValue}}</span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" name="assetISIN" [(ngModel)]="asset.holdingAssetISIN" class="form-control">
+                                                  <br />
+                                                  <span [hidden]="asset.editAccountAsset">{{asset.holdingAssetCurrency}}</span>
+                                                  <!-- <select [hidden]="!asset.editAccountAsset" [(ngModel)]="asset.holdingAssetCurrency" class="form-control" style="padding-top: 0px;">
+                                                    <option *ngFor="let currency of currencyListData" value="{{currency.code}}" [selected]="asset.holdingAssetCurrency">{{currency.name}} ({{currency.code}})</option> 
+                                                  </select> --> 
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" name="assetCurrency" [(ngModel)]="asset.holdingAssetCurrency" class="form-control" disabled>
+                                                  - 
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                    <span>{{asset.holdingAssetCategory | ValidateValue}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetCategory" class="form-control"> / 
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                    <span>{{asset.holdingAssetSubCategory | ValidateValue}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetSubCategory" class="form-control">
+                                                </td>
+                                                <td><!-- start date, maturity date, coupon -->
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                    <span>{{asset.holdingAssetStartDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="date" [ngModel]="asset.holdingAssetStartDate | date:'yyyy-MM-dd'" (ngModelChange)="asset.holdingAssetStartDate = $event" class="form-control">
+                                                  <br />
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                    <!-- <span *ngIf="asset.holdingAssetMaturityDate == null"> - </span> -->
+                                                    <span>{{asset.holdingAssetMaturityDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="date" [ngModel]="asset.holdingAssetMaturityDate | date:'yyyy-MM-dd'" (ngModelChange)="asset.holdingAssetMaturityDate = $event" class="form-control">
+                                                  <br />
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                    <span>{{asset.holdingAssetCoupon | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}<span *ngIf="asset.holdingAssetCoupon">%</span></span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetCoupon" class="form-control">
+                                                </td>
+                                                <td align="right"><!-- Quantity, accured Int. -->
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                    <span>{{asset.holdingAssetQuantity | NumberFormatWithoutCurrencySymbol}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetQuantity" class="form-control pointNumber">
+                                                  <br />
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                    <span>{{asset.holdingAssetFxAccruedInterest | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetFxAccruedInterest" class="form-control pointNumber">
+                                                </td>
+                                                <td><!-- cost price, Av. cost price, strike price -->
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                    <span>{{asset.holdingAssetCost | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetCost" class="form-control pointNumberFourDecimals">
+                                                  <br />
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                    <span>{{asset.holdingAssetAverageUnitCost | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetAverageUnitCost" class="form-control pointNumberFourDecimals">
+                                                  <br />
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                    <span>{{asset.holdingAssetStrikePrice | NumberFormatWithoutCurrencySymbol}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetStrikePrice" class="form-control pointNumber"> 
+                                                </td> 
+                                                <td align="right"><!-- market value, market price, last price date -->
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                    <span>{{asset.holdingAssetCurrentValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetCurrentValue" class="form-control pointNumber">
+                                                  <br />
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                    <span>{{asset.holdingAssetIndicativePrice | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetIndicativePrice" class="form-control pointNumberFourDecimals">
+                                                  <br />
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                    <span>{{asset.holdingAssetIndicativePriceDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                                    <!-- <span *ngIf="asset.holdingAssetIndicativePriceDate == null"> - </span> -->
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="date" [ngModel]="asset.holdingAssetIndicativePriceDate | date:'yyyy-MM-dd'" (ngModelChange)="asset.holdingAssetIndicativePriceDate = $event" class="form-control date">
+                                                </td>
+                                                <td align="right"><!-- value in usd(account type currency), unrealized P/L -->
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                    <span>{{asset.holdingAssetFxMarketValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetFxMarketValue" class="form-control pointNumber">
+                                                  <br />
+                                                  <span [hidden]="asset.editAccountAsset">
+                                                      <span>{{asset.holdingAssetUnrealizedProfitLoss | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetUnrealizedProfitLoss" class="form-control pointNumber">
+                                                </td>
+                                              </tr>
+                                              <tr [hidden]="!asset.editAccountAsset" style="text-align: center">
+                                                <td colspan="9">
+                                                  <button type="button" class="btn btn-primary" (click)="showRemainingHoldingAssetFields(i, j, k, asset)">Show More</button>
+                                                  <button type="button" class="btn btn-primary" (click)="saveAssetsByAccount(i, j, k, asset)">Save</button>
+                                                  <button type="button" class="btn btn-warning" (click)="cancelAssetByAccount(k, asset)">Cancel</button>
+                                                  <img style="padding: 5px 4px 4px 7px;" *ngIf="asset.investmentDataLoading" src="/assets/img/loader/spin.gif" />
+                                                </td>
+                                              </tr>
+                                              </ng-container>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- view 2 account and asset level -->
+              <div class="table b47PM-misc-table1 investmentTbl1" [hidden]="!view2">
+                <header class="clearfix">
+                  <div>&nbsp;</div>
+                  <div style="width: 24%">INSTITUTION</div>
+                  <div style="width: 26%;">ACCOUNT NAME</div>
+                  <div style="width: 19%;">ACCOUNT NO.</div>
+                  <div>CURRENCY</div>
+                  <!-- <div style="text-align: right;width: 21%;">TOTAL CURRENT VALUE</div> -->
+                  <!--<div>TOTAL <br>PROFIT/LOSS</div>
+                      <div>TOTAL <br>PROFIT/LOSS(%)</div>-->
+                </header>
+                <div class="tbl-body">
+                  <div class="record-row" *ngFor="let investment of investments; let i = index">
+                    <!-- First level-->
+                    <table width="100%" class="table inner-data-table expand">
+                      <thead>
+                        <tr>
+                          <th>
+                            <a class="toggle-expand-btn" (click)="investment.showAssetLevel = !investment.showAssetLevel"> <!--  ng-click="toggleInvestmentHoldingAssetTable($index)" -->
+                                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                  <!--<i class="fa fa-minus-circle" aria-hidden="true"></i>-->
+                                </a>
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.institutionName}}
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.accountName | ValidateValue}}
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.accountNumber}}
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.currency}}
+                          </th>
+                          <!-- <th class="truncatequd">
+                            <span>{{investment.totalCurrentValue | NumberFormatWithCurrencySymbol:investment.holdingAcctValuationCurrency}}</span>
+                          </th> -->
+
+                          <!--<th class="truncatequd">
+                                <span ng-if="investment.totalProfitLoss >= 0">{{investment.totalProfitLoss | NumberFormatWithCurrencySymbol:investment.holdingAcctValuationCurrency}}</span>
+                                <span ng-if="investment.totalProfitLoss < 0" class="pm-red">{{investment.totalProfitLoss | NumberFormatWithCurrencySymbol:investment.holdingAcctValuationCurrency}}</span>
+                              </th>
+                              <th class="truncatequd">
+                                <span ng-if="investment.totalProfitLostPerc == 'No Data'"> - </span>
+                                <span ng-if="investment.totalProfitLostPerc >= 0">{{investment.totalProfitLostPerc | number:2}}%</span>
+                                <span ng-if="investment.totalProfitLostPerc < 0" class="pm-red">{{investment.totalProfitLostPerc | number:2}}%</span>
+                              </th>-->
+                        </tr>
+                      </thead>
+                      <tbody *ngIf="investment.showAssetLevel" id="investmentHoldingAssetTable_{{i}}"> <!--  style="display: none;" -->
+                        <tr>
+                          <td colspan="8">
+                            <div class="table b47PM-misc-table1 investmentTbl2 expand">
+                              <header class="clearfix">
+                                <div>
+                                  &nbsp;
+                                </div>
+                                <div style="width: 40%;">ASSET CATEGORY</div>
+                                <!-- <div style="width: 33%;">CURRENCY</div> -->
+                                <!--<div>TOTAL COST</div>-->
+                                <!-- <div style="width: 21%;">TOTAL CURRENT VALUE</div> -->
+                                <!--<div>TOTAL PROFIT/LOSS</div>-->
+                                <div class="clearfix"></div>
+                              </header>
+                              <div class="tbl-body">
+                                <div class="record-row" *ngFor="let investmentHoldingAssetData of investment.investmentHoldingAssetData; let j = index">
+                                  <!-- 2nd level -->
+                                  <table width="100%" class="table inner-data-table investmentTbl3">
+                                    <thead>
+                                      <tr>
+                                        <th style="width: 2%;">
+                                          <a class="toggle-expand-btn" (click)="investmentHoldingAssetData.showAssetHolding = !investmentHoldingAssetData.showAssetHolding" ng-click="toggleInvestmentHoldingAssetByCategoryTable($parent.$index, $index)">
+                                                <i class="fa fa-plus-circle" id="expand_collapse" aria-hidden="true"></i>
+                                                <!--<i class="fa fa-minus-circle" aria-hidden="true"></i>-->
+                                              </a>
+                                        </th>
+                                        <th class="truncatequd" style="width: 40%;">
+                                          {{investmentHoldingAssetData.holdingAssetCategory}}
+                                        </th>
+                                        <!-- <th class="truncatequd" style="width: 33%;">
+                                          {{investmentHoldingAssetData.assetCurrency}}
+                                        </th> -->
+                                        <!--<th class="truncatequd">
+                                              <span>{{investmentHoldingAssetData.totalAssetCost | NumberFormatWithCurrencySymbol:investmentHoldingAssetData.assetCurrency}}</span>
+                                            </th>-->
+                                        <!-- <th class="truncatequd" style="width: 21%;">
+                                          <span>{{investmentHoldingAssetData.totalAssetCurrentValue | NumberFormatWithCurrencySymbol:investmentHoldingAssetData.assetCurrency}}</span>
+                                        </th> -->
+                                      </tr>
+                                    </thead>
+                                    <tbody id="investmentHoldingAssetByCategoryTable"> <!-- display: none; -->
+                                      <tr>
+                                        <td colspan="6" style="padding:0">
+                                          <table *ngIf="investmentHoldingAssetData.showAssetHolding" class="investmentTxnPrvTbl custom-invst-table" style="margin-bottom: 20px;width: 98%;float: right;">
+                                            <thead>
+                                              <tr>
+                                                <th style="text-align: center;">&nbsp;</th>
+                                                <th>Description</th>
+                                                <th>Start Date</th>
+                                                <th>Quantity/Notional</th>
+                                                <th align="right">
+                                                  Cost
+                                                </th>
+                                                <th align="right">Market Value</th>
+                                                <th align="right">Value in {{investment.currency}}</th>
+                                              </tr>
+                                              <tr>
+                                                <th>&nbsp;</th>
+                                                <th>ISIN</th>
+                                                <th>Maturity Date</th>
+                                                <th>Accrued Int.</th>
+                                                <th align="right">
+                                                  Av. Cost Price
+                                                </th>
+                                                <th align="right">Market Price</th>
+                                                <th align="right">Unrealizied P/L</th>
+                                              </tr>
+                                              <tr>
+                                                <th>&nbsp;</th>
+                                                <th>Currency - Security Type / SubType</th>
+                                                <th>Coupon</th>
+                                                <th>&nbsp;</th>
+                                                <th align="right">
+                                                  Strike Price
+                                                </th>
+                                                <th align="right">Last price date</th>
+                                                <th align="right">&nbsp;</th>
+                                              </tr>
+
+                                            </thead>
+                                            <tbody style="cursor: pointer;" *ngFor="let asset of investmentHoldingAssetData.investmentHoldingAssetByCategoryData; let k = index;">
+                                              <!-- Third level -->
+                                              <tr (click)="editAssetByAccountAsset(k, asset)" class="edit_investment_asset_row cursor edit_row" style="cursor: pointer;"> <!-- (click)="editAssetByAccountAsset(k, asset)" -->
+                                                <td class="restrictClickChange">
+                                                  &nbsp;
+                                                </td>
+                                                <td> <!-- description -->
+                                                  <span [hidden]="asset.editAsset">{{asset.holdingAssetDescription}}</span>
+                                                  <input [hidden]="!asset.editAsset" type="text" name="description" [(ngModel)]="asset.holdingAssetDescription" class="form-control" disabled>
+                                                  <br />
+                                                  <span [hidden]="asset.editAsset">{{asset.holdingAssetISIN | ValidateValue}}</span>
+                                                  <input [hidden]="!asset.editAsset" type="text" name="assetISIN" [(ngModel)]="asset.holdingAssetISIN" class="form-control">
+                                                  <br />
+                                                  <span [hidden]="asset.editAsset">{{asset.holdingAssetCurrency}}</span>
+                                                  <!-- <select [hidden]="!asset.editAsset" [(ngModel)]="asset.holdingAssetCurrency" class="form-control" style="padding-top: 0px;">
+                                                    <option *ngFor="let currency of currencyListData" value="{{currency.code}}" [selected]="asset.holdingAssetCurrency">{{currency.name}} ({{currency.code}})</option> 
+                                                  </select> --> 
+                                                  <input [hidden]="!asset.editAsset" type="text" name="assetCurrency" [(ngModel)]="asset.holdingAssetCurrency" class="form-control" disabled>
+                                                  - 
+                                                  <span [hidden]="asset.editAsset">
+                                                    <span>{{asset.holdingAssetCategory | ValidateValue}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetCategory" class="form-control"> / 
+                                                  <span [hidden]="asset.editAsset">
+                                                    <span>{{asset.holdingAssetSubCategory | ValidateValue}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetSubCategory" class="form-control">
+                                                </td>
+                                                <td><!-- start date, maturity date, coupon -->
+                                                  <span [hidden]="asset.editAsset">
+                                                    <span>{{asset.holdingAssetStartDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="date" [ngModel]="asset.holdingAssetStartDate | date:'yyyy-MM-dd'" (ngModelChange)="asset.holdingAssetStartDate = $event" class="form-control">
+                                                  <br />
+                                                  <span [hidden]="asset.editAsset">
+                                                    <!-- <span *ngIf="asset.holdingAssetMaturityDate == null"> - </span> -->
+                                                    <span>{{asset.holdingAssetMaturityDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="date" [ngModel]="asset.holdingAssetMaturityDate | date:'yyyy-MM-dd'" (ngModelChange)="asset.holdingAssetMaturityDate = $event" class="form-control">
+                                                  <br />
+                                                  <span [hidden]="asset.editAsset">
+                                                    <span>{{asset.holdingAssetCoupon | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}<span *ngIf="asset.holdingAssetCoupon">%</span></span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetCoupon" class="form-control">
+                                                </td>
+                                                <td align="right"><!-- Quantity, accured Int. -->
+                                                  <span [hidden]="asset.editAsset">
+                                                    <span>{{asset.holdingAssetQuantity | NumberFormatWithoutCurrencySymbol}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetQuantity" class="form-control pointNumber">
+                                                  <br />
+                                                  <span [hidden]="asset.editAsset">
+                                                    <span>{{asset.holdingAssetFxAccruedInterest | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetFxAccruedInterest" class="form-control pointNumber">
+                                                </td>
+                                                <td><!-- cost price, Av. cost price, strike price -->
+                                                  <span [hidden]="asset.editAsset">
+                                                    <span>{{asset.holdingAssetCost | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetCost" class="form-control pointNumberFourDecimals">
+                                                  <br />
+                                                  <span [hidden]="asset.editAsset">
+                                                    <span>{{asset.holdingAssetAverageUnitCost | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetAverageUnitCost" class="form-control pointNumberFourDecimals">
+                                                  <br />
+                                                  <span [hidden]="asset.editAsset">
+                                                    <span>{{asset.holdingAssetStrikePrice | NumberFormatWithoutCurrencySymbol}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetStrikePrice" class="form-control pointNumber"> 
+                                                </td> 
+                                                <td align="right"><!-- market value, market price, last price date -->
+                                                  <span [hidden]="asset.editAsset">
+                                                    <span>{{asset.holdingAssetCurrentValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetCurrentValue" class="form-control pointNumber">
+                                                  <br />
+                                                  <span [hidden]="asset.editAsset">
+                                                    <span>{{asset.holdingAssetIndicativePrice | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetIndicativePrice" class="form-control pointNumberFourDecimals">
+                                                  <br />
+                                                  <span [hidden]="asset.editAsset">
+                                                    <span>{{asset.holdingAssetIndicativePriceDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                                    <!-- <span *ngIf="asset.holdingAssetIndicativePriceDate == null"> - </span> -->
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="date" [ngModel]="asset.holdingAssetIndicativePriceDate | date:'yyyy-MM-dd'" (ngModelChange)="asset.holdingAssetIndicativePriceDate = $event" class="form-control date">
+                                                </td>
+                                                <td align="right"><!-- value in usd(account type currency), unrealized P/L -->
+                                                  <span [hidden]="asset.editAsset">
+                                                    <span>{{asset.holdingAssetFxMarketValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetFxMarketValue" class="form-control pointNumber">
+                                                  <br />
+                                                  <span [hidden]="asset.editAsset">
+                                                      <span>{{asset.holdingAssetUnrealizedProfitLoss | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                  </span>
+                                                  <input [hidden]="!asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetUnrealizedProfitLoss" class="form-control pointNumber">
+                                                </td>
+                                              </tr>
+                                              <tr [hidden]="!asset.editAsset" style="text-align: center">
+                                                <td colspan="9">
+                                                  <button type="button" class="btn btn-primary" (click)="showRemainingHoldingAssetFields(i, j, k, asset)">Show More</button>
+                                                  <button type="button" class="btn btn-primary" (click)="saveAssetsByAccount(i, j, k, asset)">Save</button>
+                                                  <button type="button" class="btn btn-warning" (click)="cancelAssets(k, asset)">Cancel</button>
+                                                  <img style="padding: 5px 4px 4px 7px;" *ngIf="asset.investmentDataLoading" src="/assets/img/loader/spin.gif" />
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Investment taransaction -->
+            <div role="tabpanel" class="tab-pane" id="Transactions-content">
+              <div class="row clearfix">
+                <div class="col-sm-12 col-md-12">
+                  <div class="statement-detail-tbl data-table-quad">
+                    <table class="investment-txn-table" ng-show="investmentTransactions.length > 0" width="100%">
+                      <thead>
+                        <tr>
+                          <th style="width: 5%;">
+                            <!-- <span ng-click="sortColumn('transactionDate', $event)" class="cursor">Date &nbsp;
+                                <span class="fa fa-sort"></span>
+                            </span> -->
+                              Date
+                          </th>
+                          <th style="width: 20%">
+                            <!-- <span ng-click="sortColumn('description')" class="cursor">Description &nbsp;
+                                  <span class="fa fa-sort"></span>
+                            </span> -->
+                            Description
+                          </th>
+                          <th style="width: 10%">
+                            <!-- <span ng-click="sortColumn('assetCategory', $event)" class="cursor">Category &nbsp;
+                                  <span class="fa fa-sort"></span>
+                            </span> -->
+                            Category
+                          </th>
+                          <th style="width: 4%">
+                            <!-- <span ng-click="sortColumn('currency')" class="cursor">Currency &nbsp;
+                                  <span class="fa fa-sort"></span>
+                            </span> -->
+                            Currency
+                          </th>
+                          <th style="width: 10%">
+                            <!-- <span ng-click="sortColumn('transactionType')" class="cursor">Operation Type &nbsp;
+                                  <span class="fa fa-sort"></span>
+                            </span> -->
+                            Operation Type
+                          </th>
+                          <th style="width: 12%;text-align: right">
+                            <!-- <span ng-click="sortColumn('assetQuantity')" class="cursor">Qty &nbsp;
+                                  <span class="fa fa-sort"></span>
+                            </span> -->
+                            Qty
+                          </th>
+                          <th style="width: 10%;text-align: right">
+                            <!-- <span ng-click="sortColumn('assetUnitCost')" class="cursor">Price &nbsp;
+                                  <span class="fa fa-sort"></span>
+                            </span> -->
+                            Price
+                          </th>
+                          <th style="width: 10%;text-align: right">
+                            <!-- <span ng-click="sortColumn('amount')" class="cursor">Amount &nbsp;
+                                  <span class="fa fa-sort"></span>
+                            </span> -->
+                            Amount
+                          </th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <ng-container *ngFor="let transaction of investmentTransactions; let i = index">
+                          <tr (click)="editTxn(i, transaction)" class="edit_investment_txn_row cursor" [class.edit-mode]="transaction.editTxn"> <!-- (click)="editTxn(i, transaction)" -->
+                            <!-- .edit-mode -->
+                            <td style="width: 13%" class="truncatequd">
+                              <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_date_{{i}}">{{transaction.transactionDate | date: 'dd-MM-yyyy'}}</span>
+                              <input type="date" [hidden]="!transaction.editTxn" [ngModel]="transaction.transactionDate | date:'yyyy-MM-dd'" (ngModelChange)="transaction.transactionDate = $event" class="investment-txn-editbox form-control" id="investment_txn_input_date_{{i}}" value="{{transaction.transactionDate}}">
+                            </td>
+                            <td>
+                              <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_description_{{i}}">{{transaction.description}}</span>
+                              <input [hidden]="!transaction.editTxn" [(ngModel)]="transaction.description" class="investment-txn-editbox form-control" id="investment_txn_input_description_{{i}}" type="text" value="{{transaction.description}}"
+                                disabled>
+                            </td>
+                            <td style="width: 10%" class="break-word">
+                              <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_assetCategory_{{i}}">
+                                <span class="investment-txn-text">{{transaction.assetCategory | ValidateValue}}</span>
+                              </span>
+                              <input [hidden]="!transaction.editTxn" [(ngModel)]="transaction.assetCategory" class="investment-txn-editbox form-control" id="investment_txn_input_assetCategory_{{i}}" type="text" value="{{transaction.assetCategory}}">
+                            </td>
+                            <td style="width: 10%">
+                              <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_currency_{{i}}">{{transaction.currency}}</span>
+                              <select [hidden]="!transaction.editTxn" [(ngModel)]="transaction.currency" class="investment-txn-editbox form-control" style="height: 28px;padding-top: 0px;">
+                                    <option *ngFor="let currency of currencyListData; let i = index" value="{{currency.code}}" [selected]="transaction.currency">{{currency.name}} ({{currency.code}})</option> 
+                                  </select>
+                              <!--<input type="hidden" id="investment_txn_input_category" value="{{transaction.category}}">-->
+                            </td>
+                            <td style="width: 10%">
+                              <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_transactionType_{{i}}">
+                                  <span>{{transaction.type | ValidateValue}}</span>
+                              </span>
+                              <input [hidden]="!transaction.editTxn" [(ngModel)]="transaction.type" class="investment-txn-editbox form-control" type="text" id="investment_txn_input_transactionType_{{i}}" value="{{transaction.type}}"
+                                disabled>
+                            </td>
+                            <td style="width: 12%;text-align: right">
+                              <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_assetQuantity_{{i}}">
+                                    <span>{{transaction.assetQuantity | NumberFormatWithoutCurrencySymbol}}</span>
+                              </span>
+                              <input [hidden]="!transaction.editTxn" [(ngModel)]="transaction.assetQuantity" class="investment-txn-editbox form-control" id="investment_txn_input_assetQuantity_{{i}}" type="text" value="{{transaction.assetQuantity}}">
+                            </td>
+                            <td style="width: 10%;text-align: right">
+                              <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_assetUnitCost_{{i}}">
+                                    <span>{{transaction.assetUnitCost | NumberFormatWithCurrencySymbol:transaction.currency}}</span>
+                              </span>
+                              <input [hidden]="!transaction.editTxn" [(ngModel)]="transaction.assetUnitCost" class="investment-txn-editbox form-control" id="investment_txn_input_assetUnitCost_{{i}}" type="text" value="{{transaction.assetUnitCost}}">
+                            </td>
+                            <td style="width: 10%;text-align: right" class="truncatequd">
+                              <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_amount_{{i}}">
+                                    <span>{{transaction.amount | NumberFormatWithCurrencySymbol:transaction.currency}}</span>
+                              </span>
+                              <input [hidden]="!transaction.editTxn" [(ngModel)]="transaction.amount" class="investment-txn-editbox form-control pointNumber" id="investment_txn_input_amount_{{i}}" type="text" value="{{transaction.amount}}">
+                            </td>
+                            <td class="restrictClickChange">
+                              <button class="pull-right btn delete-btn" style="margin-left: 0px;" title="Delete" data-toggle="modal" data-target="#deleteAssetTransaction"
+                                (click)="prepareAssetTxnDelete(transaction)">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                  </button>
+                            </td>
+                          </tr>
+                          <tr [hidden]="!transaction.editTxn" style="text-align: center">
+                            <td colspan="9">
+                              <img style="padding: 5px 4px 4px 7px;" *ngIf="transaction.txnDataLoading" src="/assets/img/loader/spin.gif" />
+                              <button type="button" class="btn btn-primary" (click)="saveTxn(i, transaction)">Save</button>
+                              <button type="button" class="btn btn-warning" (click)="cancelTxn(i, transaction)">Cancel</button>
+                            </td>
+                          </tr>
+                        </ng-container>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- Main Display Html Ends -->
+
+  <!-- Footer Part Html Starts -->
+  <app-authorised-footer></app-authorised-footer>
+  <!-- Footer Part Html Ends -->
+</div>
+
+<ng-template #holdingAssetModal>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelHoldingAssetsDetails(remaingHoldingAssets)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h5>Holding Asset Details</h5>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-sm-12 form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Sub Category</label>
+          <div class="col-sm-10">
+             <input type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetSubCategory" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Last Price Date</label>
+          <div class="col-sm-10">
+            <input type="date" [ngModel]="remaingHoldingAssets.holdingAssetIndicativePriceDate | date:'yyyy-MM-dd'" (ngModelChange)="asset.holdingAssetIndicativePriceDate = $event" class="form-control date">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Account Number</label>
+          <div class="col-sm-10">
+             <input type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetAccountNumber" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Sub Account Number</label>
+          <div class="col-sm-10">
+             <input type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetSubAccountNumber" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">YTM</label>
+          <div class="col-sm-10">
+             <input type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetYield" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Accrued Interest</label>
+          <div class="col-sm-10">
+             <input type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetAccruedInterest" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Last Fx. Rate</label>
+          <div class="col-sm-10">
+             <input type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetLastFxRate" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">MTM</label>
+          <div class="col-sm-10">
+             <input type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetUnrealizedProfitLossCurrency" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Trans Code</label>
+          <div class="col-sm-10">
+             <input type="text" [(ngModel)]="remaingHoldingAssets.transCode" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Commission</label>
+          <div class="col-sm-10">
+             <input type="text" [(ngModel)]="remaingHoldingAssets.commission" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Other Fees</label>
+          <div class="col-sm-10">
+             <input type="text" [(ngModel)]="remaingHoldingAssets.otherFees" class="form-control"> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" [disabled]="remainingHoldingAssetDataLoading" 
+      (click)="saveAssetsByAccount(remaingHoldingAssets.investmentIndex, remaingHoldingAssets.categoryIndex, remaingHoldingAssets.assetIndex, remaingHoldingAssets)">Save</button>
+    <button type="button" class="btn btn-warning" [disabled]="remainingHoldingAssetDataLoading" (click)="cancelHoldingAssetsDetails(remaingHoldingAssets)">Cancel</button>
+    <img *ngIf="remainingHoldingAssetDataLoading" src="/assets/img/loader/spin.gif" />
+  </div>
+</ng-template>
+
+<div class="modal fade invstNotificationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+  data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="min-height: 160px">
+      <div class="modal-header">
+        <h5>Notification</h5>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+          <p class="text-center">You need to refresh the page to view changes</p>
+        </div>
+        <div class="col-md-12" align="center" style="margin-top: 2%;">
+          <input type="button" class="btn btn-large btn-notification-ok" data-dismiss="modal" value="OK">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- deleteTransconfModal -->
+<div class="modal fade deleteTransconfModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+  data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row clearfix">
+          <div class="col-md-12" align="center">
+            <p>Are you sure want to delete transaction permanently.</p>
+          </div>
+          <div class="col-md-12" align="center">
+            <input type="button" class="b47PM-deltran-btn" value="DELETE">
+            <input type="button" class="b47PM-dCancel-btn" value="CANCEL">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- deleteAssetTransaction -->
+<div class="modal fade deleteTransconfModal" id="deleteAssetTransaction" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row clearfix">
+          <div class="col-md-12" align="center">
+            <p>Are you sure want to delete transaction permanently.</p>
+          </div>
+          <div class="col-md-12 pm-red" align="center">
+            <span id="delAsserTxnError"></span>
+          </div>
+          <div class="col-md-12" align="center">
+            <img *ngIf="delAssetTxnDataLoading" src="/assets/img/loader/spin.gif" />
+            <input type="button" class="b47PM-deltran-btn" [disabled]="delAssetTxnDataLoading" value="DELETE" (click)="deleteAssetTxn()">
+            <input type="button" class="b47PM-dCancel-btn" data-dismiss="modal" value="CANCEL">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

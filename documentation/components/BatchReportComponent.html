@@ -1,0 +1,3095 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>conjurer documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">conjurer documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>BatchReportComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/repository/batch-report/batch-report.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Batch report component class</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code><a href="../injectables/BatchReportService.html" target="_self" >BatchReportService</a></code>
+                            <code><a href="../injectables/CommonHttpAdapterService.html" target="_self" >CommonHttpAdapterService</a></code>
+                            <code><a href="../injectables/RxJSHelper.html" target="_self" >RxJSHelper</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-batch-report</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./batch-report.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./batch-report.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#batchReportData">batchReportData</a>
+                            </li>
+                            <li>
+                                <a href="#batchReportError">batchReportError</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#batchReportObj">batchReportObj</a>
+                            </li>
+                            <li>
+                                <a href="#batchReportPageLoad">batchReportPageLoad</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#credentialForm">credentialForm</a>
+                            </li>
+                            <li>
+                                <a href="#delBatchReportDataLoading">delBatchReportDataLoading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteBatchFileModalRef">deleteBatchFileModalRef</a>
+                            </li>
+                            <li>
+                                <a href="#deleteStatementModal">deleteStatementModal</a>
+                            </li>
+                            <li>
+                                <a href="#hasFilter">hasFilter</a>
+                            </li>
+                            <li>
+                                <a href="#notificationComponent">notificationComponent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#p">p</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#pagesize">pagesize</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#search">search</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#searchInst">searchInst</a>
+                            </li>
+                            <li>
+                                <a href="#selectedManualInstitution">selectedManualInstitution</a>
+                            </li>
+                            <li>
+                                <a href="#setCredentialModal">setCredentialModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setCredentialModalRef">setCredentialModalRef</a>
+                            </li>
+                            <li>
+                                <a href="#statementData">statementData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stmtRepoFileDataByBatchId">stmtRepoFileDataByBatchId</a>
+                            </li>
+                            <li>
+                                <a href="#updateCredentialLoader">updateCredentialLoader</a>
+                            </li>
+                            <li>
+                                <a href="#viewBatchFileModal">viewBatchFileModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#viewBatchFileModalRef">viewBatchFileModalRef</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#xmlFileList">xmlFileList</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#arrangeStatementRepoData">arrangeStatementRepoData</a>
+                            </li>
+                            <li>
+                                <a href="#callGetFileDetailApi">callGetFileDetailApi</a>
+                            </li>
+                            <li>
+                                <a href="#cancelDeleteStatementModal">cancelDeleteStatementModal</a>
+                            </li>
+                            <li>
+                                <a href="#clearAllFilter">clearAllFilter</a>
+                            </li>
+                            <li>
+                                <a href="#closeSetCredentialModal">closeSetCredentialModal</a>
+                            </li>
+                            <li>
+                                <a href="#closeViewXMLFileModal">closeViewXMLFileModal</a>
+                            </li>
+                            <li>
+                                <a href="#createCredentailForm">createCredentailForm</a>
+                            </li>
+                            <li>
+                                <a href="#deleteBatch">deleteBatch</a>
+                            </li>
+                            <li>
+                                <a href="#downloadBatchReportFiles">downloadBatchReportFiles</a>
+                            </li>
+                            <li>
+                                <a href="#downloadPdfStatement">downloadPdfStatement</a>
+                            </li>
+                            <li>
+                                <a href="#formatFiles">formatFiles</a>
+                            </li>
+                            <li>
+                                <a href="#getFileDetails">getFileDetails</a>
+                            </li>
+                            <li>
+                                <a href="#getStatementRepositoryData">getStatementRepositoryData</a>
+                            </li>
+                            <li>
+                                <a href="#getXMLFilesFromStatements">getXMLFilesFromStatements</a>
+                            </li>
+                            <li>
+                                <a href="#openDeleteStatementModal">openDeleteStatementModal</a>
+                            </li>
+                            <li>
+                                <a href="#openSetCredentailModal">openSetCredentailModal</a>
+                            </li>
+                            <li>
+                                <a href="#openViewXMLFileModal">openViewXMLFileModal</a>
+                            </li>
+                            <li>
+                                <a href="#prepareStatementDelete">prepareStatementDelete</a>
+                            </li>
+                            <li>
+                                <a href="#setFilter">setFilter</a>
+                            </li>
+                            <li>
+                                <a href="#showFilterData">showFilterData</a>
+                            </li>
+                            <li>
+                                <a href="#updateCredential">updateCredential</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="arrangeStatementRepoData"></a>
+                        <span class="name">
+                            <b>
+                            arrangeStatementRepoData
+                            </b>
+                            <a href="#arrangeStatementRepoData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>arrangeStatementRepoData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:137</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To arrange data by statement date and institution </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="callGetFileDetailApi"></a>
+                        <span class="name">
+                            <b>
+                            callGetFileDetailApi
+                            </b>
+                            <a href="#callGetFileDetailApi"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>callGetFileDetailApi(requestData: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="387" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:387</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get file details by calling rest api</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>requestData</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cancelDeleteStatementModal"></a>
+                        <span class="name">
+                            <b>
+                            cancelDeleteStatementModal
+                            </b>
+                            <a href="#cancelDeleteStatementModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>cancelDeleteStatementModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="240" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:240</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To close deleteStatementModal </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clearAllFilter"></a>
+                        <span class="name">
+                            <b>
+                            clearAllFilter
+                            </b>
+                            <a href="#clearAllFilter"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>clearAllFilter()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:165</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To clear filter </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="closeSetCredentialModal"></a>
+                        <span class="name">
+                            <b>
+                            closeSetCredentialModal
+                            </b>
+                            <a href="#closeSetCredentialModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>closeSetCredentialModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="471" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:471</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To close deleteStatementModal </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="closeViewXMLFileModal"></a>
+                        <span class="name">
+                            <b>
+                            closeViewXMLFileModal
+                            </b>
+                            <a href="#closeViewXMLFileModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>closeViewXMLFileModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="450" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:450</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To close deleteStatementModal </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createCredentailForm"></a>
+                        <span class="name">
+                            <b>
+                            createCredentailForm
+                            </b>
+                            <a href="#createCredentailForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>createCredentailForm()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="480" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:480</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To create Credential form </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteBatch"></a>
+                        <span class="name">
+                            <b>
+                            deleteBatch
+                            </b>
+                            <a href="#deleteBatch"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>deleteBatch()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="260" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:260</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To delete pdf statement </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="downloadBatchReportFiles"></a>
+                        <span class="name">
+                            <b>
+                            downloadBatchReportFiles
+                            </b>
+                            <a href="#downloadBatchReportFiles"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>downloadBatchReportFiles(batchReport: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="328" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:328</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To download xml file</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>batchReport</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="downloadPdfStatement"></a>
+                        <span class="name">
+                            <b>
+                            downloadPdfStatement
+                            </b>
+                            <a href="#downloadPdfStatement"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>downloadPdfStatement(statement: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="291" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:291</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To download pdf statement</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>statement</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formatFiles"></a>
+                        <span class="name">
+                            <b>
+                            formatFiles
+                            </b>
+                            <a href="#formatFiles"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>formatFiles(resData: any[])</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="425" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:425</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To format files</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>resData</td>
+                                                        <td>
+                                                                    <code>any[]</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getFileDetails"></a>
+                        <span class="name">
+                            <b>
+                            getFileDetails
+                            </b>
+                            <a href="#getFileDetails"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getFileDetails(statement: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="370" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:370</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get file details</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>statement</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getStatementRepositoryData"></a>
+                        <span class="name">
+                            <b>
+                            getStatementRepositoryData
+                            </b>
+                            <a href="#getStatementRepositoryData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getStatementRepositoryData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:115</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get statement repository details </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getXMLFilesFromStatements"></a>
+                        <span class="name">
+                            <b>
+                            getXMLFilesFromStatements
+                            </b>
+                            <a href="#getXMLFilesFromStatements"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getXMLFilesFromStatements(statement: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="225" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:225</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get xml files object from statement</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>statement</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openDeleteStatementModal"></a>
+                        <span class="name">
+                            <b>
+                            openDeleteStatementModal
+                            </b>
+                            <a href="#openDeleteStatementModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>openDeleteStatementModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="234" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:234</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To open delete Statement modal</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openSetCredentailModal"></a>
+                        <span class="name">
+                            <b>
+                            openSetCredentailModal
+                            </b>
+                            <a href="#openSetCredentailModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>openSetCredentailModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="464" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:464</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Set credential functionality</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openViewXMLFileModal"></a>
+                        <span class="name">
+                            <b>
+                            openViewXMLFileModal
+                            </b>
+                            <a href="#openViewXMLFileModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>openViewXMLFileModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="444" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:444</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To open viewBatchFileModal</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="prepareStatementDelete"></a>
+                        <span class="name">
+                            <b>
+                            prepareStatementDelete
+                            </b>
+                            <a href="#prepareStatementDelete"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>prepareStatementDelete(batch: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="252" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:252</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To prepare delete statement</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>batch</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setFilter"></a>
+                        <span class="name">
+                            <b>
+                            setFilter
+                            </b>
+                            <a href="#setFilter"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setFilter()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="179" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:179</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To set filter </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showFilterData"></a>
+                        <span class="name">
+                            <b>
+                            showFilterData
+                            </b>
+                            <a href="#showFilterData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>showFilterData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="193" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:193</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To show filter drop down data </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updateCredential"></a>
+                        <span class="name">
+                            <b>
+                            updateCredential
+                            </b>
+                            <a href="#updateCredential"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>updateCredential()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="490" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:490</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To update credentials</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="batchReportData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            batchReportData</b>
+                            <a href="#batchReportData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="batchReportError"></a>
+                        <span class="name">
+                            <b>
+                            batchReportError</b>
+                            <a href="#batchReportError"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:65</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="batchReportObj"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            batchReportObj</b>
+                            <a href="#batchReportObj"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:47</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="batchReportPageLoad"></a>
+                        <span class="name">
+                            <b>
+                            batchReportPageLoad</b>
+                            <a href="#batchReportPageLoad"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:66</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="credentialForm"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            credentialForm</b>
+                            <a href="#credentialForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="delBatchReportDataLoading"></a>
+                        <span class="name">
+                            <b>
+                            delBatchReportDataLoading</b>
+                            <a href="#delBatchReportDataLoading"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:69</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteBatchFileModalRef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            deleteBatchFileModalRef</b>
+                            <a href="#deleteBatchFileModalRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>BsModalRef</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteStatementModal"></a>
+                        <span class="name">
+                            <b>
+                            deleteStatementModal</b>
+                            <a href="#deleteStatementModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;deleteStatementModal&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Delete statement modal reference </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hasFilter"></a>
+                        <span class="name">
+                            <b>
+                            hasFilter</b>
+                            <a href="#hasFilter"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:64</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="notificationComponent"></a>
+                        <span class="name">
+                            <b>
+                            notificationComponent</b>
+                            <a href="#notificationComponent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../components/CommonNotificationComponent.html" target="_self" >CommonNotificationComponent</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;notificationComponent&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Notification component reference </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="p"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            p</b>
+                            <a href="#p"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>1</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pagesize"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            pagesize</b>
+                            <a href="#pagesize"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>10</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="search"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            search</b>
+                            <a href="#search"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    institutionName: &#x27;&#x27;,
+    portfolioNumber: &#x27;&#x27;,
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:57</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="searchInst"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            searchInst</b>
+                            <a href="#searchInst"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    batchId: &#x27;&#x27;
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:61</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedManualInstitution"></a>
+                        <span class="name">
+                            <b>
+                            selectedManualInstitution</b>
+                            <a href="#selectedManualInstitution"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:70</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setCredentialModal"></a>
+                        <span class="name">
+                            <b>
+                            setCredentialModal</b>
+                            <a href="#setCredentialModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;setCredentialModal&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Set credential modal reference for password protected files </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setCredentialModalRef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setCredentialModalRef</b>
+                            <a href="#setCredentialModalRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>BsModalRef</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:53</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="statementData"></a>
+                        <span class="name">
+                            <b>
+                            statementData</b>
+                            <a href="#statementData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    &#x27;batchId&#x27;: [],
+    &#x27;institutionName&#x27;: [],
+    &#x27;portfolioNumber&#x27;: [],
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:73</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stmtRepoFileDataByBatchId"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            stmtRepoFileDataByBatchId</b>
+                            <a href="#stmtRepoFileDataByBatchId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updateCredentialLoader"></a>
+                        <span class="name">
+                            <b>
+                            updateCredentialLoader</b>
+                            <a href="#updateCredentialLoader"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:67</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="viewBatchFileModal"></a>
+                        <span class="name">
+                            <b>
+                            viewBatchFileModal</b>
+                            <a href="#viewBatchFileModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;viewBatchFileModal&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>View batch file data modal reference </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="viewBatchFileModalRef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            viewBatchFileModalRef</b>
+                            <a href="#viewBatchFileModalRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>BsModalRef</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="xmlFileList"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            xmlFileList</b>
+                            <a href="#xmlFileList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/repository/batch-report/batch-report.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild, TemplateRef, OnDestroy } from &#x27;@angular/core&#x27;;
+import { FormGroup, FormBuilder, FormArray, Validators } from &#x27;@angular/forms&#x27;;
+import { Title } from &#x27;@angular/platform-browser&#x27;;
+
+import &#x27;rxjs/add/operator/takeUntil&#x27;;
+import { RxJSHelper } from &#x27;../../helpers/rxjs-helper/rxjs.helper&#x27;;
+
+import { BsModalService } from &#x27;ngx-bootstrap/modal&#x27;;
+import { BsModalRef } from &#x27;ngx-bootstrap/modal/modal-options.class&#x27;;
+import { ModalConfig } from &#x27;../../shared/common/modal.config&#x27;;
+import { Ng4LoadingSpinnerService } from &#x27;ng4-loading-spinner&#x27;;
+
+import { CommonConstant } from &#x27;../../constants/common/common.constant&#x27;;
+import { BatchReportService } from &#x27;./batch-report.service&#x27;;
+import { CommonHttpAdapterService } from &#x27;../../adapters/common-http-adapter.service&#x27;;
+import { CommonHelperService } from &#x27;../../helpers/common/common.helper&#x27;;
+import { CommonNotificationComponent } from &#x27;../../shared/notification.component&#x27;;
+
+/**
+ * Batch report component class
+ */
+@Component({
+  selector: &#x27;app-batch-report&#x27;,
+  templateUrl: &#x27;./batch-report.component.html&#x27;,
+  styleUrls: [&#x27;./batch-report.component.css&#x27;],
+  providers: [
+    BatchReportService, CommonHttpAdapterService, RxJSHelper
+  ]
+})
+export class BatchReportComponent implements OnInit, OnDestroy {
+
+  /** Delete statement modal reference */
+  @ViewChild(&#x27;deleteStatementModal&#x27;) deleteStatementModal: TemplateRef&lt;any&gt;;
+
+  /** View batch file data modal reference */
+  @ViewChild(&#x27;viewBatchFileModal&#x27;) viewBatchFileModal: TemplateRef&lt;any&gt;;
+
+  /** Notification component reference */
+  @ViewChild(&#x27;notificationComponent&#x27;) notificationComponent: CommonNotificationComponent;
+
+  /** Set credential modal reference for password protected files */
+  @ViewChild(&#x27;setCredentialModal&#x27;) setCredentialModal: TemplateRef&lt;any&gt;;
+
+  public batchReportData: any &#x3D; [];
+  public xmlFileList: any &#x3D; [];
+  public stmtRepoFileDataByBatchId: Array&lt;any&gt; &#x3D; [];
+  private batchReportObj: any &#x3D; {};
+
+  public credentialForm: FormGroup;
+
+  public deleteBatchFileModalRef: BsModalRef;
+  public viewBatchFileModalRef: BsModalRef;
+  public setCredentialModalRef: BsModalRef;
+
+  public p &#x3D; 1;
+  public pagesize &#x3D; 10;
+  public search: any &#x3D; {
+    institutionName: &#x27;&#x27;,
+    portfolioNumber: &#x27;&#x27;,
+  };
+  public searchInst: any &#x3D; {
+    batchId: &#x27;&#x27;
+  };
+  hasFilter &#x3D; false;
+  batchReportError &#x3D; false;
+  batchReportPageLoad &#x3D; false;
+  updateCredentialLoader &#x3D; false;
+
+  delBatchReportDataLoading &#x3D; false;
+  selectedManualInstitution &#x3D; false;
+
+  // initialize statementData to get data for all filters
+  statementData: any &#x3D; {
+    &#x27;batchId&#x27;: [],
+    &#x27;institutionName&#x27;: [],
+    &#x27;portfolioNumber&#x27;: [],
+  };
+
+  /** @ignore */
+  constructor(
+    private titleService: Title,
+    private batchReportService: BatchReportService,
+    private commonHttpAdapterService: CommonHttpAdapterService,
+    private modalService: BsModalService,
+    private modalConfig: ModalConfig,
+    private rxjsHelper: RxJSHelper,
+    private commonHelper: CommonHelperService,
+    private bsModalService: BsModalService,
+    private _fb: FormBuilder,
+    private loaderService: Ng4LoadingSpinnerService
+  ) {
+    this.titleService.setTitle(&#x27;Conjurer | Batch Reports&#x27;);
+  }
+
+  /** @ignore */
+  ngOnInit() {
+    this.getStatementRepositoryData();
+  }
+
+  /** @ignore */
+  ngOnDestroy() {
+    this.rxjsHelper.unSubscribeServices.next();
+    this.rxjsHelper.unSubscribeServices.complete();
+
+    this.closeModals();
+  }
+
+  /** @ignore */
+  closeModals() {
+    this.cancelDeleteStatementModal();
+  }
+
+
+  /**To get statement repository details */
+  getStatementRepositoryData() {
+    this.batchReportService.getStatementRepositoryDetails().subscribe(
+      res &#x3D;&gt; {
+        this.batchReportError &#x3D; false;
+        this.batchReportPageLoad &#x3D; true;
+        if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+          const resData &#x3D; res[CommonConstant.DATA];
+          this.batchReportData &#x3D; resData;
+          this.arrangeStatementRepoData();
+          this.showFilterData();
+        } else {
+          console.log(&#x27;Something went wrong&#x27;);
+        }
+      },
+      error &#x3D;&gt; {
+        this.batchReportError &#x3D; true;
+        console.log(&#x27;Something went wrong&#x27;);
+      }
+    )
+  }
+
+  /** To arrange data by statement date and institution */
+  arrangeStatementRepoData() {
+    if (this.batchReportData) {
+
+      let xmlFilesDataByInstitutionObject: Object &#x3D; {}
+      const xmlFilesDataByInstitutionArray: Array&lt;any&gt; &#x3D; [];
+
+      this.batchReportData.forEach((element, key) &#x3D;&gt; {
+        // arrange data by institution name
+        xmlFilesDataByInstitutionObject &#x3D; {};
+        const instIndex &#x3D; this.commonHelper.checkForDuplicateValue(element, xmlFilesDataByInstitutionArray, &#x27;batchId&#x27;);
+        if (instIndex &#x3D;&#x3D;&#x3D; 0 || instIndex &gt; 0) {
+          xmlFilesDataByInstitutionArray[instIndex].statementDetails.push(element);
+        } else {
+          xmlFilesDataByInstitutionObject[&#x27;batchId&#x27;] &#x3D; element.batchId;
+          xmlFilesDataByInstitutionObject[&#x27;statementDetails&#x27;] &#x3D; [];
+          xmlFilesDataByInstitutionObject[&#x27;statementDetails&#x27;].push(element);
+        }
+        if (Object.keys(xmlFilesDataByInstitutionObject).length &gt; 0) {
+          xmlFilesDataByInstitutionArray.push(xmlFilesDataByInstitutionObject);
+        }
+
+      });
+
+      this.stmtRepoFileDataByBatchId &#x3D; xmlFilesDataByInstitutionArray;
+    }
+  }
+
+  /**To clear filter */
+  clearAllFilter() {
+    this.search &#x3D; {
+      institutionName: &#x27;&#x27;,
+      portfolioNumber: &#x27;&#x27;,
+    };
+
+    this.searchInst &#x3D; {
+      batchId: &#x27;&#x27;
+    };
+
+    this.hasFilter &#x3D; false;
+  }
+
+  /**To set filter */
+  setFilter() {
+    let count &#x3D; 0;
+    if (this.search.institutionName &#x3D;&#x3D;&#x3D; &#x27;&#x27; ) { count++; }
+    if (this.search.portfolioNumber &#x3D;&#x3D;&#x3D; &#x27;&#x27; ) { count++; }
+    if (this.searchInst.batchId &#x3D;&#x3D;&#x3D; &#x27;&#x27; ) { count++; }
+
+    if (count &#x3D;&#x3D;&#x3D; 3) {
+        this.hasFilter &#x3D; false;
+    } else if (count &lt; 3) {
+        this.hasFilter &#x3D; true;
+    }
+  }
+
+  /**To show filter drop down data */
+  showFilterData() {
+    if (this.batchReportData) {
+      // initialize search for filters
+      this.search &#x3D; {
+          // batchId: &#x27;&#x27;,
+          institutionName: &#x27;&#x27;,
+          portfolioNumber: &#x27;&#x27;,
+      };
+
+      // To clear all the filter
+      this.clearAllFilter();
+
+      this.batchReportData.forEach(element &#x3D;&gt; {
+        if (this.statementData.batchId.indexOf(element.batchId) &#x3D;&#x3D;&#x3D; -1) {
+          this.statementData[&#x27;batchId&#x27;].push(element.batchId);
+        }
+
+        if (!this.statementData.institutionName.includes(element.institutionName)) {
+          this.statementData.institutionName.push(element.institutionName);
+        }
+
+        if (!this.statementData.portfolioNumber.includes(element.portfolioNumber)) {
+          this.statementData.portfolioNumber.push(element.portfolioNumber);
+        }
+      });
+    }
+  }
+
+  /**
+   * To get xml files object from statement
+   * @param any statement
+   */
+  getXMLFilesFromStatements(statement: any) {
+    if (statement) {
+      this.xmlFileList &#x3D; statement.files;
+    }
+  }
+
+  /**
+   * To open delete Statement modal
+   */
+  openDeleteStatementModal() {
+    // tslint:disable-next-line:max-line-length
+    this.deleteBatchFileModalRef &#x3D; this.modalService.show(this.deleteStatementModal, Object.assign({}, this.modalConfig.config, {class: &#x27;modal-sm deleteTransconfModal&#x27;}));
+  }
+
+  /** To close deleteStatementModal */
+  cancelDeleteStatementModal() {
+    if (this.deleteBatchFileModalRef) {
+      this.deleteBatchFileModalRef.hide();
+      this.deleteBatchFileModalRef &#x3D; null;
+    }
+    this.delBatchReportDataLoading &#x3D; false;
+  }
+
+  /**
+   * To prepare delete statement
+   * @param batch
+   */
+  prepareStatementDelete(batch: any) {
+    if (batch) {
+      this.batchReportObj &#x3D; batch;
+      this.openDeleteStatementModal();
+    }
+  }
+
+  /**To delete pdf statement */
+  deleteBatch() {
+    if (this.batchReportObj) {
+      let deleteStmtData &#x3D; {};
+      deleteStmtData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+      deleteStmtData[&#x27;batchId&#x27;] &#x3D; this.batchReportObj[&#x27;batchId&#x27;];
+      deleteStmtData &#x3D; JSON.stringify(deleteStmtData);
+      this.loaderService.show();
+      this.batchReportService.deleteBatchFileDetail(deleteStmtData).subscribe(
+        res &#x3D;&gt; {
+          this.loaderService.hide();
+          if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+            // to hide delete modal
+            this.cancelDeleteStatementModal();
+            // refresh batch data
+            this.getStatementRepositoryData();
+          } else {
+            this.notificationComponent.openNotificationModal(res[CommonConstant.MESSAGE]);
+          }
+        },
+        error &#x3D;&gt; {
+          this.loaderService.hide();
+          this.notificationComponent.openNotificationModal(&#x27;Something went wrong..Please try again&#x27;);
+        }
+      )
+    }
+  }
+
+  /**
+   * To download pdf statement
+   * @param any statement
+   */
+  downloadPdfStatement(statement: any) {
+    const dynamic_anchor_tag: any &#x3D; document.createElement(&#x27;a&#x27;);  // Creating anchor tag dynamically
+    document.body.appendChild(dynamic_anchor_tag);
+    dynamic_anchor_tag.style &#x3D; &#x27;display: none&#x27;;
+
+    if (statement) {
+
+      let downloadStmtData &#x3D; {};
+      downloadStmtData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+      downloadStmtData[CommonConstant.FLOW] &#x3D; &#x27;pimoney&#x27;;
+      downloadStmtData[CommonConstant.REPO_ID] &#x3D; statement.id;
+      downloadStmtData[CommonConstant.TAG] &#x3D; statement[CommonConstant.TAG];
+      downloadStmtData &#x3D; JSON.stringify(downloadStmtData);
+
+      // call service to download
+      this.batchReportService.downloadPdfStatement(downloadStmtData).subscribe(
+        res &#x3D;&gt; {
+          if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+            dynamic_anchor_tag.href &#x3D; CommonConstant.PDF_FILE_HEAD + res[CommonConstant.BYTE_CODE];
+            dynamic_anchor_tag.download &#x3D; statement.fileName;
+            dynamic_anchor_tag.click();
+          } else {
+            console.log(&#x27;Something went wrong&#x27;);
+          }
+        },
+        error &#x3D;&gt; {
+          console.log(&#x27;Something went wrong&#x27;);
+        }
+      )
+    }
+
+  }
+
+  /**
+   * To download xml file
+   * @param any batchReport
+   */
+  downloadBatchReportFiles(batchReport: any) {
+    const dynamic_anchor_tag: any &#x3D; document.createElement(&#x27;a&#x27;);  // Creating anchor tag dynamically
+    document.body.appendChild(dynamic_anchor_tag);
+    dynamic_anchor_tag.style &#x3D; &#x27;display: none&#x27;;
+
+    const fileName &#x3D; batchReport[CommonConstant.NAME];
+
+    let downloadReqData: any &#x3D; {};
+    downloadReqData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    // downloadReqData[StatementRepositoryConstant.FILE_HASH] &#x3D; batchReport.fileHash;
+    // downloadReqData[CommonConstant.TAG] &#x3D; batchReport[CommonConstant.TAG];
+    downloadReqData[CommonConstant.FILE_NAME] &#x3D; batchReport[CommonConstant.NAME];
+    downloadReqData[CommonConstant.FILE_PATH] &#x3D; this.batchReportObj[CommonConstant.FILE_PATH];
+    downloadReqData &#x3D; JSON.stringify(downloadReqData);
+
+    this.batchReportService.downloadBatchReportFile(downloadReqData).subscribe(
+      res &#x3D;&gt; {
+        if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+          if (fileName.indexOf(&#x27;.xlsx&#x27;) &gt; 0) {
+            res[CommonConstant.DATA] &#x3D; atob(res[CommonConstant.DATA]);
+            dynamic_anchor_tag.href &#x3D; CommonConstant.EXCEL_FILE_HEAD + res[CommonConstant.DATA];
+          } else {
+            dynamic_anchor_tag.href &#x3D; CommonConstant.XML_FILE_HEAD + res[CommonConstant.DATA];
+          }
+          dynamic_anchor_tag.download &#x3D; fileName;
+          dynamic_anchor_tag.click();
+        } else {
+          this.notificationComponent.notificationMessage &#x3D; res[CommonConstant.MESSAGE];
+          this.notificationComponent.openComonNotificationModal();
+        }
+      },
+      error &#x3D;&gt; {
+        this.notificationComponent.notificationMessage &#x3D; &#x27;Something went wrong..Please try again later&#x27;;
+        this.notificationComponent.openComonNotificationModal();
+      }
+    )
+  }
+
+  /**
+   * To get file details
+   * @param any statement
+   */
+  getFileDetails(statement: any) {
+    this.batchReportObj &#x3D; statement;
+    const filePath &#x3D; statement.filePath;
+    let requestData: any &#x3D; {};
+    requestData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    requestData[CommonConstant.PLAIN_ID] &#x3D; statement[CommonConstant.PLAIN_ID];
+    requestData[CommonConstant.FILE_PATH] &#x3D; statement[CommonConstant.FILE_PATH];
+    requestData[CommonConstant.REMEMBER] &#x3D; statement[CommonConstant.REMEMBER];
+    requestData &#x3D; JSON.stringify(requestData);
+
+    this.callGetFileDetailApi(requestData);
+  }
+
+  /**
+   * To get file details by calling rest api
+   * @param any requestData
+   */
+  callGetFileDetailApi(requestData: any) {
+    this.updateCredentialLoader &#x3D; true;
+    if (document.getElementById(&#x27;updateCredentailErrorMsg&#x27;) !&#x3D; null) {
+      document.getElementById(&#x27;updateCredentailErrorMsg&#x27;).innerHTML &#x3D; &#x27;&#x27;;
+    }
+    this.loaderService.show();
+    this.batchReportService.getFileDetails(requestData).subscribe(
+        res &#x3D;&gt; {
+          this.updateCredentialLoader &#x3D; false;
+          this.loaderService.hide();
+          if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+            const resData &#x3D; res[CommonConstant.DATA];
+            this.formatFiles(resData);
+            this.closeSetCredentialModal();
+            this.openViewXMLFileModal();
+          } else {
+            // console.log();
+            if (document.getElementById(&#x27;updateCredentailErrorMsg&#x27;) !&#x3D; null) {
+              document.getElementById(&#x27;updateCredentailErrorMsg&#x27;).innerHTML &#x3D; res[CommonConstant.MESSAGE];
+            }
+            this.notificationComponent.openNotificationModal(res[CommonConstant.MESSAGE]);
+          }
+        },
+        error &#x3D;&gt; {
+          this.updateCredentialLoader &#x3D; false;
+          this.loaderService.hide();
+          if (document.getElementById(&#x27;updateCredentailErrorMsg&#x27;) !&#x3D; null) {
+            document.getElementById(&#x27;updateCredentailErrorMsg&#x27;).innerHTML &#x3D; &#x27;Something went wrong..Please try again&#x27;;
+          }
+          this.notificationComponent.openNotificationModal(&#x27;Something went wrong..Please try again&#x27;);
+        }
+      )
+  }
+
+  /**
+   * To format files
+   * @param any[] resData
+   */
+  formatFiles(resData: any[]) {
+    let dataObj: any &#x3D; {};
+    this.xmlFileList &#x3D; [];
+    resData.forEach(element &#x3D;&gt; {
+      dataObj &#x3D; {};
+      const filePath &#x3D; &lt;String&gt;element.name;
+      if (filePath) {
+        const fileName &#x3D; filePath.substring(filePath.lastIndexOf(&#x27;/&#x27;) + 1);
+        dataObj[CommonConstant.NAME] &#x3D; fileName;
+        dataObj[CommonConstant.FILE_PATH] &#x3D; element.name;
+
+        this.xmlFileList.push(dataObj);
+      }
+    });
+  }
+
+  /**
+   * To open viewBatchFileModal
+   */
+  openViewXMLFileModal() {
+    // tslint:disable-next-line:max-line-length
+    this.viewBatchFileModalRef &#x3D; this.modalService.show(this.viewBatchFileModal, Object.assign({}, this.modalConfig.config, {class: &#x27;modal-md deleteTransconfModal&#x27;}));
+  }
+
+  /** To close deleteStatementModal */
+  closeViewXMLFileModal() {
+    if (this.viewBatchFileModalRef) {
+      this.viewBatchFileModalRef.hide();
+      this.viewBatchFileModalRef &#x3D; null;
+    }
+  }
+
+  /**
+   * Set credential functionality
+   */
+
+  /**
+   * To open delete Statement modal
+   */
+  openSetCredentailModal() {
+    this.createCredentailForm();
+    // tslint:disable-next-line:max-line-length
+    this.deleteBatchFileModalRef &#x3D; this.modalService.show(this.setCredentialModal, Object.assign({}, this.modalConfig.config, {class: &#x27;modal-sm&#x27;}));
+  }
+
+  /** To close deleteStatementModal */
+  closeSetCredentialModal() {
+    if (this.setCredentialModalRef) {
+      this.setCredentialModalRef.hide();
+      this.setCredentialModalRef &#x3D; null;
+    }
+    this.updateCredentialLoader &#x3D; false;
+  }
+
+  /** To create Credential form */
+  createCredentailForm() {
+    return this.credentialForm &#x3D; this._fb.group({
+      username: [&#x27;&#x27;, [Validators.required]],
+      password: [&#x27;&#x27;, [Validators.required]]
+    })
+  }
+
+  /**
+   * To update credentials
+   */
+  updateCredential() {
+    const credentialFormData &#x3D; this.credentialForm.getRawValue();
+    const username &#x3D; credentialFormData[&#x27;username&#x27;];
+    const password &#x3D; credentialFormData[&#x27;password&#x27;];
+    let requestData: any &#x3D; {};
+    requestData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    requestData[CommonConstant.PLAIN_ID] &#x3D; this.batchReportObj[CommonConstant.PLAIN_ID];
+    requestData[CommonConstant.FILE_PATH] &#x3D; this.batchReportObj[CommonConstant.FILE_PATH];
+    requestData[CommonConstant.REMEMBER] &#x3D; this.batchReportObj[CommonConstant.REMEMBER];
+    requestData[&#x27;dflUname&#x27;] &#x3D; username;
+    requestData[&#x27;dflPass&#x27;] &#x3D; password;
+    requestData &#x3D; JSON.stringify(requestData);
+    // calling api
+    this.callGetFileDetailApi(requestData);
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;b47PM-wrapper logged-in&quot;&gt;
+  &lt;!-- &quot;logged-in&quot; add this class when user login successfully --&gt;
+
+  &lt;!-- Header Part Html Starts --&gt;
+  &lt;app-authorised-header&gt;&lt;/app-authorised-header&gt;
+  &lt;!-- Header Part Html Ends --&gt;
+
+  &lt;!-- Loader section --&gt;
+  &lt;div class&#x3D;&quot;b47PM-center-body&quot; *ngIf&#x3D;&quot;!batchReportPageLoad &amp;&amp; !batchReportError&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid b47PM-container investment-landing-page&quot;&gt;
+      &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+          &lt;div class&#x3D;&quot;b47PM-investment-quad1&quot; align&#x3D;&quot;center&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-8 col-sm-offset-2&quot;&gt;
+              &lt;img src&#x3D;&quot;/assets/img/loader/page_loading.gif&quot;&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;b47PM-center-body&quot; *ngIf&#x3D;&quot;batchReportError&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid b47PM-container investment-landing-page&quot;&gt;
+      &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+          &lt;div class&#x3D;&quot;b47PM-investment-quad1 grey-quad&quot; align&#x3D;&quot;center&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-8 col-sm-offset-2&quot;&gt;
+              &lt;h4&gt;Oops! Something went wrong!!!&lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;b47PM-center-body&quot; *ngIf&#x3D;&quot;(batchReportData.length &#x3D;&#x3D; 0 &amp;&amp; !batchReportError) &amp;&amp; batchReportPageLoad&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid b47PM-container investment-landing-page&quot;&gt;
+      &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+          &lt;div class&#x3D;&quot;b47PM-investment-quad1 grey-quad&quot; align&#x3D;&quot;center&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-8 col-sm-offset-2&quot;&gt;
+              &lt;h4&gt;You haven&#x27;t added statement&lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;b47PM-center-body&quot; *ngIf&#x3D;&quot;(batchReportData.length &gt; 0 &amp;&amp; !batchReportError) &amp;&amp; batchReportPageLoad&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid b47PM-container&quot;&gt;
+      &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+        &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+          &lt;h3&gt;Batch Reports&lt;/h3&gt;
+          &lt;div class&#x3D;&quot;misc-table-showcase&quot;&gt;
+            &lt;div class&#x3D;&quot;b47PM-financesTab-quad1&quot;&gt;
+              &lt;div class&#x3D;&quot;b47PM-filter-quad1&quot;&gt;
+                &lt;div class&#x3D;&quot;row&quot;&gt;
+                  &lt;div class&#x3D;&quot;col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-2 form-group rowPusher&quot;&gt;
+                    &lt;div class&#x3D;&quot;row&quot;&gt;
+                      &lt;label&gt;Batch Id&lt;/label&gt;
+                      &lt;select class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;searchInst.batchId&quot; (change)&#x3D;&quot;setFilter()&quot;&gt;
+                              &lt;option value&#x3D;&quot;&quot;&gt;All&lt;/option&gt;
+                              &lt;option *ngFor&#x3D;&quot;let batchId of statementData.batchId&quot; value&#x3D;&quot;{{batchId}}&quot;&gt;{{batchId}}&lt;/option&gt;
+                            &lt;/select&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-2 form-group rowPusher&quot;&gt;
+                    &lt;div class&#x3D;&quot;row&quot;&gt;
+                      &lt;label&gt;Choose Institution&lt;/label&gt;
+                      &lt;select class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;search.institutionName&quot; (change)&#x3D;&quot;setFilter()&quot;&gt;
+                              &lt;option value&#x3D;&quot;&quot; selected&gt;All&lt;/option&gt;
+                              &lt;option *ngFor&#x3D;&quot;let institution of statementData.institutionName&quot; value&#x3D;&quot;{{institution}}&quot;&gt;{{institution}}&lt;/option&gt;
+                            &lt;/select&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-5 col-md-2 form-group rowPusher&quot;&gt;
+                    &lt;div class&#x3D;&quot;row&quot;&gt;
+                      &lt;label&gt;Choose Portfolio Number&lt;/label&gt;
+                      &lt;select class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;search.portfolioNumber&quot; (change)&#x3D;&quot;setFilter()&quot;&gt;
+                              &lt;option value&#x3D;&quot;&quot;&gt;All&lt;/option&gt;
+                              &lt;option *ngFor&#x3D;&quot;let portfolioNumber of statementData.portfolioNumber&quot; value&#x3D;&quot;{{portfolioNumber}}&quot;&gt;{{portfolioNumber}}&lt;/option&gt;
+                            &lt;/select&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-sm-12&quot; *ngIf&#x3D;&quot;hasFilter&quot;&gt;
+                    &lt;div class&#x3D;&quot;filter-box&quot; *ngIf&#x3D;&quot;searchInst.batchId !&#x3D; &#x27;&#x27;&quot;&gt;
+                      &lt;span&gt;{{searchInst.batchId}}&lt;/span&gt;
+                      &lt;i class&#x3D;&quot;fa fa-times&quot; aria-hidden&#x3D;&quot;true&quot; (click)&#x3D;&quot;searchInst.batchId &#x3D; &#x27;&#x27;;setFilter();&quot; role&#x3D;&quot;button&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;filter-box&quot; *ngIf&#x3D;&quot;search.institutionName !&#x3D; &#x27;&#x27;&quot;&gt;
+                      &lt;span&gt;{{search.institutionName}}&lt;/span&gt;
+                      &lt;i class&#x3D;&quot;fa fa-times&quot; aria-hidden&#x3D;&quot;true&quot; (click)&#x3D;&quot;search.institutionName &#x3D; &#x27;&#x27;;setFilter();&quot; role&#x3D;&quot;button&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;filter-box&quot; *ngIf&#x3D;&quot;search.portfolioNumber !&#x3D; &#x27;&#x27;&quot;&gt;
+                      &lt;span&gt;{{search.portfolioNumber}}&lt;/span&gt;
+                      &lt;i class&#x3D;&quot;fa fa-times&quot; aria-hidden&#x3D;&quot;true&quot; (click)&#x3D;&quot;search.portfolioNumber &#x3D; &#x27;&#x27;;setFilter();&quot; role&#x3D;&quot;button&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;clear-filter-box&quot;&gt;
+                      &lt;a role&#x3D;&quot;button&quot; (click)&#x3D;&quot;clearAllFilter()&quot;&gt;
+                              Clear All
+                            &lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+              &lt;div class&#x3D;&quot;statement-detail-quad5&quot;&gt;
+                &lt;div class&#x3D;&quot;col-xs-12 col-sm-4 pull-right&quot; style&#x3D;&quot;margin: 8px -13px 8px 0px;&quot;&gt;
+                  &lt;select class&#x3D;&quot;form-control pull-right&quot; id&#x3D;&quot;selectRange&quot; style&#x3D;&quot;width:auto; height: 30px; padding: 0 12px; margin: 3px 0 0 9px;&quot;
+                     [(ngModel)]&#x3D;&quot;pagesize&quot;&gt;
+                    &lt;option value&#x3D;&quot;10&quot; selected&gt;10&lt;/option&gt;
+                    &lt;option value&#x3D;&quot;25&quot;&gt;25&lt;/option&gt;
+                    &lt;option value&#x3D;&quot;50&quot;&gt;50&lt;/option&gt;
+                    &lt;option value&#x3D;&quot;75&quot;&gt;75&lt;/option&gt;
+                  &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;row&quot;&gt;
+                  &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+                    &lt;div *ngFor&#x3D;&quot;let instWise of stmtRepoFileDataByBatchId | tablefilter: searchInst;let i &#x3D; index&quot; class&#x3D;&quot;panel-group&quot; id&#x3D;&quot;accordion_inst&quot; style&#x3D;&quot;margin-top: 20px;&quot;&gt;
+                      &lt;div class&#x3D;&quot;panel panel-default&quot;&gt;
+                        &lt;div class&#x3D;&quot;panel-heading&quot;&gt;
+                          &lt;h4 class&#x3D;&quot;panel-title&quot;&gt;
+                            &lt;a data-toggle&#x3D;&quot;collapse&quot; data-parent&#x3D;&quot;#accordion_inst&quot; href&#x3D;&quot;#collapseOneInst_{{i}}&quot; class&#x3D;&quot;panel-name&quot;&gt;&lt;span class&#x3D;&quot;fa fa-university panel-icon&quot;&gt;
+                              &lt;/span&gt;&amp;nbsp;{{instWise.batchId}}&lt;/a&gt;
+                          &lt;/h4&gt;
+                          &lt;div class&#x3D;&quot;pull-right tool-list&quot;&gt;
+                            &lt;button class&#x3D;&quot;btn delete-btn&quot; (click)&#x3D;&quot;prepareStatementDelete(instWise)&quot; style&#x3D;&quot;cursor: pointer;&quot;&gt;
+                              &lt;i class&#x3D;&quot;fa fa-trash-o&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                            &lt;/button&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div id&#x3D;&quot;collapseOneInst_{{i}}&quot; class&#x3D;&quot;panel-collapse collapse&quot;&gt;
+                          &lt;div class&#x3D;&quot;panel-body&quot;&gt;
+                            &lt;div class&#x3D;&quot;row&quot;&gt;
+                              &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+                                &lt;div class&#x3D;&quot;statement-detail-quad5&quot;&gt;
+                                  &lt;table class&#x3D;&quot;statement-detail-tbl&quot;&gt;
+                                    &lt;thead&gt;
+                                      &lt;tr&gt;
+                                        &lt;th&gt;BATCH ID&lt;/th&gt;
+                                        &lt;th&gt;INSTITUTION&lt;/th&gt;
+                                        &lt;th style&#x3D;&quot;width: 18%&quot;&gt;PORTFOLIO NUMBER&lt;/th&gt;
+                                        &lt;th&gt;CURRENCY&lt;/th&gt;
+                                        &lt;!-- &lt;th&gt;STATEMENT DATE&lt;/th&gt; --&gt;
+                                        &lt;th&gt;STATUS&lt;/th&gt;
+                                        &lt;th&gt;&lt;/th&gt;
+                                      &lt;/tr&gt;
+                                      &lt;tr&gt;
+                                        &lt;td colspan&#x3D;&quot;9&quot; style&#x3D;&quot;height: 10px; background: #fff;&quot;&gt;&lt;/td&gt;
+                                      &lt;/tr&gt;
+                                    &lt;/thead&gt;
+                                    &lt;tbody [hidden]&#x3D;&quot;instWise.statementDetails.length &#x3D;&#x3D; 0&quot;&gt;
+                                      &lt;tr *ngFor&#x3D;&quot;let statement of instWise.statementDetails | tablefilter: search | paginate: { itemsPerPage: pagesize, currentPage: p }; let i &#x3D; index&quot;&gt;
+                                        &lt;td class&#x3D;&quot;&quot;&gt;{{statement?.batchId}}&lt;/td&gt;
+                                        &lt;td class&#x3D;&quot;&quot;&gt;{{statement?.institutionName}}&lt;/td&gt;
+                                        &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;width: 11%;&quot;&gt;{{statement.portfolioNumber}}&lt;/td&gt;
+                                        &lt;td class&#x3D;&quot;truncatequd&quot;&gt;{{statement?.currency}}&lt;/td&gt;
+                                        &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;width: 12%;&quot;&gt;{{statement.status}}&lt;/td&gt;
+                                        &lt;!-- &lt;td class&#x3D;&quot;break-word&quot;&gt;&lt;a (click)&#x3D;&quot;downloadPdfStatement(statement)&quot; title&#x3D;&quot;{{statement.fileName}}&quot; class&#x3D;&quot;cursor&quot;&gt;{{statement.fileName}}&lt;/a&gt;&lt;/td&gt; --&gt;
+                                        &lt;td class&#x3D;&quot;truncatequd&quot;&gt;
+                                          &lt;button class&#x3D;&quot;pull-right btn delete-btn&quot; (click)&#x3D;&quot;getFileDetails(statement)&quot; title&#x3D;&quot;View XML Files&quot;&gt;
+                                            &lt;i class&#x3D;&quot;fa fa-eye&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                                          &lt;/button&gt;
+                                          &lt;!-- &lt;button class&#x3D;&quot;pull-right btn delete-btn&quot; (click)&#x3D;&quot;prepareStatementDelete(statement)&quot;&gt;
+                                            &lt;i class&#x3D;&quot;fa fa-trash-o&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                                          &lt;/button&gt; --&gt;
+                                        &lt;/td&gt;
+                                      &lt;/tr&gt;
+                                      &lt;tr [hidden]&#x3D;&quot;(batchReportData | tablefilter: search).length !&#x3D; 0&quot; style&#x3D;&quot;border: none;&quot;&gt;
+                                        &lt;td style&#x3D;&quot;text-align: center;&quot; colspan&#x3D;&quot;9&quot;&gt;There are no statements matching this criteria&lt;/td&gt;
+                                      &lt;/tr&gt;
+                                    &lt;/tbody&gt;
+                                    &lt;tbody [hidden]&#x3D;&quot;batchReportData.length !&#x3D; 0&quot;&gt;
+                                      &lt;tr&gt;
+                                        &lt;td style&#x3D;&quot;text-align: center;&quot; colspan&#x3D;&quot;9&quot;&gt;You have not uploaded any statements.&lt;/td&gt;
+                                      &lt;/tr&gt;
+                                    &lt;/tbody&gt;
+                                  &lt;/table&gt;
+                                &lt;/div&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;!----&gt;
+              &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-md-12 text-right&quot;&gt;
+                  &lt;pagination-controls (pageChange)&#x3D;&quot;p &#x3D; $event&quot; class&#x3D;&quot;pm-pagination&quot;&gt;&lt;/pagination-controls&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Footer Part Html Starts --&gt;
+  &lt;app-authorised-footer&gt;&lt;/app-authorised-footer&gt;
+  &lt;!-- Footer Part Html Ends --&gt;
+&lt;/div&gt;
+
+&lt;ng-template #deleteStatementModal&gt;
+  &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; aria-label&#x3D;&quot;Close&quot; (click)&#x3D;&quot;cancelDeleteStatementModal()&quot;&gt;
+          &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+        &lt;p&gt;Are you sure want to delete this batch permanently.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-12 pm-red&quot; align&#x3D;&quot;center&quot;&gt;
+        &lt;span id&#x3D;&quot;delStatementRepoError&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+        &lt;img *ngIf&#x3D;&quot;delStatementDataLoading&quot; src&#x3D;&quot;/assets/img/loader/spin.gif&quot; /&gt;
+        &lt;input type&#x3D;&quot;button&quot; class&#x3D;&quot;b47PM-deltran-btn&quot; [disabled]&#x3D;&quot;delStatementDataLoading&quot; value&#x3D;&quot;DELETE&quot; (click)&#x3D;&quot;deleteBatch()&quot;&gt;
+        &lt;input type&#x3D;&quot;button&quot; (click)&#x3D;&quot;cancelDeleteStatementModal()&quot; class&#x3D;&quot;b47PM-dCancel-btn&quot; data-dismiss&#x3D;&quot;modal&quot; value&#x3D;&quot;CANCEL&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #viewBatchFileModal&gt;
+  &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal&quot; (click)&#x3D;&quot;closeViewXMLFileModal()&quot; aria-label&#x3D;&quot;Close&quot;&gt;
+      &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot; style&#x3D;&quot;margin-top: -26px;&quot;&gt;
+        &lt;div class&#x3D;&quot;row b47PM-budget-tbl-quad1&quot;&gt;
+          &lt;div class&#x3D;&quot;table b47PM-misc-table1 b47PM-budget-tbl1&quot;&gt;
+            &lt;header class&#x3D;&quot;clearfix&quot;&gt;
+              &lt;div align&#x3D;&quot;left&quot; style&#x3D;&quot;width: 30%&quot;&gt;Files&lt;/div&gt;
+              &lt;!-- &lt;div&gt;Institution Name&lt;/div&gt; --&gt;
+              &lt;!-- &lt;div&gt;Review&lt;/div&gt; --&gt;
+            &lt;/header&gt;
+            &lt;div&gt;
+              &lt;div *ngIf&#x3D;&quot;xmlFileList.length &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;record-row transc-row&quot;&gt;
+                  &lt;table class&#x3D;&quot;table inner-data-table&quot;&gt;
+                    &lt;thead&gt;
+                        &lt;tr&gt;
+                          &lt;td&gt;There are no files&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                  &lt;/table&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;record-row transc-row&quot; *ngFor&#x3D;&quot;let xml of xmlFileList; let i &#x3D; index;&quot;&gt;
+                &lt;table class&#x3D;&quot;table inner-data-table&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;
+                      &lt;td class&#x3D;&quot;break-word&quot;&gt;
+                        &lt;a (click)&#x3D;&quot;downloadBatchReportFiles(xml)&quot; title&#x3D;&quot;{{xml.name}}&quot; class&#x3D;&quot;cursor&quot;&gt;{{xml.name}}&lt;/a&gt;
+                      &lt;/td&gt;
+                      &lt;!-- &lt;td&gt;
+                        &lt;button class&#x3D;&quot;pull-right btn delete-btn&quot; (click)&#x3D;&quot;reviewSelectedFile(xml)&quot; title&#x3D;&quot;Review&quot;&gt;
+                          &lt;i class&#x3D;&quot;fa fa-eye&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                        &lt;/button&gt;
+                      &lt;/td&gt; --&gt;
+                      &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+        &lt;span class&#x3D;&quot;pm-red&quot; id&#x3D;&quot;deleteManualAccountErr&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #setCredentialModal&gt;
+  &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal&quot; aria-label&#x3D;&quot;Close&quot; (click)&#x3D;&quot;closeSetCredentialModal()&quot;&gt;
+      &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;h5&gt;Set Credential&lt;/h5&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;form role&#x3D;&quot;form&quot; [formGroup]&#x3D;&quot;credentialForm&quot; (ngSubmit)&#x3D;&quot;updateCredential()&quot; class&#x3D;&quot;form-horizontal&quot;&gt;
+      &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+          &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+            &lt;div class&#x3D;&quot;row clearfix&quot; style&#x3D;&quot;margin-top: 20px;&quot;&gt;
+                &lt;div class&#x3D;&quot;col-sm-12&quot; style&#x3D;&quot;margin-top: 10px;&quot;&gt;
+                    &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;username&quot; formControlName&#x3D;&quot;username&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Username&quot; required/&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-sm-12&quot; style&#x3D;&quot;margin-top: 10px;&quot;&gt;
+                    &lt;input type&#x3D;&quot;password&quot; name&#x3D;&quot;password&quot; formControlName&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Password&quot; autocomplete&#x3D;&quot;off&quot; required/&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+              &lt;div class&#x3D;&quot;col-sm-12&quot; style&#x3D;&quot;margin-top: 5px;&quot;&gt;
+                &lt;label id&#x3D;&quot;updateCredentailErrorMsg&quot; class&#x3D;&quot;pm-red&quot;&gt;&lt;/label&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+        &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+          &lt;button type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;credentialForm.invalid || updateCredentialLoader&quot; class&#x3D;&quot;btn b47PM-default-btn&quot;&gt;DONE&lt;/button&gt;
+          &lt;img *ngIf&#x3D;&quot;updateCredentialLoader&quot; src&#x3D;&quot;/assets/img/loader/spin.gif&quot; /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+
+&lt;!-- Notification component --&gt;
+&lt;app-common-notification #notificationComponent&gt;&lt;/app-common-notification&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./batch-report.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.panel-name {
+    font-size: 13px;
+}
+.panel-icon {
+    font-size: 16px;
+    color: #4C629A;
+    margin-right: 6px;
+}
+
+.panel-heading {
+    padding: 8px 15px;
+}
+.tool-list {
+    margin-top: -26px;
+}
+.tool-list button {
+    outline: none;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="b47PM-wrapper logged-in">  <!-- "logged-in" add this class when user login successfully -->  <!-- Header Part Html Starts -->  <app-authorised-header></app-authorised-header>  <!-- Header Part Html Ends -->  <!-- Loader section -->  <div class="b47PM-center-body" *ngIf="!batchReportPageLoad && !batchReportError">    <div class="container-fluid b47PM-container investment-landing-page">      <div class="row clearfix">        <div class="col-md-12">          <div class="b47PM-investment-quad1" align="center">            <div class="col-sm-8 col-sm-offset-2">              <img src="/assets/img/loader/page_loading.gif">            </div>          </div>          <div class="clearfix"></div>        </div>      </div>    </div>  </div>  <div class="b47PM-center-body" *ngIf="batchReportError">    <div class="container-fluid b47PM-container investment-landing-page">      <div class="row clearfix">        <div class="col-md-12">          <div class="b47PM-investment-quad1 grey-quad" align="center">            <div class="col-sm-8 col-sm-offset-2">              <h4>Oops! Something went wrong!!!</h4>            </div>            <div class="clearfix"></div>          </div>        </div>      </div>    </div>  </div>  <div class="b47PM-center-body" *ngIf="(batchReportData.length == 0 && !batchReportError) && batchReportPageLoad">    <div class="container-fluid b47PM-container investment-landing-page">      <div class="row clearfix">        <div class="col-md-12">          <div class="b47PM-investment-quad1 grey-quad" align="center">            <div class="col-sm-8 col-sm-offset-2">              <h4>You haven\'t added statement</h4>            </div>            <div class="clearfix"></div>          </div>        </div>      </div>    </div>  </div>  <div class="b47PM-center-body" *ngIf="(batchReportData.length > 0 && !batchReportError) && batchReportPageLoad">    <div class="container-fluid b47PM-container">      <div class="col-sm-12">        <div class="row clearfix">          <h3>Batch Reports</h3>          <div class="misc-table-showcase">            <div class="b47PM-financesTab-quad1">              <div class="b47PM-filter-quad1">                <div class="row">                  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-2 form-group rowPusher">                    <div class="row">                      <label>Batch Id</label>                      <select class="form-control" [(ngModel)]="searchInst.batchId" (change)="setFilter()">                              <option value="">All</option>                              <option *ngFor="let batchId of statementData.batchId" value="{{batchId}}">{{batchId}}</option>                            </select>                    </div>                  </div>                  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-2 form-group rowPusher">                    <div class="row">                      <label>Choose Institution</label>                      <select class="form-control" [(ngModel)]="search.institutionName" (change)="setFilter()">                              <option value="" selected>All</option>                              <option *ngFor="let institution of statementData.institutionName" value="{{institution}}">{{institution}}</option>                            </select>                    </div>                  </div>                  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-5 col-md-2 form-group rowPusher">                    <div class="row">                      <label>Choose Portfolio Number</label>                      <select class="form-control" [(ngModel)]="search.portfolioNumber" (change)="setFilter()">                              <option value="">All</option>                              <option *ngFor="let portfolioNumber of statementData.portfolioNumber" value="{{portfolioNumber}}">{{portfolioNumber}}</option>                            </select>                    </div>                  </div>                  <div class="col-sm-12" *ngIf="hasFilter">                    <div class="filter-box" *ngIf="searchInst.batchId != \'\'">                      <span>{{searchInst.batchId}}</span>                      <i class="fa fa-times" aria-hidden="true" (click)="searchInst.batchId = \'\';setFilter();" role="button"></i>                    </div>                    <div class="filter-box" *ngIf="search.institutionName != \'\'">                      <span>{{search.institutionName}}</span>                      <i class="fa fa-times" aria-hidden="true" (click)="search.institutionName = \'\';setFilter();" role="button"></i>                    </div>                    <div class="filter-box" *ngIf="search.portfolioNumber != \'\'">                      <span>{{search.portfolioNumber}}</span>                      <i class="fa fa-times" aria-hidden="true" (click)="search.portfolioNumber = \'\';setFilter();" role="button"></i>                    </div>                    <div class="clear-filter-box">                      <a role="button" (click)="clearAllFilter()">                              Clear All                            </a>                    </div>                  </div>                </div>              </div>              <div class="clearfix"></div>              <div class="statement-detail-quad5">                <div class="col-xs-12 col-sm-4 pull-right" style="margin: 8px -13px 8px 0px;">                  <select class="form-control pull-right" id="selectRange" style="width:auto; height: 30px; padding: 0 12px; margin: 3px 0 0 9px;"                     [(ngModel)]="pagesize">                    <option value="10" selected>10</option>                    <option value="25">25</option>                    <option value="50">50</option>                    <option value="75">75</option>                  </select>                </div>                <div class="row">                  <div class="col-sm-12">                    <div *ngFor="let instWise of stmtRepoFileDataByBatchId | tablefilter: searchInst;let i = index" class="panel-group" id="accordion_inst" style="margin-top: 20px;">                      <div class="panel panel-default">                        <div class="panel-heading">                          <h4 class="panel-title">                            <a data-toggle="collapse" data-parent="#accordion_inst" href="#collapseOneInst_{{i}}" class="panel-name"><span class="fa fa-university panel-icon">                              </span>&nbsp;{{instWise.batchId}}</a>                          </h4>                          <div class="pull-right tool-list">                            <button class="btn delete-btn" (click)="prepareStatementDelete(instWise)" style="cursor: pointer;">                              <i class="fa fa-trash-o" aria-hidden="true"></i>                            </button>                          </div>                        </div>                        <div id="collapseOneInst_{{i}}" class="panel-collapse collapse">                          <div class="panel-body">                            <div class="row">                              <div class="col-md-12">                                <div class="statement-detail-quad5">                                  <table class="statement-detail-tbl">                                    <thead>                                      <tr>                                        <th>BATCH ID</th>                                        <th>INSTITUTION</th>                                        <th style="width: 18%">PORTFOLIO NUMBER</th>                                        <th>CURRENCY</th>                                        <!-- <th>STATEMENT DATE</th> -->                                        <th>STATUS</th>                                        <th></th>                                      </tr>                                      <tr>                                        <td colspan="9" style="height: 10px; background: #fff;"></td>                                      </tr>                                    </thead>                                    <tbody [hidden]="instWise.statementDetails.length == 0">                                      <tr *ngFor="let statement of instWise.statementDetails | tablefilter: search | paginate: { itemsPerPage: pagesize, currentPage: p }; let i = index">                                        <td class="">{{statement?.batchId}}</td>                                        <td class="">{{statement?.institutionName}}</td>                                        <td class="truncatequd" style="width: 11%;">{{statement.portfolioNumber}}</td>                                        <td class="truncatequd">{{statement?.currency}}</td>                                        <td class="truncatequd" style="width: 12%;">{{statement.status}}</td>                                        <!-- <td class="break-word"><a (click)="downloadPdfStatement(statement)" title="{{statement.fileName}}" class="cursor">{{statement.fileName}}</a></td> -->                                        <td class="truncatequd">                                          <button class="pull-right btn delete-btn" (click)="getFileDetails(statement)" title="View XML Files">                                            <i class="fa fa-eye" aria-hidden="true"></i>                                          </button>                                          <!-- <button class="pull-right btn delete-btn" (click)="prepareStatementDelete(statement)">                                            <i class="fa fa-trash-o" aria-hidden="true"></i>                                          </button> -->                                        </td>                                      </tr>                                      <tr [hidden]="(batchReportData | tablefilter: search).length != 0" style="border: none;">                                        <td style="text-align: center;" colspan="9">There are no statements matching this criteria</td>                                      </tr>                                    </tbody>                                    <tbody [hidden]="batchReportData.length != 0">                                      <tr>                                        <td style="text-align: center;" colspan="9">You have not uploaded any statements.</td>                                      </tr>                                    </tbody>                                  </table>                                </div>                              </div>                            </div>                          </div>                        </div>                      </div>                    </div>                  </div>                </div>              </div>              <!---->              <div class="row">                <div class="col-md-12 text-right">                  <pagination-controls (pageChange)="p = $event" class="pm-pagination"></pagination-controls>                </div>              </div>            </div>          </div>        </div>      </div>    </div>  </div>  <!-- Footer Part Html Starts -->  <app-authorised-footer></app-authorised-footer>  <!-- Footer Part Html Ends --></div><ng-template #deleteStatementModal>  <div class="modal-header">    <button type="button" class="close" aria-label="Close" (click)="cancelDeleteStatementModal()">          <span aria-hidden="true">&times;</span>        </button>  </div>  <div class="modal-body">    <div class="row clearfix">      <div class="col-md-12" align="center">        <p>Are you sure want to delete this batch permanently.</p>      </div>      <div class="col-md-12 pm-red" align="center">        <span id="delStatementRepoError"></span>      </div>      <div class="col-md-12" align="center">        <img *ngIf="delStatementDataLoading" src="/assets/img/loader/spin.gif" />        <input type="button" class="b47PM-deltran-btn" [disabled]="delStatementDataLoading" value="DELETE" (click)="deleteBatch()">        <input type="button" (click)="cancelDeleteStatementModal()" class="b47PM-dCancel-btn" data-dismiss="modal" value="CANCEL">      </div>    </div>  </div></ng-template><ng-template #viewBatchFileModal>  <div class="modal-header">    <button type="button" class="close" data-dismiss="modal" (click)="closeViewXMLFileModal()" aria-label="Close">      <span aria-hidden="true">&times;</span>    </button>  </div>  <div class="modal-body">    <div class="row clearfix">      <div class="col-md-12" align="center" style="margin-top: -26px;">        <div class="row b47PM-budget-tbl-quad1">          <div class="table b47PM-misc-table1 b47PM-budget-tbl1">            <header class="clearfix">              <div align="left" style="width: 30%">Files</div>              <!-- <div>Institution Name</div> -->              <!-- <div>Review</div> -->            </header>            <div>              <div *ngIf="xmlFileList.length === 0" class="record-row transc-row">                  <table class="table inner-data-table">                    <thead>                        <tr>                          <td>There are no files</td>                        </tr>                    </thead>                  </table>              </div>              <div class="record-row transc-row" *ngFor="let xml of xmlFileList; let i = index;">                <table class="table inner-data-table">                  <thead>                    <tr>                      <td class="break-word">                        <a (click)="downloadBatchReportFiles(xml)" title="{{xml.name}}" class="cursor">{{xml.name}}</a>                      </td>                      <!-- <td>                        <button class="pull-right btn delete-btn" (click)="reviewSelectedFile(xml)" title="Review">                          <i class="fa fa-eye" aria-hidden="true"></i>                        </button>                      </td> -->                      <div class="clearfix"></div>                    </tr>                  </thead>                </table>              </div>            </div>          </div>        </div>      </div>      <div class="col-md-12" align="center">        <span class="pm-red" id="deleteManualAccountErr"></span>      </div>    </div>  </div></ng-template><ng-template #setCredentialModal>  <div class="modal-header">    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeSetCredentialModal()">      <span aria-hidden="true">&times;</span>    </button>    <h5>Set Credential</h5>  </div>  <div class="modal-body">    <form role="form" [formGroup]="credentialForm" (ngSubmit)="updateCredential()" class="form-horizontal">      <div class="row clearfix">          <div class="col-md-12">            <div class="row clearfix" style="margin-top: 20px;">                <div class="col-sm-12" style="margin-top: 10px;">                    <input type="text" name="username" formControlName="username" class="form-control" placeholder="Username" required/>                </div>                <div class="col-sm-12" style="margin-top: 10px;">                    <input type="password" name="password" formControlName="password" class="form-control" placeholder="Password" autocomplete="off" required/>                </div>            </div>            <div class="row clearfix">              <div class="col-sm-12" style="margin-top: 5px;">                <label id="updateCredentailErrorMsg" class="pm-red"></label>              </div>            </div>          </div>      </div>      <div class="row clearfix">        <div class="col-sm-12">          <button type="submit" [disabled]="credentialForm.invalid || updateCredentialLoader" class="btn b47PM-default-btn">DONE</button>          <img *ngIf="updateCredentialLoader" src="/assets/img/loader/spin.gif" />        </div>      </div>    </form>  </div>  <div class="modal-footer">  </div></ng-template><!-- Notification component --><app-common-notification #notificationComponent></app-common-notification></div>'
+    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AdminDropdownComponent', 'selector': 'app-admin-dropdown'},{'name': 'AlertComponent', 'selector': 'alert'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorisedFooterComponent', 'selector': 'app-authorised-footer'},{'name': 'AuthorisedHeaderComponent', 'selector': 'app-authorised-header'},{'name': 'BatchReportComponent', 'selector': 'app-batch-report'},{'name': 'BeforeLoginFooterComponent', 'selector': 'app-before-login-footer'},{'name': 'BeforeLoginHeaderComponent', 'selector': 'app-before-login-header'},{'name': 'BudgetComponent', 'selector': 'app-budget'},{'name': 'CarrierComponent', 'selector': 'app-carrier'},{'name': 'CarrierInformationComponent', 'selector': 'app-carrier-information'},{'name': 'CarrierMenuComponent', 'selector': 'app-carrier-menu-temp'},{'name': 'ClientAdvisorsComponent', 'selector': 'app-client-advisors'},{'name': 'CommonNotificationComponent', 'selector': 'app-common-notification'},{'name': 'CustomOutputComponent', 'selector': 'app-custom-output'},{'name': 'DeleteComponent', 'selector': 'app-delete'},{'name': 'DropdownComponent', 'selector': 'app-dropdown'},{'name': 'FactFinderComponent', 'selector': 'app-fact-finder'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'InvestmentComponent', 'selector': 'app-investment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'NewPolicyComponent', 'selector': 'app-new-policy'},{'name': 'PageNotFoundComponent', 'selector': ''},{'name': 'PlanComponent', 'selector': 'app-plan'},{'name': 'PolicyInformationComponent', 'selector': 'app-policy-information'},{'name': 'PreviewComponent', 'selector': 'app-preview'},{'name': 'RepositoryComponent', 'selector': 'app-repository'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewComponent', 'selector': 'app-review'},{'name': 'RiderCommissionComponent', 'selector': 'app-rider-commission'},{'name': 'RiderMenuComponent', 'selector': 'app-rider-menu-temp'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StatementRepositoryComponent', 'selector': 'app-statement-repository'},{'name': 'TransactionComponent', 'selector': 'app-transaction'},{'name': 'XmlfileComponent', 'selector': 'app-xmlfile'},{'name': 'XMLViewerComponent', 'selector': 'app-xml-viewer'}];
+    var DIRECTIVES = [{'name': 'AppRestrictSpecialCharDirective', 'selector': '[appRestrictSplChar]'},{'name': 'MyCurrencyFormatterDirective', 'selector': '[appNumberFormatter]'},{'name': 'OnlyNumberDirective', 'selector': '[appOnlyNumber]'},{'name': 'RestrictSpecialCharacterDirective', 'selector': '[appModelRestrictSplChar]'},{'name': 'UpperCaseDirective', 'selector': '[appControlUpperCase]'}];
+    var ACTUAL_COMPONENT = {'name': 'BatchReportComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BatchReportComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

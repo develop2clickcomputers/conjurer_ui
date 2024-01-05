@@ -1,0 +1,1058 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>conjurer documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">conjurer documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>AdminDropdownComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/dropdown/admin-dropdown.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code><a href="../injectables/DropdownService.html" target="_self" >DropdownService</a></code>
+                            <code><a href="../injectables/CommonHttpAdapterService.html" target="_self" >CommonHttpAdapterService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-admin-dropdown</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./dropdown.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./admin-dropdown.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dropdownForm">dropdownForm</a>
+                            </li>
+                            <li>
+                                <a href="#dropDownModal">dropDownModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dropDownModalRef">dropDownModalRef</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addNewDropdownRow">addNewDropdownRow</a>
+                            </li>
+                            <li>
+                                <a href="#closeDropdownModal">closeDropdownModal</a>
+                            </li>
+                            <li>
+                                <a href="#createDropdownForm">createDropdownForm</a>
+                            </li>
+                            <li>
+                                <a href="#initDropdown">initDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openDropdownModal">openDropdownModal</a>
+                            </li>
+                            <li>
+                                <a href="#removeDrodownRow">removeDrodownRow</a>
+                            </li>
+                            <li>
+                                <a href="#submitDropdownElement">submitDropdownElement</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, modalService: BsModalService, dropdownService: <a href="../injectables/DropdownService.html">DropdownService</a>, modalConfig: <a href="../classes/ModalConfig.html">ModalConfig</a>, commonHttpAdapterService: <a href="../injectables/CommonHttpAdapterService.html">CommonHttpAdapterService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/shared/dropdown/admin-dropdown.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_fb</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modalService</td>
+                                                  
+                                                        <td>
+                                                                    <code>BsModalService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dropdownService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/DropdownService.html" target="_self" >DropdownService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modalConfig</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../classes/ModalConfig.html" target="_self" >ModalConfig</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>commonHttpAdapterService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/CommonHttpAdapterService.html" target="_self" >CommonHttpAdapterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addNewDropdownRow"></a>
+                        <span class="name">
+                            <b>
+                            addNewDropdownRow
+                            </b>
+                            <a href="#addNewDropdownRow"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>addNewDropdownRow()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/shared/dropdown/admin-dropdown.component.ts:78</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="closeDropdownModal"></a>
+                        <span class="name">
+                            <b>
+                            closeDropdownModal
+                            </b>
+                            <a href="#closeDropdownModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>closeDropdownModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/shared/dropdown/admin-dropdown.component.ts:72</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To close dropdown modal</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createDropdownForm"></a>
+                        <span class="name">
+                            <b>
+                            createDropdownForm
+                            </b>
+                            <a href="#createDropdownForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>createDropdownForm()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/shared/dropdown/admin-dropdown.component.ts:47</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>add dropdown list</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initDropdown"></a>
+                        <span class="name">
+                            <b>
+                            initDropdown
+                            </b>
+                            <a href="#initDropdown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initDropdown()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/shared/dropdown/admin-dropdown.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/shared/dropdown/admin-dropdown.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openDropdownModal"></a>
+                        <span class="name">
+                            <b>
+                            openDropdownModal
+                            </b>
+                            <a href="#openDropdownModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>openDropdownModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/shared/dropdown/admin-dropdown.component.ts:65</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To show dropdown modal</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeDrodownRow"></a>
+                        <span class="name">
+                            <b>
+                            removeDrodownRow
+                            </b>
+                            <a href="#removeDrodownRow"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>removeDrodownRow(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/shared/dropdown/admin-dropdown.component.ts:84</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To remove existing dropdown row </p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>i</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="submitDropdownElement"></a>
+                        <span class="name">
+                            <b>
+                            submitDropdownElement
+                            </b>
+                            <a href="#submitDropdownElement"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>submitDropdownElement()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/shared/dropdown/admin-dropdown.component.ts:92</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Submit dropdown element</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dropdownForm"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dropdownForm</b>
+                            <a href="#dropdownForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/shared/dropdown/admin-dropdown.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dropDownModal"></a>
+                        <span class="name">
+                            <b>
+                            dropDownModal</b>
+                            <a href="#dropDownModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;dropDownModal&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/shared/dropdown/admin-dropdown.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dropDownModalRef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dropDownModalRef</b>
+                            <a href="#dropDownModalRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>BsModalRef</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/shared/dropdown/admin-dropdown.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, TemplateRef, ViewChild, Input, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, FormArray, Validators } from &#x27;@angular/forms&#x27;;
+
+import { BsModalService } from &#x27;ngx-bootstrap/modal&#x27;;
+import { BsModalRef } from &#x27;ngx-bootstrap/modal/modal-options.class&#x27;;
+import { ModalConfig } from &#x27;../../shared/common/modal.config&#x27;;
+
+import { DropdownConstant } from &#x27;./dropdown.constant&#x27;;
+import { CommonHttpAdapterService } from &#x27;../../adapters/common-http-adapter.service&#x27;;
+
+import { DropdownService } from &#x27;./dropdown.service&#x27;;
+
+@Component({
+    selector: &#x27;app-admin-dropdown&#x27;,
+    templateUrl: &#x27;./admin-dropdown.component.html&#x27;,
+    styleUrls: [&#x27;./dropdown.component.css&#x27;],
+    providers: [
+        DropdownService, CommonHttpAdapterService
+    ]
+})
+export class AdminDropdownComponent implements OnInit {
+
+    @ViewChild(&#x27;dropDownModal&#x27;) dropDownModal: TemplateRef&lt;any&gt;;
+
+    public dropDownModalRef: BsModalRef;
+
+    // Dropdown Form
+    public dropdownForm: FormGroup;
+
+    constructor(
+    private _fb: FormBuilder,
+    private modalService: BsModalService,
+    private dropdownService: DropdownService,
+    private modalConfig: ModalConfig,
+    private commonHttpAdapterService: CommonHttpAdapterService
+    ) { }
+
+    ngOnInit() {
+    // To crate dropdown
+        this.createDropdownForm();
+    }
+
+
+  /**
+   * add dropdown list
+   */
+  createDropdownForm() {
+    this.dropdownForm &#x3D; this._fb.group({
+      dropdown_type: [&#x27;&#x27;],
+      dropdownList: this._fb.array([
+        this.initDropdown()
+      ])
+    })
+  }
+
+  initDropdown() {
+    return this._fb.group({
+      value: [&#x27;&#x27;],
+      display_text: [&#x27;&#x27;]
+    })
+  }
+  /**
+   * To show dropdown modal
+   */
+  openDropdownModal() {
+    this.dropDownModalRef &#x3D; this.modalService.show(this.dropDownModal, Object.assign({}, this.modalConfig.config, {class: &#x27;modal-md&#x27;}));
+  }
+
+  /**
+   * To close dropdown modal
+   */
+  closeDropdownModal() {
+    this.dropDownModalRef.hide();
+    this.dropDownModalRef &#x3D; null;
+    this.dropdownForm.reset();
+  }
+
+  addNewDropdownRow() {
+    const control &#x3D; &lt;FormArray&gt;this.dropdownForm.controls[&#x27;dropdownList&#x27;];
+    control.push(this.initDropdown());
+  }
+
+  /**To remove existing dropdown row */
+  removeDrodownRow(i: number) {
+    const control &#x3D; &lt;FormArray&gt;this.dropdownForm.controls[&#x27;dropdownList&#x27;];
+    control.removeAt(i);
+  }
+
+  /**
+   * Submit dropdown element
+   */
+  submitDropdownElement() {
+    const formValue &#x3D; this.dropdownForm.getRawValue();
+    let dropDownData: any &#x3D; {};
+    dropDownData[&#x27;userId&#x27;] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    dropDownData[DropdownConstant.DROPDOWN_TYPE] &#x3D; formValue[&#x27;dropdown_type&#x27;];
+    const dropDownArray: any[] &#x3D; [];
+    let dropdowObj: any &#x3D; {};
+    formValue[&#x27;dropdownList&#x27;].forEach(element &#x3D;&gt; {
+      dropdowObj &#x3D; {};
+      dropdowObj[DropdownConstant.DROPDOWN_VALUE] &#x3D; element[&#x27;value&#x27;];
+      dropdowObj[DropdownConstant.DROPDOWN_DISPLAY_TEXT] &#x3D; element[&#x27;display_text&#x27;];
+
+      dropDownArray.push(dropdowObj);
+    });
+    dropDownData[DropdownConstant.DROPDOWN_LIST] &#x3D; dropDownArray;
+    dropDownData &#x3D; JSON.stringify(dropDownData);
+
+    this.dropdownService.submitDropdownData(dropDownData).subscribe(
+        res &#x3D;&gt; {
+            // console.log(res);
+        },
+        error &#x3D;&gt; {
+            console.log(error);
+        }
+    )
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">
+&lt;span (click)&#x3D;&quot;openDropdownModal()&quot;&gt;
+    &lt;i class&#x3D;&quot;fa fa-plus-square&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;&lt;br /&gt;Add Dropdown
+&lt;/span&gt;
+
+&lt;ng-template #dropDownModal&gt;
+    &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;closeDropdownModal()&quot; class&#x3D;&quot;close&quot; aria-label&#x3D;&quot;Close&quot;&gt;
+            &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;h3 class&#x3D;&quot;modal-title&quot;&gt;Add Dropdown Element&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;form [formGroup]&#x3D;&quot;dropdownForm&quot; novalidate (ngSubmit)&#x3D;&quot;submitDropdownElement()&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-sm-12 col-md-12 col-lg-12&quot;&gt;
+                    &lt;div class&#x3D;&quot;misc-table-showcase&quot;&gt;
+                        &lt;div class&#x3D;&quot;table b47PM-misc-table1 b47PM-transac-tbl1 b47PM-transaction-tbl1&quot;&gt;
+                            &lt;!-- &lt;header class&#x3D;&quot;clearfix&quot;&gt;
+                                &lt;div&gt;Plan Type&lt;/div&gt;
+                                &lt;div&gt;&amp;nbsp;&lt;/div&gt;
+                            &lt;/header&gt; --&gt;
+                            &lt;div class&#x3D;&quot;col-md-12 col-sm-12&quot; style&#x3D;&quot;margin: 6px 0px 8px 0px;&quot;&gt;
+                                &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;dropdown_type&quot; placeholder&#x3D;&quot;Type&quot;&gt;
+                            &lt;/div&gt;
+                            &lt;ng-container formArrayName&#x3D;&quot;dropdownList&quot;&gt;
+                                &lt;div *ngFor&#x3D;&quot;let drop of dropdownForm[&#x27;controls&#x27;].dropdownList[&#x27;controls&#x27;]; let i &#x3D; index&quot; class&#x3D;&quot;record-row transc-row&quot;&gt;
+                                    &lt;table width&#x3D;&quot;100%&quot; class&#x3D;&quot;table inner-data-table inner-dropdown-table&quot;&gt;
+                                        &lt;thead [formGroupName]&#x3D;&quot;i&quot; class&#x3D;&quot;edit_no&quot; style&#x3D;&quot;cursor: pointer;&quot;&gt;
+                                            &lt;tr style&#x3D;&quot;background-color: #bce8f1;height: 30px&quot; *ngIf&#x3D;&quot;i &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+                                                &lt;th&gt;Display Text&lt;/th&gt;
+                                                &lt;th&gt;Value&lt;/th&gt;
+                                                &lt;th&gt;&amp;nbsp;&lt;/th&gt;
+                                            &lt;/tr&gt;
+                                            &lt;tr&gt;
+                                                &lt;th&gt;
+                                                    &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;display_text&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Display Text&quot;&gt;
+                                                &lt;/th&gt;
+                                                &lt;th&gt;
+                                                    &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;value&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Value&quot;&gt;
+                                                &lt;/th&gt;
+                                                &lt;th&gt;
+                                                    &lt;!-- add, edit and delete --&gt;
+                                                    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;pull-right btn split-dropdown-btn&quot; (click)&#x3D;&quot;addNewDropdownRow()&quot; title&#x3D;&quot;Add New&quot;&gt;
+                                                        &lt;img src&#x3D;&quot;/assets/img/transaction/add.svg&quot; width&#x3D;&quot;15px&quot;&gt;
+                                                    &lt;/button&gt;
+                                                    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;pull-right btn delete-dropdown-btn&quot;
+                                                        (click)&#x3D;&quot;removeDrodownRow(i)&quot; title&#x3D;&quot;Delete&quot;&gt;
+                                                        &lt;img src&#x3D;&quot;/assets/img/transaction/delete2.svg&quot; width&#x3D;&quot;18px&quot;&gt;
+                                                    &lt;/button&gt;
+                                                    &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+                                                &lt;/th&gt;
+                                            &lt;/tr&gt;
+                                        &lt;/thead&gt;
+                                    &lt;/table&gt;
+                                &lt;/div&gt;
+                            &lt;/ng-container&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;modal-footer dropdown-modal-footer&quot;&gt;
+            &lt;input type&#x3D;&quot;submit&quot; class&#x3D;&quot;b47PM-default-btn&quot; value&#x3D;&quot;SUBMIT&quot;&gt;
+            &lt;input type&#x3D;&quot;button&quot; (click)&#x3D;&quot;closeDropdownModal()&quot; class&#x3D;&quot;b47PM-dCancel-btn&quot; value&#x3D;&quot;CANCEL&quot;&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/ng-template&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./dropdown.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.nav-tabs { border-bottom: 2px solid #DDD; }
+.nav-tabs &gt; li.active &gt; a, .nav-tabs &gt; li.active &gt; a:focus, .nav-tabs &gt; li.active &gt; a:hover { border-width: 0; }
+.nav-tabs &gt; li &gt; a { border: none; color: #666; }
+    .nav-tabs &gt; li.active &gt; a, .nav-tabs &gt; li &gt; a:hover { border: none; color: #4285F4 !important; background: transparent; }
+    .nav-tabs &gt; li &gt; a::after { content: &quot;&quot;; background: #4285F4; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
+.nav-tabs &gt; li.active &gt; a::after, .nav-tabs &gt; li:hover &gt; a::after { transform: scale(1); }
+.tab-nav &gt; li &gt; a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
+.tab-pane { padding: 15px 0; }
+.tab-content{padding:20px}
+
+.card {background: #FFF none repeat scroll 0% 0%; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); margin-bottom: 30px; }
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><span (click)="openDropdownModal()">    <i class="fa fa-plus-square" aria-hidden="true"></i><br />Add Dropdown</span><ng-template #dropDownModal>    <div class="modal-header">        <button type="button" (click)="closeDropdownModal()" class="close" aria-label="Close">            <span aria-hidden="true">&times;</span>        </button>        <h3 class="modal-title">Add Dropdown Element</h3>    </div>    <form [formGroup]="dropdownForm" novalidate (ngSubmit)="submitDropdownElement()">        <div class="modal-body">            <div class="row">                <div class="col-sm-12 col-md-12 col-lg-12">                    <div class="misc-table-showcase">                        <div class="table b47PM-misc-table1 b47PM-transac-tbl1 b47PM-transaction-tbl1">                            <!-- <header class="clearfix">                                <div>Plan Type</div>                                <div>&nbsp;</div>                            </header> -->                            <div class="col-md-12 col-sm-12" style="margin: 6px 0px 8px 0px;">                                <input type="text" class="form-control" formControlName="dropdown_type" placeholder="Type">                            </div>                            <ng-container formArrayName="dropdownList">                                <div *ngFor="let drop of dropdownForm[\'controls\'].dropdownList[\'controls\']; let i = index" class="record-row transc-row">                                    <table width="100%" class="table inner-data-table inner-dropdown-table">                                        <thead [formGroupName]="i" class="edit_no" style="cursor: pointer;">                                            <tr style="background-color: #bce8f1;height: 30px" *ngIf="i === 0">                                                <th>Display Text</th>                                                <th>Value</th>                                                <th>&nbsp;</th>                                            </tr>                                            <tr>                                                <th>                                                    <input type="text" formControlName="display_text" class="form-control" placeholder="Display Text">                                                </th>                                                <th>                                                    <input type="text" formControlName="value" class="form-control" placeholder="Value">                                                </th>                                                <th>                                                    <!-- add, edit and delete -->                                                    <button type="button" class="pull-right btn split-dropdown-btn" (click)="addNewDropdownRow()" title="Add New">                                                        <img src="/assets/img/transaction/add.svg" width="15px">                                                    </button>                                                    <button type="button" class="pull-right btn delete-dropdown-btn"                                                        (click)="removeDrodownRow(i)" title="Delete">                                                        <img src="/assets/img/transaction/delete2.svg" width="18px">                                                    </button>                                                    <div class="clearfix"></div>                                                </th>                                            </tr>                                        </thead>                                    </table>                                </div>                            </ng-container>                        </div>                    </div>                </div>            </div>        </div>        <div class="modal-footer dropdown-modal-footer">            <input type="submit" class="b47PM-default-btn" value="SUBMIT">            <input type="button" (click)="closeDropdownModal()" class="b47PM-dCancel-btn" value="CANCEL">        </div>    </form></ng-template></div>'
+    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AdminDropdownComponent', 'selector': 'app-admin-dropdown'},{'name': 'AlertComponent', 'selector': 'alert'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorisedFooterComponent', 'selector': 'app-authorised-footer'},{'name': 'AuthorisedHeaderComponent', 'selector': 'app-authorised-header'},{'name': 'BatchReportComponent', 'selector': 'app-batch-report'},{'name': 'BeforeLoginFooterComponent', 'selector': 'app-before-login-footer'},{'name': 'BeforeLoginHeaderComponent', 'selector': 'app-before-login-header'},{'name': 'BudgetComponent', 'selector': 'app-budget'},{'name': 'CarrierComponent', 'selector': 'app-carrier'},{'name': 'CarrierInformationComponent', 'selector': 'app-carrier-information'},{'name': 'CarrierMenuComponent', 'selector': 'app-carrier-menu-temp'},{'name': 'ClientAdvisorsComponent', 'selector': 'app-client-advisors'},{'name': 'CommonNotificationComponent', 'selector': 'app-common-notification'},{'name': 'CustomOutputComponent', 'selector': 'app-custom-output'},{'name': 'DeleteComponent', 'selector': 'app-delete'},{'name': 'DropdownComponent', 'selector': 'app-dropdown'},{'name': 'FactFinderComponent', 'selector': 'app-fact-finder'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'InvestmentComponent', 'selector': 'app-investment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'NewPolicyComponent', 'selector': 'app-new-policy'},{'name': 'PageNotFoundComponent', 'selector': ''},{'name': 'PlanComponent', 'selector': 'app-plan'},{'name': 'PolicyInformationComponent', 'selector': 'app-policy-information'},{'name': 'PreviewComponent', 'selector': 'app-preview'},{'name': 'RepositoryComponent', 'selector': 'app-repository'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewComponent', 'selector': 'app-review'},{'name': 'RiderCommissionComponent', 'selector': 'app-rider-commission'},{'name': 'RiderMenuComponent', 'selector': 'app-rider-menu-temp'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StatementRepositoryComponent', 'selector': 'app-statement-repository'},{'name': 'TransactionComponent', 'selector': 'app-transaction'},{'name': 'XmlfileComponent', 'selector': 'app-xmlfile'},{'name': 'XMLViewerComponent', 'selector': 'app-xml-viewer'}];
+    var DIRECTIVES = [{'name': 'AppRestrictSpecialCharDirective', 'selector': '[appRestrictSplChar]'},{'name': 'MyCurrencyFormatterDirective', 'selector': '[appNumberFormatter]'},{'name': 'OnlyNumberDirective', 'selector': '[appOnlyNumber]'},{'name': 'RestrictSpecialCharacterDirective', 'selector': '[appModelRestrictSplChar]'},{'name': 'UpperCaseDirective', 'selector': '[appControlUpperCase]'}];
+    var ACTUAL_COMPONENT = {'name': 'AdminDropdownComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminDropdownComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,30 @@
+[hidden] {
+    display: none;
+}
+/*Budget edit and delete button*/
+.b47PM-budget-quad3 .panel-title .edit-budget-btn {
+    color: #1a1a1a;
+    margin: 6px 10px;
+}
+.manage-acc-quad button.edit-budget-btn, button.edit-budget-btn {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 5px;
+}
+.b47PM-budget-quad3 .panel-title .delete-budget-btn {
+    color: #1a1a1a;
+    margin: 6px 10px;
+}
+.manage-acc-quad button.delete-budget-btn, button.delete-budget-btn {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 5px;
+}
+.header-number{
+    font-size: 18px;
+    font-weight: 700;
+}

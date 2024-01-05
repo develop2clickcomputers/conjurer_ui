@@ -1,0 +1,391 @@
+<!-- main display start when there is no transaction -->
+<div class="b47PM-center-body" *ngIf="overviewError">
+   <div class="container b47PM-container goals-landing-page">
+      <div class="row clearfix">
+         <div class="col-md-12">
+            <div class="b47PM-budget-quad1 grey-quad" align="center">
+               <div class="col-sm-8 col-sm-offset-2">
+                  <h4>Oops! Something went wrong!!!</h4>
+               </div>
+               <div class="clearfix"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Main Display Html Starts -->
+<div *ngIf="!overviewError" class="b47PM-center-body">
+   <!-- Main Display Html Starts -->
+   <div class="container-fluid b47PM-container">
+      <div class="row clearfix">
+         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-container-margin">
+            <div *ngIf="showPlanRiderList" class="row">
+               <div *ngIf="planObject?.productName" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <h3>
+                     {{planObject?.productName}}
+                  </h3>
+               </div>
+            </div>
+            <div *ngIf="!showPlanRiderList" class="row">
+               <ng-container *ngIf="planInfoRiderDisplayFlag">
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                     <h3>{{riderCommission['rider']}}</h3>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                     <div class="btn-group head-button-group">
+                        <button type="button" (click)="addNewPlan('new')" class="btn btn-info">Add New</button>
+                        <button type="button" (click)="addNewPlan('copy')" class="btn btn-info">Copy</button>
+                        <button type="button" class="btn btn-info">Delete Rider</button>
+                     </div>
+                  </div>
+               </ng-container>
+               <ng-container *ngIf="!planInfoRiderDisplayFlag">
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                     <h3>{{planRiderData['name']}}</h3>
+                  </div>
+               </ng-container>
+            </div>
+            <div class="row">
+               <div class="submenu-container">
+                  <app-carrier-menu-temp></app-carrier-menu-temp>
+                  <div *ngIf="policyFetchErrorFlag" class="container-fluid main-container">
+                     <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                           <h4>Opps..Something went wrong</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- <div *ngIf="policyInfoCount" class="container-fluid main-container">
+                     <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                           <span>There are no data</span>
+                        </div>
+                     </div>
+                  </div> -->
+                  <div *ngIf="!showPlanRiderList" class="container-fluid">
+                     <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right" style="margin-bottom: 10px;">
+                           <a class="btn btn-default cursor" (click)="backToRiderList()">&laquo; Previous</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div *ngIf="policyInfoPageShow && !policyFetchErrorFlag" class="main-container">
+                     <div *ngIf="showPlanRiderList" class="container-fluid">
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                              <!-- plan riders -->
+                              <div class="panel panel-default main-panel">
+                                 <div class="panel-heading main-panel-heading">
+                                    <h3 class="panel-title">Plan Riders</h3>
+                                    <div class="pull-right tool-list">
+                                       <a title="Filter Client" (click)="showFilterQuad =! showFilterQuad">
+                                          <i class="fa fa-filter" aria-hidden="true"></i>
+                                       </a>
+                                       <!-- <a (click)="addNewPlan('new')" title="New Carrier">
+                                          <i class="fa fa-plus" aria-hidden="true"></i>
+                                       </a> -->
+                                    </div>
+                                 </div>
+                                 <div class="panel-body">
+                                    <div *ngIf="showFilterQuad" class="b47PM-filter-quad1" style="margin: -15px -15px 15px -15px;padding: 10px 25px 10px 64px;">
+                                       <div class="row">
+                                          <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-3 rowPusher form-group">
+                                             <div class="row">
+                                                <label>Name</label>
+                                                <select class="form-control sideGraphClear" name="name" [(ngModel)]="planRiderName">
+                                                   <option value="" selected="selected">All</option>
+                                                   <option *ngFor="let type of productNameFilterList" value="{{ type }}">{{ type }}</option>
+                                                </select>
+                                             </div>
+                                          </div>
+                                          <div class="col-xs-offset-1 col-xs-10  col-sm-offset-0 col-sm-12">
+                                             <div class="row">
+                                                   <ng-container *ngIf="Filter['planRiderName'].length > 0">
+                                                      <div class="filter-box" *ngFor="let planRiderName of Filter.planRiderName; let i = index">
+                                                         <span [innerHtml]="planRiderName"></span>
+                                                         <i class="fa fa-times" aria-hidden="true" (click)="splicePlanRiderName(i);" role="button"></i>
+                                                      </div>
+                                                   </ng-container>
+                                             </div>
+                                          </div>
+                                       </div>
+
+                                       <div class="row">
+                                          <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-md-12 col-lg-12 text-right">
+                                             <div class="row filter-button">
+                                                <button type="button" class="btn btn-success" (click)="applyFilter()">Apply Filters</button>
+                                                <button type="button" class="btn btn-default" (click)="clearAllFilter()">Clear Filters</button>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="row">
+                                       <div *ngFor="let rider of scrapedPlanInfoData | exactSearchFilter:Filter.planRiderName; let i = index; odd as isOdd; even as isEven" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                          <div class="card">
+                                             <div class="card-img">
+                                                <img *ngIf="carrierInfo.imageIcon" class="card-img-top img-responsive" src="{{carrierInfo.imageIcon}}" alt="">
+                                                <img *ngIf="!carrierInfo.imageIcon" class="card-img-top img-responsive" src="/assets/img/icon/insurance_logo.png" alt="">
+                                             </div>
+                                             <div class="card-body">
+                                                <h5 class="card-title">{{rider?.name | uppercase}}</h5>
+                                                <div class="card-button-container">
+                                                   <a class="cursor btn btn-primary card-button" (click)="getScrapedRiderInfo(rider)">View More</a>
+                                                   <a class="cursor btn btn-primary card-button" (click)="visitRespectivePage(carrier)">Visit Page</a>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div *ngIf="planRiders.length === 0 && scrapedPlanInfoData.length === 0" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                          <span>There are no associated riders</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div *ngIf="!showPlanRiderList && planInfoRiderDisplayFlag" class="container-fluid">
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                              <!-- plan info -->
+                              <div class="panel panel-default main-info-panel">
+                                 <div class="panel-heading main-info-panel-heading">
+                                    <h3 class="panel-title">Plan Info</h3>
+                                    <!-- <div class="pull-right tool-list">
+                                          <a (click)="openPlanMetaDataModal(planMetaDataModal, policyInformation)" style="cursor: pointer;">
+                                             <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                          </a>
+                                    </div> -->
+                                 </div>
+                                 <div class="panel-body main-info-panel-body">
+                                    <div class="row">
+                                       <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
+                                          <header class="text-left">
+                                             <div class="text-title">
+                                                {{carrierInfo?.name}}
+                                             </div>
+                                          </header>
+
+                                          <div>
+                                             <div class="span4">
+                                                <div class="left-section">
+                                                   <span class="left-section-heading">Name</span>
+                                                   <span class="colon-span">:</span>
+                                                </div>
+                                                <div class="right-section">
+                                                   <span>{{policyInformation?.name | uppercase}}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div>
+                                             <div class="span4">
+                                                <div class="left-section">
+                                                   <span class="left-section-heading">Type</span>
+                                                   <span class="colon-span">:</span>
+                                                </div>
+                                                <div class="right-section">
+                                                   <span>{{policyInformation?.type?.displayText}}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div>
+                                             <div class="span4">
+                                                <div class="left-section">
+                                                   <span class="left-section-heading">Plan Type</span>
+                                                   <span class="colon-span">:</span>
+                                                </div>
+                                                <div class="right-section">
+                                                   <span>{{policyInformation?.planType?.displayText}}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div>
+                                             <div class="span4">
+                                                <div class="left-section">
+                                                   <span class="left-section-heading">Effective Date</span>
+                                                   <span class="colon-span">:</span>
+                                                </div>
+                                                <div class="right-section">
+                                                   <span>{{policyInformation?.effectiveDate | standardDateFormat}}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div *ngIf="policyInformation['expirationDate']">
+                                             <div class="span4">
+                                                <div class="left-section">
+                                                   <span class="left-section-heading">Expiration Date</span>
+                                                   <span class="colon-span">:</span>
+                                                </div>
+                                                <div class="right-section">
+                                                   <span>{{policyInformation?.expirationDate | standardDateFormat | ValidateValue}}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+                                          <figure>
+                                             <div class="header-img">
+                                                <img *ngIf="carrierInfo.imageIcon" class="header-img-top img-responsive" src="{{carrierInfo.imageIcon}}" alt="">
+                                                <img *ngIf="!carrierInfo.imageIcon" class="header-img-top img-responsive" src="/assets/img/icon/insurance_logo.png" alt="">
+                                             </div>
+                                          </figure>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="panel panel-default panel-table">
+                                 <div class="panel-heading main-panel-heading">
+                                    <h3 class="panel-title">Rider Commission Rates</h3>
+                                 </div>
+                                 <div *ngIf="planRiderData['riderSubterms'].length > 0" class="panel-body main-panel-body">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                       <div class="row">
+                                          <div class="table-responsive">
+                                             <table id="mytable" class="table table-bordered table-striped">
+                                                <thead>
+                                                   <tr>
+                                                      <th>Term</th>
+                                                      <th colspan="2">Commission</th>
+                                                      <th style="text-align: right">Rate</th>
+                                                      <th style="text-align: center">Effective Date</th>
+                                                      <th style="text-align: center">Expiry Date</th>
+                                                      <th style="width: 1px;">Actions</th>
+                                                   </tr>
+                                                </thead>
+                                                <ng-container *ngFor="let riderComm of planRiderData['riderSubterms']; let j = index">
+                                                   <tbody>
+                                                      <tr *ngFor="let rate of riderComm['commissionRates']; let k = index">
+                                                         <td style="vertical-align: middle;" [attr.rowspan]="riderComm['commissionRates'].length" *ngIf="k == 0">{{formatTerms(riderComm)}}</td>
+                                                         <td colspan="2">{{formatTerms(rate)}}</td>
+                                                         <td align="right">{{rate.commissionRate}}
+                                                            <span *ngIf="rate.commissionRate"> %</span>
+                                                         </td>
+                                                         <td align="center">{{rate.effectiveDate | standardDateFormat | ValidateTableValue}}</td>
+                                                         <td align="center">{{rate.expiryDate | standardDateFormat | ValidateTableValue}}
+                                                         </td>
+                                                         <td style="vertical-align: middle;" [attr.rowspan]="riderComm['commissionRates'].length" *ngIf="k == 0">
+                                                            <a (click)="openRiderCommRateModal(riderCommRateModal, riderComm)" style="cursor: pointer;" class="pull-right">
+                                                               <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                                            </a>
+                                                         </td>
+                                                      </tr>
+                                                   </tbody>
+                                                </ng-container>
+                                             </table>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div *ngIf="planRiderData['riderSubterms'].length === 0" class="panel-body">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                       <div class="row">
+                                          <p>You haven't add commission schedule.
+                                             <a class="cursor" (click)="addPlanRiderCommissionSchedule()">Click to add/import</a> commission</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+
+                           </div>
+                        </div>
+                     </div>
+                     <div *ngIf="!showPlanRiderList && !planInfoRiderDisplayFlag" class="container-fluid">
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                              <!-- carrier info -->
+                              <div class="panel panel-default main-info-panel">
+                                 <div class="panel-heading main-info-panel-heading">
+                                    <h3 class="panel-title">Plan Info</h3>
+                                    <!-- <div class="pull-right tool-list">
+                                          <a (click)="openPlanMetaDataModal(planMetaDataModal, policyInformation)" style="cursor: pointer;">
+                                             <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                          </a>
+                                    </div> -->
+                                 </div>
+                                 <div class="panel-body main-info-panel-body">
+                                    <div class="row">
+                                       <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
+                                          <header class="text-left">
+                                             <div class="text-title">
+                                                {{planObject?.institutionName}}
+                                             </div>
+                                          </header>
+
+                                          <div>
+                                             <div class="span4">
+                                                <div class="left-section">
+                                                   <span class="left-section-heading">Name</span>
+                                                   <span class="colon-span">:</span>
+                                                </div>
+                                                <div class="right-section">
+                                                   <span>{{planObject?.productName | uppercase}}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div>
+                                             <div class="span4">
+                                                <div class="left-section">
+                                                   <span class="left-section-heading">Type</span>
+                                                   <span class="colon-span">:</span>
+                                                </div>
+                                                <div class="right-section">
+                                                   <span>{{planObject?.categoryName}}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+                                          <figure>
+                                             <div class="header-img">
+                                                <img *ngIf="planObject?.productImageUrl" class="header-img-top img-responsive" src="{{planObject?.productImageUrl}}" alt="">
+                                                <img *ngIf="!planObject?.productImageUrl" class="header-img-top img-responsive" src="/assets/img/icon/insurance_logo.png" alt="">
+                                             </div>
+                                          </figure>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+
+                           </div>
+
+                           <!-- Rider features -->
+                           <div *ngIf="planRiderData?.productFeatures.length > 0" class="col-sm-12 col-sm-12">
+                              <div class="panel panel-default">
+                                 <div class="panel-heading">
+                                    <h3 class="panel-title">Rider Fetures</h3>
+                                 </div>
+                                 <div class="panel-body">
+                                    <div *ngFor="let item of planRiderData?.productFeatures" class="portfolio-container media-list" style="margin-top: 0px;">
+                                          <div class="media">
+                                             <!-- <div class="media-left">
+                                                <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="Avatar" style="width:90px">
+                                             </div> -->
+                                             <div class="media-body">
+                                                <h4 class="media-heading">{{item.key}}</h4>
+                                                <p>
+                                                   {{item.value}}
+                                                </p>
+                                             </div>
+                                          </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Notification component -->
+<app-common-notification #notificationComponent></app-common-notification>

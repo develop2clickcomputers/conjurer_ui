@@ -1,0 +1,1045 @@
+<ng-template #policyModal>
+    <div class="modal-header">
+        <button type="button" (click)="closePolicyModal()" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+       <h3 class="modal-title">Insurance Form</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <form [formGroup]="mainPolicyForm" novalidate (ngSubmit)="submitInsurance()">
+                    <!-- first section -->
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="panel panel-info">
+                                <div class="panel-body">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <label>Carrier Name
+                                                            <sup>
+                                                                <i class="fa fa-asterisk mandatory-field" aria-hidden="true"></i>
+                                                            </sup>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-sm-10 form-group">
+                                                        <div class="input-group">
+                                                            <select name="carrierName" formControlName="carrierName" (change)="onCarrierSelect()" class="form-control">
+                                                                <option value="" selected>-select carrier-</option>
+                                                                <option *ngFor="let carrier of carriers | orderBy: 'name': false" [value]="carrier.id">{{carrier.name}}</option>
+                                                            </select>
+                                                            <span class="custom input-group-addon">
+                                                                <a (click)="openCarrierModal()" title="Add New Carrier">
+                                                                    <img src="/assets/img/icon/dropdown_menu.png" class="dropdown-menu-icon">
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <label>Carrier Abbrevation</label>
+                                                    </div>
+                                                    <div class="col-sm-10 form-group">
+                                                        <input type="text" class="form-control" formControlName="carrierAbbr">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <label>Plan Name
+                                                            <sup>
+                                                                <i class="fa fa-asterisk mandatory-field" aria-hidden="true"></i>
+                                                            </sup>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-sm-10 form-group">
+                                                        <div class="input-group">
+                                                            <select formControlName="policyName" (change)="onPlanSelect()" class="form-control">
+                                                                <option value="" selected>-select plan-</option>
+                                                                <option *ngFor="let plan of policyInformationData | orderBy: 'name': false" [value]="plan.id">{{plan.name}}</option>
+                                                            </select>
+                                                            <span class="custom input-group-addon">
+                                                                <a (click)="openPlanInfoModal(mainPolicyForm)" title="Add New Plan">
+                                                                    <img src="/assets/img/icon/dropdown_menu.png" class="dropdown-menu-icon">
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <label>Plan Type</label>
+                                                    </div>
+                                                    <div class="col-sm-10 form-group">
+                                                        <input type="text" class="form-control" formControlName="policyType">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                    <label>Policy No.
+                                                        <sup>
+                                                            <i class="fa fa-asterisk mandatory-field" aria-hidden="true"></i>
+                                                        </sup>
+                                                    </label>
+                                                    </div>
+                                                    <div class="col-sm-10 form-group">
+                                                        <input type="text" formControlName="policyNumber" class="form-control" maxlength="20">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                    <label>Maturity Date</label>
+                                                    </div>
+                                                    <div class="col-sm-10 form-group">
+                                                        <my-date-picker #myDatePicker class="myDatePicker" [options]="myDatePickerOptions" formControlName="maturityDate" (dateChanged)="onPolicyMaturityDateChanged($event)"
+                                                            disabled></my-date-picker>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- third section (sum assured) -->
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="panel panel-info">
+                                <div class="panel-body">
+                                    <div class="col-sm-12" style="margin-top: 12px;">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <label>Currency<sup><i class="fa fa-asterisk mandatory-field" aria-hidden="true"></i></sup></label>
+                                                    </div>
+                                                    <div class="col-sm-10 form-group">
+                                                        <select formControlName="currency" (change)="onCurrencyChange()" class="form-control">
+                                                            <option value="">Select currency</option>
+                                                            <optgroup label="Popular Currencies">
+                                                                <option *ngFor="let currency of popularCurrencyList | orderBy: 'name'" value="{{currency.code}}">{{currency.name}} ({{currency.code}})</option>
+                                                            </optgroup>
+                                                            <optgroup label="All Currencies">
+                                                                <option *ngFor="let currency of currencyList | orderBy: 'name'" value="{{currency.code}}">{{currency.name}} ({{currency.code}})</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <label>Basic Face Value</label>
+                                                    </div>
+                                                    <div class="col-sm-10 form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                            <input type="text" appNumberFormatter formControlName="basicFaceValue" (input)="setBasicValueToOtherFields()" class="form-control"> <!-- appNumberFormatter  -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <h5>Sum Assured</h5>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                    <label>Death</label>
+                                                    </div>
+                                                    <div class="col-sm-10 form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                            <input type="text" appNumberFormatter formControlName="death" (change)="onChangePopulatedPolicyInputField()" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                    <label>Permanent Disability</label>
+                                                    </div>
+                                                    <div class="col-sm-10 form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                            <input type="text" appNumberFormatter formControlName="permanentDisability" (change)="onChangePopulatedPolicyInputField()" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                    <label>Critical Illness</label>
+                                                    </div>
+                                                    <div class="col-sm-10 form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                            <input type="text" appNumberFormatter formControlName="criticalIllness" (change)="onChangePopulatedPolicyInputField()" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                    <label>Accidental Death</label>
+                                                    </div>
+                                                    <div class="col-sm-10 form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                            <input type="text" appNumberFormatter formControlName="accidentalDeath" (change)="onChangePopulatedPolicyInputField()" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advisors area -->
+                    <!-- <div class="col-sm-12">
+                        <div class="row">
+                            <div formArrayName="advisors" class="">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <span>Advisors</span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div>
+                                            <div class="form-group col-xs-4">
+                                                <label>Advisor Name</label>
+                                            </div>
+                                            <div class="form-group col-xs-3">
+                                                <label>Split(%)</label>
+                                            </div>
+                                            <div class="form-group col-xs-1">
+                                                <label>Primary</label>
+                                            </div>
+                                            <div class="form-group col-xs-3">
+                                                <label>&nbsp;</label>
+                                            </div>
+                                            <div class="form-group col-xs-1">
+                                                <label>Action</label>
+                                            </div>
+                                        </div>
+                                        <ng-container *ngFor="let advisor of mainPolicyForm['controls'].advisors['controls']; let i = index">
+                                            <div [formGroupName]="i">
+                                                <div class="form-group col-xs-4">
+                                                    <select name="adv" formControlName="advisor" class="form-control">
+                                                        <option value="">-select Advisor-</option>
+                                                        <option *ngFor="let advisor of advisorList" value="{{advisor.id}}">
+                                                        <span>{{advisor.firstName}}</span>&nbsp;
+                                                        <span>{{advisor.lastName}}</span>
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-xs-3">
+                                                    <input type="text" appNumberFormatter class="form-control" formControlName="commissionPercent">
+                                                </div>
+                                                <div class="form-group col-xs-1">
+                                                    <input type="radio" formControlName="primary" [checked]="mainPolicyForm['controls'].advisors.controls[i].controls.primary.value"
+                                                        (click)="onAdvisorPrimaryChange(i, $event)">
+                                                </div>
+                                                <div class="form-group col-xs-3">
+                                                    <span>&nbsp;</span>
+                                                </div>
+                                                <div class="form-group col-xs-1 action-section">
+                                                    <button type="button" (click)="addPrimaryAdvisor()" class="btn btn-default btn-xs"
+                                                        title="Add"><span class="glyphicon glyphicon-plus"></span>
+                                                    </button>
+                                                    <button type="button" [disabled]="mainPolicyForm.controls.advisors.controls.length < 2 || mainPolicyForm['controls'].advisors.controls[i].controls.primary.value" (click)="removePrimaryAdvisor(i)"
+                                                        class="btn btn-danger btn-xs" title="Delete">
+                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- Third section policy premium -->
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <!-- Policy premium -->
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Policy Premium
+                                        <sup>
+                                            <i class="fa fa-asterisk mandatory-field" aria-hidden="true"></i>
+                                        </sup>
+                                    </h3>
+                                </div>
+                                <div formArrayName="policyPremium" class="panel-body">
+                                    <ng-container *ngFor="let policyPrem of mainPolicyForm['controls'].policyPremium['controls']; let i = index">
+                                        <div [formGroupName]="i">
+                                            <div formGroupName="premium">
+                                                <div class="col-sm-4 nopadding">
+                                                    <div class="input-group">
+                                                        <input type="text" formControlName="premium" class="form-control" placeholder="Premium">
+                                                        <span class="custom input-group-addon">
+                                                            <span [tooltip]="totalPremiumTooltip1" tooltipPlacement="top"><i class="fa fa-info-circle"></i></span>
+                                                            <tooltip-content #totalPremiumTooltip1 [animation]="true" placement="right">
+                                                                <span>Gross Premium and Loading Premium</span>
+                                                            </tooltip-content>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 nopadding">
+                                                    <div class="form-group">
+                                                        <select formControlName="premiumFrequency" [(ngModel)]="policyPremiumFrequency" (change)="changePolicyPremiumFrequency()" class="form-control">
+                                                            <option value="">Premium Frequency</option>
+                                                            <option value="annually">Annually</option>
+                                                            <option value="semi-annually">Semi-annually</option>
+                                                            <option value="quarterly">Quarterly</option>
+                                                            <option value="monthly">Monthly</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-4 nopadding">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                            <input type="text" appNumberFormatter formControlName="amount" class="form-control" placeholder="Amount" style="text-align: right">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div formGroupName="loadingPremium">
+                                                <div class="col-sm-4 nopadding">
+                                                    <div class="input-group">
+                                                        <input type="text" formControlName="premium" class="form-control" placeholder="Loading Premium">
+                                                        <span class="custom input-group-addon">
+                                                            <span [tooltip]="totalPremiumTooltip2" tooltipPlacement="top"><i class="fa fa-info-circle"></i></span>
+                                                            <tooltip-content #totalPremiumTooltip2 [animation]="true" placement="right">
+                                                                <span>GST and other charges</span>
+                                                            </tooltip-content>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4 nopadding">
+                                                    <div class="form-group">
+                                                        <select formControlName="premiumFrequency" [(ngModel)]="policyPremiumFrequency" (change)="changePolicyPremiumFrequency()" class="form-control">
+                                                            <option value="">Premium Frequency</option>
+                                                            <option value="annually">Annually</option>
+                                                            <option value="semi-annually">Semi-annually</option>
+                                                            <option value="quarterly">Quarterly</option>
+                                                            <option value="monthly">Monthly</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-4 nopadding">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                            <input type="text" appNumberFormatter formControlName="amount" class="form-control" placeholder="Amount" style="text-align: right">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="panel panel-info">
+                                <div class="panel-body">
+                                    <div>
+                                        <div class="col-sm-4 nopadding">
+                                            <span>Total Premium</span>
+                                            <span [tooltip]="totalPremiumTooltip" tooltipPlacement="top"><i class="fa fa-info-circle"></i></span>
+                                            <tooltip-content #totalPremiumTooltip [animation]="true" placement="right">
+                                                <span>Model premium * frequency</span><br />
+                                                <span>eg. For monthly premium mode</span><br />
+                                                <span>Annual Premium = Model premium * 12</span>
+                                            </tooltip-content>
+                                        </div>
+                                        <div class="col-sm-3 nopadding">
+                                            <span>Annual</span>
+                                        </div>
+
+                                        <div class="col-sm-2 nopadding text-right">
+                                            <span>{{totalPolicyPremiumAmount}}</span>
+                                        </div>
+
+                                        <div class="col-sm-2 nopadding">
+                                            &nbsp;
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- rider premium details(fifth section) -->
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Rider Premiums</h3>
+                                </div>
+                                <!-- Rider premium -->
+                                <div formArrayName="riderPremium" class="panel-body">
+                                    <ng-container *ngFor="let riderPrem of mainPolicyForm['controls'].riderPremium['controls']; let i = index">
+                                        <ng-container [formGroupName]="i">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="input-group">
+                                                            <select name="" formControlName="rider" class="form-control" (change)="onPolicyPlanRiderChange(i)">
+                                                                <option value="">select rider</option>
+                                                                <option *ngFor="let planRider of policyPlanRiders | orderBy: 'name': false" value="{{planRider.id}}">{{planRider.name}}</option>
+                                                            </select>
+                                                            <span class="custom input-group-addon">
+                                                                <a (click)="openRiderModal()" title="Add New Rider">
+                                                                    <img src="/assets/img/icon/dropdown_menu.png" class="dropdown-menu-icon">
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                    </div>
+                                                    <div class="col-sm-2 text-right">
+                                                        <button type="button" (click)="addRiderPremium()" class="btn btn-default btn-xs"
+                                                            title="Add"><span class="glyphicon glyphicon-plus"></span>
+                                                        </button>
+                                                        <button type="button" [disabled]="mainPolicyForm.controls.riderPremium.controls.length < 2"
+                                                            (click)="removeRiderPremium(i)" class="btn btn-danger btn-xs"
+                                                            title="Delete"><span class="glyphicon glyphicon-trash"></span>
+                                                        </button>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div>
+                                                        <div class="col-sm-12">
+                                                            <h5>Sum Assured</h5>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <label>Death</label>
+                                                                        </div>
+                                                                        <div class="col-sm-12 form-group">
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                                                <input type="text" appNumberFormatter formControlName="death" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <label>Permanent Disability</label>
+                                                                        </div>
+                                                                        <div class="col-sm-12 form-group">
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                                                <input type="text" appNumberFormatter formControlName="permanentDisability" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <label>Critical Illness</label>
+                                                                        </div>
+                                                                        <div class="col-sm-12 form-group">
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                                                <input type="text" appNumberFormatter formControlName="criticalIllness" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <label>Accidental Death</label>
+                                                                        </div>
+                                                                        <div class="col-sm-12 form-group">
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                                                <input type="text" appNumberFormatter formControlName="accidentalDeath" class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div formGroupName="premium">
+                                                            <div class="col-sm-4 nopadding">
+                                                                <div class="form-group">
+                                                                    <input type="text" formControlName="premium" class="form-control" placeholder="Premium">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4 nopadding">
+                                                                <div class="form-group">
+                                                                    <select formControlName="premiumFrequency" class="form-control">
+                                                                        <option value="">Premium Frequency</option>
+                                                                        <option value="annually">Annually</option>
+                                                                        <option value="semi-annually">Semi-annually</option>
+                                                                        <option value="quarterly">Quarterly</option>
+                                                                        <option value="monthly">Monthly</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-4 nopadding text-right">
+                                                                <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                                        <input type="text" appNumberFormatter formControlName="amount" class="form-control" placeholder="Amount" style="text-align: right">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="clear"></div>
+                                                        </div>
+                                                        <div formGroupName="loadingPremium">
+                                                            <div class="col-sm-4 nopadding">
+                                                                <div class="form-group">
+                                                                    <input type="text" formControlName="premium" class="form-control" placeholder="Loading Premium">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4 nopadding">
+                                                                <div class="form-group">
+                                                                    <select formControlName="premiumFrequency" class="form-control">
+                                                                        <option value="">Premium Frequency</option>
+                                                                        <option value="annually">Annually</option>
+                                                                        <option value="semi-annually">Semi-annually</option>
+                                                                        <option value="quarterly">Quarterly</option>
+                                                                        <option value="monthly">Monthly</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-4 nopadding text-right">
+                                                                <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                                        <input type="text" appNumberFormatter formControlName="amount" class="form-control" placeholder="Amount" style="text-align: right">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="clear"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                    </ng-container>
+                                    <div class="panel panel-info">
+                                        <div class="panel-body">
+                                            <div>
+                                                <div class="col-sm-4 nopadding">
+                                                    <span>Rider Premium</span>
+                                                </div>
+                                                <div class="col-sm-3 nopadding">
+                                                    <span>Annual</span>
+                                                </div>
+
+                                                <div class="col-sm-2 nopadding text-right">
+                                                    <span>{{totalRiderPremiumAmount}}</span>
+                                                </div>
+
+                                                <div class="col-sm-2 nopadding">
+                                                    &nbsp;
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="panel panel-info">
+                                <div class="panel-body">
+                                    <div>
+                                        <div class="col-sm-4 nopadding">
+                                            <span>Annualized Premium & Rider Premium</span>
+                                        </div>
+                                        <div class="col-sm-3 nopadding">
+                                            <span>Annual</span>
+                                        </div>
+
+                                        <div class="col-sm-2 nopadding text-right">
+                                            <span>{{totalPremiumAmount}}</span>
+                                        </div>
+
+                                        <div class="col-sm-2 nopadding">
+                                            &nbsp;
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 text-right filter-button" style="margin-bottom: 15px;">
+                        <div class="row">
+                            <span id="addPolicyError" class="pm-red pull-left"></span>
+                            <button type="button" class="btn btn-warning" (click)="closePolicyModal()">Cancel</button>
+                            <button type="button" (click)="submitInsurance()" class="btn btn-primary">Submit</button>
+                            <img *ngIf="addPolicyLoader" src="/assets/img/loader/spin.gif" />
+                        </div>
+                    </div>
+                </form>
+    
+                <!-- <div class="margin-20" style="margin-top: 20px;">
+                        <div>mainPolicyForm details:-</div>
+                        <pre>Is mainPolicyForm valid?: <br>{{mainPolicyForm.valid | json}}</pre>
+                        <pre>form value: <br>{{mainPolicyForm.value | json}}</pre>
+                    </div> -->
+            </div>
+        </div>
+    </div>
+</ng-template>
+    
+<!-- dorpdown component -->
+<app-dropdown #dropdownComponent (onDropdownChanged)="onDropdownChanged($event)"></app-dropdown>
+
+<!-- <app-new-policy-rider #appNewPolicyRiderComponent [selectedCarrierId]="selectedCarrierId" [selectedPolicyPlanId]="selectedPolicyPlanId" (onImportOrAddRiderChange)="onImportOrAddRiderChange($event)"></app-new-policy-rider> -->
+
+<!-- <app-import-rider #appImportRiderComponent [selectedCarrierId]="selectedCarrierId" [selectedPolicyPlanId]="selectedPolicyPlanId" (onImportOrAddRiderChange)="onImportOrAddRiderChange($event)"></app-import-rider> -->
+
+<!-- carrierModal view -->
+<ng-template #carrierInfoModal>
+    <div class="modal-header">
+        <button type="button" (click)="closeCarrierInfoModal()" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title">Carrier Information Form</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <!-- Nav tabs -->
+            <form [formGroup]="carrierInfoForm" novalidate (ngSubmit)="submitCarrierInfo()">
+                <!-- <legend>Carrier Information Form</legend> -->
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label>Carrier Name<sup><i class="fa fa-asterisk mandatory-field" aria-hidden="true"></i></sup></label>
+                        </div>
+                        <div class="col-sm-10 form-group">
+                            <input appControlUpperCase type="text" class="form-control" formControlName="carrierName">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label>Carrier Abbrevation<sup><i class="fa fa-asterisk mandatory-field" aria-hidden="true"></i></sup></label>
+                        </div>
+                        <div class="col-sm-10 form-group">
+                            <input appControlUpperCase type="text" class="form-control" formControlName="carrierAbbr">
+                        </div>
+                        <div class="col-sm-2 form-group text-right">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- add icon for carrier -->
+                <!-- <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="form-group">
+                                        <div class="carrier-image-quad" style="min-height: 120px;">
+                                            <img *ngIf="carrierInfoForm.get('carrierIcon').value" id="profileImage" class="default-carrier-icon" src="{{carrierInfoForm.get('carrierIcon').value}}" alt=""> 
+                                            <img *ngIf="!carrierInfoForm.get('carrierIcon').value" id="profileImage" class="default-carrier-icon" src="/assets/img/icon/insurance_logo.png" alt=""> 
+                                            <div class="custom-file-uploader cursor">
+                                                <span>Browse Icon</span>
+                                                <input type="file" class="cursor" (change)="validateIcon($event)"/>
+                                            </div>
+                                        </div>
+                                        <div class="text-left" style="margin-top: 6px;">
+                                            <button class="btn btn-default" type="button" (click)="clearImage()">Clear</button>
+                                        </div>
+                                        <p id="carrierIconError" class="pm-red help-block"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <h4>Additional Details
+                        <span class="cursor" (click)="showAdditionnalDetails =! showAdditionnalDetails">
+                            &nbsp;
+                            <i *ngIf="!showAdditionnalDetails" class="fa fa-plus-circle"></i>
+                            <i *ngIf="showAdditionnalDetails" class="fa fa-minus-circle"></i>
+                        </span>
+                    </h4>
+                </div> -->
+                <!-- phone number -->
+                <!-- <div [hidden]="!showAdditionnalDetails" class="col-sm-12" formArrayName="phoneNumberList">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <span>Phone Numbers</span>
+                        </div>
+                        <div class="panel-body">
+                            <div>
+                                <div class="form-group col-xs-3">
+                                    <label>Type</label>
+                                </div>
+                                <div class="form-group col-xs-2">
+                                    <label>Country Code</label>
+                                </div>
+                                <div class="form-group col-xs-2">
+                                    <label>Area code</label>
+                                </div>
+                                <div class="form-group col-xs-3">
+                                    <label>Number</label>
+                                </div>
+                                <div class="form-group col-xs-1">
+                                    <label>Primary</label>
+                                </div>
+                                <div class="form-group col-xs-1">
+                                    <label>Action</label>
+                                </div>
+                            </div>
+                            <ng-container *ngFor="let phone_no of carrierInfoForm['controls'].phoneNumberList['controls']; let j = index">
+                                <div [formGroupName]="j">
+                                    <div class="form-group col-xs-3">
+                                        <select formControlName="type" name="" class="form-control">
+                                            <option value="" selected>-select Phone Type-</option>
+                                            <option *ngFor="let phType of phoneTypeList" [value]="phType.value">{{phType.displayText}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-xs-2">
+                                        <input type="text" appControlNumber class="form-control" formControlName="countryCode">
+                                    </div>
+                                    <div class="form-group col-xs-2">
+                                        <input type="text" appControlNumber class="form-control" formControlName="areaCode">
+                                    </div>
+                                    <div class="form-group col-xs-3">
+                                        <input appControlNumber type="text" class="form-control" formControlName="number">
+                                    </div>
+                                    <div class="form-group col-xs-1">
+                                        <input type="radio" formControlName="primary"
+                                            [checked]="carrierInfoForm['controls'].phoneNumberList.controls[j].controls.primary.value" (click)="onPhoneNumberPrimaryChange(j, $event)">
+                                    </div>
+                                    <div class="form-group col-xs-1 action-section">
+                                        <button type="button" (click)="addPhoneNumbers()" class="btn btn-default btn-xs"
+                                            title="Add"><span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                        <button type="button" [disabled]="carrierInfoForm.controls.phoneNumberList.controls.length < 2 || carrierInfoForm['controls'].phoneNumberList.controls[j].controls.primary.value"
+                                            (click)="removePhoneNumbers(j)" class="btn btn-danger btn-xs"
+                                            title="Delete"><span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div> -->
+                <!--addressList-->
+                <!-- <div [hidden]="!showAdditionnalDetails" class="col-sm-12" formArrayName="addressList" style="margin-top: 20px;">
+                    <div *ngFor="let address of carrierInfoForm['controls'].addressList['controls']; let i = index" class="panel panel-info">
+                        <div class="panel-heading text-right">
+                            <span class="pull-left">Address</span>
+                            <button type="button" [disabled]="carrierInfoForm.controls.addressList.controls.length < 2 || carrierInfoForm['controls'].addressList.controls[i].controls.primary.value"
+                                (click)="removeAddress(i)" class="btn btn-danger btn-xs"
+                                title="Delete"><span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </div>
+                        <div class="panel-body" [formGroupName]="i">
+                            <div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <label>Address Type</label><br />
+                                    <select formControlName="type" class="form-control">
+                                        <option value="" selected>-select Address Type-</option>
+                                        <option *ngFor="let addType of addressTypeList" [value]="addType.value">{{addType.displayText}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <label>Unit No</label><br />
+                                    <input type="text" class="form-control" formControlName="unitNo">
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <label>Address 1</label><br />
+                                    <input type="text" class="form-control" formControlName="address1">
+                                </div>
+
+                                <div class="form-group col-xs-6">
+                                    <label>Address 2</label><br />
+                                    <input type="text" class="form-control" formControlName="address2">
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <label>City</label><br />
+                                    <input type="text" class="form-control" formControlName="city">
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <label>State</label><br />
+                                    <input type="text" class="form-control" formControlName="state">
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <label>Country</label><br />
+                                    <input type="text" class="form-control" formControlName="country">
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <label>Pin Code</label><br />
+                                    <input appControlNumber type="text" class="form-control" formControlName="pinCode" maxlength="6">
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    <label>Primary</label><br />
+                                    <input type="radio" formControlName="primary"
+                                    [checked]="carrierInfoForm['controls'].addressList.controls[i].controls.primary.value" (click)="onAddressPrimaryChange(i, $event)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div [hidden]="!showAdditionnalDetails" class="margin-20">
+                    <div class="col-sm-12">
+                        <a (click)="addAddress()" class="btn btn-primary">
+                                Add another address +
+                            </a>
+                    </div>
+                </div> -->
+
+                <div class="col-sm-12" style="margin-top: 5px;">
+                    <label id="addCarrierInformationErrorMsg" class="pm-red"></label>
+                </div>
+                <div class="col-sm-12 text-right filter-button" style="margin-bottom: 15px;">
+                    <button type="button" class="btn btn-warning" (click)="closeCarrierInfoModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!carrierInfoForm.valid || carrierFormButton">Submit</button>
+                    <img *ngIf="contactInfoDataLoading" src="/assets/img/loader/spin.gif" />
+                </div>
+                <div class="clearfix"></div>
+                <!-- <div class="margin-20">
+                    <div>carrierInfoForm details:-</div>
+                    <pre>Is carrierInfoForm valid?: <br>{{carrierInfoForm.valid | json}}</pre>
+                    <pre>form value: <br>{{carrierInfoForm.value | json}}</pre>
+                </div> -->
+            </form>
+          </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #planInfoModal>
+    <div class="modal-header">
+        <button type="button" (click)="closePlanInfoModal()" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title">Plan Information</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <form role="form" [formGroup]="policyInfoForm" (ngSubmit)="submitPolicyInfo()">
+                    <!-- plan name -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Carrier Name<sup><i class="fa fa-asterisk mandatory-field" aria-hidden="true"></i></sup></label>
+                                </div>
+                                <div class="col-sm-10 form-group">
+                                    <select name="carrierName" formControlName="carrierName" (change)="onCarrierSelect()" class="form-control">
+                                        <option value="" selected>-select carrier-</option>
+                                        <option *ngFor="let carrier of carriers | orderBy: 'name': false" [value]="carrier.id">{{carrier.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Product Name<sup><i class="fa fa-asterisk mandatory-field" aria-hidden="true"></i></sup></label>
+                                </div>
+                                <div class="col-sm-10 form-group">
+                                    <input type="text" formControlName="productName" class="form-control" placeholder="Product Name">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- type -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Type<sup><i class="fa fa-asterisk mandatory-field" aria-hidden="true"></i></sup></label>
+                                </div>
+                                <div class="col-sm-10 form-group">
+                                    <select formControlName="type" class="form-control">
+                                        <option value="">-select type-</option>
+                                        <option *ngFor="let policyType of policyTypes | orderBy: 'displayText': false" [value]="policyType.value" [selected]="policyType.value == policyInfoForm.get('type').value">{{policyType.displayText}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <!-- plan type -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Plan Type<sup><i class="fa fa-asterisk mandatory-field" aria-hidden="true"></i></sup></label>
+                                </div>
+                                <div class="col-sm-10 form-group">
+                                    <select formControlName="planType" class="form-control">
+                                        <option value="" selected>-select plan type-</option>
+                                        <option *ngFor="let planType of policyPlanTypes | orderBy: 'displayText': false" [value]="planType.value" [selected]="planType.value == policyInfoForm.get('planType').value">{{planType.displayText}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12" style="margin-top: 5px;">
+                        <label id="addPolicyInformationErrorMsg" class="pm-red"></label>
+                    </div>
+
+                    <div  class="col-sm-12 text-right filter-button" style="margin-bottom: 15px;">
+                        <button type="button" class="btn btn-warning" (click)="closePlanInfoModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <img *ngIf="copyAndCreateNewDataLoading" src="/assets/img/loader/spin.gif" />
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <!-- <div class="margin-20">
+                        <div>policyInfoForm details:-</div>
+                        <pre>Is policyInfoForm valid?: <br>{{policyInfoForm.valid | json}}</pre>
+                        <pre>form value: <br>{{policyInfoForm.value | json}}</pre>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<!-- riderModal view -->
+<ng-template #riderModal>
+    <div class="modal-header">
+        <button type="button" (click)="closeRiderModal()" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title">Rider Information Form</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <form role="form" [formGroup]="riderInfoForm" (ngSubmit)="submitRiderInfo()">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Carrier Name<sup><i class="fa fa-asterisk mandatory-field" aria-hidden="true"></i></sup></label>
+                                </div>
+                                <div class="col-sm-10 form-group">
+                                    <select formControlName="carrierName" (change)="onCarrierChangeInRiderForm()" class="form-control">
+                                        <option value="">-select carrier-</option>
+                                        <option *ngFor="let carrier of carriers | orderBy: 'name': false" [value]="carrier.id">{{carrier.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Plan Name<sup><i class="fa fa-asterisk mandatory-field" aria-hidden="true"></i></sup></label>
+                                </div>
+                                <div class="col-sm-10 form-group">
+                                    <div class="input-group">
+                                        <select formControlName="planName" class="form-control" (change)="on">
+                                            <option value="" selected>-select plan-</option>
+                                            <option *ngFor="let plan of carrierPlanData | orderBy: 'name': false" [value]="plan.id">{{plan.name}}</option>
+                                        </select>
+                                        <span class="custom input-group-addon">
+                                            <a (click)="openPlanInfoModal(riderInfoForm)" title="Add New Plan" [class.disabled]="!riderInfoForm.controls.carrierName.value">
+                                                <img src="/assets/img/icon/dropdown_menu.png" class="dropdown-menu-icon">
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Rider Name<sup><i class="fa fa-asterisk mandatory-field" aria-hidden="true"></i></sup></label>
+                                </div>
+                                <div class="col-sm-10 form-group">
+                                    <input type="text" formControlName="riderName" class="form-control" placeholder="Rider Name">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12" style="margin-top: 5px;">
+                        <label id="addRiderInformationErrorMsg" class="pm-red"></label>
+                    </div>
+
+                    <div class="col-sm-12 text-right filter-button" style="margin-bottom: 15px;">
+                        <button type="button" class="btn btn-warning" (click)="closeRiderModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <img *ngIf="addRiderLoader" src="/assets/img/loader/spin.gif" />
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <!-- <div class="margin-20">
+                        <div>riderInfoForm details:-</div>
+                        <pre>Is riderInfoForm valid?: <br>{{riderInfoForm.valid | json}}</pre>
+                        <pre>form value: <br>{{riderInfoForm.value | json}}</pre>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,1064 @@
+<div class="b47PM-wrapper logged-in">
+  <!-- "logged-in" add this class when user login successfully -->
+  <!-- Header Part Html Starts -->
+  <app-authorised-header></app-authorised-header>
+  <!-- Header Part Html Ends -->
+
+  <!-- Loader section -->
+  <div class="b47PM-center-body" *ngIf="!reviewPageLoad && !reviewRepoError">
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <img src="/assets/img/loader/page_loading.gif">
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="reviewRepoError">
+    <div class="container-fluid b47PM-container budget-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-budget-quad1 grey-quad" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h4>Oops! Something went wrong!!!</h4>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" style="display: none;"> <!--  *ngIf="!reviewRepoError && reviewPageLoad" -->
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1 grey-quad" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h4>You haven't uploaded statement</h4>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Display Html Starts -->
+  <div class="b47PM-center-body" *ngIf="reviewPageLoad && !reviewRepoError">
+    <div class="container-fluid b47PM-container">
+      <div class="col-xs-12 b47PM-preview-quad">
+        <div class="row clearfix">
+          <h4>Preview of your account summary</h4>
+          <p>Reading PDF or CSV statements is a complex task. While we strive to fetch information from account statements accurately,
+            we request you to confirm the preview to ensure there are no unintended errors.<br>The entries below are <strong>editable</strong>            and you can change them if we have captured your details wrongly.<br> Rest assured that we do not save any of
+            your personal details on the statement.
+          </p>
+          <div class="misc-table-showcase">
+
+            <!-- Bank details -->
+            <h4 *ngIf="statementPreviewData['banks'] && statementPreviewData['banks'].length > 0">Bank Accounts</h4> <!-- *ngIf="bankShow" -->
+            <div *ngIf="statementPreviewData['banks'] && statementPreviewData['banks'].length > 0" class="table b47PM-misc-table1 b47PM-statement-tbl1"> <!-- *ngIf="bankShow" -->
+              <header class="clearfix">
+                <div>&nbsp;</div>
+                <div style="width: 20%;">BANK NAME</div>
+                <div style="width: 20%;">ACCOUNT NUMBER</div>
+                <div style="width: 20%;">STATEMENT DATE</div>
+                <div style="width: 12%;">CURRENCY</div>
+                <div style="width: 21%;text-align: right;">BALANCE</div>
+              </header>
+              <div class="tbl-body">
+                <div *ngIf="statementPreviewDataLoader" class="record-row text-center" style="height: 40px;padding-top: 6px">
+                    Loading...
+                </div>
+                <div class="record-row" *ngFor="let bankData of statementPreviewData.banks; let i = index" id="bank_{{j}}"><!-- ".edit-mode" add this class when user click on tr(row) --> <!-- add .edit for inline edit -->
+                  <div width="100%" class="table inner-data-table">
+                    <header class="row edit_bank_row cursor clearfix" id="{{i}}"> <!-- data-bank-id="{{bankData.id}}" -->
+                      <div class="restrictClickChange">
+                        <a class="toggle-expand-btn cursor" id="bank_toggle_{{i}}" (click)="bankData.showChildTable = !bankData.showChildTable" [class.open]="bankData.showChildTable"><!-- ".open" add this class when user clicks on + icon -->
+                          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                          <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                      <div class="restrictClickChange">
+                        <input *ngIf="bankData.confirmed == 1" ng-init="bankData.isBankAccountSelected = true" class="bankAccountCheckbox" type="checkbox" [(ngModel)]="bankData.isBankAccountSelected" (change)="toggleAllBankAccountTxn(bankData)" disabled>
+                        <input *ngIf="bankData.confirmed == 0" class="bankAccountCheckbox" type="checkbox" [(ngModel)]="bankData.isBankAccountSelected" (change)="toggleAllBankAccountTxn(bankData)"> <!-- first checkbox --> <!-- val="{{bankData.confirmedFlag}}" -->
+                      </div>
+                      <div class="truncatequd" title="" style="width: 20%;">
+                        <span class="bank-text" id="bank_text_inst_{{i}}">{{bankData.institutionName}}</span>
+                        <!-- <input type="text" id="bank_input_inst_{{i}}" class="bank-editbox form-control" value="{{bankData.institutionName}}" disabled> -->
+                      </div>
+                      <div class="truncatequd" title="" style="width: 20%;">
+                        <span class="bank-text" id="bank_text_accno_{{i}}">{{bankData.accountNumber}}</span>
+                        <!-- <input type="text" id="bank_input_accno_{{i}}" class="bank-editbox form-control" value="{{bankData.accountNumber}}" disabled> -->
+                      </div>
+                      <div class="truncatequd" style="width: 20%;">
+                        <span class="bank-text" id="bank_text_stDate_{{i}}">{{bankData.billDate | dateFormat: 'DD-MM-YYYY'}}</span>
+                        <!-- <input type="text" id="bank_input_stDate_{{i}}" class="bank-editbox form-control date" value="{{bankData.billDate | dateFormat: 'DD-MM-YYYY'}}"> -->
+                      </div>
+                      <div class="truncatequd" title="" style="width: 12%;">
+                        <span class="bank-text" id="bank_text_curr_{{i}}">{{bankData.currency}}</span>
+                        <!-- <select class="bank-editbox form-control" ng-init="bank.currency = bankData.currency" [(ngModel)]="bankData.currency" id="bank_input_curr_{{i}}">
+                          <option *ngFor="let currency of currencyListData" value="{{currency.code}}" [selected]="bankData.currency">{{currency.name}} ({{currency.code}})</option> 
+                        </select> -->
+                      </div>
+                      <div class="truncatequd" style="width: 20%;text-align: right;">
+                        <span class="bank-text" id="bank_text_bal_{{i}}">{{bankData.accountBalance | number:'3.1-2' | currencySymbol:bankData.currency}}</span>
+                        <!-- <input type="text" id="bank_input_bal_{{i}}" class="bank-editbox form-control price pointNumber" value="{{bankData.accountBalance}}"> -->
+                      </div>
+                    </header>
+                    <div *ngIf="bankData.transactions.length == 0">
+                      <tr>
+                        <td colspan="9">
+                          <div class="statement-detail-tbl data-table-quad text-center">
+                            <span>There are no transactions</span>
+                          </div>
+                        </td>
+                      </tr>
+                    </div>
+                    <div *ngIf="bankData.transactions.length > 0">
+                      <table style="width: 100%;">
+                        <tbody>
+                          <tr>
+                            <td colspan="9">
+                              <div class="statement-detail-tbl data-table-quad" [hidden]="!bankData.showChildTable">
+                                <h4>Transaction Details <small>Please Check the details and select the entries to confirm or reject</small></h4>
+                                <table width="100%" style="table-layout: fixed;">
+                                  <thead>
+                                    <tr>
+                                      <th><input type="checkbox" [(ngModel)]="bankData.isAllBankTxnSelected" (change)="toggleAllBankTxn(bankData)"></th>  <!-- second checkbox-->
+                                      <th>DATE</th>
+                                      <th>MERCHANT NAME</th>
+                                      <th>TRANSACTION TYPE</th>
+                                      <th style="text-align: right">AMOUNT</th>
+                                    </tr>
+                                  </thead>
+                                  <ng-container *ngFor="let transaction of bankData.transactions; let j = index">
+                                    <tbody>
+                                      <tr (click)="editBankTransaction(i, transaction, $event)" class="edit_bank_txn_row cursor" id="{{i}}_{{j}}"><!-- .edit-mode --> <!-- data-txn-id="{{transaction.id}}" -->
+                                        <td class="restrictClickChange">
+                                          <input type="checkbox" [(ngModel)]="transaction.selected" (change)="optionToggledBankTxn(bankData)">
+                                        </td>
+                                        <td class="truncatequd">
+                                          <span *ngIf="!transaction.editTxn" class="bank-txn-text" id="bank_txn_text_date_{{i}}_{{j}}">{{transaction.transDate | dateFormat: 'DD-MM-YYYY'}}</span>
+                                          <!-- <my-date-picker *ngIf="transaction.editTxn" name="mydate1" [options]="myDatePickerOptions" [(ngModel)]="editTransactionObj.updatedTransDate"
+                                          (dateChanged)="onTxnDateChanged($event)" id="date_input_{{transaction.id}}"></my-date-picker> -->
+                                        <input type="date" *ngIf="transaction.editTxn" [ngModel]="editTransactionObj.updatedTransDate | date:'yyyy-MM-dd'" (ngModelChange)="editTransactionObj.updatedTransDate = $event" class="form-control">
+                                        </td>
+                                        <td class="break-word">
+                                          <span *ngIf="!transaction.editTxn" class="bank-txn-text" id="bank_txn_text_merchant_{{i}}_{{j}}">{{transaction.merchantName}}</span>
+                                          <!-- <input *ngIf="transaction.editTxn" class="bank-txn-editbox form-control" auto-complete ui-items="merchantList" [(ngModel)]="editTransactionObj.updatedMerchantName" id="bank_txn_input_merchant_{{i}}_{{j}}" type="text"> -->
+                                          <span *ngIf="transaction.editTxn">
+                                            <input [hidden]="!transaction.editTxn" name="merchant_name" type="text" auto-complete [source]="merchantList"
+                                              [(ngModel)]="editTransactionObj.updatedMerchantName" [list-formatter]="autocompleListFormatter"
+                                              value-property-name="id" display-property-name="name" placeholder="Merchant name" class="bank-txn-editbox restrictSplChr" id="bank_txn_input_merchant_{{i}}_{{j}}" required>
+                                          </span>
+                                        </td>
+                                        <td>
+                                          <span class="category-icon pull-left" title="{{transaction.category}}">
+                                              <img *ngIf="!transaction.editTxn" src="/assets/{{transaction.categoryImageUrl}}" id="bank_txn_category_image_{{i}}_{{j}}" alt="" width="22px">
+                                              <img *ngIf="transaction.editTxn" src="/assets/{{editTransactionObj.updatedCategoryImageUrl}}" id="bank_txn_category_image_{{i}}_{{j}}" alt="" width="22px">
+                                          </span>
+                                          <span *ngIf="!transaction.editTxn" class="bank-txn-text" id="bank_txn_text_subcategory_{{i}}_{{j}}">{{transaction.subcategory}}</span>
+                                          <input *ngIf="transaction.editTxn" [(ngModel)]="editTransactionObj.updatedCategory" type="hidden" id="bank_txn_input_category_{{i}}_{{j}}">
+
+                                          <!-- category subcategory dropdown start -->
+                                          <div *ngIf="transaction.editTxn" class="bank-txn-editbox" style="vertical-align:middle;display: table-cell;" id="bank_input_subcategory_{{i}}_{{j}}">
+                                              <ul id="main-menu" class="sm sm-blue mainmenu" style="width: 100%;border-radius: 0px;">
+                                                  <li style="width: 100%;">
+                                                      <a href="javascript: void(0);" class="transaction-select">
+                                                          <input type="text" name="changeCategoryName" class="editbox form-control inline-category" id="bank_txn_input_subcategory_{{i}}_{{j}}"
+                                                          placeholder="subcategory" [(ngModel)]="editTransactionObj.updatedSubcategory" value="{{transaction.subcategory}}" style="width: 100%;" onkeydown="return false;" onDrop="return false" onPaste="return false">
+                                                      </a>
+                                                      <ul style="z-index: 9999;">
+                                                          <li *ngFor="let category of categorySubCategoryLists"> <!--  | orderBy: 'categoryName' -->
+                                                              <a>{{category.name}}</a>
+                                                              <ul>
+                                                                  <li *ngFor="let subcategory of category.subcategories">
+                                                                      <a (click)="getCategorySubcategoryInlineBank(transaction, category.name, subcategory.name, category.url)">
+                                                                          {{subcategory.name}}
+                                                                      </a>
+                                                                  </li>
+                                                                  <!-- <li><a style="font-weight:bold;" data-toggle="modal" data-target=".addSubcategoryModal" >Add Subcategory</a></li> -->
+                                                              </ul>
+                                                          </li>
+                                                      </ul>
+                                                  </li>
+                                              </ul>
+                                          </div>
+                                          <!-- category subcategory dropdown end -->
+                                        </td>
+                                        <td class="truncatequd" style="text-align: right">
+                                          <span *ngIf="!transaction.editTxn" class="pm-red bank-txn-text" id="bank_txn_text_amount_{{i}}_{{j}}">
+                                            <span *ngIf="transaction.creditdebit == 'debit'">-{{removeSpecialCharacter(transaction.amount) | number:'3.1-2' | currencySymbol:transaction.currency}}</span>
+                                            <span *ngIf="transaction.creditdebit != 'debit'" style=" color: #000000;">{{removeSpecialCharacter(transaction.amount) | number:'3.1-2' | currencySymbol:transaction.currency}}</span>
+                                          </span>
+                                          <input *ngIf="transaction.editTxn" [(ngModel)]="editTransactionObj.updatedAmount" class="bank-txn-editbox form-control pointNumber" id="bank_txn_input_amount_{{i}}_{{j}}" type="text">
+                                        </td>
+                                      </tr>
+                                      <tr *ngIf="transaction.editTxn" class="filter-button" style="text-align: center">
+                                        <td colspan="9" class="filter-button">
+                                          <span class="pm-red" id="txnError_{{i}}_{{j}}" style="display: block;"></span>
+                                          <button type="button" class="btn btn-primary" (click)="saveBankTransaction(i, j, transaction)">Save</button>
+                                          <button type="button" class="btn btn-warning" (click)="cancelBankTransaction(i, j, transaction)">Cancel</button>
+                                          <img style="padding: 5px 4px 4px 7px;" *ngIf="transaction.transactionDataLoading" src="/assets/img/loader/spin.gif" />
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </ng-container>
+                                </table>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer>
+                <div class="row clearfix">
+                  <div class="col-md-4 pm-red"><small id="bankError"></small></div>
+                  <div class="col-sm-12 col-md-8 pull-right">
+                    <img class="pull-right" style="padding: 5px 4px 4px 7px;" *ngIf="bankDataLoading" src="img/loader/spin.gif" />
+                    <input type="button" (click)="rejectBankAccounts()" id="rejectBankAccountSubmit" class="pull-right btn btn-default" value="REJECT">
+                    <input type="button" (click)="confirmBankAccounts()" id="confirmBankAccountSubmit" class="pull-right btn b47PM-conf-btn" value="CONFIRM">
+                    <small>Please check the details and select the entries to confirm or reject</small>
+                  </div>
+                </div>
+              </footer>
+            </div>
+
+            <!-- Credit card details -->
+            <h4 *ngIf="statementPreviewData['cards'] && statementPreviewData['cards'].length > 0">CreditCard Accounts</h4>
+            <div *ngIf="statementPreviewData['cards'] && statementPreviewData['cards'].length > 0" class="table b47PM-misc-table1 b47PM-statement-tbl1">
+              <header class="clearfix">
+                <div>&nbsp;</div>
+                <div>BANK NAME</div>
+                <div>ACCOUNT NUMBER</div>
+                <div>STATEMENT DATE</div>
+                <div>CURRENCY</div>
+                <div>AMOUNT SPENT</div>
+                <div>AVAILABLE CREDIT</div>
+                <div>PAYMENT DUE DATE</div>
+              </header>
+              <div class="tbl-body">
+                <div *ngIf="statementPreviewDataLoader" class="record-row text-center" style="height: 40px;padding-top: 6px">
+                    Loading...
+                </div>
+                <div class="record-row" *ngFor="let creditcard of statementPreviewData.cards; let i = index" id="creditcard_{{i}}"><!-- ".edit-mode" add this class when user click on tr(row) --> <!-- add .edit for inline editing -->
+                  <div width="100%" class="table inner-data-table">
+                    <header class="row clearfix edit_creditcard_row cursor" id="{{i}}"> <!-- data-creditcard-id="{{creditcard.id}}" -->
+                      <div class="restrictClickChange">
+                        <a class="toggle-expand-btn cursor" id="creditcard_toggle_{{i}}"  (click)="creditcard.showChildTable = !creditcard.showChildTable" [class.open]="creditcard.showChildTable"><!-- ".open" add this class when user clicks on + icon -->
+                          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                          <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                      <div class="restrictClickChange">
+                        <input *ngIf="creditcard.confirmed == 1" class="creditcardAccountCheckbox" type="checkbox" [(ngModel)]="creditcard.isCreditcardAccountSelected" (change)="toggleAllCreditcardAccountTxn(creditcard)" disabled>
+                        <input *ngIf="creditcard.confirmed == 0" class="creditcardAccountCheckbox" type="checkbox" [(ngModel)]="creditcard.isCreditcardAccountSelected" (change)="toggleAllCreditcardAccountTxn(creditcard)">
+                      </div>
+                      <div class="truncatequd" title="">
+                        <span class="creditcard-text" id="creditcard_text_inst_{{i}}">{{creditcard.institutionName}}</span>
+                        <!-- <input type="text" id="creditcard_input_inst_{{i}}" class="bank-editbox form-control" value="{{creditcard.institutionName}}" disabled> -->
+                      </div>
+                      <div class="truncatequd" title="">
+                        <span class="creditcard-text" id="creditcard_text_accno_{{i}}">{{creditcard.accountNumber}}</span>
+                        <!-- <input type="text" id="creditcard_input_accno_{{i}}" class="bank-editbox form-control" value="{{creditcard.accountNumber}}" disabled> -->
+                      </div>
+                      <div class="truncatequd">
+                        <span class="creditcard-text" id="creditcard_text_stDate_{{i}}">{{creditcard.billDate | dateFormat: 'DD-MM-YYYY'}}</span>
+                        <!-- <input type="text" id="creditcard_input_stDate_{{i}}" class="bank-editbox form-control date" value="{{creditcard.billDate | dateFormat: 'DD-MM-YYYY'}}" readonly> -->
+                      </div>
+                      <div class="truncatequd" title="">
+                        <span class="creditcard-text" id="creditcard_text_currency_{{i}}">{{creditcard.currency}}</span>
+                        <!-- <select class="bank-editbox form-control" ng-init="credit.currency = creditcard.currency" [(ngModel)]="creditcard.currency" id="creditcard_input_currency_{{i}}">
+                          <option *ngFor="let currency of currencyListData" value="{{currency.code}}" [selected]="creditcard.currency">{{currency.name}} ({{currency.code}})</option> 
+                        </select> -->
+                      </div>
+                      <div class="truncatequd" align="right">
+                        <span class="creditcard-text" id="creditcard_text_spAmount_{{i}}">{{creditcard.amountDue | number:'3.1-2' | currencySymbol:creditcard.currency}}</span>
+                        <!-- <input type="text" id="creditcard_input_spAmount_{{i}}" class="bank-editbox form-control price pointNumber" value="{{creditcard.amountDue}}"> -->
+                      </div>
+                      <div class="truncatequd" align="right">
+                        <span class="creditcard-text" id="creditcard_text_avlAmount_{{i}}">{{creditcard.amountDue | number:'3.1-2' | currencySymbol:creditcard.currency}}</span>
+                        <!-- <input type="text" id="creditcard_input_avlAmount_{{i}}" class="bank-editbox form-control price pointNumber" value="{{creditcard.amountDue}}"> -->
+                      </div>
+                      <div class="truncatequd" align="right">
+                        <span class="creditcard-text" id="creditcard_text_pmtDueDate_{{i}}">{{creditcard.dueDate | dateFormat: 'DD-MM-YYYY'}}</span>
+                        <!-- <input type="text" id="creditcard_input_pmtDueDate_{{i}}" class="bank-editbox form-control dueDate" value="{{creditcard.dueDate | dateFormat: 'DD-MM-YYYY'}}" readonly> -->
+                      </div>
+                    </header>
+                    <div>
+                      <table style="width: 100%;">
+                        <tbody>
+                          <tr>
+                            <td colspan="9">
+                              <div class="statement-detail-tbl data-table-quad" [hidden]="!creditcard.showChildTable">
+                                <h4>Transaction Details <small>Please Check the details and select the entries to confirm or reject</small></h4>
+                                <table width="100%">
+                                  <thead>
+                                    <tr>
+                                      <th><input type="checkbox" [(ngModel)]="creditcard.isAllCreditcardTxnSelected" (change)="toggleAllCreditcardTxn(creditcard)"></th>
+                                      <th>DATE</th>
+                                      <th>MERCHANT NAME</th>
+                                      <th>TRANSACTION TYPE</th>
+                                      <th style="text-align: right">AMOUNT</th>
+                                    </tr>
+                                  </thead>
+                                  <ng-container *ngFor="let transaction of creditcard.transactions; let j = index;">
+                                    <tbody>
+                                      <tr (click)="editCreditcardTransaction(i, transaction, $event)" class="edit_creditcard_txn_row cursor" id="{{i}}_{{j}}"> <!-- data-creditcard-txn-id="{{transaction.id}}" --> <!-- .edit-mode -->
+                                        <td class="restrictClickChange">
+                                          <input type="checkbox" [(ngModel)]="transaction.selected" (change)="optionToggledCreditcardTxn(creditcard)">
+                                        </td>
+                                        <td class="truncatequd">
+                                          <span *ngIf="!transaction.editTransaction" class="creditcard-txn-text" id="creditcard_txn_text_date_{{i}}_{{j}}">{{transaction.transDate | dateFormat: 'DD-MM-YYYY'}}</span>
+                                          <!-- <input *ngIf="transaction.editTransaction" class="bank-txn-editbox form-control date" [(ngModel)]="editTransactionObj.updatedTransDate" id="creditcard_txn_input_date_{{i}}_{{j}}" type="text"> -->
+                                          <input type="date" *ngIf="transaction.editTxn" [ngModel]="editTransactionObj.updatedTransDate | date:'yyyy-MM-dd'" (ngModelChange)="editTransactionObj.updatedTransDate = $event" class="form-control">
+                                        </td>
+                                        <td class="break-word">
+                                          <span *ngIf="!transaction.editTransaction" class="creditcard-txn-text" id="creditcard_txn_text_merchant_{{i}}_{{j}}">{{transaction.merchantName}}</span>
+                                          <!-- <input *ngIf="transaction.editTransaction" class="bank-txn-editbox form-control" auto-complete ui-items="merchantList" [(ngModel)]="editTransactionObj.updatedMerchantName" id="creditcard_txn_input_merchant_{{i}}_{{j}}" type="text"> -->
+                                          <span *ngIf="transaction.editTransaction">
+                                            <input [hidden]="!transaction.editTxn" name="merchant_name" type="text" auto-complete [source]="merchantList"
+                                              [(ngModel)]="editTransactionObj.updatedMerchantName" [list-formatter]="autocompleListFormatter"
+                                              value-property-name="id" display-property-name="name" placeholder="Merchant name" class="bank-txn-editbox restrictSplChr" id="creditcard_txn_input_merchant_{{i}}_{{j}}" required>
+                                          </span>
+                                        </td>
+                                        <td>
+                                          <span class="category-icon pull-left" title="{{transaction.category}}">
+                                            <img *ngIf="!transaction.editTransaction" src="/assets/{{transaction.categoryImageUrl}}" id="creditcard_txn_category_image_{{i}}_{{j}}" alt="" width="22px">
+                                            <img *ngIf="transaction.editTransaction" src="/assets/{{editTransactionObj.updatedCategoryImageUrl}}" id="creditcard_txn_category_image_{{i}}_{{j}}" alt="" width="22px">
+                                          </span>
+                                          <span *ngIf="!transaction.editTransaction" class="creditcard-txn-text" id="creditcard_txn_text_subcategory_{{i}}_{{j}}">{{transaction.subcategory}}</span>
+                                          <input *ngIf="transaction.editTransaction" type="hidden" id="creditcard_txn_input_category_{{i}}_{{j}}" [(ngModel)]="editTransactionObj.updatedCategory">
+
+                                          <!-- category subcategory dropdown start -->
+                                          <div *ngIf="transaction.editTransaction" class="bank-txn-editbox" style="vertical-align:middle;display: table-cell;" id="creditcard_input_subcategory_{{i}}_{{j}}">
+                                              <ul id="main-menu" class="sm sm-blue mainmenu" style="width: 100%;border-radius: 0px;">
+                                                  <li style="width: 100%;">
+                                                      <a class="transaction-select">
+                                                          <input type="text" name="changeCategoryName" class="editbox form-control inline-category" id="creditcard_txn_input_subcategory_{{i}}_{{j}}"
+                                                          placeholder="subcategory" [(ngModel)]="editTransactionObj.updatedSubcategory" style="width: 100%;" onkeydown="return false;" onDrop="return false" onPaste="return false">
+                                                      </a>
+                                                      <ul style="z-index: 9999;">
+                                                          <li *ngFor="let category of categorySubCategoryLists"> <!--  | orderBy: 'categoryName' -->
+                                                              <a>{{category.name}}</a>
+                                                              <ul>
+                                                                  <li *ngFor="let subcategory of category.subcategories">
+                                                                      <a (click)="getCategorySubcategoryInlineCreditcard(transaction, category.name, subcategory.name, category.url)">
+                                                                          {{subcategory.name}}
+                                                                      </a>
+                                                                  </li>
+                                                                  <!-- <li><a style="font-weight:bold;" data-toggle="modal" data-target=".addSubcategoryModal" >Add Subcategory</a></li> -->
+                                                              </ul>
+                                                          </li>
+                                                      </ul>
+                                                  </li>
+                                              </ul>
+                                          </div>
+                                          <!-- category subcategory dropdown end -->
+                                        </td>
+                                        <td class="truncatequd" style="text-align: right">
+                                          <span *ngIf="!transaction.editTransaction" class="creditcard-txn-text" id="creditcard_txn_text_amount_{{i}}_{{j}}">
+                                            <span *ngIf="transaction.creditdebit == 'debit'" class="pm-red">-{{removeSpecialCharacter(transaction.amount) | number:'3.1-2' | currencySymbol:transaction.currency}}</span>
+                                            <span *ngIf="transaction.creditdebit != 'debit'" style=" color: #000000;">{{removeSpecialCharacter(transaction.amount) | number:'3.1-2' | currencySymbol:transaction.currency}}</span>
+                                          </span>
+                                          <input *ngIf="transaction.editTransaction" class="bank-txn-editbox form-control pointNumber" [(ngModel)]="editTransactionObj.updatedAmount" id="creditcard_txn_input_amount_{{i}}_{{j}}" type="text">
+                                        </td>
+                                      </tr>
+                                      <tr *ngIf="transaction.editTransaction" class="filter-button" style="text-align: center">
+                                        <td colspan="9" class="filter-button">
+                                          <span class="pm-red" id="txnError_{{i}}_{{j}}" style="display: block;"></span>
+                                          <button type="button" class="btn btn-primary" (click)="saveCreditcardTransaction(i, j, transaction)">Save</button>
+                                          <button type="button" class="btn btn-warning" (click)="cancelCreditcardTransaction(i, j, transaction)">Cancel</button>
+                                          <img style="padding: 5px 4px 4px 7px;" *ngIf="transaction.transactionDataLoading" src="/assets/img/loader/spin.gif" />
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </ng-container>
+                                </table>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer>
+                <div class="row clearfix">
+                  <div class="col-md-4 pm-red"><small id="creditcardError"></small></div>
+                  <div class="col-sm-12 col-md-8 pull-right">
+                    <img class="pull-right" style="padding: 5px 4px 4px 7px;" *ngIf="creditcardDataLoading" src="img/loader/spin.gif" />
+                    <input type="submit" (click)="rejectCreditCardAccounts()" id="rejectCreditcardAccountSubmit" class="pull-right btn btn-default" value="REJECT">
+                    <input type="submit" (click)="confirmCreditCardAccounts()" id="confirmCreditcardAccountSubmit" class="pull-right btn b47PM-conf-btn" value="CONFIRM">
+                    <small>Please check the details and select the entries to confirm or reject</small>
+                  </div>
+                </div>
+              </footer>
+            </div>
+
+            <!-- Investment details -->
+            <h4 *ngIf="statementPreviewData['investments'] && statementPreviewData['investments'].length > 0">Investment Accounts</h4>
+
+            <div *ngIf="statementPreviewData['investments'] && statementPreviewData['investments'].length > 0" class="table b47PM-misc-table1 b47PM-statement-tbl1" (appClickOutside)="close($event)">
+              <header class="clearfix">
+                <div>&nbsp;</div>
+                <div style="width: 20%;">BANK NAME</div>
+                <div style="width: 20%;">ACCOUNT NUMBER</div>
+                <div style="width: 20%;">STATEMENT DATE</div>
+                <div style="width: 12%;">CURRENCY</div>
+                <div style="width: 21%;text-align: right;">AVAILABLE BALANCE</div>
+              </header>
+              <div class="tbl-body">
+                <div *ngIf="statementPreviewDataLoader" class="record-row text-center" style="height: 40px;padding-top: 6px">
+                    Loading...
+                </div>
+                <div class="record-row" *ngFor="let investment of statementPreviewData.investments; let i = index" id="investment_{{i}}" ><!-- ".edit-mode" add this class when user click on tr(row) --> <!-- add .edit for inline edit -->
+                  <div width="100%" class="table inner-data-table">
+                    <header class="row edit_investment_row cursor clearfix" id="{{i}}"><!-- investment.editInvest = !investment.editInvest -->
+                      <div class="restrictClickChange">
+                        <a class="toggle-expand-btn cursor" id="investment_toggle_{{i}}" (click)="investment.showChildTable = !investment.showChildTable" [class.open]="investment.showChildTable"><!-- ".open" add this class when user clicks on + icon -->
+                          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                          <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                      <div class="restrictClickChange">
+                        <input type="checkbox" *ngIf="investment.confirmed" class="investmentAccountCheckbox" [(ngModel)]="investment.isInvestmentAccountSelected" (change)="toggleAllInvestmentAccountTxn(investment)"> <!--  disabled -->
+                        <input type="checkbox" *ngIf="!investment.confirmed" name="fff" class="investmentAccountCheckbox" [(ngModel)]="investment.isInvestmentAccountSelected" (change)="toggleAllInvestmentAccountTxn(investment)"> <!-- first checkbox --> <!-- val="{{investment.confirmedFlag}}" -->
+                      </div>
+                      <div class="truncatequd" title="" style="width: 20%;">
+                        <span id="investment_text_inst_{{i}}">{{investment.accountName | ValidateValue}}</span>
+                        <!-- <input appModelRestrictSplChar type="text" id="investment_input_inst_{{i}}" class="form-control" value="{{investment.accountName}}" disabled> -->
+                      </div>
+                      <div class="truncatequd" title="" style="width: 20%;">
+                        <span id="investment_text_accno_{{i}}">{{investment.accountNumber | ValidateValue}}</span>
+                        <!-- <input appModelRestrictSplChar type="text" id="investment_input_accno_{{i}}" class="form-control" value="{{investment.accountNumber}}" disabled> -->
+                      </div>
+                      <div class="truncatequd" style="width: 20%;">
+                        <span id="investment_text_stDate_{{i}}">{{investment.billDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                        <!-- <input type="date" id="investment_input_stDate_{{i}}" class="form-control date" value="{{investment.statementDate}}"> -->
+                      </div>
+                      <div class="truncatequd" title="" style="width: 12%;">
+                        <span id="investment_text_curr_{{i}}">{{investment.currency}}</span>
+                        <!-- <select class="form-control" name="invst_curr" [(ngModel)]="investment.currency" id="investment_input_curr_{{i}}">
+                            <option *ngFor="let currency of currencyListData" value="{{currency.code}}" [selected]="investment.currency">{{currency.name}} ({{currency.code}})</option> 
+                        </select> -->
+                      </div>
+                      <div class="truncatequd" style="width: 20%;text-align: right;">
+                        <span id="investment_text_bal_{{i}}">{{investment.balance | NumberFormatWithCurrencySymbol: investment.currency}}</span>
+                        <!-- <input appModelRestrictSplChar type="text" id="investment_input_bal_{{i}}" class="form-control price pointNumber" value="{{investment.balance}}"> -->
+                      </div>
+                    </header>
+                    
+                    <div>
+                      <table style="width: 100%;">
+                        <tbody>
+                          <tr>
+                            <td colspan="9">
+                              <div class="statement-detail-tbl data-table-quad"  [hidden]="!investment.showChildTable">
+
+                                <!-- investment assets -->
+                                <h4 *ngIf="investment['assets'] && investment['assets'].length > 0 ">Holdings <small>Please Check the details and select the entries to confirm or reject</small></h4>
+                                <table *ngIf="investment['assets'] && investment['assets'].length > 0 " class="investmentTxnPrvTbl custom-invst-table" style="margin-bottom: 20px;">
+                                  <thead>
+                                    <tr>
+                                      <th style="text-align: center;"><input type="checkbox" name="aaa" [(ngModel)]="investment.isAllInvestmentAssetsSelected" (change)="toggleAllInvestmeAssets(investment)"></th>
+                                      <th>Description</th>
+                                      <th>ISIN</th>
+                                      <th>Start Date</th>
+                                      <th align="right">
+                                        Asset Quantity
+                                      </th>
+                                      <th align="right">Coupon</th>
+                                      <th align="right">Cost</th>
+                                      <th align="right">Market Value</th>
+                                      <th style="text-align: right">Value in {{investment.currency}}</th>
+                                    </tr>
+                                    <tr>
+                                      <th>&nbsp;</th>
+                                      <th>Security Group</th>
+                                      <th>Currency</th>
+                                      <th>Maturity Date</th>
+                                      <th align="right">
+                                        Strike Price
+                                      </th>
+                                      <th align="right">Accrued Int.</th>
+                                      <th align="right">Av. Cost Price</th>
+                                      <th align="right">Market Price</th>
+                                      <th style="text-align: right">Unrealized P/L</th>
+                                    </tr>
+                                  </thead>
+                                  <ng-container *ngFor="let asset of investment.assets;let j = index">
+                                    <tbody><!-- Third level -->
+                                      <tr style="cursor: pointer;" (click)="editAsset(j, asset)" class="edit_investment_asset_row cursor" id="{{i}}_{{j}}"> <!-- data-asset-id="{{asset.id}}" data-invst-curr="{{investment.currency}}" -->
+                                        <td class="restrictClickChange">
+                                          <input *ngIf="asset.confirmed" type="checkbox" [(ngModel)]="asset.selected" (change)="optionToggledInvestmentAssets(investment)">
+                                          <input *ngIf="!asset.confirmed" type="checkbox" [(ngModel)]="asset.selected" (change)="optionToggledInvestmentAssets(investment)">
+                                        </td>
+                                        <td> <!-- description and security group -->
+                                          <span *ngIf="!asset.editAsset">{{asset.holdingAssetDescription | filterInputValue | ValidateValue}}</span>
+                                          <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" name="description" [(ngModel)]="asset.holdingAssetDescription" class="form-control" disabled>
+                                          
+                                          <span *ngIf="!asset.editAsset">
+                                            <span>{{asset.holdingAssetCategory | filterInputValue | ValidateValue}}</span>
+                                          </span>
+                                          <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetCategory" class="form-control">
+                                        </td>
+                                        <td><!-- ISIN and currency -->
+                                          <span *ngIf="!asset.editAsset">{{asset.holdingAssetISIN | filterInputValue | ValidateValue | ValidateISIN}}</span>
+                                          <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" name="assetISIN" [(ngModel)]="asset.holdingAssetISIN" class="form-control">
+                                          
+                                          <span *ngIf="!asset.editAsset">{{asset.holdingAssetCurrency}}</span>
+                                          <!-- <select *ngIf="!asset.editAsset" [(ngModel)]="asset.holdingAssetCurrency" class="form-control" style="padding-top: 0px;">
+                                            <option *ngFor="let currency of currencyListData" value="{{currency.code}}" [selected]="asset.holdingAssetCurrency">{{currency.name}} ({{currency.code}})</option> 
+                                          </select> --> 
+                                          <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" name="assetCurrency" [(ngModel)]="asset.holdingAssetCurrency" class="form-control" disabled>
+                                        </td>
+                                        <td align="right"><!-- start Date and maturity date -->
+                                          <span *ngIf="!asset.editAsset">
+                                            <span>{{asset.holdingAssetStartDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                          </span>
+                                          <input *ngIf="asset.editAsset" type="date" [ngModel]="asset.holdingAssetStartDate | date:'yyyy-MM-dd'" (ngModelChange)="asset.holdingAssetStartDate = $event" class="form-control">
+                                          
+                                          <span *ngIf="!asset.editAsset">
+                                            <!-- <span *ngIf="asset.holdingAssetMaturityDate == null"> - </span> -->
+                                            <span>{{asset.holdingAssetMaturityDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                          </span>
+                                          <input *ngIf="asset.editAsset" type="date" [ngModel]="asset.holdingAssetMaturityDate | date:'yyyy-MM-dd'" (ngModelChange)="asset.holdingAssetMaturityDate = $event" class="form-control">
+                                        </td>
+                                        <td><!-- quantity and strike price -->
+                                          <span *ngIf="!asset.editAsset">
+                                            <span>{{asset.holdingAssetQuantity | filterInputValue | NumberFormatWithoutCurrencySymbol}}</span>
+                                          </span>
+                                          <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetQuantity" appOnlyNumber="true" class="form-control pointNumber">
+                                          
+                                          <span *ngIf="!asset.editAsset">
+                                            <span>{{asset.holdingAssetStrikePrice | filterInputValue | NumberFormatWithoutCurrencySymbol}}</span>
+                                          </span>
+                                          <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetStrikePrice" appOnlyNumber="true" class="form-control pointNumber"> 
+                                        </td> 
+                                        <td align="right"><!-- Coupon and accrued Int. -->
+                                          <span *ngIf="!asset.editAsset">
+                                              <span *ngIf="asset.holdingAssetCoupon == 'tbd'"> - </span>
+                                              <span *ngIf="asset.holdingAssetCoupon != 'tbd'">{{asset.holdingAssetCoupon | filterInputValue}}<span *ngIf="asset.holdingAssetCoupon != 'tbd' && asset.holdingAssetCoupon" style="display: inline-block;">%</span></span> <!--  | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency -->
+                                            <!-- <span>{{asset.holdingAssetCoupon | filterInputValue}}<span *ngIf="asset.holdingAssetCoupon">%</span></span> -->
+                                          </span>
+                                          <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetCoupon" appOnlyNumber="true" class="form-control">
+                                          
+                                          <span *ngIf="!asset.editAsset">
+                                            <span>{{asset.holdingAssetAccruedInterest | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                          </span>
+                                          <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetAccruedInterest" appOnlyNumber="true" class="form-control pointNumber">
+                                        </td>
+                                        <td align="right"><!-- cost and Av. cost price -->
+                                          <span *ngIf="!asset.editAsset">
+                                            <span>{{asset.holdingAssetCost | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                          </span>
+                                          <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetCost" appOnlyNumber="true" class="form-control pointNumberFourDecimals">
+                                          
+                                          <span *ngIf="!asset.editAsset">
+                                            <span>{{asset.holdingAssetAverageUnitCost | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                          </span>
+                                          <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetAverageUnitCost" appOnlyNumber="true" class="form-control pointNumberFourDecimals">
+                                        </td>
+                                        <!-- Market value and market price-->
+                                        <td align="right">
+                                          <span *ngIf="!asset.editAsset">
+                                            <span>{{asset.holdingAssetCurrentValue | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                          </span>
+                                          <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetCurrentValue" appOnlyNumber="true" class="form-control pointNumber">
+                                          
+                                          <span *ngIf="!asset.editAsset">
+                                            <span>{{asset.holdingAssetIndicativePrice | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                          </span>
+                                          <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetIndicativePrice" appOnlyNumber="true" class="form-control pointNumberFourDecimals">
+                                        </td>
+                                        <!-- value in usd(account type currency) and MTM/Unrealized P/L -->
+                                        <td align="right">
+                                          <span *ngIf="!asset.editAsset">
+                                            <span>{{asset.holdingAssetFxMarketValue | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                          </span>
+                                          <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetFxMarketValue" appOnlyNumber="true" class="form-control pointNumber">
+                                          
+                                          <span *ngIf="!asset.editAsset">
+                                              <span>{{asset.holdingAssetUnrealizedProfitLoss | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                          </span>
+                                          <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetUnrealizedProfitLoss" appOnlyNumber="true" class="form-control pointNumber">
+                                        </td>
+                                      </tr>
+                                      <tr *ngIf="asset.editAsset" style="text-align: center">
+                                        <td colspan="9" class="filter-button">
+                                          <span class="pm-red" id="assetError_{{i}}_{{j}}" style="display: block;"></span>
+                                          <button type="button" class="btn btn-primary" (click)="showRemainingHoldingAssetFields(i, j, asset)">Show More</button>
+                                          <button type="button" class="btn btn-primary" (click)="saveAssets(i, j, asset)">Save</button>
+                                          <button type="button" class="btn btn-warning" (click)="cancelAssets(i, j, asset)">Cancel</button>
+                                          <img style="padding: 5px 4px 4px 7px;" *ngIf="asset.investmentDataLoading" src="/assets/img/loader/spin.gif" />
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </ng-container>
+                                </table>
+
+                                <!-- investment transaction -->
+                                <h4 *ngIf="investment['transactions'] && investment['transactions'].length > 0">Transactions <small>Please Check the details and select the entries to confirm or reject</small></h4>
+                                <table class="investment-txn-table" *ngIf="investment['transactions'] && investment['transactions'].length > 0" width="100%">
+                                  <thead>
+                                    <tr>
+                                      <th><input type="checkbox" name="ccc" [(ngModel)]="investment.isAllInvestmentTxnSelected" (change)="toggleAllInvestmentTxn(investment)"></th>  <!-- second checkbox-->
+                                      <th style="width: 5%;">Date</th>
+                                      <th style="width: 20%">Description</th>
+                                      <th style="width: 10%">Category</th>
+                                      <th style="width: 4%">Currency</th>
+                                      <th style="width: 10%">Operation Type</th>
+                                      <th style="width: 12%;text-align: right">Qty</th>
+                                      <th style="width: 10%;text-align: right">Price</th>
+                                      <th style="width: 10%;text-align: right">Amount</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody *ngFor="let transaction of investment['transactions'];let k = index">
+                                    <tr class="edit_investment_txn_row cursor" id="{{i}}_{{k}}" (click)="editTransaction(k, transaction)"><!-- .edit-mode --> <!--  data-invst-txn-id="{{transaction.id}}" -->
+                                      <td style="width: 5%;" class="restrictClickChange">
+                                        <input *ngIf="transaction.confirmed" type="checkbox" [(ngModel)]="transaction.selected" (change)="optionToggledInvestmentTxn(investment)"> <!-- [(ngModel)]="transaction.selected" -->
+                                        <input *ngIf="!transaction.confirmed" type="checkbox" [(ngModel)]="transaction.selected" (change)="optionToggledInvestmentTxn(investment)"> <!-- [(ngModel)]="transaction.selected" -->
+                                      </td>
+                                      <td style="width: 13%" class="truncatequd">
+                                        <span [hidden]="transaction.editTxn">{{transaction.transactionDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                          <input type="date" [hidden]="!transaction.editTxn" [ngModel]="transaction.transactionDate | date:'yyyy-MM-dd'" (ngModelChange)="transaction.transactionDate = $event" class="investment-txn-editbox form-control"> 
+                                      </td>
+                                      <td>
+                                        <span [hidden]="transaction.editTxn">{{transaction.description | filterInputValue | ValidateValue}}</span>
+                                        <input appModelRestrictSplChar type="text" [hidden]="!transaction.editTxn" class="investment-txn-editbox form-control" [(ngModel)]="transaction.description" disabled>
+                                      </td>
+                                      <td style="width: 10%" class="break-word">
+                                        <span [hidden]="transaction.editTxn">
+                                          <span class="investment-txn-text">{{transaction.assetCategory | filterInputValue | ValidateValue}}</span>
+                                        </span>
+                                        <input appModelRestrictSplChar type="text" [hidden]="!transaction.editTxn" class="investment-txn-editbox form-control" [(ngModel)]="transaction.assetCategory">
+                                      </td>
+                                      <td style="width: 10%">
+                                        <span [hidden]="transaction.editTxn">{{transaction.currency}}</span>
+                                        <select [hidden]="!transaction.editTxn" [(ngModel)]="transaction.currency" class="form-control" style="padding-top: 0px;"> <!-- [(ngModel)]="invst.currency" -->
+                                            <option *ngFor="let currency of currencyListData" value="{{currency.code}}" [selected]="transaction.currency">{{currency.name}} ({{currency.code}})</option> 
+                                        </select>
+                                        <!--<input appModelRestrictSplChar type="hidden" id="investment_txn_input_category_{{i}}_{{k}}" [(ngModel)]="transaction.category}}">-->
+                                      </td>
+                                      <td style="width: 10%">
+                                        <span [hidden]="transaction.editTxn">
+                                          <span>{{transaction.type | filterInputValue | ValidateValue}}</span>
+                                        </span>
+                                        <input appModelRestrictSplChar [hidden]="!transaction.editTxn" type="text" [(ngModel)]="transaction.type" class="form-control"  disabled>
+                                      </td>
+                                      <td style="width: 12%;text-align: right">
+                                        <span [hidden]="transaction.editTxn">
+                                          <span>{{transaction.assetQuantity | filterInputValue | NumberFormatWithCurrencySymbol: transaction.currency}}</span>
+                                        </span>
+                                        <input appModelRestrictSplChar [hidden]="!transaction.editTxn" type="text" [(ngModel)]="transaction.assetQuantity" appOnlyNumber="true" class="investment-txn-editbox form-control" >
+                                      </td>
+                                      <td style="width: 10%;text-align: right">
+                                        <span [hidden]="transaction.editTxn">
+                                          <span>{{transaction.assetUnitCost | filterInputValue | NumberFormatWithCurrencySymbol: transaction.currency}}</span>
+                                        </span>
+                                        <input appModelRestrictSplChar type="text" [hidden]="!transaction.editTxn" [(ngModel)]="transaction.assetUnitCost" appOnlyNumber="true" class="investment-txn-editbox form-control">
+                                      </td>
+                                      <td style="width: 10%;text-align: right" class="truncatequd">
+                                        <span [hidden]="transaction.editTxn">
+                                          <span>{{transaction.amount | filterInputValue | NumberFormatWithCurrencySymbol: transaction.currency}}</span>
+                                        </span>
+                                        <input appModelRestrictSplChar type="text" [hidden]="!transaction.editTxn" [(ngModel)]="transaction.amount" appOnlyNumber="true" class="investment-txn-editbox form-control pointNumber">
+                                      </td>
+                                    </tr>
+                                    <tr [hidden]="!transaction.editTxn" style="text-align: center">
+                                      <td colspan="9" class="filter-button">
+                                        <span class="pm-red" id="txnError_{{i}}_{{k}}" style="display: block;"></span>
+                                        <button type="button" class="btn btn-primary" (click)="saveTransaction(i, k, transaction)">Save</button>
+                                        <button type="button" class="btn btn-warning" (click)="cancelTransaction(i, k, transaction)">Cancel</button>
+                                        <img style="padding: 5px 4px 4px 7px;" *ngIf="transaction.investmentDataLoading" src="/assets/img/loader/spin.gif" />
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+
+                                <!-- investment scx list -->
+                                <h4 *ngIf="investment['scxList'] && investment['scxList'].length > 0" style="margin-top: 25px;">Security Master <small>Please Check the details and select the entries to confirm or reject</small></h4>
+                                <table class="investment-txn-table" *ngIf="investment['scxList'] && investment['scxList'].length > 0" width="100%">
+                                  <thead>
+                                    <tr>
+                                      <th><input type="checkbox" name="ccc" [(ngModel)]="investment.isAllInvestmentScxSelected" (change)="toggleAllInvestmentScx(investment)"></th>  <!-- second checkbox-->
+                                      <th style="width: 18%;">Description</th>
+                                      <th style="width: 12%">Issuer</th>
+                                      <th style="width: 10%">coupon</th>
+                                      <th style="width: 16%">Currency</th>
+                                      <th style="width: 17%">Start Date</th>
+                                      <th style="width: 17%">Maturity Date</th>
+                                      <th style="width: 10%;text-align: right">Security Type</th>
+                                      <!-- <th style="width: 10%;text-align: right">Amount</th> -->
+                                    </tr>
+                                  </thead>
+                                  <tbody *ngFor="let scx of investment.scxList;let l = index">
+                                    <tr class="edit_investment_txn_row cursor" (click)="editScx(l, scx)"><!-- .edit-mode --> <!--  data-invst-txn-id="{{transaction.id}}" -->
+                                      <td style="width: 5%;" class="restrictClickChange">
+                                        <input type="checkbox" *ngIf="scx.confirmed" [(ngModel)]="scx.selected" (change)="optionToggledInvestmentScx(investment)">
+                                        <input type="checkbox" *ngIf="!scx.confirmed" [(ngModel)]="scx.selected" (change)="optionToggledInvestmentScx(investment)">
+                                      </td>
+                                      <td style="width: 13%"> <!-- class="truncatequd" -->
+                                        <span [hidden]="scx.editScx">{{scx.description | filterInputValue | ValidateValue}}</span>
+                                        <input appModelRestrictSplChar type="text" [hidden]="!scx.editScx" class="investment-txn-editbox form-control" [(ngModel)]="scx.description" disabled>
+                                      </td>
+                                      <td>
+                                        <span [hidden]="scx.editScx">{{scx.issuer | filterInputValue | ValidateValue}}</span>
+                                        <input appModelRestrictSplChar type="text" [hidden]="!scx.editScx" class="investment-txn-editbox form-control" [(ngModel)]="scx.issuer">
+                                      </td>
+                                      <td style="width: 10%" class="break-word">
+                                        <span [hidden]="scx.editScx">
+                                          <span class="investment-txn-text">{{scx.coupon | filterInputValue}}</span> <!--  | NumberFormatWithCurrencySymbol: scx.currency -->
+                                        </span>
+                                        <input appModelRestrictSplChar type="text" [hidden]="!scx.editScx" class="investment-txn-editbox form-control" [(ngModel)]="scx.coupon" appOnlyNumber="true">
+                                      </td>
+                                      <td style="width: 10%">
+                                        <span [hidden]="scx.editScx">{{scx.currency}}</span>
+                                        <select [hidden]="!scx.editScx" [(ngModel)]="scx.currency" class="form-control" style="padding-top: 0px;"> <!-- [(ngModel)]="invst.currency" -->
+                                          <option *ngFor="let currency of currencyListData" value="{{currency.code}}" [selected]="scx.currency">{{currency.name}} ({{currency.code}})</option> 
+                                        </select>
+                                      </td>
+                                      <td style="width: 10%">
+                                        <span [hidden]="scx.editScx">
+                                          <span>{{scx.startDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                        </span>
+                                        <input type="date" [hidden]="!scx.editScx" [ngModel]="scx.startDate | date: 'yyyy-MM-dd'" (ngModelChange)="scx.startDate = $event" class="form-control">
+                                      </td>
+                                      <td style="width: 12%;text-align: right">
+                                        <span [hidden]="scx.editScx">
+                                          <span>{{scx.maturityDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                        </span>
+                                        <input [hidden]="!scx.editScx" type="date" [ngModel]="scx.maturityDate | date: 'yyyy-MM-dd'" (ngModelChange)="scx.maturityDate = $event" class="investment-txn-editbox form-control" >
+                                      </td>
+                                      <td style="width: 10%;text-align: right">
+                                        <span [hidden]="scx.editScx">
+                                          <span>{{scx.securityType | filterInputValue | ValidateValue | ValidateISIN}}</span>
+                                        </span>
+                                        <input appModelRestrictSplChar type="text" [hidden]="!scx.editScx" [(ngModel)]="scx.securityType" class="investment-txn-editbox form-control">
+                                      </td>
+                                      <!-- <td style="width: 10%;text-align: right" class="truncatequd">
+                                        <span [hidden]="scx.editScx">
+                                          <span>{{scx.amount}}</span>
+                                        </span>
+                                        <input appModelRestrictSplChar type="text" [hidden]="!scx.editScx" [(ngModel)]="scx.amount" class="investment-txn-editbox form-control pointNumber">
+                                      </td> -->
+                                    </tr>
+                                    <tr [hidden]="!scx.editScx" style="text-align: center">
+                                      <td colspan="9" class="filter-button">
+                                        <span class="pm-red" id="scxError_{{i}}_{{j}}" style="display: block;"></span>
+                                        <button type="button" class="btn btn-primary" (click)="saveScx(i, l, scx)">Save</button>
+                                        <button type="button" class="btn btn-warning" (click)="cancelScx(i, l, scx)">Cancel</button>
+                                        <img style="padding: 5px 4px 4px 7px;" *ngIf="scx.investmentDataLoading" src="/assets/img/loader/spin.gif" />
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer>
+                <div class="row clearfix">
+                  <div class="col-md-4 pm-red"><small id="investmentError"></small></div>
+                  <div class="col-sm-12 col-md-8 pull-right">
+                    <img class="pull-right" style="padding: 5px 4px 4px 7px;" *ngIf="investmentDataLoading" src="/assets/img/loader/spin.gif" />
+                    <input appModelRestrictSplChar type="button" (click)="rejectInvestmentAccounts()" class="pull-right btn btn-default" value="REJECT">
+                    <input appModelRestrictSplChar type="button" (click)="confirmInvestmentAccounts()" class="pull-right btn b47PM-conf-btn" value="CONFIRM">
+                    <small>Please check the details and select the entries to confirm or reject</small>
+                  </div>
+                </div>
+              </footer>
+            </div>
+
+            <!-- Loan details -->
+            <h4 *ngIf="statementPreviewData.loans && statementPreviewData.loans.length > 0">Loan</h4>
+            <div *ngIf="statementPreviewData.loans && statementPreviewData.loans.length > 0" class="table b47PM-misc-table1 b47PM-statement-tbl1">
+              <header class="clearfix">
+                <div>&nbsp;</div>
+                <div style="width: 20%;">BANK NAME</div>
+                <div style="width: 20%;">ACCOUNT NUMBER</div>
+                <div style="width: 20%;">STATEMENT DATE</div>
+                <div style="width: 12%;">CURRENCY</div>
+                <div style="width: 21%;text-align: right;">BALANCE</div>
+              </header>
+              <div class="tbl-body">
+                <div *ngIf="statementPreviewDataLoader" class="record-row text-center" style="height: 40px;padding-top: 6px">
+                    Loading...
+                </div>
+                <div class="record-row" *ngFor="let loanData of statementPreviewData.loans; let i = index" id="loan_{{j}}">
+                  <div width="100%" class="table inner-data-table">
+                    <header class="row edit_loan_row cursor clearfix" id="{{i}}">
+                      <div class="restrictClickChange">
+                        <a class="toggle-expand-btn cursor" id="loan_toggle_{{i}}"  (click)="loanData.showChildTable = !loanData.showChildTable" [class.open]="loanData.showChildTable">
+                          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                          <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                      <div class="restrictClickChange">
+                        <input *ngIf="loanData.confirmed == 1" class="bankAccountCheckbox" type="checkbox" [(ngModel)]="loanData.isLoanAccountSelected" (change)="toggleAllLoanAccountTxn(loanData)" disabled>
+                        <input *ngIf="loanData.confirmed == 0" class="bankAccountCheckbox" type="checkbox" [(ngModel)]="loanData.isLoanAccountSelected" (change)="toggleAllLoanAccountTxn(loanData)">
+                      </div>
+                      <div class="truncatequd" title="" style="width: 20%;">
+                        <span class="bank-text">{{loanData.institutionName}}</span>
+                        <!-- <input type="text" class="bank-editbox form-control" value="{{loanData.institutionName}}" disabled> -->
+                      </div>
+                      <div class="truncatequd" title="" style="width: 20%;">
+                        <span class="bank-text">{{loanData.accountNumber}}</span>
+                        <!-- <input type="text" class="bank-editbox form-control" value="{{loanData.accountNumber}}" disabled> -->
+                      </div>
+                      <div class="truncatequd" style="width: 20%;">
+                        <span class="bank-text">{{loanData.billDate | dateFormat: 'DD-MM-YYYY'}}</span>
+                        <!-- <input type="text" class="bank-editbox form-control date" value="{{loanData.billDate | dateFormat: 'DD-MM-YYYY'}}"> -->
+                      </div>
+                      <div class="truncatequd" title="" style="width: 12%;">
+                        <span class="bank-text">{{loanData.currency}}</span>
+                        <!-- <select class="bank-editbox form-control" ng-init="bank.currency = loanData.currency" [(ngModel)]="loanData.currency" id="bank_input_curr_{{i}}">
+                          <option *ngFor="let currency of currencyListData" value="{{currency.code}}" [selected]="loanData.currency">{{currency.name}} ({{currency.code}})</option> 
+                        </select> -->
+                      </div>
+                      <div class="truncatequd" style="width: 20%;text-align: right;">
+                        <span class="bank-text">{{loanData?.balance | number:'3.1-2' | currencySymbol:loanData.currency}}</span>
+                        <!-- <input type="text" id="bank_input_bal_{{i}}" class="bank-editbox form-control price pointNumber" value="{{loanData.accountBalance}}"> -->
+                      </div>
+                    </header>
+                    <div *ngIf="loanData.transactions.length == 0">
+                      <tr>
+                        <td colspan="9">
+                          <div class="statement-detail-tbl data-table-quad text-center">
+                            <span>There are no transactions</span>
+                          </div>
+                        </td>
+                      </tr>
+                    </div>
+                    <div *ngIf="loanData.transactions.length > 0">
+                      <table style="width: 100%;">
+                        <tbody>
+                          <tr>
+                            <td colspan="9">
+                              <div class="statement-detail-tbl data-table-quad" [hidden]="!loanData.showChildTable">
+                                <h4>Transaction Details <small>Please Check the details and select the entries to confirm or reject</small></h4>
+                                <table>
+                                  <thead>
+                                    <tr>
+                                      <th><input type="checkbox" [(ngModel)]="loanData.isAllLoanTxnSelected" (change)="toggleAllLoanTxn(loanData)"></th>  <!-- second checkbox-->
+                                      <th>DATE</th>
+                                      <th>MERCHANT NAME</th>
+                                      <th>TRANSACTION TYPE</th>
+                                      <th style="text-align: right">AMOUNT</th>
+                                    </tr>
+                                  </thead>
+                                  <ng-container *ngFor="let transaction of loanData.transactions; let j = index">
+                                    <tbody>
+                                      <tr (click)="editLoanTransaction(i, transaction, $event)" class="edit_bank_txn_row cursor" id="{{i}}_{{j}}"><!-- .edit-mode --> <!--  (click)="editLoanTransaction(i, transaction, $event)" -->
+                                        <td class="restrictClickChange">
+                                          <input type="checkbox" [(ngModel)]="transaction.selected" (change)="optionToggledLoanTxn(loanData)">
+                                        </td>
+                                        <td class="truncatequd">
+                                            <span *ngIf="!transaction.editTxn" id="date_{{transaction.id}}" class="text">{{ transaction.transDate | dateFormat: 'DD-MM-YYYY'}}</span>
+                                            <!-- <input type="text" class="form-control date" id="date_input_{{transaction.id}}" value="{{ transaction.transDate | dateFormat: 'DD-MM-YYYY'}}" readonly> -->
+                                            <my-date-picker *ngIf="transaction.editTxn" name="mydate1" [options]="myDatePickerOptions" [(ngModel)]="editTransactionObj.updatedTransDate"
+                                              (dateChanged)="onTxnDateChanged($event)" id="date_input_{{transaction.id}}"></my-date-picker>
+                                        </td>
+                                        <td class="break-word">
+                                          <span [hidden]="transaction.editTxn" class="bank-txn-text" id="loan_txn_text_merchant_{{i}}_{{j}}">{{transaction.merchantName}}</span>
+                                          <span *ngIf="transaction.editTxn">
+                                            <input [hidden]="!transaction.editTxn" name="merchant_name" type="text" auto-complete [source]="merchantList"
+                                              [(ngModel)]="editTransactionObj.updatedMerchantName" [list-formatter]="autocompleListFormatter"
+                                              value-property-name="id" display-property-name="name" placeholder="Merchant name" class="bank-txn-editbox restrictSplChr" id="loan_txn_input_merchant_{{i}}_{{j}}" required>
+                                          </span>
+                                        </td>
+                                        <td>
+                                          <span class="category-icon pull-left" title="{{transaction.category}}">
+                                            <img *ngIf="!transaction.editTxn" src="/assets/{{transaction.categoryImageUrl}}" id="loan_txn_category_image_{{i}}_{{j}}" alt="" width="22px">
+                                            <img *ngIf="transaction.editTxn" src="/assets/{{editTransactionObj.updatedCategoryImageUrl}}" id="loan_txn_category_image_{{i}}_{{j}}" alt="" width="22px">
+                                          </span>
+                                          <span *ngIf="!transaction.editTxn" class="bank-txn-text" id="loan_txn_text_subcategory_{{i}}_{{j}}">{{transaction.subcategory}}</span>
+                                          <input *ngIf="transaction.editTxn" [(ngModel)]="editTransactionObj.updatedCategory" type="hidden" id="loan_txn_input_category_{{i}}_{{j}}">
+
+                                          <!-- category subcategory dropdown start -->
+                                          <div *ngIf="transaction.editTxn" class="bank-txn-editbox" style="vertical-align:middle;display: table-cell;" id="loan_input_subcategory_{{i}}_{{j}}">
+                                              <ul id="main-menu_{{transaction.id}}" class="sm sm-blue mainmenu" style="width: 100%;border-radius: 0px;">
+                                                  <li style="width: 100%;">
+                                                      <a href="javascript: void(0);" class="transaction-select">
+                                                          <input type="text" name="changeCategoryName" class="editbox form-control inline-category" id="loan_txn_input_subcategory_{{i}}_{{j}}"
+                                                                placeholder="subcategory" [(ngModel)]="editTransactionObj.updatedSubcategory" value="{{transaction.subcategory}}" style="width: 100%;" onkeydown="return false;" onDrop="return false" onPaste="return false">
+                                                      </a>
+                                                      <ul style="z-index: 9999;">
+                                                          <li *ngFor="let category of categorySubCategoryLists"> <!--  | orderBy: 'categoryName' -->
+                                                              <a>{{category.name}}</a>
+                                                              <ul>
+                                                                  <li *ngFor="let subcategory of category.subcategories">
+                                                                      <a (click)="getCategorySubcategoryInlineBank(transaction ,category.name, subcategory.name, category.url)">
+                                                                          {{subcategory.name}}
+                                                                      </a>
+                                                                  </li>
+                                                                  <!-- <li><a style="font-weight:bold;" data-toggle="modal" data-target=".addSubcategoryModal" >Add Subcategory</a></li> -->
+                                                              </ul>
+                                                          </li>
+                                                      </ul>
+                                                  </li>
+                                              </ul>
+                                          </div>
+                                          <!-- category subcategory dropdown end -->
+                                        </td>
+                                        <td class="truncatequd" style="text-align: right">
+                                          <span *ngIf="!transaction.editTxn" class="pm-red bank-txn-text" id="loan_txn_text_amount_{{i}}_{{j}}">
+                                            <span *ngIf="transaction.creditdebit == 'debit'">-{{removeSpecialCharacter(transaction.amount) | number:'3.1-2' | currencySymbol:transaction.currency}}</span>
+                                            <span *ngIf="transaction.creditdebit != 'debit'" style=" color: #000000;">{{removeSpecialCharacter(transaction.amount) | number:'3.1-2' | currencySymbol:transaction.currency}}</span>
+                                          </span>
+                                          <input *ngIf="transaction.editTxn" [(ngModel)]="editTransactionObj.updatedAmount" class="bank-txn-editbox form-control pointNumber" id="loan_txn_input_amount_{{i}}_{{j}}" type="text">
+                                        </td>
+                                      </tr>
+                                      <tr *ngIf="transaction.editTxn" class="filter-button" style="text-align: center">
+                                        <td colspan="9">
+                                          <!-- <span class="pm-red" id="txnError_{{i}}_{{j}}" style="display: block;"></span>
+                                          <button type="button" class="btn btn-primary" (click)="saveLoanTransaction(i, j, transaction)">Save</button>
+                                          <button type="button" class="btn btn-warning" (click)="cancelLoanTransaction(i, j, transaction)">Cancel</button>
+                                          <img style="padding: 5px 4px 4px 7px;" *ngIf="transaction.transactionDataLoading" src="/assets/img/loader/spin.gif" /> -->
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </ng-container>
+                                </table>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer>
+                <div class="row clearfix">
+                  <!-- <div class="col-md-4 pm-red"><small id="loanError"></small></div>
+                  <div class="col-sm-12 col-md-8 pull-right">
+                    <img class="pull-right" style="padding: 5px 4px 4px 7px;" *ngIf="loanDataLoading" src="/assets/img/loader/spin.gif" />
+                    <input type="button" (click)="rejectLoanAccounts()" id="rejectLoanAccountSubmit" [disabled]="loanDataLoading" class="pull-right btn btn-default" value="REJECT">
+                    <input type="button" (click)="confirmLoanAccounts()" id="confirmLoanAccountSubmit" [disabled]="loanDataLoading" class="pull-right btn b47PM-conf-btn" value="CONFIRM">
+                    <small>Please check the details and select the entries to confirm or reject</small>
+                  </div> -->
+                </div>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Part Html Starts -->
+  <app-authorised-footer></app-authorised-footer>
+  <!-- Footer Part Html Ends -->
+
+</div>
+
+<ng-template #holdingAssetModal>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelHoldingAssetsDetails(remaingHoldingAssets)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h5>Holding Asset Details</h5>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-sm-12 form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Sub Category</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetSubCategory" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Last Price Date</label>
+          <div class="col-sm-10">
+            <input type="date" [ngModel]="remaingHoldingAssets.holdingAssetIndicativePriceDate | date:'yyyy-MM-dd'" (ngModelChange)="remaingHoldingAssets.holdingAssetIndicativePriceDate = $event" class="form-control date">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Account Number</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetAccountNumber" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Sub Account Number</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetSubAccountNumber" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">YTM</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetYield" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Accrued Interest</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetFxAccruedInterest" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Last Fx. Rate</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetLastFxRate" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">MTM</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetUnrealizedProfitLossCurrency" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Trans Code</label>
+          <div class="col-sm-10">
+             <!-- <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.transCode" class="form-control">  -->
+             <select [(ngModel)]="remaingHoldingAssets.transCode" class="form-control">
+              <option value="">Select Trans Code</option>
+              <option *ngFor="let transCode of transCodeData; let i = index" [selected]="remaingHoldingAssets.transCode" value="{{ transCode }}">{{ transCode }}</option> 
+             </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Commission</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.commission" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Other Fees</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.otherFees" class="form-control"> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer filter-button">
+    <span class="pm-red" id="assetError_{{remaingHoldingAssets.investmentIndex}}_{{remaingHoldingAssets.assetIndex}}" style="margin-right: 10px;"></span>
+    <button type="button" class="btn btn-primary" [disabled]="remainingHoldingAssetDataLoading" 
+      (click)="saveAssets(remaingHoldingAssets.investmentIndex, remaingHoldingAssets.assetIndex, remaingHoldingAssets)">Save</button>
+    <button type="button" class="btn btn-warning" [disabled]="remainingHoldingAssetDataLoading" (click)="cancelHoldingAssetsDetails(remaingHoldingAssets)">Cancel</button>
+    <img *ngIf="remainingHoldingAssetDataLoading" src="/assets/img/loader/spin.gif" />
+  </div>
+</ng-template>

@@ -1,0 +1,14 @@
+.panel-name {
+    font-size: 13px;
+}
+.panel-icon {
+    font-size: 16px;
+    color: #4C629A;
+    margin-right: 6px;
+}
+.panel-group {
+    margin-bottom: -6px;
+}
+.panel-heading {
+    padding: 8px 15px;
+}

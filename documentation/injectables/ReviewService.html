@@ -1,0 +1,932 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>conjurer documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">conjurer documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>ReviewService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/review/review.service.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Review service class</p>
+
+            </p>
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#confirmAccountStatementData">confirmAccountStatementData</a>
+                            </li>
+                            <li>
+                                <a href="#editInvestmentHoldingAssetInfo">editInvestmentHoldingAssetInfo</a>
+                            </li>
+                            <li>
+                                <a href="#editInvestmentSecurityMaster">editInvestmentSecurityMaster</a>
+                            </li>
+                            <li>
+                                <a href="#editInvestmentTransaction">editInvestmentTransaction</a>
+                            </li>
+                            <li>
+                                <a href="#getCurrenyList">getCurrenyList</a>
+                            </li>
+                            <li>
+                                <a href="#getDummyStatementData">getDummyStatementData</a>
+                            </li>
+                            <li>
+                                <a href="#getStatementData">getStatementData</a>
+                            </li>
+                            <li>
+                                <a href="#getTransCode">getTransCode</a>
+                            </li>
+                            <li>
+                                <a href="#rejectAccountStatementData">rejectAccountStatementData</a>
+                            </li>
+                            <li>
+                                <a href="#updateInvestmentsData">updateInvestmentsData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="confirmAccountStatementData"></a>
+                        <span class="name">
+                            <b>
+                            confirmAccountStatementData
+                            </b>
+                            <a href="#confirmAccountStatementData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>confirmAccountStatementData(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/review/review.service.ts:95</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To confirm statement uploaded data</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="editInvestmentHoldingAssetInfo"></a>
+                        <span class="name">
+                            <b>
+                            editInvestmentHoldingAssetInfo
+                            </b>
+                            <a href="#editInvestmentHoldingAssetInfo"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>editInvestmentHoldingAssetInfo(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/review/review.service.ts:62</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To edit holding assets</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="editInvestmentSecurityMaster"></a>
+                        <span class="name">
+                            <b>
+                            editInvestmentSecurityMaster
+                            </b>
+                            <a href="#editInvestmentSecurityMaster"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>editInvestmentSecurityMaster(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/review/review.service.ts:84</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To save updated investment security master</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="editInvestmentTransaction"></a>
+                        <span class="name">
+                            <b>
+                            editInvestmentTransaction
+                            </b>
+                            <a href="#editInvestmentTransaction"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>editInvestmentTransaction(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/review/review.service.ts:73</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To edit investment transaction</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCurrenyList"></a>
+                        <span class="name">
+                            <b>
+                            getCurrenyList
+                            </b>
+                            <a href="#getCurrenyList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCurrenyList()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">src/app/review/review.service.ts:133</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get curreny list </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getDummyStatementData"></a>
+                        <span class="name">
+                            <b>
+                            getDummyStatementData
+                            </b>
+                            <a href="#getDummyStatementData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getDummyStatementData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/review/review.service.ts:54</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get dummy statement data </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getStatementData"></a>
+                        <span class="name">
+                            <b>
+                            getStatementData
+                            </b>
+                            <a href="#getStatementData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getStatementData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/review/review.service.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get preview details</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getTransCode"></a>
+                        <span class="name">
+                            <b>
+                            getTransCode
+                            </b>
+                            <a href="#getTransCode"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getTransCode()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">src/app/review/review.service.ts:122</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get transaction code(transCode) </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rejectAccountStatementData"></a>
+                        <span class="name">
+                            <b>
+                            rejectAccountStatementData
+                            </b>
+                            <a href="#rejectAccountStatementData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>rejectAccountStatementData(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/review/review.service.ts:103</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To reject statement uploaded data </p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updateInvestmentsData"></a>
+                        <span class="name">
+                            <b>
+                            updateInvestmentsData
+                            </b>
+                            <a href="#updateInvestmentsData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>updateInvestmentsData(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">src/app/review/review.service.ts:114</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To update investemnt holding assets, txn and scx</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Inject } from &#x27;@angular/core&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { catchError, map, takeUntil } from &#x27;rxjs/operators&#x27;;
+
+import { K2_APP_CONFIG, AppConfig } from &#x27;../app-config&#x27;;
+import { K2_APP_HTTP_ADAPTER, CommonHttpAdapterService } from &#x27;../adapters/common-http-adapter.service&#x27;;
+
+import { AccountHelper } from &#x27;../helpers/account/account.helper&#x27;;
+import { Review } from &#x27;../helpers/review/review&#x27;;
+import { CommonConstant } from &#x27;../constants/common/common.constant&#x27;;
+import { statementPreviewData, currencyList } from &#x27;./review.interface&#x27;;
+import { RxJSHelper } from &#x27;../helpers/rxjs-helper/rxjs.helper&#x27;;
+
+/**
+ * Review service class
+ */
+@Injectable()
+export class ReviewService {
+
+  /** @ignore */
+  constructor(
+    private http: HttpClient,
+    @Inject(K2_APP_CONFIG) private config: AppConfig,
+    @Inject(K2_APP_HTTP_ADAPTER) private commonHttpAdapterService: CommonHttpAdapterService,
+    private accountHelper: AccountHelper,
+    private reviewHelper: Review,
+    private rxjsHelper: RxJSHelper
+  ) { }
+
+  /**
+   * To get preview details
+   */
+  getStatementData(): Observable&lt;any&gt; {
+    let userData: Object &#x3D; {};
+    userData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    userData[CommonConstant.FLOW] &#x3D; &#x27;gx&#x27;;
+
+    const statementData &#x3D; this.accountHelper.getUploadStatementData();
+    if (statementData &amp;&amp; statementData[CommonConstant.FILE_REPO_ID]) {
+      userData[CommonConstant.FILE_REPO_ID] &#x3D; statementData[CommonConstant.FILE_REPO_ID];
+    } else {
+      userData[CommonConstant.FILE_REPO_ID] &#x3D; &#x27;&#x27;;
+    }
+    userData &#x3D; JSON.stringify(userData);
+
+    return this.http.post(this.config.apiEndpoint + &#x27;statementPreviewDetails&#x27;, userData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**To get dummy statement data */
+  getDummyStatementData() {
+    return statementPreviewData;
+  }
+
+  /**
+   * To edit holding assets
+   * @param any data
+   */
+  editInvestmentHoldingAssetInfo(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;editInvestmentHoldingAssetInfo&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To edit investment transaction
+   * @param any data
+   */
+  editInvestmentTransaction(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;editInvestmentTransaction&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To save updated investment security master
+   * @param any data
+   */
+  editInvestmentSecurityMaster(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;editInvestmentScx&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To confirm statement uploaded data
+   * @param any data
+   */
+  confirmAccountStatementData(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;confirmAction&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**To reject statement uploaded data */
+  rejectAccountStatementData(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;rejectAction&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To update investemnt holding assets, txn and scx
+   * @param data
+   */
+  updateInvestmentsData(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;updateAccounts&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**To get transaction code(transCode) */
+  getTransCode(): Observable&lt;any&gt; {
+    let transData: Object &#x3D; {};
+    transData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    transData &#x3D; JSON.stringify(transData);
+    return this.http.post(this.config.apiEndpoint + &#x27;fetchTransactionCode&#x27;, transData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**To get curreny list */
+  getCurrenyList(): Observable&lt;any&gt; {
+    let currData: Object &#x3D; {};
+    currData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    currData &#x3D; JSON.stringify(currData);
+    return this.http.post(this.config.apiEndpoint + &#x27;currencyList&#x27;, currData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ReviewService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

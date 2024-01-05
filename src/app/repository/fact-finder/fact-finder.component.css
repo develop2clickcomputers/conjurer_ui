@@ -1,0 +1,63 @@
+.nav-pills1 li {
+    float: right;
+}
+.acc-invst-container {
+    margin-top: 0px;
+    color: #fff;
+}
+.acc-invst-container .acc-invst-yes {
+    /* background: #008000;
+    color: #fff;
+    height: 35px;
+    padding: 6px 20px 0px 20px; */
+    border-bottom: 10px solid #008000;
+}
+
+.acc-invst-container .div-section {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.acc-invst-container .section {
+    background-color: #962721;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.acc-invst-container .acc-invst-no {
+    /* background: #ff0000;
+    color: #fff;
+    height: 35px;
+    padding: 6px 20px 0px 20px; */
+    border-bottom: 5px solid #ff0000;
+}
+
+.pep-yes-border {
+    border-bottom: 5px solid #ff0000;
+}
+.pep-no-border {
+    border-bottom: 5px solid #008000;
+}
+
+.glyphicon-refresh-animate {
+    -animation: spin .9s infinite linear;
+    -webkit-animation: spin2 .9s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+.pm-stmt-pass-btn{
+    font-size: 14px;
+    padding: 0px 7px 2px 7px;
+    background: #4269ce none repeat scroll 0 0;
+    border: 1px solid #4269ce;
+    color: #fff;
+    line-height: 25px;
+    width: 30%;
+}

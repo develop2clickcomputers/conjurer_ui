@@ -1,0 +1,834 @@
+<!-- main display start when there is no transaction -->
+<div class="b47PM-center-body" *ngIf="overviewError">
+  <div class="container b47PM-container goals-landing-page">
+    <div class="row clearfix">
+      <div class="col-md-12">
+        <div class="b47PM-budget-quad1 grey-quad" align="center">
+          <div class="col-sm-8 col-sm-offset-2">
+            <h4>Oops! Something went wrong!!!</h4>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Display Html Starts -->
+<div *ngIf="!overviewError" class="b47PM-center-body">
+   <!-- Main Display Html Starts -->
+   <div class="container-fluid b47PM-container">
+      <div class="row clearfix">
+         <div *ngIf="showCarrierList" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-container-margin">
+            <div class="container-fluid main-container">
+               <div class="row">
+                  <div class="panel panel-default main-panel">
+                     <div class="panel-heading main-panel-heading">
+                        <h3 class="panel-title">Carriers</h3>
+                        <div class="pull-right tool-list">
+                           <a title="Filter Client" (click)="showFilterQuad =! showFilterQuad">
+                              <i class="fa fa-filter" aria-hidden="true"></i>
+                           </a>
+                           <!-- <a (click)="addNewCarrier('new')" title="New Carrier">
+                              <i class="fa fa-plus" aria-hidden="true"></i>
+                           </a> -->
+                        </div>
+                     </div>
+                     <div class="panel-body">
+                        <!-- filters -->
+                        <div *ngIf="showFilterQuad" class="b47PM-filter-quad1" style="margin: -15px -15px 15px -15px;padding: 10px 25px 10px 64px;">
+                           <div class="row">
+                              <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-3 rowPusher form-group">
+                                 <div class="row">
+                                    <label>Carrier Name</label>
+                                    <select class="form-control sideGraphClear" name="name" [(ngModel)]="carrierName">
+                                       <option value="" selected="selected">All</option>
+                                       <option *ngFor="let type of carrierNameFilterList" value="{{ type }}">{{ type }}</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-3 rowPusher form-group">
+                                 <div class="row">
+                                    <label>Country</label>
+                                    <select class="form-control sideGraphClear" name="country" [(ngModel)]="carrierCountry">
+                                       <option value="" selected>All</option>
+                                       <option *ngFor="let type of carrierCountryFilterList" value="{{ type }}">{{ type }}</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="col-xs-offset-1 col-xs-10  col-sm-offset-0 col-sm-12">
+                                 <div class="row">
+                                    <ng-container *ngIf="Filter['carrierName'].length > 0">
+                                       <div class="filter-box" *ngFor="let carrierName of Filter.carrierName; let i = index">
+                                          <span [innerHtml]="carrierName"></span>
+                                          <i class="fa fa-times" aria-hidden="true" (click)="spliceCarrierName(i);" role="button"></i>
+                                       </div>
+                                    </ng-container>
+                                    <ng-container *ngIf="Filter['carrierCountry'].length > 0">
+                                       <div class="filter-box" *ngFor="let carrierCountry of Filter.carrierCountry; let i = index">
+                                          <span [innerHtml]="carrierCountry"></span>
+                                          <i class="fa fa-times" aria-hidden="true" (click)="spliceCarrierCountry(i);" role="button"></i>
+                                       </div>
+                                    </ng-container>
+                                 </div>
+                              </div>
+                           </div>
+
+                           <div class="row">
+                              <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-md-12 col-lg-12 text-right">
+                                 <div class="row filter-button">
+                                    <button type="button" class="btn btn-success" (click)="applyFilter()">Apply Filters</button>
+                                    <button type="button" class="btn btn-default" (click)="clearAllFilter()">Clear Filters</button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- table -->
+                        <div class="row">
+                           <div *ngFor="let carrier of scrapedInstutionList | exactSearchFilter:Filter.carrierName | exactSearchFilter:Filter.carrierCountry; let i = index; odd as isOdd; even as isEven" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                              <div class="card">
+                                 <div class="card-img">
+                                    <img *ngIf="carrier['icon']" class="card-img-top img-responsive" src="{{carrier['icon']}}" alt="">
+                                    <img *ngIf="!carrier['icon']" class="card-img-top img-responsive" src="/assets/img/icon/insurance_logo.png" alt="">
+                                 </div>
+                                 <div class="card-body">
+                                    <h5 class="card-title">{{carrier?.institutionName | uppercase}}</h5>
+                                    <div class="card-button-container">
+                                       <a class="cursor btn btn-primary card-button" (click)="getScrappedCarrier(carrier, i)">View More</a>
+                                       <!-- <a class="cursor btn btn-primary card-button" (click)="visitRespectivePage(carrier)">Visit Page</a> -->
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div *ngIf="carriers.length === 0 && scrapedInsuranceData.length === 0" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                              There are no carriers
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div *ngIf="!showCarrierList && !carrierInfoCount" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-container-margin">
+            <div *ngIf="carrierDisplayFlag" class="row">
+               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <h3>{{carrierInformation?.name}}</h3>
+               </div>
+               <!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                  <div class="btn-group head-button-group">
+                     <button type="button" (click)="addNewCarrier('new')" class="btn btn-info">Add New</button>
+                     <button type="button" (click)="addNewCarrier('copy')" class="btn btn-info">Copy</button>
+                     <button type="button" (click)="deleteUser()" class="btn btn-info">Delete Carrier</button>
+                  </div>
+               </div> -->
+            </div>
+            <div *ngIf="!carrierDisplayFlag" class="row">
+               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <h3>{{carrierInformation?.institutionName}}</h3>
+               </div>
+            </div>
+            <div class="row">
+               <div class="submenu-container">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                     <ul class="submenu-nav nav nav-pills" role="submenu">
+                        <li [routerLinkActive]="['active']">
+                           <a href="" [routerLink]="['../carrier']">Carrier Information</a>
+                        </li>
+                        <li [routerLinkActive]="['active']">
+                           <a href="" [routerLink]="['../plan']">Carrier Plan</a>
+                        </li>
+                     </ul>
+                  </div>
+                  <div *ngIf="carrierInfoFetchErrorFlag" class="container-fluid main-container">
+                     <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                           <h4>Opps..Something went wrong</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <div *ngIf="carrierInfoCount" class="container-fluid main-container">
+                     <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                           <span>There are no carriers</span>
+                        </div>
+                     </div>
+                  </div>
+                  <div *ngIf="!showCarrierList" class="container-fluid">
+                     <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right" style="margin-bottom: 10px;">
+                           <a class="btn btn-default cursor" (click)="backToCarrierList()">&laquo; Previous</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div *ngIf="carrierInfoPageShow && !carrierInfoFetchErrorFlag" class="main-container">
+                     <div *ngIf="!showCarrierList && carrierDisplayFlag" class="container-fluid">
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                              <!-- carrier info -->
+                              <div class="panel panel-default main-info-panel">
+                                 <div class="panel-heading main-info-panel-heading">
+                                    <h3 class="panel-title">Carrier Info</h3>
+                                    <!-- <div class="pull-right tool-list">
+                                       <a (click)="openCarrierMetaDataModal(carrierMetaDataModal, carrierInformation)" style="cursor: pointer;">
+                                          <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                       </a>
+                                    </div> -->
+                                 </div>
+                                 <div class="panel-body main-info-panel-body">
+                                    <div class="row">
+                                       <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
+                                          <header class="text-left">
+                                             <div class="text-title">
+                                                {{carrierInformation.name}}
+                                             </div>
+                                          </header>
+                                       </div>
+                                       <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+                                          <figure>
+                                             <div class="header-img">
+                                                <img *ngIf="carrierInformation['imageIcon']" class="header-img-top img-responsive" src="{{carrierInformation['imageIcon']}}" alt="">
+                                                <img *ngIf="!carrierInformation['imageIcon']" class="header-img-top img-responsive" src="/assets/img/icon/insurance_logo.png" alt="">
+                                             </div>
+                                             <figcaption class="fig-caption text-center">{{carrierInformation.abbreviation | uppercase}}</figcaption>
+                                          </figure>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <!-- carrier contact -->
+                              <div class="panel panel-default main-info-panel">
+                                 <div class="panel-heading main-info-panel-heading">
+                                    <h3 class="panel-title">Carrier Contact</h3>
+                                    <!-- <div class="pull-right tool-list">
+                                       <a (click)="openPhoneNumberModal(phoneNumberModal)" style="cursor: pointer;">
+                                          <i class="fa fa-plus-icon" aria-hidden="true"></i>
+                                       </a>
+                                    </div> -->
+                                 </div>
+                                 <div class="panel-body main-panel-body">
+                                    <div *ngIf="carrierInformation['carrierContacts'] && carrierInformation['carrierContacts'].length > 0" class="table-responsive">
+                                       <table class="table table-hover table-bordered info-table">
+                                          <thead>
+                                             <tr>
+                                                <th>PHONE</th>
+                                                <th class="text-center">LAST UPDATED</th>
+                                                <th></th>
+                                             </tr>
+                                          </thead>
+                                          <tbody *ngFor="let phno of carrierInformation['carrierContacts']">
+                                             <tr>
+                                                <td>
+                                                <span *ngIf="phno.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                   <span>({{phno.countryCode}}) </span>
+                                                   <span>{{phno.number}}</span>
+                                                </td>
+                                                <td class="text-center">
+                                                   {{phno?.updatedAt | standardDateFormat}}
+                                                </td>
+                                                <td>
+                                                   <!-- <a (click)="openPhoneNumberModal(phoneNumberModal, phno)" style="cursor: pointer;" class="pull-right">
+                                                      <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                                   </a> -->
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </div>
+                                    <div *ngIf="carrierInformation['carrierContacts'] && carrierInformation['carrierContacts'].length === 0" class="row">
+                                       <!-- <div class="col-sm-12">
+                                          You haven't added phone number.
+                                          <a (click)="openPhoneNumberModal(phoneNumberModal)" style="cursor: pointer;" class="">Click to add</a> phone number.
+                                       </div> -->
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <!-- carrier emails -->
+                              <div class="panel panel-default main-info-panel">
+                                 <div class="panel-heading main-info-panel-heading">
+                                    <h3 class="panel-title">Carrier Emails</h3>
+                                    <!-- <div class="pull-right tool-list">
+                                       <a (click)="openEmailModal(emailModal)" style="cursor: pointer;">
+                                          <i class="fa fa-plus-icon" aria-hidden="true"></i>
+                                       </a>
+                                    </div> -->
+                                 </div>
+                                 <div class="panel-body main-panel-body">
+                                    <div *ngIf="carrierInformation['carrierEmails'].length > 0" class="table-responsive">
+                                       <table class="table table-hover table-bordered info-table">
+                                          <thead>
+                                             <tr>
+                                                <th>EMAIL</th>
+                                                <th class="text-center">LAST UPDATED</th>
+                                                <th></th>
+                                             </tr>
+                                          </thead>
+                                          <tbody *ngFor="let email of carrierInformation['carrierEmails']">
+                                             <tr>
+                                                <td>
+                                                <span *ngIf="email.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                   <span>{{email.email}}</span>
+                                                </td>
+                                                <td class="text-center">
+                                                   {{email?.updatedAt | standardDateFormat}}
+                                                </td>
+                                                <td>
+                                                   <!-- <a (click)="openEmailModal(emailModal, email)" style="cursor: pointer;" class="pull-right">
+                                                      <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                                   </a> -->
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </div>
+                                    <div *ngIf="carrierInformation['carrierEmails'] && carrierInformation['carrierEmails'].length === 0" class="row">
+                                       <!-- <div class="col-sm-12">
+                                          You haven't added email.
+                                          <a (click)="openEmailModal(emailModal)" style="cursor: pointer;" class="">Click to add</a> email.
+                                       </div> -->
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <!-- carrier address -->
+                              <div class="panel panel-default main-info-panel">
+                                 <div class="panel-heading main-info-panel-heading">
+                                    <h3 class="panel-title">Carrier Address</h3>
+                                    <!-- <div class="pull-right tool-list">
+                                       <a (click)="openAddressModal(addressDetailsModal)" style="cursor: pointer;">
+                                          <i class="fa fa-plus-icon" aria-hidden="true"></i>
+                                       </a>
+                                    </div> -->
+                                 </div>
+                                 <div class="panel-body main-panel-body">
+                                    <div *ngIf="carrierInformation['carrierAddresses'] && carrierInformation['carrierAddresses'].length > 0" class="table-responsive">
+                                       <table class="table table-hover table-bordered info-table">
+                                          <thead>
+                                             <tr>
+                                                <th>ADDRESS</th>
+                                                <th class="text-center">TYPE</th>
+                                                <th class="text-center">LAST UPDATED</th>
+                                                <th></th>
+                                             </tr>
+                                          </thead>
+                                          <tbody *ngFor="let address of carrierInformation['carrierAddresses']">
+                                             <tr>
+                                                <td>
+                                                   <span *ngIf="address.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                   <span *ngIf="address.unitNumber">{{address.unitNumber}}</span>
+                                                   <span *ngIf="address.unitNumber">, </span>
+                                                   <span *ngIf="address.address1">{{address.address1}}</span>
+                                                   <br />
+                                                   <span *ngIf="address.address2">{{address.address2}}</span>
+                                                   <br *ngIf="address.address2" />
+                                                   <span *ngIf="address.city">{{address.city}}</span>
+                                                   <span *ngIf="address.state">, {{address.state}}</span>
+                                                   <span *ngIf="address.country">, {{address.country}}</span>
+                                                   <span *ngIf="address.pinCode"> - {{address.pinCode}}</span>
+                                                </td>
+                                                <td class="text-center">
+                                                   {{address?.type?.displayText}}
+                                                </td>
+                                                <td class="text-center">
+                                                   {{address?.updatedAt | standardDateFormat}}
+                                                </td>
+                                                <td>
+                                                   <!-- <a (click)="openAddressModal(addressDetailsModal, address)" style="cursor: pointer;" class="pull-right">
+                                                      <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                                   </a> -->
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </div>
+                                    <div *ngIf="carrierInformation['carrierAddresses'] && carrierInformation['carrierAddresses'].length === 0" class="row" style="padding: 15px">
+                                       <!-- <div class="col-sm-12">
+                                          You haven't added address.
+                                          <a (click)="openAddressModal(addressDetailsModal)" style="cursor: pointer;" class="">Click to add</a> address.
+                                       </div> -->
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <!-- carrier contact person -->
+                              <div class="panel panel-default main-info-panel">
+                                 <div class="panel-heading main-info-panel-heading">
+                                    <h3 class="panel-title">Contact Person</h3>
+                                    <!-- <div class="pull-right tool-list">
+                                       <a (click)="openContactPersonModal(contactPersonModal)" style="cursor: pointer;">
+                                          <i class="fa fa-plus-icon" aria-hidden="true"></i>
+                                       </a>
+                                    </div> -->
+                                 </div>
+                                 <div *ngIf="carrierInformation['carrierContactPerson'] && carrierInformation['carrierContactPerson'].length > 0" class="panel-body main-panel-body">
+                                    <div class="table-responsive">
+                                       <table class="table table-hover table-bordered info-table">
+                                          <thead>
+                                             <tr>
+                                                <th>PERSON</th>
+                                                <th>CONTACTS</th>
+                                                <th></th>
+                                             </tr>
+                                          </thead>
+                                          <tbody *ngFor="let contactPerson of carrierInformation['carrierContactPerson']">
+                                             <tr>
+                                                <td>
+                                                   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                      <figure class="thumbnail image">
+                                                         <img class="img-responsive" src="/assets/img/profile_image/prof_placeholder.jpg" />
+                                                      </figure>
+                                                   </div>
+                                                   <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                                      <header class="text-left">
+                                                         <div class="text-title">{{contactPerson.name}}</div>
+                                                      </header>
+                                                   </div>
+                                                </td>
+                                                <td>
+                                                   <address>
+                                                      <p class="contact-margin" *ngFor="let phno of contactPerson['contactPersonContacts']">
+                                                         <span *ngIf="phno.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                         <span>({{phno.countryCode}}) </span>
+                                                         <span>{{phno.number}}</span>
+                                                      </p>
+                                                   </address>
+                                                   <address>
+                                                      <p class="contact-margin" *ngFor="let email of contactPerson['personEmails']">
+                                                         <span *ngIf="email.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                         <span>{{email.email}}</span>
+                                                      </p>
+                                                   </address>
+                                                   <address>
+                                                      <p *ngFor="let address of contactPerson['contactPersonAddresses']">
+                                                         <span *ngIf="address.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                         <span *ngIf="address.unitNumber">{{address.unitNumber}}</span>
+                                                         <span *ngIf="address.unitNumber">, </span>
+                                                         <span *ngIf="address.address1">{{address.address1}}</span>
+                                                         <br />
+                                                         <span *ngIf="address.address2">{{address.address2}}</span>
+                                                         <br *ngIf="address.address2" />
+                                                         <span *ngIf="address.city">{{address.city}}</span>
+                                                         <span *ngIf="address.state">, {{address.state}}</span>
+                                                         <span *ngIf="address.country">, {{address.country}}</span>
+                                                         <span *ngIf="address.pinCode">
+                                                            - {{address.pinCode}}</span>
+                                                      </p>
+                                                   </address>
+                                                </td>
+                                                <td>
+                                                   <!-- <a (click)="openContactPersonModal(contactPersonModal, contactPerson)" style="cursor: pointer;" class="pull-right">
+                                                      <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                                   </a> -->
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </div>
+                                 </div>
+                                 <div *ngIf="carrierInformation['carrierContactPerson'] && carrierInformation['carrierContactPerson'].length === 0" class="panel-body">
+                                    <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                       You haven't added contact person for this client.
+                                       <a (click)="openContactPersonModal(contactPersonModal)" style="cursor: pointer;" class="">Click to add</a> contact person.
+                                    </div> -->
+                                 </div>
+                              </div>
+                           </div>
+
+                           <!-- right sidebar -->
+                           <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                              <!-- other offices -->
+                              <div class="panel panel-default main-info-panel">
+                                 <div class="panel-heading main-info-panel-heading">
+                                    <h3 class="panel-title">Other Offices</h3>
+                                    <!-- <div class="pull-right tool-list">
+                                       <a (click)="openAddressModal(addressDetailsModal)" style="cursor: pointer;">
+                                          <i class="fa fa-plus-icon" aria-hidden="true"></i>
+                                       </a>
+                                    </div> -->
+                                 </div>
+                                 <div class="panel-body main-panel-body">
+                                    <div *ngIf="carrierInformation['carrierAddresses'] && carrierInformation['carrierAddresses'].length > 0" class="table-responsive">
+                                       <table class="table table-hover table-bordered info-table">
+                                          <thead>
+                                             <tr>
+                                                <th>ADDRESS</th>
+                                                <th class="text-center">TYPE</th>
+                                                <th class="text-center">LAST UPDATED</th>
+                                                <th></th>
+                                             </tr>
+                                          </thead>
+                                          <tbody *ngFor="let address of carrierInformation['carrierAddresses']">
+                                             <tr>
+                                                <td>
+                                                   <span *ngIf="address.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                   <span *ngIf="address.unitNumber">{{address.unitNumber}}</span>
+                                                   <span *ngIf="address.unitNumber">, </span>
+                                                   <span *ngIf="address.address1">{{address.address1}}</span>
+                                                   <br />
+                                                   <span *ngIf="address.address2">{{address.address2}}</span>
+                                                   <br *ngIf="address.address2" />
+                                                   <span *ngIf="address.city">{{address.city}}</span>
+                                                   <span *ngIf="address.state">, {{address.state}}</span>
+                                                   <span *ngIf="address.country">, {{address.country}}</span>
+                                                   <span *ngIf="address.pinCode"> - {{address.pinCode}}</span>
+                                                </td>
+                                                <td class="text-center">
+                                                   {{address?.type?.displayText}}
+                                                </td>
+                                                <td class="text-center">
+                                                   {{address?.updatedAt | standardDateFormat}}
+                                                </td>
+                                                <td>
+                                                   <!-- <a (click)="openAddressModal(addressDetailsModal, address)" style="cursor: pointer;" class="pull-right">
+                                                      <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                                   </a> -->
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </div>
+                                    <div *ngIf="carrierInformation['carrierAddresses'] && carrierInformation['carrierAddresses'].length === 0" class="row" style="padding: 15px">
+                                       <!-- <div class="col-sm-12">
+                                          You haven't added address.
+                                          <a (click)="openAddressModal(addressDetailsModal)" style="cursor: pointer;" class="">Click to add</a> address.
+                                       </div> -->
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div *ngIf="!showCarrierList && !carrierDisplayFlag" class="container-fluid">
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                              <!-- carrier info -->
+                              <div class="panel panel-default main-info-panel">
+                                 <div class="panel-heading main-info-panel-heading">
+                                    <h3 class="panel-title">Carrier Info</h3>
+                                    <!-- <div class="pull-right tool-list">
+                                       <a (click)="openCarrierMetaDataModal(carrierMetaDataModal, carrierInformation)" style="cursor: pointer;">
+                                          <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                       </a>
+                                    </div> -->
+                                 </div>
+                                 <div class="panel-body main-info-panel-body">
+                                    <div class="row">
+                                       <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
+                                          <header class="text-left">
+                                             <div class="text-title">
+                                                {{carrierInformation?.institutionName}}
+                                             </div>
+                                          </header>
+                                       </div>
+                                       <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+                                          <figure>
+                                             <div class="header-img">
+                                                <!-- <img class="header-img-top img-responsive" [src]="getCarrierIcon(carrierInformation)" alt="carrier icon"> -->
+                                                <img *ngIf="carrierInformation['icon']" class="card-img-top img-responsive" src="{{carrierInformation['icon']}}" alt="">
+                                                <img *ngIf="!carrierInformation['icon']" class="card-img-top img-responsive" src="/assets/img/icon/insurance_logo.png" alt="">
+                                             </div>
+                                             <figcaption class="fig-caption text-center">{{carrierInformation?.abbreviation | uppercase}}</figcaption>
+                                          </figure>
+                                       </div>
+                                    </div>
+                                    
+                                 </div>
+                              </div>
+
+                              <div *ngIf="scrapedInsuranceBranchData['branches'] && scrapedInsuranceBranchData['branches'].length > 0" class="row">
+                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <!-- carrier branch -->
+                                    <div class="panel panel-default main-info-panel">
+                                       <div class="panel-heading main-info-panel-heading">
+                                          <h3 class="panel-title">Branch</h3>
+                                          <!-- <div class="pull-right tool-list">
+                                             <a (click)="openContactPersonModal(contactPersonModal)" style="cursor: pointer;">
+                                                <i class="fa fa-plus-icon" aria-hidden="true"></i>
+                                             </a>
+                                          </div> -->
+                                       </div>
+                                       <div *ngFor="let branch of scrapedInsuranceBranchData['branches']" class="panel-body main-panel-body">
+                                          <div class="table-responsive">
+                                             <table class="table table-hover table-bordered info-table">
+                                                <tbody>
+                                                   <tr>
+                                                      <td>
+                                                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                                            <figure class="thumbnail image">
+                                                               <img class="img-responsive" src="/assets/img/profile_image/prof_placeholder.jpg" />
+                                                            </figure>
+                                                         </div>
+                                                         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                                            <header class="text-left">
+                                                               <div class="text-title">{{branch.name}}</div>
+                                                            </header>
+                                                         </div>
+                                                      </td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                          <!-- branch meta data -->
+                                          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top-15">
+                                          
+                                             <!-- branch contacts -->
+                                             <div class="panel panel-default main-info-panel">
+                                                <div class="panel-heading main-info-panel-heading">
+                                                   <h3 class="panel-title">Contacts</h3>
+                                                   <!-- <div class="pull-right tool-list">
+                                                      <a (click)="openPhoneNumberModal(phoneNumberModal);setBranchObject(branch)" style="cursor: pointer;">
+                                                         <i class="fa fa-plus-icon" aria-hidden="true"></i>
+                                                      </a>
+                                                   </div> -->
+                                                </div>
+                                                <div class="panel-body main-panel-body">
+                                                   <div *ngIf="branch['carrierContacts'] && branch['carrierContacts'].length > 0" class="table-responsive">
+                                                      <table class="table table-hover table-bordered info-table">
+                                                         <thead>
+                                                            <tr>
+                                                               <th>PHONE</th>
+                                                               <th class="text-center">LAST UPDATED</th>
+                                                               <th></th>
+                                                            </tr>
+                                                         </thead>
+                                                         <tbody *ngFor="let phno of branch['carrierContacts']">
+                                                            <tr>
+                                                               <td>
+                                                                  <span *ngIf="phno.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                                  <span *ngIf="phno.countryCode">({{phno.countryCode}}) </span>
+                                                                  <span>{{phno.number}}</span>
+                                                               </td>
+                                                               <td class="text-center">
+                                                                  {{phno?.updatedAt | standardDateFormat}}
+                                                               </td>
+                                                               <td>
+                                                                  <!-- <a (click)="openPhoneNumberModal(phoneNumberModal, phno);setBranchObject(branch)" style="cursor: pointer;" class="pull-right">
+                                                                     <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                                                  </a> -->
+                                                               </td>
+                                                            </tr>
+                                                         </tbody>
+                                                      </table>
+                                                   </div>
+                                                   <div *ngIf="branch['carrierContacts'] && branch['carrierContacts'].length === 0" class="row" style="padding: 15px">
+                                                      <!-- <div class="col-sm-12">
+                                                         You haven't added phone number.
+                                                         <a (click)="openPhoneNumberModal(phoneNumberModal);setBranchObject(branch)" style="cursor: pointer;" class="">Click to add</a> phone number.
+                                                      </div> -->
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <!-- branch emails -->
+                                             <div class="panel panel-default main-info-panel">
+                                                <div class="panel-heading main-info-panel-heading">
+                                                   <h3 class="panel-title">Emails</h3>
+                                                   <!-- <div class="pull-right tool-list">
+                                                      <a (click)="openEmailModal(emailModal);setBranchObject(branch)" style="cursor: pointer;">
+                                                         <i class="fa fa-plus-icon" aria-hidden="true"></i>
+                                                      </a>
+                                                   </div> -->
+                                                </div>
+                                                <div class="panel-body main-panel-body">
+                                                   <div *ngIf="branch['carrierEmails'].length > 0" class="table-responsive">
+                                                      <table class="table table-hover table-bordered info-table">
+                                                         <thead>
+                                                            <tr>
+                                                               <th>EMAIL</th>
+                                                               <th class="text-center">LAST UPDATED</th>
+                                                               <th></th>
+                                                            </tr>
+                                                         </thead>
+                                                         <tbody *ngFor="let email of branch['carrierEmails']">
+                                                            <tr>
+                                                               <td>
+                                                                  <span *ngIf="email.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                                  <span>{{email.email}}</span>
+                                                               </td>
+                                                               <td class="text-center">
+                                                                  {{email?.updatedAt | standardDateFormat}}
+                                                               </td>
+                                                               <td>
+                                                                  <!-- <a (click)="openEmailModal(emailModal, email);setBranchObject(branch)" style="cursor: pointer;" class="pull-right">
+                                                                     <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                                                  </a> -->
+                                                               </td>
+                                                            </tr>
+                                                         </tbody>
+                                                      </table>
+                                                   </div>
+                                                   <div *ngIf="branch['carrierEmails'] && branch['carrierEmails'].length === 0" class="row" style="padding: 15px">
+                                                     <!--  <div class="col-sm-12">
+                                                         You haven't added email.
+                                                         <a (click)="openEmailModal(emailModal);setBranchObject(branch)" style="cursor: pointer;" class="">Click to add</a> email.
+                                                      </div> -->
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <!-- branch address -->
+                                             <div class="panel panel-default main-info-panel">
+                                                <div class="panel-heading main-info-panel-heading">
+                                                   <h3 class="panel-title">Address</h3>
+                                                   <!-- <div class="pull-right tool-list">
+                                                      <a (click)="openAddressModal(addressDetailsModal);setBranchObject(branch)" style="cursor: pointer;">
+                                                         <i class="fa fa-plus-icon" aria-hidden="true"></i>
+                                                      </a>
+                                                   </div> -->
+                                                </div>
+                                                <div class="panel-body main-panel-body">
+                                                   <div *ngIf="branch['carrierAddresses'] && branch['carrierAddresses'].length > 0" class="table-responsive">
+                                                      <table class="table table-hover table-bordered info-table">
+                                                         <thead>
+                                                            <tr>
+                                                               <th>ADDRESS</th>
+                                                               <th class="text-center">TYPE</th>
+                                                               <th class="text-center">LAST UPDATED</th>
+                                                               <th></th>
+                                                            </tr>
+                                                         </thead>
+                                                         <tbody *ngFor="let address of branch['carrierAddresses']">
+                                                            <tr>
+                                                               <td>
+                                                                  <span *ngIf="address.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                                  <span *ngIf="address.unitNumber">{{address.unitNumber}}</span>
+                                                                  <span *ngIf="address.unitNumber">, </span>
+                                                                  <span *ngIf="address.address1">{{address.address1}}</span>
+                                                                  <br />
+                                                                  <span *ngIf="address.address2">{{address.address2}}</span>
+                                                                  <br *ngIf="address.address2" />
+                                                                  <span *ngIf="address.city">{{address.city}}</span>
+                                                                  <span *ngIf="address.state">, {{address.state}}</span>
+                                                                  <span *ngIf="address.country">, {{address.country}}</span>
+                                                                  <span *ngIf="address.pinCode"> - {{address.pinCode}}</span>
+                                                               </td>
+                                                               <td class="text-center">
+                                                                  {{address?.type?.displayText}}
+                                                               </td>
+                                                               <td class="text-center">
+                                                                  {{address?.updatedAt | standardDateFormat}}
+                                                               </td>
+                                                               <td>
+                                                                 <!--  <a (click)="openAddressModal(addressDetailsModal, address);setBranchObject(branch)" style="cursor: pointer;" class="pull-right">
+                                                                     <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                                                  </a> -->
+                                                               </td>
+                                                            </tr>
+                                                         </tbody>
+                                                      </table>
+                                                   </div>
+                                                   <div *ngIf="branch['carrierAddresses'] && branch['carrierAddresses'].length === 0" class="row" style="padding: 15px">
+                                                      <!-- <div class="col-sm-12">
+                                                         You haven't added address.
+                                                         <a (click)="openAddressModal(addressDetailsModal);setBranchObject(branch)" style="cursor: pointer;" class="">Click to add</a> address.
+                                                      </div> -->
+                                                   </div>
+                                                </div>
+                                             </div>
+
+                                             <!-- carrier contact person -->
+                                             <div class="panel panel-default main-info-panel">
+                                                <div class="panel-heading main-info-panel-heading">
+                                                   <h3 class="panel-title">Contact Person</h3>
+                                                   <!-- <div class="pull-right tool-list">
+                                                      <a (click)="openContactPersonModal(contactPersonModal);setBranchObject(branch)" style="cursor: pointer;">
+                                                         <i class="fa fa-plus-icon" aria-hidden="true"></i>
+                                                      </a>
+                                                   </div> -->
+                                                </div>
+                                                <div *ngIf="branch?.carrierContactPerson && branch?.carrierContactPerson.length > 0" class="panel-body main-panel-body">
+                                                   <div class="table-responsive">
+                                                      <table class="table table-hover table-bordered info-table">
+                                                         <thead>
+                                                            <tr>
+                                                               <th>PERSON</th>
+                                                               <th>CONTACTS</th>
+                                                               <th></th>
+                                                            </tr>
+                                                         </thead>
+                                                         <tbody *ngFor="let contactPerson of branch?.carrierContactPerson">
+                                                            <tr>
+                                                               <td>
+                                                                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                     <figure class="thumbnail image">
+                                                                        <img class="img-responsive" src="/assets/img/profile_image/prof_placeholder.jpg" />
+                                                                     </figure>
+                                                                  </div>
+                                                                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                                                     <header class="text-left">
+                                                                        <div class="text-title">{{contactPerson.name}}</div>
+                                                                     </header>
+                                                                  </div>
+                                                               </td>
+                                                               <td>
+                                                                  <address>
+                                                                     <p class="contact-margin" *ngFor="let phno of contactPerson?.contactPersonContacts">
+                                                                        <span *ngIf="phno.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                                        <span *ngIf="phno.countryCode">({{phno.countryCode}}) </span>
+                                                                        <span>{{phno.number}}</span>
+                                                                     </p>
+                                                                  </address>
+                                                                  <address>
+                                                                     <p class="contact-margin" *ngFor="let email of contactPerson?.personEmails">
+                                                                        <span *ngIf="email.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                                        <span>{{email.email}}</span>
+                                                                     </p>
+                                                                  </address>
+                                                                  <address>
+                                                                     <p *ngFor="let address of contactPerson?.contactPersonAddresses">
+                                                                        <span *ngIf="address.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                                        <span *ngIf="address.unitNumber">{{address.unitNumber}}</span>
+                                                                        <span *ngIf="address.unitNumber">, </span>
+                                                                        <span *ngIf="address.address1">{{address.address1}}</span>
+                                                                        <br />
+                                                                        <span *ngIf="address.address2">{{address.address2}}</span>
+                                                                        <br *ngIf="address.address2" />
+                                                                        <span *ngIf="address.city">{{address.city}}</span>
+                                                                        <span *ngIf="address.state">, {{address.state}}</span>
+                                                                        <span *ngIf="address.country">, {{address.country}}</span>
+                                                                        <span *ngIf="address.pinCode">
+                                                                           - {{address.pinCode}}</span>
+                                                                     </p>
+                                                                  </address>
+                                                               </td>
+                                                               <td>
+                                                                  <!-- <a (click)="openContactPersonModal(contactPersonModal, contactPerson);setBranchObject(branch)" style="cursor: pointer;" class="pull-right">
+                                                                     <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                                                  </a> -->
+                                                               </td>
+                                                            </tr>
+                                                         </tbody>
+                                                      </table>
+                                                   </div>
+                                                </div>
+                                                <div *ngIf="branch?.carrierContactPerson && branch?.carrierContactPerson.length === 0" class="panel-body">
+                                                   <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                      You haven't added contact person.
+                                                      <a (click)="openContactPersonModal(contactPersonModal);setBranchObject(branch)" style="cursor: pointer;" class="">Click to add</a> contact person.
+                                                   </div> -->
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div *ngIf="scrapedInsuranceBranchData['branches'] && scrapedInsuranceBranchData['branches'].length === 0" class="panel-body">
+                                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                             You haven't added contact branch for this client.
+                                             <!-- <a (click)="openContactPersonModal(contactPersonModal);setBranchObject(branch)" style="cursor: pointer;" class="">Click to add</a> branch. -->
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Notification component -->
+<app-common-notification #notificationComponent></app-common-notification>

@@ -1,0 +1,3490 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>conjurer documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">conjurer documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>CarrierHelper</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/helpers/carrier/carrier.helper.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Carrier Helper Service Class</p>
+
+            </p>
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_carrierData">_carrierData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_newcarrierData">_newcarrierData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_policyInfoData">_policyInfoData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#displayDateFormatMyDatePicker">displayDateFormatMyDatePicker</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getCarrierData">getCarrierData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getCarrierId">getCarrierId</a>
+                            </li>
+                            <li>
+                                <a href="#getCarrierPlanScrapedData">getCarrierPlanScrapedData</a>
+                            </li>
+                            <li>
+                                <a href="#getCarrierScrapedData">getCarrierScrapedData</a>
+                            </li>
+                            <li>
+                                <a href="#getCarrierSourceFlag">getCarrierSourceFlag</a>
+                            </li>
+                            <li>
+                                <a href="#getCommissionTermMonth">getCommissionTermMonth</a>
+                            </li>
+                            <li>
+                                <a href="#getCommissionTermYear">getCommissionTermYear</a>
+                            </li>
+                            <li>
+                                <a href="#getFormattedCommissionTerm">getFormattedCommissionTerm</a>
+                            </li>
+                            <li>
+                                <a href="#getFormattedPlanTermList">getFormattedPlanTermList</a>
+                            </li>
+                            <li>
+                                <a href="#getFormattedPlanTermObj">getFormattedPlanTermObj</a>
+                            </li>
+                            <li>
+                                <a href="#getFormattedPlanTerms">getFormattedPlanTerms</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getNewCarrierData">getNewCarrierData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getPlanData">getPlanData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getPlanFlag">getPlanFlag</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getPolicyInfoId">getPolicyInfoId</a>
+                            </li>
+                            <li>
+                                <a href="#getScrapedCarrierId">getScrapedCarrierId</a>
+                            </li>
+                            <li>
+                                <a href="#groupCommissionList">groupCommissionList</a>
+                            </li>
+                            <li>
+                                <a href="#initCarrierRider">initCarrierRider</a>
+                            </li>
+                            <li>
+                                <a href="#initializeRates">initializeRates</a>
+                            </li>
+                            <li>
+                                <a href="#initializeRiderRates">initializeRiderRates</a>
+                            </li>
+                            <li>
+                                <a href="#initPlanTerm">initPlanTerm</a>
+                            </li>
+                            <li>
+                                <a href="#initPolicyComm">initPolicyComm</a>
+                            </li>
+                            <li>
+                                <a href="#initRider">initRider</a>
+                            </li>
+                            <li>
+                                <a href="#initRiderComm">initRiderComm</a>
+                            </li>
+                            <li>
+                                <a href="#patchCommissionRateValue">patchCommissionRateValue</a>
+                            </li>
+                            <li>
+                                <a href="#removeCarrierSourceFlag">removeCarrierSourceFlag</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removePlanFlags">removePlanFlags</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setCarrierData">setCarrierData</a>
+                            </li>
+                            <li>
+                                <a href="#setCarrierPlanScrapedData">setCarrierPlanScrapedData</a>
+                            </li>
+                            <li>
+                                <a href="#setCarrierScrapedData">setCarrierScrapedData</a>
+                            </li>
+                            <li>
+                                <a href="#setCarrierSourceFlag">setCarrierSourceFlag</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setNewCarrierData">setNewCarrierData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setPlanFlag">setPlanFlag</a>
+                            </li>
+                            <li>
+                                <a href="#setPolicyData">setPolicyData</a>
+                            </li>
+                            <li>
+                                <a href="#validateMonthYear">validateMonthYear</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayDateFormatMyDatePicker"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            displayDateFormatMyDatePicker
+                            </b>
+                            <a href="#displayDateFormatMyDatePicker"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>displayDateFormatMyDatePicker(value)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="512" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:512</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To change date format for my date picker</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>value</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCarrierData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getCarrierData
+                            </b>
+                            <a href="#getCarrierData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getCarrierData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get stored carrier data object</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCarrierId"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getCarrierId
+                            </b>
+                            <a href="#getCarrierId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getCarrierId()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:57</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get carrier ID</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCarrierPlanScrapedData"></a>
+                        <span class="name">
+                            <b>
+                            getCarrierPlanScrapedData
+                            </b>
+                            <a href="#getCarrierPlanScrapedData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCarrierPlanScrapedData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="881" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:881</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get scraped carrier plan data</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCarrierScrapedData"></a>
+                        <span class="name">
+                            <b>
+                            getCarrierScrapedData
+                            </b>
+                            <a href="#getCarrierScrapedData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCarrierScrapedData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="844" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:844</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get scraped carrier data</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCarrierSourceFlag"></a>
+                        <span class="name">
+                            <b>
+                            getCarrierSourceFlag
+                            </b>
+                            <a href="#getCarrierSourceFlag"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCarrierSourceFlag()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="822" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:822</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get carrier source flag</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCommissionTermMonth"></a>
+                        <span class="name">
+                            <b>
+                            getCommissionTermMonth
+                            </b>
+                            <a href="#getCommissionTermMonth"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCommissionTermMonth(commTerm)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="376" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:376</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get months from commission term</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>commTerm</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCommissionTermYear"></a>
+                        <span class="name">
+                            <b>
+                            getCommissionTermYear
+                            </b>
+                            <a href="#getCommissionTermYear"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCommissionTermYear(commTerm)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="388" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:388</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get years from commission term</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>commTerm</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getFormattedCommissionTerm"></a>
+                        <span class="name">
+                            <b>
+                            getFormattedCommissionTerm
+                            </b>
+                            <a href="#getFormattedCommissionTerm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getFormattedCommissionTerm(commTerm)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="355" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:355</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>to get formatted commission terms</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>commTerm</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getFormattedPlanTermList"></a>
+                        <span class="name">
+                            <b>
+                            getFormattedPlanTermList
+                            </b>
+                            <a href="#getFormattedPlanTermList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getFormattedPlanTermList(resData: any[])</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="311" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:311</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To format plan terms to show it into UI</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>resData</td>
+                                                        <td>
+                                                                    <code>any[]</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>{}</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getFormattedPlanTermObj"></a>
+                        <span class="name">
+                            <b>
+                            getFormattedPlanTermObj
+                            </b>
+                            <a href="#getFormattedPlanTermObj"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getFormattedPlanTermObj(element)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="206" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:206</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To format plan terms to show it into UI</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>element</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getFormattedPlanTerms"></a>
+                        <span class="name">
+                            <b>
+                            getFormattedPlanTerms
+                            </b>
+                            <a href="#getFormattedPlanTerms"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getFormattedPlanTerms(element)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="256" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:256</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To format plan terms to show it into UI</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>element</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getNewCarrierData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getNewCarrierData
+                            </b>
+                            <a href="#getNewCarrierData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getNewCarrierData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:109</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get stored carrier data</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getPlanData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getPlanData
+                            </b>
+                            <a href="#getPlanData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getPlanData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:97</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get stored carrier data object</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getPlanFlag"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getPlanFlag
+                            </b>
+                            <a href="#getPlanFlag"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getPlanFlag()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:134</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get plan flag</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getPolicyInfoId"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getPolicyInfoId
+                            </b>
+                            <a href="#getPolicyInfoId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getPolicyInfoId()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:86</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get policy info ID</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getScrapedCarrierId"></a>
+                        <span class="name">
+                            <b>
+                            getScrapedCarrierId
+                            </b>
+                            <a href="#getScrapedCarrierId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getScrapedCarrierId()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="857" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:857</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get scraped carrier ID</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="groupCommissionList"></a>
+                        <span class="name">
+                            <b>
+                            groupCommissionList
+                            </b>
+                            <a href="#groupCommissionList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>groupCommissionList(arr: any[])</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="767" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:767</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To group commission list</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>arr</td>
+                                                        <td>
+                                                                    <code>any[]</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initCarrierRider"></a>
+                        <span class="name">
+                            <b>
+                            initCarrierRider
+                            </b>
+                            <a href="#initCarrierRider"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initCarrierRider(element?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="445" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:445</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To initialize carrier rider</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>element</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initializeRates"></a>
+                        <span class="name">
+                            <b>
+                            initializeRates
+                            </b>
+                            <a href="#initializeRates"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initializeRates(commRate?, subCommRate?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="539" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:539</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To initialize rateList for policy commission form</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>commRate</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>subCommRate</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initializeRiderRates"></a>
+                        <span class="name">
+                            <b>
+                            initializeRiderRates
+                            </b>
+                            <a href="#initializeRiderRates"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initializeRiderRates(commRate?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="694" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:694</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To initialize rateList array for rider commission form</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>commRate</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initPlanTerm"></a>
+                        <span class="name">
+                            <b>
+                            initPlanTerm
+                            </b>
+                            <a href="#initPlanTerm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initPlanTerm(element?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="400" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:400</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To initialize plan Term</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>element</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initPolicyComm"></a>
+                        <span class="name">
+                            <b>
+                            initPolicyComm
+                            </b>
+                            <a href="#initPolicyComm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initPolicyComm(commValue?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="467" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:467</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To intialize policy commission</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>commValue</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initRider"></a>
+                        <span class="name">
+                            <b>
+                            initRider
+                            </b>
+                            <a href="#initRider"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initRider(riderValue?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="661" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:661</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To initialize a rider</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>riderValue</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initRiderComm"></a>
+                        <span class="name">
+                            <b>
+                            initRiderComm
+                            </b>
+                            <a href="#initRiderComm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initRiderComm(commValue?, commKey?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="619" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:619</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To initialize rider commission</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>commValue</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>commKey</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="patchCommissionRateValue"></a>
+                        <span class="name">
+                            <b>
+                            patchCommissionRateValue
+                            </b>
+                            <a href="#patchCommissionRateValue"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>patchCommissionRateValue(commRate)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="736" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:736</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To patch values in commission rate table</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>commRate</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeCarrierSourceFlag"></a>
+                        <span class="name">
+                            <b>
+                            removeCarrierSourceFlag
+                            </b>
+                            <a href="#removeCarrierSourceFlag"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>removeCarrierSourceFlag()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="815" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:815</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To remove carrier source flag from localstorage</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removePlanFlags"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            removePlanFlags
+                            </b>
+                            <a href="#removePlanFlags"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>removePlanFlags()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:145</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To remove plan flag from localstorage</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setCarrierData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setCarrierData
+                            </b>
+                            <a href="#setCarrierData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>setCarrierData(v: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To set carrier data object</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>v</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setCarrierPlanScrapedData"></a>
+                        <span class="name">
+                            <b>
+                            setCarrierPlanScrapedData
+                            </b>
+                            <a href="#setCarrierPlanScrapedData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setCarrierPlanScrapedData(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="871" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:871</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To set scraped carrier plan data</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setCarrierScrapedData"></a>
+                        <span class="name">
+                            <b>
+                            setCarrierScrapedData
+                            </b>
+                            <a href="#setCarrierScrapedData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setCarrierScrapedData(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="834" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:834</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To set scraped carrier data</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setCarrierSourceFlag"></a>
+                        <span class="name">
+                            <b>
+                            setCarrierSourceFlag
+                            </b>
+                            <a href="#setCarrierSourceFlag"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setCarrierSourceFlag(flag: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="804" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:804</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To set carrier source data
+This function is used to differentiate whether carrier data is coming through
+everest app or coming through scraped(aca platform)</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>flag</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setNewCarrierData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setNewCarrierData
+                            </b>
+                            <a href="#setNewCarrierData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>setNewCarrierData(v: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:117</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To set carrier data</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>v</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setPlanFlag"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setPlanFlag
+                            </b>
+                            <a href="#setPlanFlag"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>setPlanFlag(flag)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:127</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To set plan flag</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>flag</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setPolicyData"></a>
+                        <span class="name">
+                            <b>
+                            setPolicyData
+                            </b>
+                            <a href="#setPolicyData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setPolicyData(v: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:69</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To set policy info id</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>v</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validateMonthYear"></a>
+                        <span class="name">
+                            <b>
+                            validateMonthYear
+                            </b>
+                            <a href="#validateMonthYear"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>validateMonthYear(month, year, range?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="155" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:155</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To check month and year</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>month</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>year</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>range</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_carrierData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _carrierData</b>
+                            <a href="#_carrierData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_newcarrierData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _newcarrierData</b>
+                            <a href="#_newcarrierData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_policyInfoData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _policyInfoData</b>
+                            <a href="#_policyInfoData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/helpers/carrier/carrier.helper.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, FormArray, Validators } from &#x27;@angular/forms&#x27;;
+import { CommonConstant } from &#x27;../../constants/common/common.constant&#x27;;
+import { CarrierConstant } from &#x27;../../constants/carrier/carrier.constant&#x27;;
+import * as moment from &#x27;moment&#x27;;
+
+/**
+ * Carrier Helper Service Class
+ */
+@Injectable()
+export class CarrierHelper {
+
+   private _carrierData: any &#x3D; {};
+   private _policyInfoData: any &#x3D; {};
+   private _newcarrierData: any &#x3D; {};
+
+   /** @ignore */
+   constructor(
+      private _fb: FormBuilder
+   ) { }
+
+   /**
+    * To get stored carrier data object
+    */
+   public getCarrierData(): any {
+      let carrierData &#x3D; sessionStorage.getItem(&#x27;carrierData&#x27;);
+      if (carrierData) {
+         carrierData &#x3D; JSON.parse(carrierData);
+         return carrierData;
+      }
+      return {};
+   }
+
+   /**
+    * To set carrier data object
+    * @param any v
+    */
+   public setCarrierData(v: any) {
+      if (Object.keys(v).length &gt; 0) {
+         this._carrierData &#x3D; {};
+         this._carrierData[CarrierConstant.CARRIER_ID] &#x3D; v[CommonConstant.PLAIN_ID];
+         this._carrierData[CommonConstant.NAME] &#x3D; v[CommonConstant.NAME];
+         this._carrierData[CommonConstant.IMAGE_ICON] &#x3D; v[CommonConstant.IMAGE_ICON];
+
+         this._carrierData &#x3D; JSON.stringify(this._carrierData);
+         sessionStorage.setItem(&#x27;carrierData&#x27;, this._carrierData);
+      } else {
+         this._carrierData &#x3D; {};
+         this._carrierData &#x3D; JSON.stringify(this._carrierData);
+         sessionStorage.setItem(&#x27;carrierData&#x27;, this._carrierData);
+      }
+   }
+
+   /**
+    * To get carrier ID
+    */
+   public getCarrierId() {
+      let carrierData &#x3D; sessionStorage.getItem(&#x27;carrierData&#x27;);
+      if (carrierData) {
+         carrierData &#x3D; JSON.parse(carrierData);
+         return carrierData[&#x27;carrierId&#x27;];
+      }
+   }
+
+   /**
+    * To set policy info id
+    * @param any v
+    */
+   setPolicyData(v: any) {
+      if (Object.keys(v).length &gt; 0) {
+         this._policyInfoData &#x3D; {};
+         this._policyInfoData[&#x27;policyInfoId&#x27;] &#x3D; v[CommonConstant.PLAIN_ID];
+
+         this._policyInfoData &#x3D; JSON.stringify(this._policyInfoData);
+         sessionStorage.setItem(&#x27;policyData&#x27;, this._policyInfoData);
+      } else {
+         this._policyInfoData &#x3D; {};
+         this._policyInfoData &#x3D; JSON.stringify(this._policyInfoData);
+         sessionStorage.setItem(&#x27;policyData&#x27;, this._policyInfoData);
+      }
+   }
+
+   /**
+   * To get policy info ID
+   */
+   public getPolicyInfoId() {
+      let policyData &#x3D; localStorage.getItem(&#x27;planData&#x27;);
+      if (policyData) {
+         policyData &#x3D; JSON.parse(policyData);
+         return policyData[CommonConstant.PLAIN_ID];
+      }
+   }
+
+   /**
+    * To get stored carrier data object
+    */
+   public getPlanData(): any {
+      let planData &#x3D; localStorage.getItem(&#x27;planData&#x27;);
+      if (planData) {
+         planData &#x3D; JSON.parse(planData);
+         return planData;
+      }
+      return {};
+   }
+
+   /**
+    * To get stored carrier data
+    */
+   public getNewCarrierData(): any {
+      return this._newcarrierData;
+   }
+
+   /**
+    * To set carrier data
+    * @param any v
+    */
+   public setNewCarrierData(v: any) {
+      // console.log(v);
+      this._newcarrierData &#x3D; {};
+      this._newcarrierData &#x3D; v;
+   }
+
+   /**
+    * To set plan flag
+    * @param flag
+    */
+   public setPlanFlag(flag) {
+      localStorage.setItem(&#x27;planFlag&#x27;, flag);
+   }
+
+   /**
+    * To get plan flag
+    */
+   public getPlanFlag() {
+      const planFlag &#x3D; localStorage.getItem(&#x27;planFlag&#x27;);
+      if (planFlag) {
+         return planFlag;
+      }
+      return null;
+   }
+
+   /**
+    * To remove plan flag from localstorage
+    */
+   public removePlanFlags() {
+      localStorage.removeItem(&#x27;planFlag&#x27;);
+   }
+
+   /**
+    * To check month and year
+    * @param month
+    * @param year
+    * @param range
+    */
+   validateMonthYear(month, year, range?) {
+      let reqDate;
+      const monthsConst &#x3D; &#x27;months&#x27;;
+      const yearsConst &#x3D; &#x27;yrs&#x27;;
+      const monthConst &#x3D; &#x27;month&#x27;;
+      const yearConst &#x3D; &#x27;yr&#x27;;
+      if (!range) {
+         if (year &#x3D;&#x3D;&#x3D; 0) {
+            reqDate &#x3D; &#x27;0&#x27;;
+         } else if (year !&#x3D;&#x3D; 0) {
+            let decidingFactor &#x3D; yearsConst;
+            if (year &#x3D;&#x3D;&#x3D; 1) {
+               decidingFactor &#x3D; yearConst;
+            }
+            reqDate &#x3D; year + &#x27; &#x27; + decidingFactor;
+         }
+      } else {
+         if (month &#x3D;&#x3D;&#x3D; 0 &amp;&amp; year &#x3D;&#x3D;&#x3D; 0) {
+            reqDate &#x3D; &#x27;0&#x27;;
+         } else if (month &#x3D;&#x3D;&#x3D; 0 &amp;&amp; year !&#x3D;&#x3D; 0) {
+            let decidingFactor &#x3D; yearsConst;
+            if (year &#x3D;&#x3D;&#x3D; 1) {
+               decidingFactor &#x3D; yearConst;
+            }
+            reqDate &#x3D; year + &#x27; &#x27; + decidingFactor;
+         } else if (month !&#x3D;&#x3D; 0 &amp;&amp; year &#x3D;&#x3D;&#x3D; 0) {
+            let decidingFactor &#x3D; monthsConst;
+            if (month &#x3D;&#x3D;&#x3D; 1) {
+               decidingFactor &#x3D; monthConst;
+            }
+            reqDate &#x3D; month + &#x27; &#x27; + decidingFactor;
+         } else if (month !&#x3D;&#x3D; 0 &amp;&amp; year !&#x3D;&#x3D; 0) {
+            let yearDecidingFactor &#x3D; yearsConst;
+            if (year &#x3D;&#x3D;&#x3D; 1) {
+               yearDecidingFactor &#x3D; yearConst;
+            }
+            let monthDecidingFactor &#x3D; monthsConst;
+            if (month &#x3D;&#x3D;&#x3D; 1) {
+               monthDecidingFactor &#x3D; monthConst;
+            }
+            reqDate &#x3D; year + &#x27; &#x27; + yearDecidingFactor + &#x27; &#x27; + month + &#x27; &#x27; + monthDecidingFactor;
+         }
+      }
+
+      return reqDate;
+   }
+
+   /**
+    * To format plan terms to show it into UI
+    * @param element
+    */
+   getFormattedPlanTermObj(element) {
+      // console.log(element);
+      let planTermObject: any &#x3D; {};
+      let fromDate;
+      let toDate;
+      planTermObject &#x3D; {};
+      fromDate &#x3D; &#x27;&#x27;;
+      toDate &#x3D; &#x27;&#x27;;
+      if (!element.range) {
+         fromDate &#x3D; this.validateMonthYear(element.year, element.year, element.range);
+         toDate &#x3D; this.validateMonthYear(element.year, element.year, element.range);
+         planTermObject[&#x27;fromDate&#x27;] &#x3D; fromDate;
+         planTermObject[&#x27;toDate&#x27;] &#x3D; toDate;
+      } else {
+         if (element.fromDateYear &#x3D;&#x3D;&#x3D; element.toDateYear &amp;&amp; element.fromDateMonth !&#x3D;&#x3D; element.toDateMonth) {
+            fromDate &#x3D; this.validateMonthYear(element.fromDateMonth, element.fromDateYear);
+            toDate &#x3D; this.validateMonthYear(element.toDateMonth, element.toDateYear);
+            planTermObject[&#x27;fromDate&#x27;] &#x3D; fromDate;
+            planTermObject[&#x27;toDate&#x27;] &#x3D; toDate;
+         } else if (element.fromDateYear &#x3D;&#x3D;&#x3D; element.toDateYear &amp;&amp; element.fromDateMonth &#x3D;&#x3D;&#x3D; element.toDateMonth) {
+            fromDate &#x3D; this.validateMonthYear(element.fromDateMonth, element.fromDateYear);
+            toDate &#x3D; this.validateMonthYear(element.toDateMonth, element.toDateYear);
+            planTermObject[&#x27;fromDate&#x27;] &#x3D; fromDate;
+            planTermObject[&#x27;toDate&#x27;] &#x3D; toDate;
+         } else if (element.fromDateYear !&#x3D;&#x3D; element.toDateYear &amp;&amp; element.fromDateMonth !&#x3D;&#x3D; element.toDateMonth
+            || element.fromDateYear !&#x3D;&#x3D; element.toDateYear &amp;&amp; element.fromDateMonth &#x3D;&#x3D;&#x3D; element.toDateMonth) {
+
+            fromDate &#x3D; this.validateMonthYear(element.fromDateMonth, element.fromDateYear);
+            toDate &#x3D; this.validateMonthYear(element.toDateMonth, element.toDateYear);
+            planTermObject[&#x27;fromDate&#x27;] &#x3D; fromDate;
+            planTermObject[&#x27;toDate&#x27;] &#x3D; toDate;
+         }
+      }
+      planTermObject[CommonConstant.PLAIN_ID] &#x3D; element[CommonConstant.PLAIN_ID];
+      planTermObject[CarrierConstant.RANGE] &#x3D; element[CarrierConstant.RANGE];
+      planTermObject[CarrierConstant.YEAR] &#x3D; element[CarrierConstant.YEAR];
+      planTermObject[&#x27;fromMonth&#x27;] &#x3D; element[&#x27;fromMonth&#x27;];
+      planTermObject[&#x27;fromYear&#x27;] &#x3D; element[&#x27;fromYear&#x27;];
+      planTermObject[&#x27;toMonth&#x27;] &#x3D; element[&#x27;toMonth&#x27;];
+      planTermObject[&#x27;toYear&#x27;] &#x3D; element[&#x27;toYear&#x27;];
+      planTermObject[&#x27;commissionTermMonth&#x27;] &#x3D; element[&#x27;commissionTermMonth&#x27;];
+      planTermObject[&#x27;commissionTermYear&#x27;] &#x3D; element[&#x27;commissionTermYear&#x27;];
+
+      return planTermObject;
+   }
+
+   /**
+    * To format plan terms to show it into UI
+    * @param element
+    */
+   getFormattedPlanTerms(element) {
+      // console.log(element);
+      let planTermObject: any &#x3D; {};
+      let fromDate;
+      let toDate;
+      planTermObject &#x3D; {};
+      fromDate &#x3D; &#x27;&#x27;;
+      toDate &#x3D; &#x27;&#x27;;
+      if (!element.range) {
+         fromDate &#x3D; this.validateMonthYear(element.year, element.year, element.range);
+         toDate &#x3D; this.validateMonthYear(element.year, element.year, element.range);
+         planTermObject[&#x27;fromDate&#x27;] &#x3D; fromDate;
+         planTermObject[&#x27;toDate&#x27;] &#x3D; toDate;
+      } else {
+         if (element.fromDateYear &#x3D;&#x3D;&#x3D; element.toDateYear &amp;&amp; element.fromDateMonth !&#x3D;&#x3D; element.toDateMonth) {
+            fromDate &#x3D; this.validateMonthYear(element.fromDateMonth, element.fromDateYear);
+            toDate &#x3D; this.validateMonthYear(element.toDateMonth, element.toDateYear);
+            planTermObject[&#x27;fromDate&#x27;] &#x3D; fromDate;
+            planTermObject[&#x27;toDate&#x27;] &#x3D; toDate;
+         } else if (element.fromDateYear &#x3D;&#x3D;&#x3D; element.toDateYear &amp;&amp; element.fromDateMonth &#x3D;&#x3D;&#x3D; element.toDateMonth) {
+            fromDate &#x3D; this.validateMonthYear(element.fromDateMonth, element.fromDateYear);
+            toDate &#x3D; this.validateMonthYear(element.toDateMonth, element.toDateYear);
+            planTermObject[&#x27;fromDate&#x27;] &#x3D; fromDate;
+            planTermObject[&#x27;toDate&#x27;] &#x3D; toDate;
+         } else if (element.fromDateYear !&#x3D;&#x3D; element.toDateYear &amp;&amp; element.fromDateMonth !&#x3D;&#x3D; element.toDateMonth
+            || element.fromDateYear !&#x3D;&#x3D; element.toDateYear &amp;&amp; element.fromDateMonth &#x3D;&#x3D;&#x3D; element.toDateMonth) {
+
+            fromDate &#x3D; this.validateMonthYear(element.fromDateMonth, element.fromDateYear);
+            toDate &#x3D; this.validateMonthYear(element.toDateMonth, element.toDateYear);
+            planTermObject[&#x27;fromDate&#x27;] &#x3D; fromDate;
+            planTermObject[&#x27;toDate&#x27;] &#x3D; toDate;
+         }
+      }
+      planTermObject[&#x27;id&#x27;] &#x3D; element[&#x27;id&#x27;];
+      let formattedRes;
+      if (Object.keys(planTermObject).length &gt; 0) {
+         if (planTermObject[&#x27;toDate&#x27;]) {
+            if (planTermObject[&#x27;fromDate&#x27;] &#x3D;&#x3D;&#x3D; planTermObject[&#x27;toDate&#x27;]) {
+               formattedRes &#x3D; planTermObject[&#x27;fromDate&#x27;];
+            } else {
+               formattedRes &#x3D; planTermObject[&#x27;fromDate&#x27;] + &#x27; - &#x27; + planTermObject[&#x27;toDate&#x27;];
+            }
+         } else {
+            formattedRes &#x3D; planTermObject[&#x27;fromDate&#x27;];
+         }
+         return formattedRes;
+      } else {
+         return &#x27;&#x27;;
+      }
+   }
+
+   /**
+  * To format plan terms to show it into UI
+  * @param any[] resData
+  */
+   getFormattedPlanTermList(resData: any[]) {
+      let planTermObject: any &#x3D; {};
+      let fromDate;
+      let toDate;
+      const planTermList &#x3D; [];
+      resData.forEach(element &#x3D;&gt; {
+         planTermObject &#x3D; {};
+         fromDate &#x3D; &#x27;&#x27;;
+         toDate &#x3D; &#x27;&#x27;;
+         if (!element.range) {
+            fromDate &#x3D; this.validateMonthYear(element.year, element.year, element.range);
+            toDate &#x3D; this.validateMonthYear(element.year, element.year, element.range);
+            planTermObject[&#x27;fromDate&#x27;] &#x3D; fromDate;
+            planTermObject[&#x27;toDate&#x27;] &#x3D; toDate;
+         } else {
+            if (element.fromDateYear &#x3D;&#x3D;&#x3D; element.toDateYear &amp;&amp; element.fromDateMonth !&#x3D;&#x3D; element.toDateMonth) {
+               fromDate &#x3D; this.validateMonthYear(element.fromDateMonth, element.fromDateYear);
+               toDate &#x3D; this.validateMonthYear(element.toDateMonth, element.toDateYear);
+               planTermObject[&#x27;fromDate&#x27;] &#x3D; fromDate;
+               planTermObject[&#x27;toDate&#x27;] &#x3D; toDate;
+            } else if (element.fromDateYear &#x3D;&#x3D;&#x3D; element.toDateYear &amp;&amp; element.fromDateMonth &#x3D;&#x3D;&#x3D; element.toDateMonth) {
+               fromDate &#x3D; this.validateMonthYear(element.fromDateMonth, element.fromDateYear);
+               toDate &#x3D; this.validateMonthYear(element.toDateMonth, element.toDateYear);
+               planTermObject[&#x27;fromDate&#x27;] &#x3D; fromDate;
+               planTermObject[&#x27;toDate&#x27;] &#x3D; toDate;
+            } else if (element.fromDateYear !&#x3D;&#x3D; element.toDateYear &amp;&amp; element.fromDateMonth !&#x3D;&#x3D; element.toDateMonth
+               || element.fromDateYear !&#x3D;&#x3D; element.toDateYear &amp;&amp; element.fromDateMonth &#x3D;&#x3D;&#x3D; element.toDateMonth) {
+
+               fromDate &#x3D; this.validateMonthYear(element.fromDateMonth, element.fromDateYear);
+               toDate &#x3D; this.validateMonthYear(element.toDateMonth, element.toDateYear);
+               planTermObject[&#x27;fromDate&#x27;] &#x3D; fromDate;
+               planTermObject[&#x27;toDate&#x27;] &#x3D; toDate;
+            }
+         }
+         planTermObject[&#x27;id&#x27;] &#x3D; element[&#x27;id&#x27;];
+         planTermList.push(planTermObject);
+      });
+      return planTermList;
+   }
+
+   /**
+    * to get formatted commission terms
+    * @param commTerm
+    */
+   getFormattedCommissionTerm(commTerm) {
+      if (commTerm) {
+         commTerm &#x3D; Number(commTerm);
+         const years &#x3D; Math.floor(commTerm / 12);
+         const months &#x3D; commTerm % 12;
+         if (years &lt; 1) {
+            return months + &#x27; months&#x27;;
+         } else {
+            if (months) {
+               return years + &#x27; years&#x27; + &#x27; &#x27; + months + &#x27; months&#x27;;
+            } else {
+               return years + &#x27; years&#x27;
+            }
+         }
+      }
+   }
+
+   /**
+    * To get months from commission term
+    * @param commTerm
+    */
+   getCommissionTermMonth(commTerm) {
+      if (commTerm) {
+         commTerm &#x3D; Number(commTerm);
+         const months &#x3D; commTerm % 12;
+         return months;
+      }
+   }
+
+   /**
+    * To get years from commission term
+    * @param commTerm
+    */
+   getCommissionTermYear(commTerm) {
+      if (commTerm) {
+         commTerm &#x3D; Number(commTerm);
+         const years &#x3D; Math.floor(commTerm / 12);
+         return years;
+      }
+   }
+
+   /**
+    * To initialize plan Term
+    * @param element
+    */
+   initPlanTerm(element?) {
+      if (element) {
+         if (typeof element &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+            let commissionTermMonth: number, commissionTermYear: number;
+            if (element[CarrierConstant.COMMISSION_TERM]) {
+               commissionTermMonth &#x3D; this.getCommissionTermMonth(element[CarrierConstant.COMMISSION_TERM]);
+               commissionTermYear &#x3D; this.getCommissionTermYear(element[CarrierConstant.COMMISSION_TERM]);
+            }
+            return this._fb.group({
+               planTerm: this._fb.group({
+                  id: element[CommonConstant.PLAIN_ID],
+                  range: element[CarrierConstant.RANGE],
+                  year: element[CarrierConstant.YEAR],
+                  fromMonth: element[CarrierConstant.FROM_DATE_MONTH],
+                  fromYear: element[CarrierConstant.FROM_DATE_YEAR],
+                  toMonth: element[CarrierConstant.TO_DATE_MONTH],
+                  toYear: element[CarrierConstant.TO_DATE_YEAR],
+                  commissionTermMonth: commissionTermMonth,
+                  commissionTermYear: commissionTermYear,
+                  newField: false
+               })
+            })
+         }
+      } else {
+         return this._fb.group({
+            planTerm: this._fb.group({
+               id: [&#x27;&#x27;],
+               range: [false],
+               year: [&#x27;&#x27;],
+               fromMonth: [&#x27;&#x27;],
+               fromYear: [&#x27;&#x27;],
+               toMonth: [&#x27;&#x27;],
+               toYear: [&#x27;&#x27;],
+               commissionTermMonth: [&#x27;&#x27;],
+               commissionTermYear: [&#x27;&#x27;],
+               newField: [true]
+            })
+         })
+      }
+   }
+
+   /**
+    * To initialize carrier rider
+    * @param element
+    */
+   initCarrierRider(element?) {
+      if (element) {
+         if (typeof element &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+            return this._fb.group({
+               id: element[CommonConstant.PLAIN_ID],
+               rider: element[CarrierConstant.CARRIER_RIDER_ID],
+               newField: false
+            });
+         }
+      } else {
+         return this._fb.group({
+            id: [&#x27;&#x27;],
+            rider: [&#x27;&#x27;],
+            newField: [true]
+         });
+      }
+   }
+
+   /**
+    * To intialize policy commission
+    * @param commValue
+    */
+   initPolicyComm(commValue?) {
+      if (commValue &amp;&amp; typeof commValue &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+         return this._fb.group({
+            id: commValue[CommonConstant.PLAIN_ID],
+            planTerm: commValue[CommonConstant.PLAIN_ID],
+            range: commValue[CarrierConstant.RANGE],
+            year: commValue[CarrierConstant.YEAR],
+            fromMonth: commValue[CarrierConstant.FROM_DATE_MONTH],
+            fromYear: commValue[CarrierConstant.FROM_DATE_YEAR],
+            toMonth: commValue[CarrierConstant.TO_DATE_MONTH],
+            toYear: commValue[CarrierConstant.TO_DATE_YEAR],
+            commissionRate: commValue[CarrierConstant.COMMISSION_RATE],
+            commissionTerm: commValue[CarrierConstant.COMMISSION_TERM],
+            commissionTermMonth: [&#x27;&#x27;],
+            commissionTermYear: [&#x27;&#x27;],
+            newField: false,
+            rateList: this._fb.array([
+               this.initializeRates()
+            ]),
+         })
+      } else {
+         return this._fb.group({
+            id: [&#x27;&#x27;],
+            planTerm: [&#x27;&#x27;],
+            range: [&#x27;&#x27;],
+            year: [&#x27;&#x27;],
+            fromMonth: [&#x27;&#x27;],
+            fromYear: [&#x27;&#x27;],
+            toMonth: [&#x27;&#x27;],
+            toYear: [&#x27;&#x27;],
+            commissionTerm: [&#x27;&#x27;],
+            commissionTermMonth: [&#x27;&#x27;],
+            commissionTermYear: [&#x27;&#x27;],
+            newField: [true],
+            rateList: this._fb.array([
+               this.initializeRates()
+            ]),
+         })
+      }
+   }
+
+   /**
+    * To change date format for my date picker
+    * @param value
+    */
+   public displayDateFormatMyDatePicker(value) {
+      if (value !&#x3D; null &amp;&amp; value !&#x3D;&#x3D; &#x27;&#x27;) {
+         let month;
+         let year;
+         let date;
+         month &#x3D; moment(value).month();
+         month &#x3D; (&#x27;0&#x27; + (month + 1)).slice(-2);
+         year &#x3D; moment(value).year();
+         date &#x3D; moment(value).date();
+         date &#x3D; (&#x27;0&#x27; + (date)).slice(-2);
+         const res &#x3D; {
+            date: {
+               year: parseInt(year, 10),
+               month: parseInt(month, 10),
+               day: parseInt(date, 10)
+            }
+         }
+         return res;
+      }
+      return value;
+   }
+
+   /**
+    * To initialize rateList for policy commission form
+    * @param commRate
+    * @param subCommRate
+    */
+   initializeRates(commRate?, subCommRate?) {
+      if (commRate &amp;&amp; Object.keys(commRate).length &gt; 0) {
+         let effectiveDate &#x3D; &#x27;&#x27;, expiryDate &#x3D; &#x27;&#x27;;
+         if (commRate[CarrierConstant.EFFECTIVE_DATE]) {
+            effectiveDate &#x3D; this.displayDateFormatMyDatePicker(commRate[CarrierConstant.EFFECTIVE_DATE]);
+         }
+         if (commRate[CarrierConstant.EFFECTIVE_DATE]) {
+            expiryDate &#x3D; this.displayDateFormatMyDatePicker(commRate[CarrierConstant.EXPIRAY_DATE]);
+         }
+         let subTermMonth &#x3D; false, termMonth &#x3D; false;
+         if (subCommRate[CarrierConstant.FROM_DATE_MONTH]) {
+            subTermMonth &#x3D; true;
+         }
+         if (commRate[CarrierConstant.FROM_DATE_MONTH]) {
+            termMonth &#x3D; true;
+         }
+
+         let disabled &#x3D; false;
+         if (commRate[CommonConstant.POLICY_COUNT] &gt; 0) {
+            disabled &#x3D; true;
+         } else {
+            disabled &#x3D; false;
+         }
+         return this._fb.group({
+            id: commRate[CommonConstant.PLAIN_ID],
+            subTermMonth: [{ value: subTermMonth, disabled: disabled }],
+            subTermRange: subCommRate[CarrierConstant.RANGE],
+            subTermYear: subCommRate[CarrierConstant.YEAR],
+            subTermFromMonth: [{ value: subCommRate[CarrierConstant.FROM_DATE_MONTH], disabled: disabled }],
+            subTermFromYear: [{ value: subCommRate[CarrierConstant.FROM_DATE_YEAR], disabled: disabled }],
+            subTermToMonth: [{ value: subCommRate[CarrierConstant.TO_DATE_MONTH], disabled: disabled }],
+            subTermToYear: [{ value: subCommRate[CarrierConstant.TO_DATE_YEAR], disabled: disabled }],
+            termMonth: [{ value: termMonth, disabled: disabled }],
+            range: commRate[CarrierConstant.RANGE],
+            year: commRate[CarrierConstant.YEAR],
+            fromMonth: [{ value: commRate[CarrierConstant.FROM_DATE_MONTH], disabled: disabled }],
+            fromYear: [{ value: commRate[CarrierConstant.FROM_DATE_YEAR], disabled: disabled }],
+            toMonth: [{ value: commRate[CarrierConstant.TO_DATE_MONTH], disabled: disabled }],
+            toYear: [{ value: commRate[CarrierConstant.TO_DATE_YEAR], disabled: disabled }],
+            commissionRate: commRate[CarrierConstant.COMMISSION_RATE],
+            effectiveDate: effectiveDate,
+            maturityDate: expiryDate,
+            remark: commRate[CarrierConstant.REMARK],
+            status: commRate[CommonConstant.STATUS],
+            policyCount: commRate[CommonConstant.POLICY_COUNT],
+            newField: false
+         });
+      } else {
+         return this._fb.group({
+            id: [&#x27;&#x27;],
+            subTermMonth: [false],
+            subTermRange: [false],
+            subTermYear: [&#x27;&#x27;],
+            subTermFromMonth: [&#x27;&#x27;],
+            subTermFromYear: [&#x27;&#x27;],
+            subTermToMonth: [&#x27;&#x27;],
+            subTermToYear: [&#x27;&#x27;],
+            termMonth: [false],
+            range: [false],
+            year: [&#x27;&#x27;],
+            fromMonth: [&#x27;&#x27;],
+            fromYear: [&#x27;&#x27;],
+            toMonth: [&#x27;&#x27;],
+            toYear: [&#x27;&#x27;],
+            commissionRate: [&#x27;&#x27;],
+            effectiveDate: [&#x27;&#x27;],
+            maturityDate: [&#x27;&#x27;],
+            remark: [&#x27;&#x27;],
+            status: [false],
+            policyCount: [0],
+            newField: [true]
+         });
+      }
+   }
+
+   /**
+    * To initialize rider commission
+    * @param commValue
+    * @param commKey
+    */
+   initRiderComm(commValue?, commKey?) {
+      if (commValue &amp;&amp; typeof commValue &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+         return this._fb.group({
+            id: commValue[CommonConstant.PLAIN_ID],
+            riderTerm: commValue[CommonConstant.PLAIN_ID],
+            range: commValue[CarrierConstant.RANGE],
+            year: commValue[CarrierConstant.YEAR],
+            fromMonth: commValue[CarrierConstant.FROM_DATE_MONTH],
+            fromYear: commValue[CarrierConstant.FROM_DATE_YEAR],
+            toMonth: commValue[CarrierConstant.TO_DATE_MONTH],
+            toYear: commValue[CarrierConstant.TO_DATE_YEAR],
+            commissionRate: commValue[CarrierConstant.COMMISSION_RATE],
+            // commissionTerm: commValue[CarrierConstant.COMMISSION_TERM],
+            newField: false,
+            rateList: this._fb.array([
+               this.initializeRates()
+            ]),
+         })
+      } else {
+         return this._fb.group({
+            id: [&#x27;&#x27;],
+            riderTerm: [&#x27;&#x27;],
+            range: [&#x27;&#x27;],
+            year: [&#x27;&#x27;],
+            fromMonth: [&#x27;&#x27;],
+            fromYear: [&#x27;&#x27;],
+            toMonth: [&#x27;&#x27;],
+            toYear: [&#x27;&#x27;],
+            commissionRate: [&#x27;&#x27;],
+            // commissionTerm: [&#x27;&#x27;],
+            newField: [true],
+            rateList: this._fb.array([
+               this.initializeRates()
+            ]),
+         })
+      }
+   }
+
+   /**
+    * To initialize a rider
+    * @param riderValue
+    */
+   initRider(riderValue?) {
+      if (riderValue) {
+         let riderName &#x3D; &#x27;&#x27;;
+         if (riderValue[&#x27;name&#x27;]) {
+            riderName &#x3D; riderValue[&#x27;name&#x27;];
+         }
+         if (riderValue[&#x27;rider&#x27;]) {
+            riderName &#x3D; riderValue[&#x27;rider&#x27;];
+         }
+         return this._fb.group({
+            riderName: riderName,
+            riderId: riderValue[&#x27;id&#x27;],
+            carrierRiderId: riderValue[&#x27;carrierRiderId&#x27;],
+            commissionList: this._fb.array([
+               this.initRiderComm()
+            ])
+         })
+      } else {
+         return this._fb.group({
+            riderName: [&#x27;&#x27;],
+            riderId: [&#x27;&#x27;],
+            carrierRiderId: [&#x27;&#x27;],
+            commissionList: this._fb.array([
+               this.initRiderComm()
+            ])
+         })
+      }
+   }
+
+   /**
+    * To initialize rateList array for rider commission form
+    * @param commRate
+    */
+   initializeRiderRates(commRate?) {
+      if (commRate &amp;&amp; Object.keys(commRate).length &gt; 0) {
+         let effectiveDate &#x3D; &#x27;&#x27;;
+         if (commRate[CarrierConstant.EFFECTIVE_DATE]) {
+            effectiveDate &#x3D; this.displayDateFormatMyDatePicker(commRate[CarrierConstant.EFFECTIVE_DATE]);
+         }
+         return this._fb.group({
+            id: commRate[CommonConstant.PLAIN_ID],
+            range: commRate[CarrierConstant.RANGE],
+            year: commRate[CarrierConstant.YEAR],
+            fromMonth: commRate[CarrierConstant.FROM_DATE_MONTH],
+            fromYear: commRate[CarrierConstant.FROM_DATE_YEAR],
+            toMonth: commRate[CarrierConstant.TO_DATE_MONTH],
+            toYear: commRate[CarrierConstant.TO_DATE_YEAR],
+            commissionRate: commRate[CarrierConstant.COMMISSION_RATE],
+            effectiveDate: effectiveDate,
+            remark: commRate[CarrierConstant.REMARK],
+            status: commRate[CommonConstant.STATUS],
+            newField: false
+         })
+      } else {
+         return this._fb.group({
+            id: [&#x27;&#x27;],
+            range: [false],
+            year: [&#x27;&#x27;],
+            fromMonth: [&#x27;&#x27;],
+            fromYear: [&#x27;&#x27;],
+            toMonth: [&#x27;&#x27;],
+            toYear: [&#x27;&#x27;],
+            commissionRate: [&#x27;&#x27;],
+            effectiveDate: [&#x27;&#x27;],
+            remark: [&#x27;&#x27;],
+            status: [false],
+            newField: [true]
+         })
+      }
+   }
+
+   /**
+    * To patch values in commission rate table
+    * @param commRate
+    */
+   patchCommissionRateValue(commRate) {
+      return this._fb.group({
+         id: [&#x27;&#x27;],
+         subTermMonth: [commRate.subTermMonth],
+         subTermRange: [commRate.subTermRange],
+         subTermYear: [commRate.subTermYear],
+         subTermFromMonth: [commRate.subTermFromMonth],
+         subTermFromYear: [commRate.subTermFromYear],
+         subTermToMonth: [commRate.subTermToMonth],
+         subTermToYear: [commRate.subTermToYear],
+         termMonth: [commRate.termMonth],
+         range: [commRate.range],
+         year: [commRate.year],
+         fromMonth: [commRate.fromMonth],
+         fromYear: [commRate.fromYear],
+         toMonth: [commRate.toMonth],
+         toYear: [commRate.toYear],
+         commissionRate: [commRate.commissionRate],
+         effectiveDate: [commRate.effectiveDate],
+         maturityDate: [commRate.maturityDate],
+         remark: [commRate.remark],
+         status: [false],
+         policyCount: [0],
+         newField: [true]
+      });
+   }
+
+   /**
+    * To group commission list
+    * @param any[] arr
+    */
+   groupCommissionList(arr: any[]) {
+      const tempArray: any[] &#x3D; [];
+      const arrayMetaData: any &#x3D; {};
+      arr.forEach(element &#x3D;&gt; {
+         if (!element.subTermFromYear) {
+            element.subTermFromYear &#x3D; Number(element.subTermFromYear);
+         }
+         if (!element.subTermFromMonth) {
+            element.subTermFromMonth &#x3D; Number(element.subTermFromMonth);
+         }
+         if (!element.subTermToYear) {
+            element.subTermToYear &#x3D; Number(element.subTermToYear);
+         }
+         if (!element.subTermToMonth) {
+            element.subTermToMonth &#x3D; Number(element.subTermToMonth);
+         }
+         const key &#x3D; element.subTermFromYear + &#x27;_&#x27; + element.subTermFromMonth + &#x27;_&#x27; + element.subTermToYear + &#x27;_&#x27; + element.subTermToMonth;
+         if (arrayMetaData[key]) {
+            arrayMetaData[key][&#x27;subTermList&#x27;].push(element);
+         } else {
+            const obj: any &#x3D; {};
+            obj[&#x27;subTerm&#x27;] &#x3D; element;
+            obj[&#x27;subTermList&#x27;] &#x3D; [];
+            obj[&#x27;subTermList&#x27;].push(element);
+            arrayMetaData[key] &#x3D; obj;
+         }
+      });
+      return arrayMetaData;
+   }
+
+
+   /**
+    * To set carrier source data
+    * This function is used to differentiate whether carrier data is coming through
+    * everest app or coming through scraped(aca platform)
+    * @param flag
+    */
+   setCarrierSourceFlag(flag: string) {
+      let carrierData: any &#x3D; {};
+      carrierData[&#x27;carrierFlag&#x27;] &#x3D; flag;
+
+      carrierData &#x3D; JSON.stringify(carrierData);
+      localStorage.setItem(&#x27;carrierSourceData&#x27;, carrierData);
+   }
+
+   /**
+    * To remove carrier source flag from localstorage
+    */
+   removeCarrierSourceFlag() {
+      localStorage.removeItem(&#x27;carrierSourceData&#x27;);
+   }
+
+   /**
+    * To get carrier source flag
+    */
+   getCarrierSourceFlag() {
+      let carrierData &#x3D; localStorage.getItem(&#x27;carrierSourceData&#x27;);
+      if (carrierData) {
+         carrierData &#x3D; JSON.parse(carrierData);
+         return carrierData[&#x27;carrierFlag&#x27;];
+      }
+   }
+
+   /**
+    * To set scraped carrier data
+    * @param data
+    */
+   setCarrierScrapedData(data: any) {
+      let carrierData: any &#x3D; {};
+      carrierData &#x3D; data;
+      carrierData &#x3D; JSON.stringify(carrierData);
+      localStorage.setItem(&#x27;scrapedCarrierData&#x27;, carrierData)
+   }
+
+   /**
+    * To get scraped carrier data
+    */
+   getCarrierScrapedData() {
+      let carrierData &#x3D; localStorage.getItem(&#x27;scrapedCarrierData&#x27;);
+      if (carrierData) {
+         carrierData &#x3D; JSON.parse(carrierData);
+         return carrierData;
+      } else {
+         return &#x27;&#x27;;
+      }
+   }
+
+   /**
+    * To get scraped carrier ID
+    */
+   getScrapedCarrierId() {
+      let carrierData &#x3D; localStorage.getItem(&#x27;scrapedCarrierData&#x27;);
+      if (carrierData) {
+         carrierData &#x3D; JSON.parse(carrierData);
+         return carrierData[&#x27;carrierData&#x27;][&#x27;id&#x27;];
+      } else {
+         return &#x27;&#x27;;
+      }
+   }
+
+   /**
+    * To set scraped carrier plan data
+    * @param any data
+    */
+   setCarrierPlanScrapedData(data: any) {
+      let carrierData: any &#x3D; {};
+      carrierData &#x3D; data;
+      carrierData &#x3D; JSON.stringify(carrierData);
+      localStorage.setItem(&#x27;scrapedCarrierPlanData&#x27;, carrierData)
+   }
+
+   /**
+    * To get scraped carrier plan data
+    */
+   getCarrierPlanScrapedData() {
+      let carrierData &#x3D; localStorage.getItem(&#x27;scrapedCarrierPlanData&#x27;);
+      if (carrierData) {
+         carrierData &#x3D; JSON.parse(carrierData);
+         return carrierData;
+      } else {
+         return &#x27;&#x27;;
+      }
+   }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CarrierHelper.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,836 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>conjurer documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">conjurer documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content directive">
+                   <div class="content-data">
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Directives</li>
+  <li>MyCurrencyFormatterDirective</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/directives/common/common.directive.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Number format</p>
+
+            </p>
+
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+            </p>
+
+
+        <section>
+            <h3>Metadata</h3>
+            <table class="table table-sm table-hover">
+                <tbody>
+                    <tr>
+                        <td class="col-md-3">Providers</td>
+                        <td class="col-md-9">
+                            <code>
+                                MyCurrencyPipe
+                                NgModel
+                            </code>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-3">Selector</td>
+                        <td class="col-md-9"><code>[appNumberFormatter]</code></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#el">el</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>HostListeners</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#blur">blur</a>
+                            </li>
+                            <li>
+                                <a href="#focus">focus</a>
+                            </li>
+                            <li>
+                                <a href="#keydown">keydown</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(elementRef: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, currencyPipe: MyCurrencyPipe, control: <a href="https://angular.io/api/forms/NgControl" target="_blank">NgControl</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="206" class="link-to-prism">src/app/directives/common/common.directive.ts:206</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Dependencies</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>elementRef</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>currencyPipe</td>
+                                                  
+                                                        <td>
+                                                                    <code>MyCurrencyPipe</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>control</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/forms/NgControl" target="_blank" >NgControl</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+            <section>
+    <h3>HostListeners</h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="blur"></a>
+                        <span class="name">
+                            <b>
+                            blur
+                            </b>
+                            <a href="#blur"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Arguments : </i><code>'$event.target.value' </code>
+                        </td>
+                    </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>blur(value)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="285" class="link-to-prism">src/app/directives/common/common.directive.ts:285</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Blur event listener</p>
+</div>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="focus"></a>
+                        <span class="name">
+                            <b>
+                            focus
+                            </b>
+                            <a href="#focus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Arguments : </i><code>'$event.target.value' </code>
+                        </td>
+                    </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>focus(value)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="272" class="link-to-prism">src/app/directives/common/common.directive.ts:272</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Focus host listener</p>
+</div>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="keydown"></a>
+                        <span class="name">
+                            <b>
+                            keydown
+                            </b>
+                            <a href="#keydown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Arguments : </i><code>'$event' </code>
+                        </td>
+                    </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>keydown(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="235" class="link-to-prism">src/app/directives/common/common.directive.ts:235</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Keydown host listener</p>
+</div>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="223" class="link-to-prism">src/app/directives/common/common.directive.ts:223</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>transform input value </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="el"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            el</b>
+                            <a href="#el"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>HTMLInputElement</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="206" class="link-to-prism">src/app/directives/common/common.directive.ts:206</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Input element</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, NgModule, ElementRef, HostListener, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { NgModel, NgControl } from &#x27;@angular/forms&#x27;;
+
+import { MyCurrencyPipe } from &#x27;../../pipes/common/common.pipes&#x27;;
+
+declare var autocomplete: any;
+
+/**
+ * @ignore
+ */
+@Directive({
+  selector: &#x27;[appCommon]&#x27;
+})
+export class CommonDirective {
+
+  constructor() { }
+
+}
+
+/**
+ * Allow only number
+ */
+@Directive({
+  selector: &#x27;[appOnlyNumber]&#x27;
+})
+export class OnlyNumberDirective {
+
+  /** element */
+  @Input() appOnlyNumber: boolean;
+
+  /** @ignore */
+  constructor(private el: ElementRef) { }
+
+  /** Key down host listener */
+  @HostListener(&#x27;keydown&#x27;, [&#x27;$event&#x27;]) onKeyDown(event) {
+    const e &#x3D; &lt;KeyboardEvent&gt; event;
+    if (this.appOnlyNumber) {
+      if ([46, 8, 9, 27, 13, 110, 190].indexOf(e.keyCode) !&#x3D;&#x3D; -1 ||
+        // Allow: Ctrl+A
+        (e.keyCode &#x3D;&#x3D;&#x3D; 65 &amp;&amp; e.ctrlKey &#x3D;&#x3D;&#x3D; true) ||
+        // Allow: Ctrl+C
+        (e.keyCode &#x3D;&#x3D;&#x3D; 67 &amp;&amp; e.ctrlKey &#x3D;&#x3D;&#x3D; true) ||
+        // Allow: Ctrl+V
+        (e.keyCode &#x3D;&#x3D;&#x3D; 86 &amp;&amp; (e.ctrlKey || e.metaKey)) ||
+        // Allow: Ctrl+X
+        (e.keyCode &#x3D;&#x3D;&#x3D; 88 &amp;&amp; e.ctrlKey &#x3D;&#x3D;&#x3D; true) ||
+        // Allow: home, end, left, right
+        (e.keyCode &gt;&#x3D; 35 &amp;&amp; e.keyCode &lt;&#x3D; 39)) {
+          // let it happen, don&#x27;t do anything
+          return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode &lt; 48 || e.keyCode &gt; 57)) &amp;&amp; (e.keyCode &lt; 96 || e.keyCode &gt; 105)) {
+            // event.target.value &#x3D; event.target.value.replace (/[&lt;&gt;%]/g , &#x27;&#x27;);
+            e.preventDefault();
+        }
+      }
+  }
+}
+
+/**
+ * To restrict special characters
+ */
+@Directive({
+  selector: &#x27;[appRestrictSplChar]&#x27;
+})
+export class AppRestrictSpecialCharDirective {
+
+  /** attribute */
+  @Input() appRestrictSplChar;
+
+  /** @ignore */
+  constructor(private el: ElementRef) { }
+
+  /**
+   * Input host listener
+   * @param any event
+   */
+  @HostListener(&#x27;input&#x27;, [&#x27;$event&#x27;]) onInput(event: any) {
+    event.target.value &#x3D; event.target.value.replace (/[&lt;&gt;%]/g , &#x27;&#x27;);
+  }
+}
+
+/**
+ * To restrict special characters
+ */
+@Directive({
+  selector: &#x27;[appModelRestrictSplChar]&#x27;,
+  providers: [NgModel]
+})
+export class RestrictSpecialCharacterDirective {
+
+  /** To pass data */
+  @Input() appModelRestrictSplChar: any
+
+  /**
+   * Dependency
+   * @param NgModel ngModel
+   */
+  constructor(
+    private ngModel: NgModel
+  ) {}
+
+  /**
+   * Modal change host listener
+   * @param any event
+   */
+  @HostListener(&#x27;ngModelChange&#x27;, [&#x27;$event&#x27;]) onInputChange(event: any) {
+    const newValue &#x3D; event.replace(/[&lt;&gt;%]/g , &#x27;&#x27;);
+    this.ngModel.valueAccessor.writeValue(newValue);
+  }
+}
+
+/** @ignore */
+@Directive({
+  selector: &#x27;[appAutoComplete]&#x27;,
+  providers: [NgModel]
+})
+export class AutoCompleteDirective {
+
+  private _el: HTMLElement;
+  modelValue: any;
+
+  @Input() appAutoComplete;
+  @Input() uiItems
+
+  constructor(private el: ElementRef, private model: NgModel) {
+    this._el &#x3D; el.nativeElement;
+    this.modelValue &#x3D; this.model;
+    /* this.el.nativeElement.autocomplete({
+      source: this.uiItems,
+      max: 10,
+      minLength: 3,
+      scroll: true,
+      select: function () {
+        setTimeout(() &#x3D;&gt; {
+          this.el.nativeElement.trigger(&#x27;input&#x27;);
+          this.el.nativeElement.trigger(&#x27;change&#x27;);
+        }, 500);
+      }
+    }); */
+  }
+
+  @HostListener(&#x27;input&#x27;, [&#x27;$event&#x27;]) onInput(event) {
+    /* console.log(event);
+    console.log(this.uiItems); */
+  }
+}
+
+/**
+ * @ignore
+ */
+@Directive({
+  selector: &#x27;[appNgInit]&#x27;
+})
+export class NgInitDirective  implements OnInit {
+  @Input() appNgInit;
+  ngOnInit() {
+      if (this.appNgInit) {
+          this.appNgInit();
+      }
+  }
+}
+
+/**
+ * To convert to uppercase
+ */
+@Directive({
+  selector: &#x27;[appControlUpperCase]&#x27;,
+  providers: [NgModel]
+})
+export class UpperCaseDirective {
+
+  /**
+   * Dependencies
+   * @param ElementRef el
+   * @param NgControl control
+   */
+  constructor(
+    private el: ElementRef,
+    private control: NgControl
+  ) {}
+
+  /**
+   * Dependencies
+   * @param any event
+   */
+  @HostListener(&#x27;input&#x27;, [&#x27;$event&#x27;]) onEvent(event: any) {
+    const upper &#x3D; this.el.nativeElement.value.toUpperCase();
+    this.control.control.setValue(upper);
+  }
+}
+
+/**
+ * Number format
+ */
+@Directive({
+  selector: &#x27;[appNumberFormatter]&#x27;,
+  providers: [MyCurrencyPipe, NgModel]
+})
+export class MyCurrencyFormatterDirective implements OnInit {
+
+  /**
+   * Input element
+   */
+  private el: HTMLInputElement;
+
+  /**
+   * Dependencies
+   * @param ElementRef elementRef
+   * @param MyCurrencyPipe currencyPipe
+   * @param NgControl control
+   */
+  constructor(
+    private elementRef: ElementRef,
+    private currencyPipe: MyCurrencyPipe,
+    private control: NgControl
+  ) {
+    this.el &#x3D; this.elementRef.nativeElement;
+  }
+
+  /** transform input value */
+  ngOnInit() {
+    if (this.el.value) {
+      // this.el.value &#x3D; this.currencyPipe.transform(this.el.value);
+      const reqVal &#x3D; this.currencyPipe.transform(this.el.value);
+      this.control.control.setValue(reqVal);
+    }
+  }
+
+  /**
+   * Keydown host listener
+   * @param any event
+   */
+  @HostListener(&#x27;keydown&#x27;, [&#x27;$event&#x27;]) onEvent(event: any) {
+    const inputValue &#x3D; this.el.value;
+    let value &#x3D; this.el.value;
+    value &#x3D; value.replace(/[^0-9\.]/g, &#x27;&#x27;)
+    const findsDot &#x3D; new RegExp(/\./g)
+    const containsDot &#x3D; value.match(findsDot)
+    if (containsDot !&#x3D; null &amp;&amp; ([46, 110, 190].indexOf(event.which) &gt; -1)) {
+      event.preventDefault();
+      return false;
+    }
+    this.control.control.setValue(value);
+    if (event.which &#x3D;&#x3D;&#x3D; 64 || event.which &#x3D;&#x3D;&#x3D; 16) {
+      // numbers
+      return false;
+    } if ([8, 13, 27, 37, 38, 39, 40, 110].indexOf(event.which) &gt; -1) {
+      // backspace, enter, escape, arrows
+      return true;
+    } else if (event.which &gt;&#x3D; 48 &amp;&amp; event.which &lt;&#x3D; 57) {
+      // numbers
+      return true;
+    } else if (event.which &gt;&#x3D; 96 &amp;&amp; event.which &lt;&#x3D; 105) {
+      // numpad number
+      return true;
+    } else if ([46, 110, 190].indexOf(event.which) &gt; -1) {
+      // dot and numpad dot
+      return true;
+    } else {
+      event.preventDefault();
+      return false;
+    }
+  }
+
+  /**
+   * Focus host listener
+   * @param any value
+   */
+  @HostListener(&#x27;focus&#x27;, [&#x27;$event.target.value&#x27;])
+  onFocus(value) {
+    if (value) {
+      // this.el.value &#x3D; this.currencyPipe.parse(value); // opossite of transform
+      const reqVal &#x3D; this.currencyPipe.parse(value); // opossite of transform
+      this.control.control.setValue(reqVal);
+    }
+  }
+
+  /**
+   * Blur event listener
+   * @param any value
+   */
+  @HostListener(&#x27;blur&#x27;, [&#x27;$event.target.value&#x27;])
+  onBlur(value) {
+    if (value) {
+      // this.el.value &#x3D; this.currencyPipe.transform(value);
+      const reqVal &#x3D; this.currencyPipe.transform(value);
+      this.control.control.setValue(reqVal);
+    }
+  }
+
+}
+
+/**
+ * Common directive module class
+ */
+@NgModule({
+  imports: [],
+  declarations: [
+    CommonDirective, OnlyNumberDirective, AppRestrictSpecialCharDirective, UpperCaseDirective,
+    AutoCompleteDirective, NgInitDirective, RestrictSpecialCharacterDirective,
+    MyCurrencyFormatterDirective
+  ],
+  exports: [
+    CommonDirective, OnlyNumberDirective, AppRestrictSpecialCharDirective, UpperCaseDirective,
+    AutoCompleteDirective, NgInitDirective, RestrictSpecialCharacterDirective,
+    MyCurrencyFormatterDirective
+  ]
+})
+export class CommonDirectiveModule {  }
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
+            var COMPODOC_CURRENT_PAGE_URL = 'MyCurrencyFormatterDirective.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

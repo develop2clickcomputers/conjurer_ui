@@ -1,0 +1,22 @@
+[hidden] {
+  display: none;
+}
+.form-group {
+    margin-bottom: 25px;
+}
+
+.rider-panel.panel .panel-body {
+  max-height: 200px;
+  overflow-y: auto;
+}
+.rider-panel.panel .panel-body .list-group .checkbox input[type="checkbox"], 
+.rider-panel.panel .panel-body .list-group .checkbox-inline input[type="checkbox"] {
+  margin-left: 0px;
+}
+.rider-panel .list-group .list-group-item {
+  border: none;
+}
+.rider-panel .panel-body .radio, .checkbox { display:inline-block;margin:0px; }
+.rider-panel .panel-body input[type=checkbox]:checked + label { color: rgb(128, 144, 160); }
+.rider-panel .list-group-item:hover, a.list-group-item:focus {text-decoration: none;background-color: rgb(245, 245, 245);}
+.rider-panel .list-group { margin-bottom:0px; }

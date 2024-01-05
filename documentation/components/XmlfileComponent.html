@@ -1,0 +1,2633 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>conjurer documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">conjurer documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>XmlfileComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/repository/xmlfile/xmlfile.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>XML file component class</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code><a href="../injectables/XmlfileService.html" target="_self" >XmlfileService</a></code>
+                            <code><a href="../injectables/CommonHttpAdapterService.html" target="_self" >CommonHttpAdapterService</a></code>
+                            <code><a href="../injectables/CommonHelperService.html" target="_self" >CommonHelperService</a></code>
+                            <code><a href="../injectables/RxJSHelper.html" target="_self" >RxJSHelper</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-xmlfile</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./xmlfile.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./xmlfile.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#deleteStatementModal">deleteStatementModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteStatementModalRef">deleteStatementModalRef</a>
+                            </li>
+                            <li>
+                                <a href="#delStatementDataLoading">delStatementDataLoading</a>
+                            </li>
+                            <li>
+                                <a href="#statementRepoError">statementRepoError</a>
+                            </li>
+                            <li>
+                                <a href="#statementRepoPageLoad">statementRepoPageLoad</a>
+                            </li>
+                            <li>
+                                <a href="#viewXMLFileModal">viewXMLFileModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#viewXMLFileModalRef">viewXMLFileModalRef</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#xmlFileDataByInstitution">xmlFileDataByInstitution</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#xmlFileList">xmlFileList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#xmlFileRepoId">xmlFileRepoId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#xmlFilesData">xmlFilesData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#xmlFilesDataByDate">xmlFilesDataByDate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#xmlObj">xmlObj</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#xmlViewIgnoreList">xmlViewIgnoreList</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#arrangeStatementRepoData">arrangeStatementRepoData</a>
+                            </li>
+                            <li>
+                                <a href="#cancelDeleteStatementModal">cancelDeleteStatementModal</a>
+                            </li>
+                            <li>
+                                <a href="#checkInstitutionValue">checkInstitutionValue</a>
+                            </li>
+                            <li>
+                                <a href="#checkStatementDateValue">checkStatementDateValue</a>
+                            </li>
+                            <li>
+                                <a href="#closeModals">closeModals</a>
+                            </li>
+                            <li>
+                                <a href="#closeViewXMLFileModal">closeViewXMLFileModal</a>
+                            </li>
+                            <li>
+                                <a href="#deleteStatement">deleteStatement</a>
+                            </li>
+                            <li>
+                                <a href="#downloadPdfStatement">downloadPdfStatement</a>
+                            </li>
+                            <li>
+                                <a href="#downloadXmlFiles">downloadXmlFiles</a>
+                            </li>
+                            <li>
+                                <a href="#filterToView">filterToView</a>
+                            </li>
+                            <li>
+                                <a href="#getXMLFilesData">getXMLFilesData</a>
+                            </li>
+                            <li>
+                                <a href="#openDeleteStatementModal">openDeleteStatementModal</a>
+                            </li>
+                            <li>
+                                <a href="#openViewXMLFileModal">openViewXMLFileModal</a>
+                            </li>
+                            <li>
+                                <a href="#prepareStatementDelete">prepareStatementDelete</a>
+                            </li>
+                            <li>
+                                <a href="#reviewSelectedFile">reviewSelectedFile</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(titleService: <a href="https://angular.io/api/platform-browser/Title" target="_blank">Title</a>, XMLFileService: <a href="../injectables/XmlfileService.html">XmlfileService</a>, commonHttpAdapterService: <a href="../injectables/CommonHttpAdapterService.html">CommonHttpAdapterService</a>, accountHelper: <a href="../classes/AccountHelper.html">AccountHelper</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, modalService: BsModalService, modalConfig: <a href="../classes/ModalConfig.html">ModalConfig</a>, commonHelperService: <a href="../injectables/CommonHelperService.html">CommonHelperService</a>, rxjsHelper: <a href="../injectables/RxJSHelper.html">RxJSHelper</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>XML file component class dependencies</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>titleService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/platform-browser/Title" target="_blank" >Title</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>XMLFileService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/XmlfileService.html" target="_self" >XmlfileService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>XMLFileService</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>commonHttpAdapterService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/CommonHttpAdapterService.html" target="_self" >CommonHttpAdapterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>accountHelper</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../classes/AccountHelper.html" target="_self" >AccountHelper</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>modalService</td>
+                                                  
+                                                        <td>
+                                                                    <code>BsModalService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>modalConfig</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../classes/ModalConfig.html" target="_self" >ModalConfig</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>commonHelperService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/CommonHelperService.html" target="_self" >CommonHelperService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>rxjsHelper</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/RxJSHelper.html" target="_self" >RxJSHelper</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="arrangeStatementRepoData"></a>
+                        <span class="name">
+                            <b>
+                            arrangeStatementRepoData
+                            </b>
+                            <a href="#arrangeStatementRepoData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>arrangeStatementRepoData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="161" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:161</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To arrange data by statement date and institution </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cancelDeleteStatementModal"></a>
+                        <span class="name">
+                            <b>
+                            cancelDeleteStatementModal
+                            </b>
+                            <a href="#cancelDeleteStatementModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>cancelDeleteStatementModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="226" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:226</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To close deleteStatementModal </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checkInstitutionValue"></a>
+                        <span class="name">
+                            <b>
+                            checkInstitutionValue
+                            </b>
+                            <a href="#checkInstitutionValue"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>checkInstitutionValue(obj: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, list: any[])</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:150</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To check statement date</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>obj</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>list</td>
+                                                        <td>
+                                                                    <code>any[]</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checkStatementDateValue"></a>
+                        <span class="name">
+                            <b>
+                            checkStatementDateValue
+                            </b>
+                            <a href="#checkStatementDateValue"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>checkStatementDateValue(obj: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, list: any[])</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:135</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To check statement date</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>obj</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>list</td>
+                                                        <td>
+                                                                    <code>any[]</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="closeModals"></a>
+                        <span class="name">
+                            <b>
+                            closeModals
+                            </b>
+                            <a href="#closeModals"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>closeModals()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:97</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To close all the modals </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="closeViewXMLFileModal"></a>
+                        <span class="name">
+                            <b>
+                            closeViewXMLFileModal
+                            </b>
+                            <a href="#closeViewXMLFileModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>closeViewXMLFileModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="326" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:326</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To close deleteStatementModal </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteStatement"></a>
+                        <span class="name">
+                            <b>
+                            deleteStatement
+                            </b>
+                            <a href="#deleteStatement"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>deleteStatement()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="235" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:235</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To delete pdf statement </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="downloadPdfStatement"></a>
+                        <span class="name">
+                            <b>
+                            downloadPdfStatement
+                            </b>
+                            <a href="#downloadPdfStatement"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>downloadPdfStatement(statement: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="277" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:277</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To download pdf statement</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>statement</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="downloadXmlFiles"></a>
+                        <span class="name">
+                            <b>
+                            downloadXmlFiles
+                            </b>
+                            <a href="#downloadXmlFiles"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>downloadXmlFiles(xmlData: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="338" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:338</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To download xml file</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>xmlData</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filterToView"></a>
+                        <span class="name">
+                            <b>
+                            filterToView
+                            </b>
+                            <a href="#filterToView"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>filterToView(xml: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="121" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:121</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To show view icon only for xml files</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>xml</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getXMLFilesData"></a>
+                        <span class="name">
+                            <b>
+                            getXMLFilesData
+                            </b>
+                            <a href="#getXMLFilesData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getXMLFilesData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:103</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get statement repository details </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openDeleteStatementModal"></a>
+                        <span class="name">
+                            <b>
+                            openDeleteStatementModal
+                            </b>
+                            <a href="#openDeleteStatementModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>openDeleteStatementModal(template: TemplateRef<any>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="220" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:220</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To open delete Statement modal</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>template</td>
+                                                        <td>
+                                                                    <code>TemplateRef&lt;any&gt;</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openViewXMLFileModal"></a>
+                        <span class="name">
+                            <b>
+                            openViewXMLFileModal
+                            </b>
+                            <a href="#openViewXMLFileModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>openViewXMLFileModal(statement: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="314" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:314</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To open viewXMLFileModal</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>statement</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="prepareStatementDelete"></a>
+                        <span class="name">
+                            <b>
+                            prepareStatementDelete
+                            </b>
+                            <a href="#prepareStatementDelete"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>prepareStatementDelete(statement: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="209" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:209</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To prepare delete statement</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>statement</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="reviewSelectedFile"></a>
+                        <span class="name">
+                            <b>
+                            reviewSelectedFile
+                            </b>
+                            <a href="#reviewSelectedFile"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>reviewSelectedFile(xmlFileName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="373" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:373</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To review selected file and edit </p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>xmlFileName</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteStatementModal"></a>
+                        <span class="name">
+                            <b>
+                            deleteStatementModal</b>
+                            <a href="#deleteStatementModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;deleteStatementModal&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Delete statement modal reference </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteStatementModalRef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            deleteStatementModalRef</b>
+                            <a href="#deleteStatementModalRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>BsModalRef</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="delStatementDataLoading"></a>
+                        <span class="name">
+                            <b>
+                            delStatementDataLoading</b>
+                            <a href="#delStatementDataLoading"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="statementRepoError"></a>
+                        <span class="name">
+                            <b>
+                            statementRepoError</b>
+                            <a href="#statementRepoError"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="statementRepoPageLoad"></a>
+                        <span class="name">
+                            <b>
+                            statementRepoPageLoad</b>
+                            <a href="#statementRepoPageLoad"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="viewXMLFileModal"></a>
+                        <span class="name">
+                            <b>
+                            viewXMLFileModal</b>
+                            <a href="#viewXMLFileModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;viewXMLFileModal&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>View XML file modal reference </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="viewXMLFileModalRef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            viewXMLFileModalRef</b>
+                            <a href="#viewXMLFileModalRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>BsModalRef</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="xmlFileDataByInstitution"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            xmlFileDataByInstitution</b>
+                            <a href="#xmlFileDataByInstitution"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="xmlFileList"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            xmlFileList</b>
+                            <a href="#xmlFileList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="xmlFileRepoId"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            xmlFileRepoId</b>
+                            <a href="#xmlFileRepoId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="xmlFilesData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            xmlFilesData</b>
+                            <a href="#xmlFilesData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="xmlFilesDataByDate"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            xmlFilesDataByDate</b>
+                            <a href="#xmlFilesDataByDate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="xmlObj"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            xmlObj</b>
+                            <a href="#xmlObj"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="xmlViewIgnoreList"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            xmlViewIgnoreList</b>
+                            <a href="#xmlViewIgnoreList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+    &#x27;xlsx&#x27;, &#x27;csv&#x27;, &#x27;json&#x27;, &#x27;xls&#x27;, &#x27;xlx&#x27;
+  ]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/repository/xmlfile/xmlfile.component.ts:53</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>add more list here not to show view icon </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild, TemplateRef, OnDestroy } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { Title } from &#x27;@angular/platform-browser&#x27;;
+
+import &#x27;rxjs/add/operator/takeUntil&#x27;;
+import { RxJSHelper } from &#x27;../../helpers/rxjs-helper/rxjs.helper&#x27;;
+
+import { BsModalService } from &#x27;ngx-bootstrap/modal&#x27;;
+import { BsModalRef } from &#x27;ngx-bootstrap/modal/modal-options.class&#x27;;
+import { ModalConfig } from &#x27;../../shared/common/modal.config&#x27;;
+
+import { CommonConstant } from &#x27;../../constants/common/common.constant&#x27;;
+
+import { AccountHelper } from &#x27;../../helpers/account/account.helper&#x27;;
+import { XmlfileService } from &#x27;./xmlfile.service&#x27;;
+import { CommonHttpAdapterService } from &#x27;../../adapters/common-http-adapter.service&#x27;;
+import { CommonHelperService } from &#x27;../../helpers/common/common.helper&#x27;;
+
+/**
+ * XML file component class
+ */
+@Component({
+  selector: &#x27;app-xmlfile&#x27;,
+  templateUrl: &#x27;./xmlfile.component.html&#x27;,
+  styleUrls: [&#x27;./xmlfile.component.css&#x27;],
+  providers: [
+    XmlfileService, CommonHttpAdapterService, CommonHelperService,
+    RxJSHelper
+  ]
+})
+export class XmlfileComponent implements OnInit, OnDestroy {
+
+  /** Delete statement modal reference */
+  @ViewChild(&#x27;deleteStatementModal&#x27;) deleteStatementModal: TemplateRef&lt;any&gt;;
+
+  /** View XML file modal reference */
+  @ViewChild(&#x27;viewXMLFileModal&#x27;) viewXMLFileModal: TemplateRef&lt;any&gt;;
+
+  public xmlFilesData: any &#x3D; [];
+  public xmlFilesDataByDate: Array&lt;any&gt; &#x3D; [];
+  public xmlFileDataByInstitution: Array&lt;any&gt; &#x3D; [];
+  public xmlFileList: any &#x3D; [];
+  private xmlObj: any &#x3D; {};
+  public xmlFileRepoId: any;
+  public deleteStatementModalRef: BsModalRef;
+  public viewXMLFileModalRef: BsModalRef;
+
+  delStatementDataLoading &#x3D; false;
+  statementRepoError &#x3D; false;
+  statementRepoPageLoad &#x3D; false;
+
+  /** add more list here not to show view icon */
+  public xmlViewIgnoreList: string[] &#x3D; [
+    &#x27;xlsx&#x27;, &#x27;csv&#x27;, &#x27;json&#x27;, &#x27;xls&#x27;, &#x27;xlx&#x27;
+  ];
+
+  /**
+   * XML file component class dependencies
+   * @param Title titleService
+   * @param XMLFileService XMLFileService
+   * @param CommonHttpAdapterService commonHttpAdapterService
+   * @param AccountHelper accountHelper
+   * @param Router router
+   * @param BsModalService modalService
+   * @param ModalConfig modalConfig
+   * @param CommonHelperService commonHelperService
+   * @param RxJSHelper rxjsHelper
+   */
+  constructor(
+    private titleService: Title,
+    private XMLFileService: XmlfileService,
+    private commonHttpAdapterService: CommonHttpAdapterService,
+    private accountHelper: AccountHelper,
+    private router: Router,
+    private modalService: BsModalService,
+    private modalConfig: ModalConfig,
+    private commonHelperService: CommonHelperService,
+    private rxjsHelper: RxJSHelper
+  ) {
+    this.titleService.setTitle(&#x27;Conjurer | XML Repo&#x27;);
+  }
+
+  /** @ignore */
+  ngOnInit() {
+    this.getXMLFilesData();
+  }
+
+  /** @ignore */
+  ngOnDestroy() {
+    this.rxjsHelper.unSubscribeServices.next();
+    this.rxjsHelper.unSubscribeServices.complete();
+
+    this.closeModals();
+  }
+
+  /** To close all the modals */
+  closeModals() {
+    this.closeViewXMLFileModal();
+    this.cancelDeleteStatementModal();
+  }
+
+  /**To get statement repository details */
+  getXMLFilesData() {
+    this.XMLFileService.getXMLFiles().subscribe(
+      res &#x3D;&gt; {
+        this.statementRepoPageLoad &#x3D; true;
+        this.xmlFilesData &#x3D; res.statementDetails;
+        this.arrangeStatementRepoData();
+      },
+      error &#x3D;&gt; {
+        console.log(error);
+        this.statementRepoError &#x3D; true;
+      }
+    )
+  }
+
+  /**
+   * To show view icon only for xml files
+   * @param string xml
+   */
+  filterToView(xml: string) {
+    const fileExtension &#x3D; xml.split(&#x27;.&#x27;).pop();
+    if (this.xmlViewIgnoreList.includes(fileExtension)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * To check statement date
+   * @param any obj
+   * @param any[] list
+   */
+  checkStatementDateValue(obj: any, list: any[]) {
+    let i: number;
+    for (i &#x3D; 0; i &lt; list.length; i++) {
+      if (list[i].statementDate &#x3D;&#x3D;&#x3D; obj.statementDate) {
+        return i;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * To check statement date
+   * @param any obj
+   * @param any[] list
+   */
+  checkInstitutionValue(obj: any, list: any[]) {
+    let i: number;
+    for (i &#x3D; 0; i &lt; list.length; i++) {
+      if (list[i].institutionName &#x3D;&#x3D;&#x3D; obj.institutionName) {
+        return i;
+      }
+    }
+    return null;
+  }
+
+  /** To arrange data by statement date and institution */
+  arrangeStatementRepoData() {
+    if (this.xmlFilesData) {
+      let xmlFilesDataByDateObject: Object &#x3D; {}
+      const xmlFilesDataByDateArray: Array&lt;any&gt; &#x3D; [];
+
+      let xmlFilesDataByInstitutionObject: Object &#x3D; {}
+      const xmlFilesDataByInstitutionArray: Array&lt;any&gt; &#x3D; [];
+
+      this.xmlFilesData.forEach((element, key) &#x3D;&gt; {
+        xmlFilesDataByDateObject &#x3D; {}
+        const index &#x3D; this.checkStatementDateValue(element, xmlFilesDataByDateArray);
+        if (index &#x3D;&#x3D;&#x3D; 0 || index &gt; 0) {
+          xmlFilesDataByDateArray[index].statementDetails.push(element);
+        } else {
+          xmlFilesDataByDateObject[&#x27;statementDate&#x27;] &#x3D; element.statementDate;
+          xmlFilesDataByDateObject[&#x27;statementDetails&#x27;] &#x3D; [];
+          xmlFilesDataByDateObject[&#x27;statementDetails&#x27;].push(element);
+        }
+        if (Object.keys(xmlFilesDataByDateObject).length &gt; 0) {
+          xmlFilesDataByDateArray.push(xmlFilesDataByDateObject);
+        }
+
+        // arrange data by institution name
+        xmlFilesDataByInstitutionObject &#x3D; {}
+        const instIndex &#x3D; this.checkInstitutionValue(element, xmlFilesDataByInstitutionArray);
+        if (instIndex &#x3D;&#x3D;&#x3D; 0 || instIndex &gt; 0) {
+          xmlFilesDataByInstitutionArray[instIndex].statementDetails.push(element);
+        } else {
+          xmlFilesDataByInstitutionObject[&#x27;institutionName&#x27;] &#x3D; element.institutionName;
+          xmlFilesDataByInstitutionObject[&#x27;statementDetails&#x27;] &#x3D; [];
+          xmlFilesDataByInstitutionObject[&#x27;statementDetails&#x27;].push(element);
+        }
+        if (Object.keys(xmlFilesDataByInstitutionObject).length &gt; 0) {
+          xmlFilesDataByInstitutionArray.push(xmlFilesDataByInstitutionObject);
+        }
+
+      });
+
+      this.xmlFilesDataByDate &#x3D; xmlFilesDataByDateArray;
+      this.xmlFileDataByInstitution &#x3D; xmlFilesDataByInstitutionArray;
+    }
+  }
+
+
+  /**
+   * To prepare delete statement
+   * @param any statement
+   */
+  prepareStatementDelete(statement: any) {
+    if (statement) {
+      this.xmlObj &#x3D; statement;
+      this.openDeleteStatementModal(this.deleteStatementModal);
+    }
+  }
+
+  /**
+   * To open delete Statement modal
+   * @param TemplateRef template
+   */
+  openDeleteStatementModal(template: TemplateRef&lt;any&gt;) {
+    // tslint:disable-next-line:max-line-length
+    this.deleteStatementModalRef &#x3D; this.modalService.show(template, Object.assign({}, this.modalConfig.config, {class: &#x27;modal-md deleteTransconfModal&#x27;}));
+  }
+
+  /** To close deleteStatementModal */
+  cancelDeleteStatementModal() {
+    if (this.deleteStatementModalRef) {
+      this.deleteStatementModalRef.hide();
+      this.deleteStatementModalRef &#x3D; null;
+    }
+    this.delStatementDataLoading &#x3D; false;
+  }
+
+  /**To delete pdf statement */
+  deleteStatement() {
+    if (this.xmlObj) {
+      this.delStatementDataLoading &#x3D; true;
+      let deleteStmtData &#x3D; {};
+      deleteStmtData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+      deleteStmtData[CommonConstant.FLOW] &#x3D; &#x27;gx&#x27;;
+      deleteStmtData[CommonConstant.REPO_ID] &#x3D; this.xmlObj.id;
+      deleteStmtData[CommonConstant.ACCOUNT_NUMBER] &#x3D; this.xmlObj.accountNumber;
+      // deleteStmtData[CommonConstant.TAG] &#x3D; this.xmlObj[CommonConstant.TAG];
+      deleteStmtData &#x3D; JSON.stringify(deleteStmtData);
+
+      this.XMLFileService.deleteFile(deleteStmtData).subscribe(
+        res &#x3D;&gt; {
+          this.delStatementDataLoading &#x3D; false;
+          if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+            // to hide delete modal
+            this.cancelDeleteStatementModal();
+            // to get statement repository list
+            this.XMLFileService.getXMLFiles().subscribe(
+              data &#x3D;&gt; {
+                this.getXMLFilesData();
+              },
+              error &#x3D;&gt; {
+                console.log(error);
+              }
+            )
+          } else {
+            document.getElementById(&#x27;delStatementRepoError&#x27;).innerHTML &#x3D; res[CommonConstant.MESSAGE];
+          }
+        },
+        error &#x3D;&gt; {
+          this.delStatementDataLoading &#x3D; false;
+          document.getElementById(&#x27;delStatementRepoError&#x27;).innerHTML &#x3D; &#x27;Something went wrong..Please try again&#x27;;
+        }
+      )
+    }
+  }
+
+  /**
+   * To download pdf statement
+   * @param any statement
+   */
+  downloadPdfStatement(statement: any) {
+    const dynamic_anchor_tag: any &#x3D; document.createElement(&#x27;a&#x27;);  // Creating anchor tag dynamically
+    document.body.appendChild(dynamic_anchor_tag);
+    dynamic_anchor_tag.style &#x3D; &#x27;display: none&#x27;;
+
+    if (statement) {
+
+      let downloadStmtData &#x3D; {};
+      downloadStmtData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+      downloadStmtData[CommonConstant.FLOW] &#x3D; &#x27;gx&#x27;;
+      downloadStmtData[CommonConstant.REPO_ID] &#x3D; statement.id;
+      // downloadStmtData[CommonConstant.TAG] &#x3D; statement[CommonConstant.TAG];
+      downloadStmtData &#x3D; JSON.stringify(downloadStmtData);
+
+      // call service to download
+      this.XMLFileService.downloadFile(downloadStmtData).subscribe(
+        res &#x3D;&gt; {
+          if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+            dynamic_anchor_tag.href &#x3D; CommonConstant.PDF_FILE_HEAD + res[CommonConstant.BYTE_CODE];
+            dynamic_anchor_tag.download &#x3D; statement.fileName;
+            dynamic_anchor_tag.click();
+          } else {
+            console.log(&#x27;Something went wrong&#x27;);
+          }
+        },
+        error &#x3D;&gt; {
+          console.log(&#x27;Something went wrong&#x27;);
+        }
+      )
+    }
+
+  }
+
+  /**
+   * To open viewXMLFileModal
+   * @param any statement
+   */
+  openViewXMLFileModal(statement: any) {
+    this.xmlFileRepoId &#x3D; statement[CommonConstant.PLAIN_ID];
+    if (statement[CommonConstant.FILES]) {
+      this.xmlFileList &#x3D; statement[CommonConstant.FILES];
+    } else {
+      this.xmlFileList &#x3D; [];
+    }
+    // tslint:disable-next-line:max-line-length
+    this.viewXMLFileModalRef &#x3D; this.modalService.show(this.viewXMLFileModal, Object.assign({}, this.modalConfig.config, {class: &#x27;modal-sm deleteTransconfModal&#x27;}));
+  }
+
+  /** To close deleteStatementModal */
+  closeViewXMLFileModal() {
+    if (this.viewXMLFileModalRef) {
+      this.viewXMLFileModalRef.hide();
+      this.viewXMLFileModalRef &#x3D; null;
+    }
+    // this.delStatementDataLoading &#x3D; false;
+  }
+
+  /**
+   * To download xml file
+   * @param string xmlData
+   */
+  downloadXmlFiles(xmlData: string) {
+    const dynamic_anchor_tag: any &#x3D; document.createElement(&#x27;a&#x27;);  // Creating anchor tag dynamically
+    document.body.appendChild(dynamic_anchor_tag);
+    dynamic_anchor_tag.style &#x3D; &#x27;display: none&#x27;;
+
+    let downloadXmlData: any &#x3D; {};
+    downloadXmlData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    downloadXmlData[CommonConstant.FLOW] &#x3D; &#x27;gx&#x27;;
+    downloadXmlData[CommonConstant.REPO_ID] &#x3D; this.xmlFileRepoId;
+    downloadXmlData[CommonConstant.NAME] &#x3D; xmlData;
+    // downloadXmlData[CommonConstant.TAG] &#x3D; CommonConstant.TAG;
+    downloadXmlData &#x3D; JSON.stringify(downloadXmlData);
+
+    this.XMLFileService.downloadXmlFile(downloadXmlData).subscribe(
+      res &#x3D;&gt; {
+        if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+          if (xmlData.indexOf(&#x27;.csv&#x27;) &gt; 0 || xmlData.indexOf(&#x27;.json&#x27;) &gt; 0 || xmlData.indexOf(&#x27;.xlsx&#x27;) &gt; 0) {
+            res[CommonConstant.BYTE_CODE] &#x3D; atob(res[CommonConstant.BYTE_CODE]);
+            dynamic_anchor_tag.href &#x3D; CommonConstant.CSV_FILE_HEAD + res[CommonConstant.BYTE_CODE];
+          } else {
+            dynamic_anchor_tag.href &#x3D; CommonConstant.XML_FILE_HEAD + res[CommonConstant.BYTE_CODE];
+          }
+          dynamic_anchor_tag.download &#x3D; xmlData;
+          dynamic_anchor_tag.click();
+        } else {
+          console.log(&#x27;Something went wrong&#x27;);
+        }
+      },
+      error &#x3D;&gt; {
+        console.log(&#x27;Something went wrong&#x27;);
+      }
+    )
+  }
+
+  /** To review selected file and edit */
+  reviewSelectedFile(xmlFileName: string) {
+    if (xmlFileName) {
+      // To store xml file and repo Id
+      this.commonHelperService.setXMLFileViewData(this.xmlFileRepoId, xmlFileName);
+      this.closeViewXMLFileModal();
+      setTimeout(() &#x3D;&gt; {
+        this.router.navigateByUrl(&#x27;/xmlview&#x27;);
+      }, 400);
+    }
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;b47PM-wrapper logged-in&quot;&gt;
+  &lt;!-- &quot;logged-in&quot; add this class when user login successfully --&gt;
+
+  &lt;!-- Header Part Html Starts --&gt;
+  &lt;app-authorised-header&gt;&lt;/app-authorised-header&gt;
+  &lt;!-- Header Part Html Ends --&gt;
+
+  &lt;!-- Loader section --&gt;
+  &lt;div class&#x3D;&quot;b47PM-center-body&quot; *ngIf&#x3D;&quot;!statementRepoPageLoad &amp;&amp; !statementRepoError&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid b47PM-container investment-landing-page&quot;&gt;
+      &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+          &lt;div class&#x3D;&quot;b47PM-investment-quad1&quot; align&#x3D;&quot;center&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-8 col-sm-offset-2&quot;&gt;
+              &lt;img src&#x3D;&quot;/assets/img/loader/page_loading.gif&quot;&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;b47PM-center-body&quot; *ngIf&#x3D;&quot;statementRepoError&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid b47PM-container investment-landing-page&quot;&gt;
+      &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+          &lt;div class&#x3D;&quot;b47PM-investment-quad1 grey-quad&quot; align&#x3D;&quot;center&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-8 col-sm-offset-2&quot;&gt;
+              &lt;h4&gt;Oops! Something went wrong!!!&lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;b47PM-center-body&quot; *ngIf&#x3D;&quot;(xmlFilesData.length &#x3D;&#x3D; 0 &amp;&amp; !statementRepoError) &amp;&amp; statementRepoPageLoad&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid b47PM-container investment-landing-page&quot;&gt;
+      &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+          &lt;div class&#x3D;&quot;b47PM-investment-quad1 grey-quad&quot; align&#x3D;&quot;center&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-8 col-sm-offset-2&quot;&gt;
+              &lt;h4&gt;You haven&#x27;t added statement&lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;b47PM-center-body&quot; *ngIf&#x3D;&quot;(xmlFilesData.length &gt; 0 &amp;&amp; !statementRepoError) &amp;&amp; statementRepoPageLoad&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid b47PM-container&quot;&gt;
+      &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+        &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+          &lt;h3&gt;File Repository&lt;/h3&gt;
+          &lt;div class&#x3D;&quot;misc-table-showcase&quot;&gt;
+            &lt;div class&#x3D;&quot;b47PM-financesTab-quad1&quot;&gt;
+              &lt;!-- Nav tabs --&gt;
+              &lt;ul class&#x3D;&quot;nav nav-tabs investment-tabs&quot; role&#x3D;&quot;tablist&quot;&gt;
+                &lt;li role&#x3D;&quot;presentation&quot; class&#x3D;&quot;active&quot;&gt;
+                  &lt;a href data-target&#x3D;&quot;#institution-content&quot; aria-controls&#x3D;&quot;home&quot; role&#x3D;&quot;tab&quot; data-toggle&#x3D;&quot;tab&quot;&gt;By Institution&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li role&#x3D;&quot;presentation&quot;&gt;
+                  &lt;a href data-target&#x3D;&quot;#date-content&quot; aria-controls&#x3D;&quot;profile&quot; role&#x3D;&quot;tab&quot; data-toggle&#x3D;&quot;tab&quot;&gt;By Date&lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+
+              &lt;div class&#x3D;&quot;tab-content&quot;&gt;
+                &lt;div role&#x3D;&quot;tabpanel&quot; class&#x3D;&quot;tab-pane active&quot; id&#x3D;&quot;institution-content&quot;&gt;
+                  &lt;div *ngFor&#x3D;&quot;let instWise of xmlFileDataByInstitution;let i &#x3D; index&quot; class&#x3D;&quot;panel-group&quot; id&#x3D;&quot;accordion_inst&quot; style&#x3D;&quot;margin-top: 20px;&quot;&gt;
+                    &lt;div class&#x3D;&quot;panel panel-default&quot;&gt;
+                      &lt;div class&#x3D;&quot;panel-heading&quot;&gt;
+                        &lt;h4 class&#x3D;&quot;panel-title&quot;&gt;
+                          &lt;a data-toggle&#x3D;&quot;collapse&quot; data-parent&#x3D;&quot;#accordion_inst&quot; href&#x3D;&quot;#collapseOneInst_{{i}}&quot; class&#x3D;&quot;panel-name&quot;&gt;&lt;span class&#x3D;&quot;fa fa-university panel-icon&quot;&gt;
+                            &lt;/span&gt;&amp;nbsp;{{instWise.institutionName}}&lt;/a&gt;
+                        &lt;/h4&gt;
+                      &lt;/div&gt;
+                      &lt;div id&#x3D;&quot;collapseOneInst_{{i}}&quot; class&#x3D;&quot;panel-collapse collapse&quot;&gt;
+                        &lt;div class&#x3D;&quot;panel-body&quot;&gt;
+                          &lt;div class&#x3D;&quot;row&quot;&gt;
+                            &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+                              &lt;div class&#x3D;&quot;statement-detail-quad5&quot;&gt;
+                                &lt;table class&#x3D;&quot;statement-detail-tbl&quot;&gt;
+                                  &lt;thead&gt;
+                                    &lt;tr&gt;
+                                      &lt;!-- &lt;th&gt;ACCOUNT NO.&lt;/th&gt; --&gt;
+                                      &lt;!-- &lt;th&gt;INSTITUTION TYPE&lt;/th&gt; --&gt;
+                                      &lt;th&gt;INSTITUTION&lt;/th&gt;
+                                      &lt;th&gt;COUNTRY&lt;/th&gt;
+                                      &lt;th&gt;STATEMENT DATE&lt;/th&gt;
+                                      &lt;th&gt;FILE&lt;/th&gt;
+                                      &lt;!-- &lt;th&gt;FILE SIZE&lt;/th&gt; --&gt;
+                                      &lt;th&gt;FILE UPLOADED AT&lt;/th&gt;
+                                      &lt;th&gt;&lt;/th&gt;
+                                    &lt;/tr&gt;
+                                    &lt;tr&gt;
+                                      &lt;td colspan&#x3D;&quot;9&quot; style&#x3D;&quot;height: 10px; background: #fff;&quot;&gt;&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                  &lt;/thead&gt;
+                                  &lt;tbody [hidden]&#x3D;&quot;xmlFilesData.length &#x3D;&#x3D; 0&quot;&gt; &lt;!-- ng-show&#x3D;&quot;xmlFilesData.length &gt; 0&quot; --&gt;
+                                    &lt;tr *ngFor&#x3D;&quot;let statement of instWise.statementDetails; let i &#x3D; index&quot;&gt;
+                                      &lt;!-- &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;width: 11%;&quot;&gt;{{statement.accountNumber}}&lt;/td&gt; --&gt;
+                                      &lt;!-- &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;width: 13%;&quot;&gt;{{statement.accountType}}&lt;/td&gt; --&gt;
+                                      &lt;td class&#x3D;&quot;&quot;&gt;{{statement.institutionName}}&lt;/td&gt;
+                                      &lt;td class&#x3D;&quot;truncatequd&quot;&gt;{{statement.country}}&lt;/td&gt;
+                                      &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;width: 12%;&quot;&gt;{{statement.statementDate | ValidateDate:&#x27;DD-MM-YYYY&#x27;}}&lt;/td&gt;
+                                      &lt;td class&#x3D;&quot;break-word&quot;&gt;&lt;a (click)&#x3D;&quot;downloadPdfStatement(statement)&quot; title&#x3D;&quot;{{statement.fileName}}&quot; class&#x3D;&quot;cursor&quot;&gt;{{statement.fileName}}&lt;/a&gt;&lt;/td&gt;
+                                      &lt;!-- &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;text-align: right&quot;&gt;{{statement.fileSize}}KB&lt;/td&gt; --&gt;
+                                      &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;width: 13%;&quot;&gt;
+                                        &lt;!-- &lt;span class&#x3D;&quot;pull-left&quot;&gt;{{statement.fileUploaded}}&lt;/span&gt; --&gt;
+                                        &lt;span class&#x3D;&quot;pull-right&quot;&gt;{{statement.fileUploaded | ValidateDate:&#x27;DD-MM-YYYY&#x27;}}&lt;/span&gt;
+                                      &lt;/td&gt;
+                                      &lt;td class&#x3D;&quot;truncatequd&quot;&gt;
+                                        &lt;!-- &lt;button class&#x3D;&quot;pull-right btn delete-btn&quot; (click)&#x3D;&quot;reviewSelectedFile(statement)&quot; title&#x3D;&quot;Review&quot;&gt;
+                                          &lt;i class&#x3D;&quot;fa fa-eye&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                                        &lt;/button&gt; --&gt;
+                                        &lt;button class&#x3D;&quot;pull-right btn delete-btn&quot; (click)&#x3D;&quot;prepareStatementDelete(statement)&quot;&gt;
+                                          &lt;i class&#x3D;&quot;fa fa-trash-o&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                                        &lt;/button&gt;
+                                        &lt;button class&#x3D;&quot;pull-right btn delete-btn&quot; (click)&#x3D;&quot;openViewXMLFileModal(statement)&quot; title&#x3D;&quot;View XML Files&quot;&gt;
+                                          &lt;i class&#x3D;&quot;fa fa-file-excel-o&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                                        &lt;/button&gt;
+                                      &lt;/td&gt;
+                                    &lt;/tr&gt;
+                                    &lt;tr [hidden]&#x3D;&quot;(xmlFilesData).length !&#x3D; 0&quot; style&#x3D;&quot;border: none;&quot;&gt;
+                                      &lt;td style&#x3D;&quot;text-align: center;&quot; colspan&#x3D;&quot;9&quot;&gt;There are no statements matching this criteria&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                  &lt;/tbody&gt;
+                                  &lt;tbody [hidden]&#x3D;&quot;xmlFilesData.length !&#x3D; 0&quot;&gt;
+                                    &lt;tr&gt;
+                                      &lt;td style&#x3D;&quot;text-align: center;&quot; colspan&#x3D;&quot;9&quot;&gt;You have not uploaded any statements.&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                  &lt;/tbody&gt;
+                                &lt;/table&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div role&#x3D;&quot;tabpanel&quot; class&#x3D;&quot;tab-pane&quot; id&#x3D;&quot;date-content&quot;&gt;
+                  &lt;div *ngFor&#x3D;&quot;let dateWise of xmlFilesDataByDate;let i &#x3D; index&quot; class&#x3D;&quot;panel-group&quot; id&#x3D;&quot;accordion_date&quot; style&#x3D;&quot;margin-top: 20px;&quot;&gt;
+                    &lt;div class&#x3D;&quot;panel panel-default&quot;&gt;
+                      &lt;div class&#x3D;&quot;panel-heading&quot;&gt;
+                        &lt;h4 class&#x3D;&quot;panel-title&quot;&gt;
+                          &lt;a data-toggle&#x3D;&quot;collapse&quot; data-parent&#x3D;&quot;#accordion_date&quot; href&#x3D;&quot;#collapseOneDate_{{i}}&quot; class&#x3D;&quot;panel-name&quot;&gt;&lt;span class&#x3D;&quot;fa fa-calendar panel-icon&quot;&gt;
+                            &lt;/span&gt;&amp;nbsp;{{dateWise.statementDate | ValidateDate:&#x27;DD-MM-YYYY&#x27;}}&lt;/a&gt;
+                        &lt;/h4&gt;
+                      &lt;/div&gt;
+                      &lt;div id&#x3D;&quot;collapseOneDate_{{i}}&quot; class&#x3D;&quot;panel-collapse collapse&quot;&gt;
+                        &lt;div class&#x3D;&quot;panel-body&quot;&gt;
+                          &lt;div class&#x3D;&quot;statement-detail-quad5&quot;&gt;
+                            &lt;table class&#x3D;&quot;statement-detail-tbl&quot;&gt;
+                              &lt;thead&gt;
+                                &lt;tr&gt;
+                                  &lt;!-- &lt;th&gt;ACCOUNT NO.&lt;/th&gt; --&gt;
+                                  &lt;!-- &lt;th&gt;INSTITUTION TYPE&lt;/th&gt; --&gt;
+                                  &lt;th&gt;INSTITUTION&lt;/th&gt;
+                                  &lt;th&gt;COUNTRY&lt;/th&gt;
+                                  &lt;th&gt;STATEMENT DATE&lt;/th&gt;
+                                  &lt;th&gt;FILE&lt;/th&gt;
+                                  &lt;!-- &lt;th&gt;FILE SIZE&lt;/th&gt; --&gt;
+                                  &lt;th&gt;FILE UPLOADED AT&lt;/th&gt;
+                                  &lt;th&gt;&lt;/th&gt;
+                                &lt;/tr&gt;
+                                &lt;tr&gt;
+                                  &lt;td colspan&#x3D;&quot;9&quot; style&#x3D;&quot;height: 10px; background: #fff;&quot;&gt;&lt;/td&gt;
+                                &lt;/tr&gt;
+                              &lt;/thead&gt;
+                              &lt;tbody [hidden]&#x3D;&quot;xmlFilesData.length &#x3D;&#x3D; 0&quot;&gt; &lt;!-- ng-show&#x3D;&quot;xmlFilesData.length &gt; 0&quot; --&gt;
+                                &lt;tr *ngFor&#x3D;&quot;let statement of dateWise.statementDetails; let i &#x3D; index&quot;&gt;
+                                  &lt;!-- &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;width: 11%;&quot;&gt;{{statement.accountNumber}}&lt;/td&gt; --&gt;
+                                  &lt;!-- &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;width: 13%;&quot;&gt;{{statement.accountType}}&lt;/td&gt; --&gt;
+                                  &lt;td class&#x3D;&quot;&quot;&gt;{{statement.institutionName}}&lt;/td&gt;
+                                  &lt;td class&#x3D;&quot;truncatequd&quot;&gt;{{statement.country}}&lt;/td&gt;
+                                  &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;width: 12%;&quot;&gt;{{statement.statementDate | ValidateDate:&#x27;DD-MM-YYYY&#x27;}}&lt;/td&gt;
+                                  &lt;td class&#x3D;&quot;break-word&quot;&gt;&lt;a (click)&#x3D;&quot;downloadPdfStatement(statement)&quot; title&#x3D;&quot;{{statement.fileName}}&quot; class&#x3D;&quot;cursor&quot;&gt;{{statement.fileName}}&lt;/a&gt;&lt;/td&gt;
+                                  &lt;!-- &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;text-align: right&quot;&gt;{{statement.fileSize}}KB&lt;/td&gt; --&gt;
+                                  &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;width: 13%;&quot;&gt;
+                                    &lt;!-- &lt;span class&#x3D;&quot;pull-left&quot;&gt;{{statement.fileUploaded}}&lt;/span&gt; --&gt;
+                                    &lt;span class&#x3D;&quot;pull-right&quot;&gt;{{statement.fileUploaded | ValidateDate:&#x27;DD-MM-YYYY&#x27;}}&lt;/span&gt;
+                                  &lt;/td&gt;
+                                  &lt;td class&#x3D;&quot;truncatequd&quot;&gt;
+                                    &lt;!-- &lt;button class&#x3D;&quot;pull-right btn delete-btn&quot; (click)&#x3D;&quot;reviewSelectedFile(statement)&quot; title&#x3D;&quot;Review&quot;&gt;
+                                      &lt;i class&#x3D;&quot;fa fa-eye&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                                    &lt;/button&gt; --&gt;
+                                    &lt;button class&#x3D;&quot;pull-right btn delete-btn&quot; data-toggle&#x3D;&quot;modal&quot; data-target&#x3D;&quot;#deleteStatementModal&quot; (click)&#x3D;&quot;prepareStatementDelete(statement)&quot; title&#x3D;&quot;Delete&quot;&gt;
+                                      &lt;i class&#x3D;&quot;fa fa-trash-o&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                                    &lt;/button&gt;
+                                    &lt;button class&#x3D;&quot;pull-right btn delete-btn&quot; (click)&#x3D;&quot;openViewXMLFileModal(statement)&quot; title&#x3D;&quot;View XML Files&quot;&gt;
+                                      &lt;i class&#x3D;&quot;fa fa-file-excel-o&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                                    &lt;/button&gt;
+                                  &lt;/td&gt;
+                                &lt;/tr&gt;
+                                &lt;tr [hidden]&#x3D;&quot;(xmlFilesData).length !&#x3D; 0&quot; style&#x3D;&quot;border: none;&quot;&gt;
+                                  &lt;td style&#x3D;&quot;text-align: center;&quot; colspan&#x3D;&quot;9&quot;&gt;There are no statements matching this criteria&lt;/td&gt;
+                                &lt;/tr&gt;
+                              &lt;/tbody&gt;
+                              &lt;tbody [hidden]&#x3D;&quot;xmlFilesData.length !&#x3D; 0&quot;&gt;
+                                &lt;tr&gt;
+                                  &lt;td style&#x3D;&quot;text-align: center;&quot; colspan&#x3D;&quot;9&quot;&gt;You have not uploaded any statements.&lt;/td&gt;
+                                &lt;/tr&gt;
+                              &lt;/tbody&gt;
+                            &lt;/table&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Footer Part Html Starts --&gt;
+  &lt;app-authorised-footer&gt;&lt;/app-authorised-footer&gt;
+  &lt;!-- Footer Part Html Ends --&gt;
+&lt;/div&gt;
+
+&lt;ng-template #deleteStatementModal&gt;
+  &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal&quot; aria-label&#x3D;&quot;Close&quot; (click)&#x3D;&quot;cancelDeleteStatementModal()&quot;&gt;
+          &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+        &lt;p&gt;Are you sure want to delete statement permanently.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-12 pm-red&quot; align&#x3D;&quot;center&quot;&gt;
+        &lt;span id&#x3D;&quot;delStatementRepoError&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+        &lt;img *ngIf&#x3D;&quot;delStatementDataLoading&quot; src&#x3D;&quot;/assets/img/loader/spin.gif&quot; /&gt;
+        &lt;input type&#x3D;&quot;button&quot; class&#x3D;&quot;b47PM-deltran-btn&quot; [disabled]&#x3D;&quot;delStatementDataLoading&quot; value&#x3D;&quot;DELETE&quot; (click)&#x3D;&quot;deleteStatement()&quot;&gt;
+        &lt;input type&#x3D;&quot;button&quot; (click)&#x3D;&quot;cancelDeleteStatementModal()&quot; class&#x3D;&quot;b47PM-dCancel-btn&quot; value&#x3D;&quot;CANCEL&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #viewXMLFileModal&gt;
+  &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal&quot; (click)&#x3D;&quot;closeViewXMLFileModal()&quot; aria-label&#x3D;&quot;Close&quot;&gt;
+      &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot; style&#x3D;&quot;margin-top: -26px;&quot;&gt;
+        &lt;div class&#x3D;&quot;row b47PM-budget-tbl-quad1&quot;&gt;
+          &lt;div class&#x3D;&quot;table b47PM-misc-table1 b47PM-budget-tbl1&quot;&gt;
+            &lt;header class&#x3D;&quot;clearfix&quot;&gt;
+              &lt;div align&#x3D;&quot;left&quot; style&#x3D;&quot;width: 30%&quot;&gt;Files&lt;/div&gt;
+              &lt;!-- &lt;div&gt;Institution Name&lt;/div&gt; --&gt;
+              &lt;!-- &lt;div&gt;Review&lt;/div&gt; --&gt;
+            &lt;/header&gt;
+            &lt;div&gt;
+              &lt;div *ngIf&#x3D;&quot;xmlFileList.length &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;record-row transc-row&quot;&gt;
+                  &lt;table class&#x3D;&quot;table inner-data-table&quot;&gt;
+                    &lt;thead&gt;
+                        &lt;tr&gt;
+                          &lt;td&gt;There are no files&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                  &lt;/table&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;record-row transc-row&quot; *ngFor&#x3D;&quot;let xml of xmlFileList; let i &#x3D; index;&quot;&gt;
+                &lt;table class&#x3D;&quot;table inner-data-table&quot;&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;
+                      &lt;!-- &lt;th style&#x3D;&quot;width: 30%;&quot;&gt;
+                        {{xml}}
+                      &lt;/th&gt; --&gt;
+                      &lt;td class&#x3D;&quot;break-word&quot;&gt;
+                        &lt;a (click)&#x3D;&quot;downloadXmlFiles(xml)&quot; title&#x3D;&quot;Click here to download&quot; class&#x3D;&quot;cursor&quot;&gt;{{xml}}&lt;/a&gt; &lt;!-- title&#x3D;&quot;{{xml}}&quot; --&gt;
+                      &lt;/td&gt;
+                      &lt;td&gt;
+                        &lt;button *ngIf&#x3D;&quot;!filterToView(xml)&quot; class&#x3D;&quot;pull-right btn delete-btn&quot; (click)&#x3D;&quot;reviewSelectedFile(xml)&quot; title&#x3D;&quot;Review&quot;&gt;
+                          &lt;i class&#x3D;&quot;fa fa-eye&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                        &lt;/button&gt;
+                      &lt;/td&gt;
+                      &lt;!-- &lt;th&gt;
+                        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;redirectToReviewScreen()&quot;&gt;Review&lt;/button&gt;
+                      &lt;/th&gt; --&gt;
+                      &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                &lt;/table&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+        &lt;span class&#x3D;&quot;pm-red&quot; id&#x3D;&quot;deleteManualAccountErr&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;!-- &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+        &lt;input type&#x3D;&quot;submit&quot; id&#x3D;&quot;deleteSubmit&quot; class&#x3D;&quot;b47PM-deltran-btn&quot; ng-disabled&#x3D;&quot;vm.deleteManualAccountDataLoading&quot; value&#x3D;&quot;DELETE&quot;&gt;
+        &lt;img *ngIf&#x3D;&quot;deleteManualAccountDataLoading&quot; src&#x3D;&quot;/assets/img/loader/spin.gif&quot; /&gt;
+        &lt;input type&#x3D;&quot;button&quot; class&#x3D;&quot;b47PM-dCancel-btn&quot; ng-disabled&#x3D;&quot;vm.deleteManualAccountDataLoading&quot; data-dismiss&#x3D;&quot;modal&quot; value&#x3D;&quot;CANCEL&quot;&gt;
+      &lt;/div&gt; --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./xmlfile.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.panel-name {
+    font-size: 13px;
+}
+.panel-icon {
+    font-size: 16px;
+    color: #4C629A;
+    margin-right: 6px;
+}
+.panel-group {
+    margin-bottom: -6px;
+}
+.panel-heading {
+    padding: 8px 15px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="b47PM-wrapper logged-in">  <!-- "logged-in" add this class when user login successfully -->  <!-- Header Part Html Starts -->  <app-authorised-header></app-authorised-header>  <!-- Header Part Html Ends -->  <!-- Loader section -->  <div class="b47PM-center-body" *ngIf="!statementRepoPageLoad && !statementRepoError">    <div class="container-fluid b47PM-container investment-landing-page">      <div class="row clearfix">        <div class="col-md-12">          <div class="b47PM-investment-quad1" align="center">            <div class="col-sm-8 col-sm-offset-2">              <img src="/assets/img/loader/page_loading.gif">            </div>          </div>          <div class="clearfix"></div>        </div>      </div>    </div>  </div>  <div class="b47PM-center-body" *ngIf="statementRepoError">    <div class="container-fluid b47PM-container investment-landing-page">      <div class="row clearfix">        <div class="col-md-12">          <div class="b47PM-investment-quad1 grey-quad" align="center">            <div class="col-sm-8 col-sm-offset-2">              <h4>Oops! Something went wrong!!!</h4>            </div>            <div class="clearfix"></div>          </div>        </div>      </div>    </div>  </div>  <div class="b47PM-center-body" *ngIf="(xmlFilesData.length == 0 && !statementRepoError) && statementRepoPageLoad">    <div class="container-fluid b47PM-container investment-landing-page">      <div class="row clearfix">        <div class="col-md-12">          <div class="b47PM-investment-quad1 grey-quad" align="center">            <div class="col-sm-8 col-sm-offset-2">              <h4>You haven\'t added statement</h4>            </div>            <div class="clearfix"></div>          </div>        </div>      </div>    </div>  </div>  <div class="b47PM-center-body" *ngIf="(xmlFilesData.length > 0 && !statementRepoError) && statementRepoPageLoad">    <div class="container-fluid b47PM-container">      <div class="col-sm-12">        <div class="row clearfix">          <h3>File Repository</h3>          <div class="misc-table-showcase">            <div class="b47PM-financesTab-quad1">              <!-- Nav tabs -->              <ul class="nav nav-tabs investment-tabs" role="tablist">                <li role="presentation" class="active">                  <a href data-target="#institution-content" aria-controls="home" role="tab" data-toggle="tab">By Institution</a>                </li>                <li role="presentation">                  <a href data-target="#date-content" aria-controls="profile" role="tab" data-toggle="tab">By Date</a>                </li>              </ul>              <div class="tab-content">                <div role="tabpanel" class="tab-pane active" id="institution-content">                  <div *ngFor="let instWise of xmlFileDataByInstitution;let i = index" class="panel-group" id="accordion_inst" style="margin-top: 20px;">                    <div class="panel panel-default">                      <div class="panel-heading">                        <h4 class="panel-title">                          <a data-toggle="collapse" data-parent="#accordion_inst" href="#collapseOneInst_{{i}}" class="panel-name"><span class="fa fa-university panel-icon">                            </span>&nbsp;{{instWise.institutionName}}</a>                        </h4>                      </div>                      <div id="collapseOneInst_{{i}}" class="panel-collapse collapse">                        <div class="panel-body">                          <div class="row">                            <div class="col-md-12">                              <div class="statement-detail-quad5">                                <table class="statement-detail-tbl">                                  <thead>                                    <tr>                                      <!-- <th>ACCOUNT NO.</th> -->                                      <!-- <th>INSTITUTION TYPE</th> -->                                      <th>INSTITUTION</th>                                      <th>COUNTRY</th>                                      <th>STATEMENT DATE</th>                                      <th>FILE</th>                                      <!-- <th>FILE SIZE</th> -->                                      <th>FILE UPLOADED AT</th>                                      <th></th>                                    </tr>                                    <tr>                                      <td colspan="9" style="height: 10px; background: #fff;"></td>                                    </tr>                                  </thead>                                  <tbody [hidden]="xmlFilesData.length == 0"> <!-- ng-show="xmlFilesData.length > 0" -->                                    <tr *ngFor="let statement of instWise.statementDetails; let i = index">                                      <!-- <td class="truncatequd" style="width: 11%;">{{statement.accountNumber}}</td> -->                                      <!-- <td class="truncatequd" style="width: 13%;">{{statement.accountType}}</td> -->                                      <td class="">{{statement.institutionName}}</td>                                      <td class="truncatequd">{{statement.country}}</td>                                      <td class="truncatequd" style="width: 12%;">{{statement.statementDate | ValidateDate:\'DD-MM-YYYY\'}}</td>                                      <td class="break-word"><a (click)="downloadPdfStatement(statement)" title="{{statement.fileName}}" class="cursor">{{statement.fileName}}</a></td>                                      <!-- <td class="truncatequd" style="text-align: right">{{statement.fileSize}}KB</td> -->                                      <td class="truncatequd" style="width: 13%;">                                        <!-- <span class="pull-left">{{statement.fileUploaded}}</span> -->                                        <span class="pull-right">{{statement.fileUploaded | ValidateDate:\'DD-MM-YYYY\'}}</span>                                      </td>                                      <td class="truncatequd">                                        <!-- <button class="pull-right btn delete-btn" (click)="reviewSelectedFile(statement)" title="Review">                                          <i class="fa fa-eye" aria-hidden="true"></i>                                        </button> -->                                        <button class="pull-right btn delete-btn" (click)="prepareStatementDelete(statement)">                                          <i class="fa fa-trash-o" aria-hidden="true"></i>                                        </button>                                        <button class="pull-right btn delete-btn" (click)="openViewXMLFileModal(statement)" title="View XML Files">                                          <i class="fa fa-file-excel-o" aria-hidden="true"></i>                                        </button>                                      </td>                                    </tr>                                    <tr [hidden]="(xmlFilesData).length != 0" style="border: none;">                                      <td style="text-align: center;" colspan="9">There are no statements matching this criteria</td>                                    </tr>                                  </tbody>                                  <tbody [hidden]="xmlFilesData.length != 0">                                    <tr>                                      <td style="text-align: center;" colspan="9">You have not uploaded any statements.</td>                                    </tr>                                  </tbody>                                </table>                              </div>                            </div>                          </div>                        </div>                      </div>                    </div>                  </div>                </div>                <div role="tabpanel" class="tab-pane" id="date-content">                  <div *ngFor="let dateWise of xmlFilesDataByDate;let i = index" class="panel-group" id="accordion_date" style="margin-top: 20px;">                    <div class="panel panel-default">                      <div class="panel-heading">                        <h4 class="panel-title">                          <a data-toggle="collapse" data-parent="#accordion_date" href="#collapseOneDate_{{i}}" class="panel-name"><span class="fa fa-calendar panel-icon">                            </span>&nbsp;{{dateWise.statementDate | ValidateDate:\'DD-MM-YYYY\'}}</a>                        </h4>                      </div>                      <div id="collapseOneDate_{{i}}" class="panel-collapse collapse">                        <div class="panel-body">                          <div class="statement-detail-quad5">                            <table class="statement-detail-tbl">                              <thead>                                <tr>                                  <!-- <th>ACCOUNT NO.</th> -->                                  <!-- <th>INSTITUTION TYPE</th> -->                                  <th>INSTITUTION</th>                                  <th>COUNTRY</th>                                  <th>STATEMENT DATE</th>                                  <th>FILE</th>                                  <!-- <th>FILE SIZE</th> -->                                  <th>FILE UPLOADED AT</th>                                  <th></th>                                </tr>                                <tr>                                  <td colspan="9" style="height: 10px; background: #fff;"></td>                                </tr>                              </thead>                              <tbody [hidden]="xmlFilesData.length == 0"> <!-- ng-show="xmlFilesData.length > 0" -->                                <tr *ngFor="let statement of dateWise.statementDetails; let i = index">                                  <!-- <td class="truncatequd" style="width: 11%;">{{statement.accountNumber}}</td> -->                                  <!-- <td class="truncatequd" style="width: 13%;">{{statement.accountType}}</td> -->                                  <td class="">{{statement.institutionName}}</td>                                  <td class="truncatequd">{{statement.country}}</td>                                  <td class="truncatequd" style="width: 12%;">{{statement.statementDate | ValidateDate:\'DD-MM-YYYY\'}}</td>                                  <td class="break-word"><a (click)="downloadPdfStatement(statement)" title="{{statement.fileName}}" class="cursor">{{statement.fileName}}</a></td>                                  <!-- <td class="truncatequd" style="text-align: right">{{statement.fileSize}}KB</td> -->                                  <td class="truncatequd" style="width: 13%;">                                    <!-- <span class="pull-left">{{statement.fileUploaded}}</span> -->                                    <span class="pull-right">{{statement.fileUploaded | ValidateDate:\'DD-MM-YYYY\'}}</span>                                  </td>                                  <td class="truncatequd">                                    <!-- <button class="pull-right btn delete-btn" (click)="reviewSelectedFile(statement)" title="Review">                                      <i class="fa fa-eye" aria-hidden="true"></i>                                    </button> -->                                    <button class="pull-right btn delete-btn" data-toggle="modal" data-target="#deleteStatementModal" (click)="prepareStatementDelete(statement)" title="Delete">                                      <i class="fa fa-trash-o" aria-hidden="true"></i>                                    </button>                                    <button class="pull-right btn delete-btn" (click)="openViewXMLFileModal(statement)" title="View XML Files">                                      <i class="fa fa-file-excel-o" aria-hidden="true"></i>                                    </button>                                  </td>                                </tr>                                <tr [hidden]="(xmlFilesData).length != 0" style="border: none;">                                  <td style="text-align: center;" colspan="9">There are no statements matching this criteria</td>                                </tr>                              </tbody>                              <tbody [hidden]="xmlFilesData.length != 0">                                <tr>                                  <td style="text-align: center;" colspan="9">You have not uploaded any statements.</td>                                </tr>                              </tbody>                            </table>                          </div>                        </div>                      </div>                    </div>                  </div>                </div>              </div>            </div>          </div>        </div>      </div>    </div>  </div>  <!-- Footer Part Html Starts -->  <app-authorised-footer></app-authorised-footer>  <!-- Footer Part Html Ends --></div><ng-template #deleteStatementModal>  <div class="modal-header">    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelDeleteStatementModal()">          <span aria-hidden="true">&times;</span>        </button>  </div>  <div class="modal-body">    <div class="row clearfix">      <div class="col-md-12" align="center">        <p>Are you sure want to delete statement permanently.</p>      </div>      <div class="col-md-12 pm-red" align="center">        <span id="delStatementRepoError"></span>      </div>      <div class="col-md-12" align="center">        <img *ngIf="delStatementDataLoading" src="/assets/img/loader/spin.gif" />        <input type="button" class="b47PM-deltran-btn" [disabled]="delStatementDataLoading" value="DELETE" (click)="deleteStatement()">        <input type="button" (click)="cancelDeleteStatementModal()" class="b47PM-dCancel-btn" value="CANCEL">      </div>    </div>  </div></ng-template><ng-template #viewXMLFileModal>  <div class="modal-header">    <button type="button" class="close" data-dismiss="modal" (click)="closeViewXMLFileModal()" aria-label="Close">      <span aria-hidden="true">&times;</span>    </button>  </div>  <div class="modal-body">    <div class="row clearfix">      <div class="col-md-12" align="center" style="margin-top: -26px;">        <div class="row b47PM-budget-tbl-quad1">          <div class="table b47PM-misc-table1 b47PM-budget-tbl1">            <header class="clearfix">              <div align="left" style="width: 30%">Files</div>              <!-- <div>Institution Name</div> -->              <!-- <div>Review</div> -->            </header>            <div>              <div *ngIf="xmlFileList.length === 0" class="record-row transc-row">                  <table class="table inner-data-table">                    <thead>                        <tr>                          <td>There are no files</td>                        </tr>                    </thead>                  </table>              </div>              <div class="record-row transc-row" *ngFor="let xml of xmlFileList; let i = index;">                <table class="table inner-data-table">                  <thead>                    <tr>                      <!-- <th style="width: 30%;">                        {{xml}}                      </th> -->                      <td class="break-word">                        <a (click)="downloadXmlFiles(xml)" title="Click here to download" class="cursor">{{xml}}</a> <!-- title="{{xml}}" -->                      </td>                      <td>                        <button *ngIf="!filterToView(xml)" class="pull-right btn delete-btn" (click)="reviewSelectedFile(xml)" title="Review">                          <i class="fa fa-eye" aria-hidden="true"></i>                        </button>                      </td>                      <!-- <th>                        <button type="button" class="btn btn-primary" (click)="redirectToReviewScreen()">Review</button>                      </th> -->                      <div class="clearfix"></div>                    </tr>                  </thead>                </table>              </div>            </div>          </div>        </div>      </div>      <div class="col-md-12" align="center">        <span class="pm-red" id="deleteManualAccountErr"></span>      </div>      <!-- <div class="col-md-12" align="center">        <input type="submit" id="deleteSubmit" class="b47PM-deltran-btn" ng-disabled="vm.deleteManualAccountDataLoading" value="DELETE">        <img *ngIf="deleteManualAccountDataLoading" src="/assets/img/loader/spin.gif" />        <input type="button" class="b47PM-dCancel-btn" ng-disabled="vm.deleteManualAccountDataLoading" data-dismiss="modal" value="CANCEL">      </div> -->    </div>  </div></ng-template></div>'
+    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AdminDropdownComponent', 'selector': 'app-admin-dropdown'},{'name': 'AlertComponent', 'selector': 'alert'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorisedFooterComponent', 'selector': 'app-authorised-footer'},{'name': 'AuthorisedHeaderComponent', 'selector': 'app-authorised-header'},{'name': 'BatchReportComponent', 'selector': 'app-batch-report'},{'name': 'BeforeLoginFooterComponent', 'selector': 'app-before-login-footer'},{'name': 'BeforeLoginHeaderComponent', 'selector': 'app-before-login-header'},{'name': 'BudgetComponent', 'selector': 'app-budget'},{'name': 'CarrierComponent', 'selector': 'app-carrier'},{'name': 'CarrierInformationComponent', 'selector': 'app-carrier-information'},{'name': 'CarrierMenuComponent', 'selector': 'app-carrier-menu-temp'},{'name': 'ClientAdvisorsComponent', 'selector': 'app-client-advisors'},{'name': 'CommonNotificationComponent', 'selector': 'app-common-notification'},{'name': 'CustomOutputComponent', 'selector': 'app-custom-output'},{'name': 'DeleteComponent', 'selector': 'app-delete'},{'name': 'DropdownComponent', 'selector': 'app-dropdown'},{'name': 'FactFinderComponent', 'selector': 'app-fact-finder'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'InvestmentComponent', 'selector': 'app-investment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'NewPolicyComponent', 'selector': 'app-new-policy'},{'name': 'PageNotFoundComponent', 'selector': ''},{'name': 'PlanComponent', 'selector': 'app-plan'},{'name': 'PolicyInformationComponent', 'selector': 'app-policy-information'},{'name': 'PreviewComponent', 'selector': 'app-preview'},{'name': 'RepositoryComponent', 'selector': 'app-repository'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewComponent', 'selector': 'app-review'},{'name': 'RiderCommissionComponent', 'selector': 'app-rider-commission'},{'name': 'RiderMenuComponent', 'selector': 'app-rider-menu-temp'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StatementRepositoryComponent', 'selector': 'app-statement-repository'},{'name': 'TransactionComponent', 'selector': 'app-transaction'},{'name': 'XmlfileComponent', 'selector': 'app-xmlfile'},{'name': 'XMLViewerComponent', 'selector': 'app-xml-viewer'}];
+    var DIRECTIVES = [{'name': 'AppRestrictSpecialCharDirective', 'selector': '[appRestrictSplChar]'},{'name': 'MyCurrencyFormatterDirective', 'selector': '[appNumberFormatter]'},{'name': 'OnlyNumberDirective', 'selector': '[appOnlyNumber]'},{'name': 'RestrictSpecialCharacterDirective', 'selector': '[appModelRestrictSplChar]'},{'name': 'UpperCaseDirective', 'selector': '[appControlUpperCase]'}];
+    var ACTUAL_COMPONENT = {'name': 'XmlfileComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'XmlfileComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

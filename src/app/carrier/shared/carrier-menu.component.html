@@ -1,0 +1,12 @@
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+   <!-- <ul class="submenu-nav nav nav-pills" role="submenu">
+      <li [routerLinkActive]="['active']"><a href="" [routerLink]="['../../carrier-information']">Carrier Information</a></li>
+      <li [routerLinkActive]="['active']"><a href="" [routerLink]="['../../plan']">Carrier Plan</a></li>
+      <li [routerLinkActive]="['active']"><a href="" [routerLink]="['../../rider']">Carrier Rider</a></li>
+   </ul> -->
+   <ul *ngIf="!showSecondLevelMenu" class="submenu-nav nav nav-pills nav-pills1" role="submenu"> <!-- nav-tabs breadcrumb breadcrumb-arrow -->
+      <li role="presentation" [routerLinkActive]="['active']"><a href="" [routerLink]="['../rider-commission']" [class.disabled]="disableThisUrl ? true : null">Associated Rider Commission</a></li>
+      <!-- <li role="presentation" [routerLinkActive]="['active']"><a href="" [routerLink]="['../policy-commission']" [class.disabled]="disableThisUrl ? true : null">Plan Commission</a></li> -->
+      <li role="presentation" [routerLinkActive]="['active']"><a href="" [routerLink]="['../policy-information']">Plan Information</a></li>
+   </ul>
+</div>

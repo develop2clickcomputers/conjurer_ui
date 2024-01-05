@@ -1,0 +1,231 @@
+<div class="b47PM-header clearfix">
+    <div class="top-bar">
+        <div class="container-fluid b47PM-container">
+            <div class="row clearfix">
+                <div class="col-xs-12">
+                    <div class="b47PM-user-awatar-quad pull-left">
+                        <span class="img-circle b47PM-user-awatar pull-left">
+                            <img src="/assets/img/profile_image/prof_placeholder.jpg" class="img-circle img-responsive" style="height: 30px;">
+                        </span>
+                        Hey {{username}}!
+                    </div>
+                    <nav class="pull-right">
+                        <ul class="nav nav-pills setting-nav pull-right">
+                            <li class="dropdown setting-dropdown">
+                                <a class="dropdown-toggle cursor" data-toggle="dropdown">Settings</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="cursor" (click)="openSettingModal()">Change Password</a>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a class="manage-account cursor">Manage Account</a>
+                                        <!--  (click)="openCustomOutPutModal()" -->
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li>
+                                                <a (click)="addNewHeader()" class="cursor">New Custom Header</a>
+                                            </li>
+                                            <li>
+                                                <a (click)="editCustomHeader()" class="cursor">Edit Custom Header</a>
+                                            </li>
+                                            <li>
+                                                <a (click)="deleteCustomHeader()" class="cursor">Delete Custom Header</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="cursor" (click)="logout()">Logout</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="container-fluid b47PM-container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://infiniopes.com" target="_blank">
+                        <!-- <img src="/assets/img/header/infini_logo.png" style="width: 115px;" alt="InfiniOpes"> -->
+                        InfiniOpes
+                    </a>
+                    <a id="infoMessageforAddHeader" [tooltip]="addAccountStatus" style="display: none;padding-left: 15px;font-size: 13px;" class="addRefreshHeader infoMessageforAdd infoMessageforRefresh pm-green cursor navbar-brand">
+                        <!-- uib-tooltip="{{refreshStatus}} - {{InstitutionNameInAction}}... this might take few minutes." tooltip-class="customClass"
+                        tooltip-placement="bottom" -->
+                        <i *ngIf="refreshStatus" class="fa fa-circle-o faa-burst animated info-burst"></i>{{refreshStatus}}
+                    </a>
+                    <tooltip-content #addAccountStatus [animation]="true" placement="left">
+                        <span>{{refreshStatus}} - {{InstitutionNameInAction}}... this might take few minutes.</span>
+                    </tooltip-content>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <nav class="pull-right main-nav">
+                        <ul class="nav pull-right">
+                            <!-- <li role="presentation" ng-class="{'active': activeRoute.current.activetab == 'account'}"><a href="#/account">Account</a></li> -->
+                            <li role="presentation" [routerLinkActive]="['active']">
+                                <a [routerLink]="['/overview']">Overview</a>
+                            </li>
+                            <li role="presentation" [routerLinkActive]="['active']">
+                                <a [routerLink]="['/transaction']">Transaction</a>
+                            </li>
+                            <li role="presentation" [routerLinkActive]="['active']">
+                                <a [routerLink]="['/budget']">Budget</a>
+                            </li>
+                            <li role="presentation" [routerLinkActive]="['active']">
+                                <a [routerLink]="['/investment']">Investment</a>
+                            </li>
+                            <li class="dropdown dropdown1" [routerLinkActive]="['active']">
+                                <a class="dropdown-toggle dropdown-toggle1" data-toggle="dropdown" style="cursor: pointer;">
+                                    Repository
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu1">
+                                    <li [routerLinkActive]="['active']">
+                                        <a [routerLink]="['/repo/statementrepository']" style="cursor: pointer;">
+                                            <i class="fa"></i>Statement Repo
+                                        </a>
+                                    </li>
+                                    <li [routerLinkActive]="['active']">
+                                        <!-- style="margin-left: -21px;" -->
+                                        <a [routerLink]="['/repo/xmlfile']" style="cursor: pointer;">
+                                            <i class="fa"></i>File Repo
+                                        </a>
+                                    </li>
+                                    <li [routerLinkActive]="['active']">
+                                        <a [routerLink]="['/repo/batchreport']" style="cursor: pointer;">
+                                            <i class="fa"></i>Batch Reports
+                                        </a>
+                                    </li>
+                                    <li [routerLinkActive]="['active']">
+                                        <a [routerLink]="['/repo/factfinder']" style="cursor: pointer;">
+                                            <i class="fa"></i>Fact Finder
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li role="presentation" [routerLinkActive]="['active']">
+                                <a [routerLink]="['/carriers']">INSURANCE</a>
+                            </li>
+                            <li role="presentation" [routerLinkActive]="['active']">
+                                <a [routerLink]="['/advisors']">ADVISORS</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Notification component -->
+<app-common-notification [notificationMessage]="notificationMessage" #notificationComponent></app-common-notification>
+
+<ng-template #mfaModal>
+    <div class="modal-header">
+        <button type="button" (click)="closeMfaModal()" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h5>Additional Authentication</h5>
+    </div>
+    <div class="modal-body">
+        <div class="row clearfix">
+            <div class="col-md-12" align="center">
+                <p id="mfaText">{{currentRefresh.mfaMessage}}</p>
+                <p>Enter within {{ currentRefresh.maxTime }} seconds</p>
+            </div>
+            <div class="col-sm-6 form-group input-group mfa-input" *ngFor="let field of currentRefresh.mfaFields; let i = index">
+                <span class="input-group-addon" id="basic-addon3">{{ field.fieldLabel }}</span>
+                <input type="{{ field.fieldType }}" name="{{ field.fieldName }}" [(ngModel)]="field.fieldValue" class="form-control" aria-describedby="basic-addon3"
+                    id="{{ field.fieldName }}" required placeholder="{{ otpLabel }}" autocomplete="new-password">
+            </div>
+            <div class="col-md-12" align="center">
+                <input type="button" class="btn btn-large btn-notification-ok" data-dismiss="modal" (click)="processMFA();" value="SUBMIT">
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #settingModal>
+    <div class="modal-header">
+        <button type="button" class="close" (click)="closeSettingModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h5>Update Credentials</h5>
+    </div>
+    <div class="modal-body">
+        <div class="row clearfix">
+            <!-- <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash"
+                ng-bind="flash.message"></div> -->
+            <!-- <div class="col-md-12">
+                <h5>Change Credentials</h5>
+            </div> -->
+            <form name="form" [formGroup]="changeCredentialForm" (ngSubmit)="changeCredential()" role="form">
+                <div class="col-md-7 form-group">
+                    <input type="password" formControlName="oldPassword" class="form-control" placeholder="Enter Old Password">
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-7 form-group" [ngClass]="{ 'has-error': (changeCredentialForm.get('newPassword').dirty || changeCredentialForm.get('newPassword').touched) && changeCredentialForm.get('newPassword').errors?.required || changeCredentialForm.get('newPassword').errors?.pattern}">
+                    <popover-content #myPopover [closeOnMouseOutside]="true" placement="auto" [animation]="true">
+                        <p>Password Guidelines</p>
+                        <ul class="fa-ul">
+                            <li id="rangeChar">
+                                <i class="fa-li glyphicon glyphicon-remove pm-red" aria-hidden="true"></i>From 8 - 20 characters</li>
+                            <li id="oneupper">
+                                <i class="fa-li glyphicon glyphicon-remove pm-red" aria-hidden="true"></i>At least one Uppercase Alphabet</li>
+                            <li id="onelower">
+                                <i class="fa-li glyphicon glyphicon-remove pm-red" aria-hidden="true"></i>At least one Lowercase Alphabet</li>
+                            <li id="onenumber">
+                                <i class="fa-li glyphicon glyphicon-remove pm-red" aria-hidden="true"></i>At least one Number</li>
+                            <li id="onesplchar">
+                                <i class="fa-li glyphicon glyphicon-remove pm-red" aria-hidden="true"></i>At least one allowed special character: $,@,!,%,*,?,&,#,~,^</li>
+                        </ul>
+                    </popover-content>
+                    <input type="password" formControlName="newPassword" [popover]="myPopover" popoverPlacement="right" (keyup)="checkPasswordValidation()"
+                        id="newPassword" class="form-control" placeholder="New Password" autocomplete="off" />
+                    <div *ngIf="changeCredentialForm.get('newPassword').errors && (changeCredentialForm.get('newPassword').dirty || changeCredentialForm.get('newPassword').touched)">
+                        <div *ngIf="changeCredentialForm.get('newPassword').errors?.required" class="help-block">
+                            Password is required.
+                        </div>
+                        <div *ngIf="changeCredentialForm.get('newPassword').errors?.pattern" class="help-block">
+                            Not a valid Password!
+                        </div>
+                    </div>
+                    <!-- <pre>{{ changeCredentialForm.get('newPassword').errors | json }}</pre> -->
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-7 form-group" [ngClass]="{ 'has-error': (changeCredentialForm.get('confirmPassword').dirty || changeCredentialForm.get('confirmPassword').touched) && changeCredentialForm.get('confirmPassword').errors?.required || changeCredentialForm.get('confirmPassword').errors?.pattern}">
+                    <input type="password" formControlName="confirmPassword" class="form-control" placeholder="Confirm Password" autocomplete="off"
+                    />
+                    <div *ngIf="changeCredentialForm.get('confirmPassword').errors && (changeCredentialForm.get('confirmPassword').dirty || changeCredentialForm.get('confirmPassword').touched)">
+                        <div *ngIf="changeCredentialForm.get('confirmPassword').errors?.required" class="help-block">
+                            Password is required.
+                        </div>
+                        <div *ngIf="changeCredentialForm.get('confirmPassword').errors?.pattern" class="help-block">
+                            Not a valid Password!
+                        </div>
+                    </div>
+                    <!-- <pre>{{ changeCredentialForm.get('confirmPassword').errors | json }}</pre> -->
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-8 form-group has-error" id="errorEditCred">
+                    <span class="help-block"></span>
+                </div>
+                <div class="col-md-8 form-group">
+                    <img *ngIf="changePasswordDataLoading" src="/assets/img/loader/spin.gif" />
+                    <button type="submit" [disabled]="changeCredentialForm.invalid || changePasswordDataLoading" class="btn add-account-btn b47PM-default-btn">SAVE</button>
+                    <button type="button" class="btn btn-default b47PM-dCancel-btn" (click)="closeSettingModal()">CANCEL</button>
+                </div>
+            </form>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</ng-template>
+
+<app-custom-output #customOutputComponent></app-custom-output>

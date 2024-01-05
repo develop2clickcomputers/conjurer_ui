@@ -1,0 +1,144 @@
+<!-- <button type="button" (click)="openDropdownModal()">
+    add Type
+</button> -->
+
+<ng-template #dropdownModal>
+    <div class="modal-header">
+        <button type="button" (click)="cancelDropdownModal()" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title">Dropdown Action</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="misc-table-showcase">
+                    <div class="table b47PM-misc-table1 b47PM-transac-tbl1 b47PM-transaction-tbl1">
+                        <!-- <header class="clearfix">
+                                <div>Plan Type</div>
+                                <div>&nbsp;</div>
+                            </header> -->
+                        <div class="record-row transc-row">
+                            <!-- <input type="text" [(ngModel)]="filterDropdown" class="form-control" id="" value=""> -->
+                            <div class="input-group stylish-input-group">
+                                <input type="text" class="form-control" [(ngModel)]="filterDropdown" placeholder="Search">
+                                <span class="input-group-addon">
+                                    <button type="submit">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div *ngFor="let dropdown of tempDropdownList | filter: filterDropdown; let i = index" class="record-row transc-row">
+                            <table width="100%" class="table inner-data-table inner-dropdown-table">
+                                <thead class="edit_no" style="cursor: pointer;">
+                                    <tr style="background-color: #bce8f1;height: 30px" *ngIf="i === 0">
+                                        <th>Display Text</th>
+                                        <th>Value</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <span *ngIf="!dropdown.editable && !dropdown.newField" class="text">{{dropdown.displayText}}</span>
+                                            <input *ngIf="dropdown.editable && !dropdown.newField" type="text" [(ngModel)]="dropdownObject.displayText" class="form-control">
+                                            <input *ngIf="dropdown.newField" type="text" [(ngModel)]="dropdownObject.displayText" class="form-control">
+                                        </th>
+                                        <th>
+                                            <span *ngIf="!dropdown.editable && !dropdown.newField" class="text">{{dropdown.value}}</span>
+                                            <input *ngIf="dropdown.editable && !dropdown.newField" type="text" [(ngModel)]="dropdownObject.value" class="form-control">
+                                            <input *ngIf="dropdown.newField" type="text" [(ngModel)]="dropdownObject.value" class="form-control">
+                                        </th>
+                                        <th>
+                                            <!-- add, edit and delete -->
+                                            <button *ngIf="!dropdown.newField && !dropdown.editable" class="pull-right btn split-dropdown-btn" (click)="addDropdown(i, dropdown, 'addnew')"
+                                                [disabled]="dropdown.disabled" title="Add New">
+                                                <img src="/assets/img/transaction/add.svg" width="15px">
+                                            </button>
+                                            <button *ngIf="!dropdown.newField && !dropdown.editable" class="pull-right btn split-dropdown-btn" (click)="addDropdown(i, dropdown, 'copyandcreatenew')"
+                                                [disabled]="dropdown.disabled" title="Copy And Create New">
+                                                <img src="/assets/img/transaction/clone.svg" width="17px">
+                                            </button>
+                                            <button *ngIf="!dropdown.newField && !dropdown.editable" class="pull-right btn delete-dropdown-btn"
+                                                (click)="openDropdownDeleteModal(dropdown, i)"
+                                                [disabled]="dropdown.disabled" title="Delete">
+                                                <img src="/assets/img/transaction/delete2.svg" width="18px">
+                                            </button>
+                                            <button *ngIf="!dropdown.newField && !dropdown.editable" class="pull-right btn edit-dropdown-btn" (click)="editDropdown(dropdown)"
+                                                [disabled]="dropdown.disabled" title="Edit">
+                                                <img src="/assets/img/transaction/edit_multiple2.svg" width="25px">
+                                            </button>
+
+                                            <!-- update -->
+                                            <button *ngIf="dropdown.editable && !dropdown.newField" class="pull-right btn edit-dropdown-btn" (click)="cancelDropdown(dropdown)"
+                                                title="Cancel">
+                                                <img src="/assets/img/transaction/cancel.svg" width="15px">
+                                            </button>
+                                            <button *ngIf="dropdown.editable && !dropdown.newField" class="pull-right btn edit-dropdown-btn" (click)="updateDropdown(i, dropdown)"
+                                                title="Save">
+                                                <img src="/assets/img/transaction/save.svg" width="20px">
+                                            </button>
+
+                                            <!-- add new -->
+                                            <button *ngIf="dropdown.newField" class="pull-right btn edit-dropdown-btn" (click)="cancelNewDropdown(i, dropdown)"
+                                                title="Cancel">
+                                                <img src="/assets/img/transaction/cancel.svg" width="15px">
+                                            </button>
+                                            <button *ngIf="dropdown.newField" class="pull-right btn edit-dropdown-btn" (click)="submitDropdown(i, dropdown)" title="Submit">
+                                                <img src="/assets/img/transaction/save.svg" width="20px">
+                                            </button>
+                                            <div class="clearfix"></div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer dropdown-modal-footer">
+        <span class="pm-red" id="dropdownErrMessage" style="float: left; width: 72%;text-align: left"></span>
+        <input type="button" (click)="cancelDropdownModal()" class="b47PM-dCancel-btn" value="CANCEL">
+    </div>
+</ng-template>
+
+<ng-template #dropdownDeleteModal>
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row clearfix">
+            <div class="col-md-12" align="center">
+                <p>Are you sure want to delete permanently.</p>
+            </div>
+            <div class="col-md-12" align="center">
+                <input type="button" (click)="deleteDropdown()" class="b47PM-deltran-btn" value="DELETE">
+                <!-- <img ng-if="vm.delTxnDataLoading" src="img/loader/spin.gif" /> -->
+                <input type="button" (click)="closeDropdownDeleteModal()" class="b47PM-dCancel-btn" value="CANCEL">
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #dropdownRemoveModal>
+    <div class="modal-header">
+        <button type="button" (click)="closeDropdownRemoveModal()" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row clearfix">
+            <div class="col-md-12" align="center">
+                <p>Cancelling this will delete this row, no value would be save.</p>
+            </div>
+            <div class="col-md-12" align="center">
+                <input type="button" (click)="removeDropdown()" class="b47PM-deltran-btn" value="REMOVE">
+                <!-- <img ng-if="vm.delTxnDataLoading" src="img/loader/spin.gif" /> -->
+                <input type="button" (click)="closeDropdownRemoveModal()" class="b47PM-dCancel-btn" value="CANCEL">
+            </div>
+        </div>
+    </div>
+</ng-template>

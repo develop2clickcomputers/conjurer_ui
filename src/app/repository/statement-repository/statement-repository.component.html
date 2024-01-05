@@ -1,0 +1,304 @@
+<div class="b47PM-wrapper logged-in">
+  <!-- "logged-in" add this class when user login successfully -->
+
+  <!-- Header Part Html Starts -->
+  <app-authorised-header></app-authorised-header>
+  <!-- Header Part Html Ends -->
+
+  <!-- Loader section -->
+  <div class="b47PM-center-body" *ngIf="!statementRepoPageLoad && !statementRepoError">
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <img src="/assets/img/loader/page_loading.gif">
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="statementRepoError">
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1 grey-quad" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h4>Oops! Something went wrong!!!</h4>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="(statmentRepositoryData.length == 0 && !statementRepoError) && statementRepoPageLoad">
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1 grey-quad" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h4>You haven't added statement</h4>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="(statmentRepositoryData.length > 0 && !statementRepoError) && statementRepoPageLoad">
+    <div class="container-fluid b47PM-container">
+      <div class="col-sm-12">
+        <div class="row clearfix">
+          <h3>Statement Repository</h3>
+          <div class="misc-table-showcase">
+            <div class="b47PM-financesTab-quad1">
+              <div class="b47PM-filter-quad1">
+                <div class="row">
+                  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-2 form-group rowPusher">
+                    <div class="row">
+                      <label>Choose Institution</label>
+                      <select class="form-control" [(ngModel)]="searchInst.institutionName" (change)="setFilter()">
+                              <option value="" selected>All</option>
+                              <option *ngFor="let institution of statementData.institutionName" value="{{institution}}">{{institution}}</option>
+                            </select>
+                    </div>
+                  </div>
+                  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-2 form-group rowPusher">
+                    <div class="row">
+                      <label>Account Number</label>
+                      <select class="form-control" [(ngModel)]="search.accountNumber" (change)="setFilter()">
+                              <option value="">All</option>
+                              <option *ngFor="let accountNumber of statementData.accountNumber" value="{{accountNumber}}">{{accountNumber}}</option>
+                            </select>
+                    </div>
+                  </div>
+                  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-5 col-md-2 form-group rowPusher">
+                    <div class="row">
+                      <label>Choose Country</label>
+                      <select class="form-control" [(ngModel)]="search.country" (change)="setFilter()">
+                              <option value="">All</option>
+                              <option *ngFor="let country of statementData.country" value="{{country}}">{{country}}</option>
+                            </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-12" *ngIf="hasFilter">
+                    <div class="filter-box" *ngIf="searchInst.institutionName != ''">
+                      <span>{{searchInst.institutionName}}</span>
+                      <i class="fa fa-times" aria-hidden="true" (click)="searchInst.institutionName = '';setFilter();" role="button"></i>
+                    </div>
+                    <div class="filter-box" *ngIf="search.accountType != ''">
+                      <span>{{search.accountType}}</span>
+                      <i class="fa fa-times" aria-hidden="true" (click)="search.accountType = '';setFilter();" role="button"></i>
+                    </div>
+                    <div class="filter-box" *ngIf="search.accountNumber != ''">
+                      <span>{{search.accountNumber}}</span>
+                      <i class="fa fa-times" aria-hidden="true" (click)="search.accountNumber = '';setFilter();" role="button"></i>
+                    </div>
+                    <div class="filter-box" *ngIf="search.country != ''">
+                      <span>{{search.country}}</span>
+                      <i class="fa fa-times" aria-hidden="true" (click)="search.country = '';setFilter();" role="button"></i>
+                    </div>
+                    <div class="filter-box" *ngIf="search.filterMonth != ''">
+                      <span>{{search.filterMonth}}</span>
+                      <i class="fa fa-times" aria-hidden="true" (click)="search.filterMonth = '';setFilter();" role="button"></i>
+                    </div>
+                    <div class="clear-filter-box">
+                      <a role="button" (click)="clearAllFilter()">
+                              Clear All
+                            </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <div class="statement-detail-quad5">
+                <div class="col-xs-12 col-sm-4 pull-right" style="margin: 8px -13px 8px 0px;">
+                  <select class="form-control pull-right" id="selectRange" style="width:auto; height: 30px; padding: 0 12px; margin: 3px 0 0 9px;"
+                    [(ngModel)]="pagesize">
+                    <option value="10" selected>10</option> 
+                    <option value="25">25</option>                
+                    <option value="50">50</option>                
+                    <option value="75">75</option>          
+                  </select>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div *ngFor="let instWise of stmtRepoFileDataByInstitution | tablefilter: searchInst;let i = index" class="panel-group" id="accordion_inst" style="margin-top: 20px;">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion_inst" href="#collapseOneInst_{{i}}" class="panel-name"><span class="fa fa-university panel-icon">
+                              </span>&nbsp;{{instWise.institutionName}}</a>
+                          </h4>
+                        </div>
+                        <div id="collapseOneInst_{{i}}" class="panel-collapse collapse">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="statement-detail-quad5">
+                                  <table class="statement-detail-tbl">
+                                    <thead>
+                                      <tr>
+                                        <th>ACCOUNT NO.</th>
+                                        <th>INSTITUTION</th>
+                                        <th>COUNTRY</th>
+                                        <th>STATEMENT DATE</th>
+                                        <th>FILE</th>
+                                        <th>FILE UPLOADED AT</th>
+                                        <th></th>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="9" style="height: 10px; background: #fff;"></td>
+                                      </tr>
+                                    </thead>
+                                    <tbody [hidden]="instWise.statementDetails.length == 0">
+                                      <tr *ngFor="let statement of instWise.statementDetails | tablefilter: search | paginate: { itemsPerPage: pagesize, currentPage: p }; let i = index">
+                                        <td class="truncatequd" style="width: 11%;">{{statement.accountNumber}}</td>
+                                        <td class="">{{statement.institutionName}}</td>
+                                        <td class="truncatequd">{{statement.country}}</td>
+                                        <td class="truncatequd" style="width: 12%;">{{statement.statementDate | dateFormat: 'DD-MM-YYYY'}}</td>
+                                        <td class="break-word"><a (click)="downloadPdfStatement(statement)" title="{{statement.fileName}}" class="cursor">{{statement.fileName}}</a></td>
+                                        <td class="truncatequd" style="width: 13%;">
+                                          <span class="pull-right">{{statement.fileUploaded | dateFormat: 'DD-MM-YYYY'}}</span>
+                                        </td>
+                                        <td class="truncatequd">
+                                          <button class="pull-right btn delete-btn" data-toggle="modal" data-target="#deleteStatementModal" (click)="prepareStatementDelete(statement)">
+                                                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </button>
+                                        </td>
+                                      </tr>
+                                      <tr [hidden]="(statmentRepositoryData | tablefilter: search).length != 0" style="border: none;">
+                                        <td style="text-align: center;" colspan="9">There are no statements matching this criteria</td>
+                                      </tr>
+                                    </tbody>
+                                    <tbody [hidden]="statmentRepositoryData.length != 0">
+                                      <tr>
+                                        <td style="text-align: center;" colspan="9">You have not uploaded any statements.</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!---->
+              <div class="row">
+                <div class="col-md-12 text-right">
+                  <pagination-controls (pageChange)="p = $event" class="pm-pagination"></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Part Html Starts -->
+  <app-authorised-footer></app-authorised-footer>
+  <!-- Footer Part Html Ends -->
+</div>
+
+<ng-template #deleteStatementModal>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelDeleteStatementModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-md-12" align="center">
+        <p>Are you sure want to delete statement permanently.</p>
+      </div>
+      <div class="col-md-12 pm-red" align="center">
+        <span id="delStatementRepoError"></span>
+      </div>
+      <div class="col-md-12" align="center">
+        <img *ngIf="delStatementDataLoading" src="/assets/img/loader/spin.gif" />
+        <input type="button" class="b47PM-deltran-btn" [disabled]="delStatementDataLoading" value="DELETE" (click)="deleteStatement()">
+        <input type="button" (click)="cancelDeleteStatementModal()" class="b47PM-dCancel-btn" data-dismiss="modal" value="CANCEL">
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- view xml file list -->
+<div class="modal fade deleteTransconfModal" id="viewXMLFileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-disabled="vm.deleteManualAccountDataLoading" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+      </div>
+      <div class="modal-body">
+        <div class="row clearfix">
+          <form ng-submit="deleteManualAccount()">
+            <div class="col-md-12" align="center">
+              <div class="row b47PM-budget-tbl-quad1">
+                <div class="table b47PM-misc-table1 b47PM-budget-tbl1">
+                  <header class="clearfix">
+                    <div align="left" style="width: 30%">Account Number</div>
+                    <div>Institution Name</div>
+                    <!-- <div>Review</div> -->
+                  </header>
+                  <div>
+                    <div class="record-row transc-row" [hidden]="!selectedManualInstitution">
+                      <div class="col-md-12 text-center">
+                        <img src="/assets/img/overview/balls_loader.gif">
+                      </div>
+                    </div>
+                    <div class="record-row transc-row" *ngFor="let xml of xmlFileList; let i = index;">
+                      <table class="table inner-data-table">
+                        <thead>
+                          <tr>
+                            <!-- <th style="width: 1%;">
+                              <input type="checkbox" class="checkBoxAccount" ng-init="xml.selected = false" ng-model="xml.selected"
+                                ng-change="optionToggled(xml)" />
+                            </th> -->
+                            <th style="width: 30%;">
+                              {{xml.fileName}}
+                            </th>
+                            <th>
+                              {{xml.fileName}}
+                            </th>
+                            <div class="clearfix"></div>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-md-12" align="center">
+              <input type="checkbox" class="ignoreCheckbox" ng-init="statementDeleteFlag = true" ng-model="statementDeleteFlag">                    Delete from repository
+            </div> -->
+            <div class="col-md-12" align="center">
+              <span class="pm-red" id="deleteManualAccountErr"></span>
+            </div>
+            <!-- <div class="col-md-12" align="center">
+              <input type="submit" id="deleteSubmit" class="b47PM-deltran-btn" ng-disabled="vm.deleteManualAccountDataLoading" value="DELETE">
+              <img *ngIf="deleteManualAccountDataLoading" src="/assets/img/loader/spin.gif" />
+              <input type="button" class="b47PM-dCancel-btn" ng-disabled="vm.deleteManualAccountDataLoading" data-dismiss="modal" value="CANCEL">
+            </div> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

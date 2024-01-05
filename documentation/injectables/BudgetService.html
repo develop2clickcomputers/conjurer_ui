@@ -1,0 +1,1105 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>conjurer documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">conjurer documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>BudgetService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/budget/budget.service.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Budget service class</p>
+
+            </p>
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addBudget">addBudget</a>
+                            </li>
+                            <li>
+                                <a href="#budgetCategoryGraph">budgetCategoryGraph</a>
+                            </li>
+                            <li>
+                                <a href="#deleteBudget">deleteBudget</a>
+                            </li>
+                            <li>
+                                <a href="#editBudget">editBudget</a>
+                            </li>
+                            <li>
+                                <a href="#getBudgetAllocation">getBudgetAllocation</a>
+                            </li>
+                            <li>
+                                <a href="#getBudgets">getBudgets</a>
+                            </li>
+                            <li>
+                                <a href="#getDummyBudgetAllocation">getDummyBudgetAllocation</a>
+                            </li>
+                            <li>
+                                <a href="#getDummyBudgetData1">getDummyBudgetData1</a>
+                            </li>
+                            <li>
+                                <a href="#getSpentVsBudgetGraphData">getSpentVsBudgetGraphData</a>
+                            </li>
+                            <li>
+                                <a href="#getYearRange">getYearRange</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, config: <a href="../classes/AppConfig.html">AppConfig</a>, commonHttpAdapterService: <a href="../injectables/CommonHttpAdapterService.html">CommonHttpAdapterService</a>, rxjsHelper: <a href="../injectables/RxJSHelper.html">RxJSHelper</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/budget/budget.service.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Budget service class dependencies</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>config</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../classes/AppConfig.html" target="_self" >AppConfig</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>commonHttpAdapterService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/CommonHttpAdapterService.html" target="_self" >CommonHttpAdapterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>rxjsHelper</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/RxJSHelper.html" target="_self" >RxJSHelper</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addBudget"></a>
+                        <span class="name">
+                            <b>
+                            addBudget
+                            </b>
+                            <a href="#addBudget"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>addBudget(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/app/budget/budget.service.ts:130</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To add new budget</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="budgetCategoryGraph"></a>
+                        <span class="name">
+                            <b>
+                            budgetCategoryGraph
+                            </b>
+                            <a href="#budgetCategoryGraph"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>budgetCategoryGraph(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/budget/budget.service.ts:112</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get budget category graph data</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteBudget"></a>
+                        <span class="name">
+                            <b>
+                            deleteBudget
+                            </b>
+                            <a href="#deleteBudget"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>deleteBudget(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="152" class="link-to-prism">src/app/budget/budget.service.ts:152</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To delete budget</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="editBudget"></a>
+                        <span class="name">
+                            <b>
+                            editBudget
+                            </b>
+                            <a href="#editBudget"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>editBudget(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">src/app/budget/budget.service.ts:141</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To edit budget</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getBudgetAllocation"></a>
+                        <span class="name">
+                            <b>
+                            getBudgetAllocation
+                            </b>
+                            <a href="#getBudgetAllocation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getBudgetAllocation(budgetMonth?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, budgetYear?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/budget/budget.service.ts:74</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get budget allocation graph data</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>budgetMonth</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>budgetYear</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getBudgets"></a>
+                        <span class="name">
+                            <b>
+                            getBudgets
+                            </b>
+                            <a href="#getBudgets"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getBudgets(budgetMonth?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, budgetYear?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/budget/budget.service.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get all budgets</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>budgetMonth</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>budgetYear</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getDummyBudgetAllocation"></a>
+                        <span class="name">
+                            <b>
+                            getDummyBudgetAllocation
+                            </b>
+                            <a href="#getDummyBudgetAllocation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getDummyBudgetAllocation()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">src/app/budget/budget.service.ts:122</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get dummy budget allocation graph data</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getDummyBudgetData1"></a>
+                        <span class="name">
+                            <b>
+                            getDummyBudgetData1
+                            </b>
+                            <a href="#getDummyBudgetData1"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getDummyBudgetData1()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/budget/budget.service.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get dummy budget data </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getSpentVsBudgetGraphData"></a>
+                        <span class="name">
+                            <b>
+                            getSpentVsBudgetGraphData
+                            </b>
+                            <a href="#getSpentVsBudgetGraphData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getSpentVsBudgetGraphData(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/app/budget/budget.service.ts:101</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get budget vs spent graph data</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getYearRange"></a>
+                        <span class="name">
+                            <b>
+                            getYearRange
+                            </b>
+                            <a href="#getYearRange"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getYearRange()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">src/app/budget/budget.service.ts:162</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get budget year range</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>{}</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Inject } from &#x27;@angular/core&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { catchError, map, takeUntil } from &#x27;rxjs/operators&#x27;;
+
+import { K2_APP_CONFIG, AppConfig } from &#x27;../app-config&#x27;;
+import { K2_APP_HTTP_ADAPTER, CommonHttpAdapterService } from &#x27;../adapters/common-http-adapter.service&#x27;;
+
+import { CommonConstant } from &#x27;../constants/common/common.constant&#x27;;
+import { TransactionConstant } from &#x27;../constants/transaction/transaction.constant&#x27;;
+import { BudgetConstant } from &#x27;../constants/budget/budget.constant&#x27;;
+
+import { budgetData, budgetAllocationGraphData } from &#x27;./budget&#x27;;
+import { RxJSHelper } from &#x27;../helpers/rxjs-helper/rxjs.helper&#x27;;
+
+/**
+ * Budget service class
+ */
+@Injectable()
+export class BudgetService {
+
+  /**
+   * Budget service class dependencies
+   * @param HttpClient http
+   * @param AppConfig config
+   * @param CommonHttpAdapterService commonHttpAdapterService
+   * @param RxJSHelper rxjsHelper
+   */
+  constructor(
+    private http: HttpClient,
+    @Inject(K2_APP_CONFIG) private config: AppConfig,
+    @Inject(K2_APP_HTTP_ADAPTER) private commonHttpAdapterService: CommonHttpAdapterService,
+    private rxjsHelper: RxJSHelper
+  ) { }
+
+  /** To get dummy budget data */
+  getDummyBudgetData1() {
+    return budgetData;
+  }
+
+  /**
+   * To get all budgets
+   * @param any budgetMonth
+   * @param any budgetYear
+   */
+  getBudgets(budgetMonth?: any, budgetYear?: any): Observable&lt;any&gt; {
+    const date &#x3D; new Date();
+    let month: any &#x3D; date.getMonth();
+    month &#x3D; (&#x27;0&#x27; + (date.getMonth() + 1)).slice(-2);
+    const year &#x3D; date.getFullYear();
+
+    let userData &#x3D; {};
+    userData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    if (budgetMonth &amp;&amp; budgetYear) {
+      userData[BudgetConstant.BUDGET_MONTH] &#x3D; budgetMonth;
+      userData[BudgetConstant.BUDGET_YEAR] &#x3D; budgetYear;
+    } else {
+      userData[BudgetConstant.BUDGET_MONTH] &#x3D; month;
+      userData[BudgetConstant.BUDGET_YEAR] &#x3D; year;
+    }
+    userData &#x3D; JSON.stringify(userData);
+
+    return this.http.post(this.config.apiEndpoint + &#x27;getBudget&#x27;, userData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get budget allocation graph data
+   * @param any budgetMonth
+   * @param any budgetYear
+   */
+  getBudgetAllocation(budgetMonth?: any, budgetYear?: any): Observable&lt;any&gt; {
+    const date &#x3D; new Date();
+    let month: any &#x3D; date.getMonth();
+    month &#x3D; (&#x27;0&#x27; + (date.getMonth() + 1)).slice(-2);
+    const year &#x3D; date.getFullYear();
+
+    let userData &#x3D; {};
+    userData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    if (budgetMonth &amp;&amp; budgetYear) {
+      userData[BudgetConstant.BUDGET_MONTH] &#x3D; budgetMonth;
+      userData[BudgetConstant.BUDGET_YEAR] &#x3D; budgetYear;
+    } else {
+      userData[BudgetConstant.BUDGET_MONTH] &#x3D; month;
+      userData[BudgetConstant.BUDGET_YEAR] &#x3D; year;
+    }
+    userData &#x3D; JSON.stringify(userData);
+
+    return this.http.post(this.config.apiEndpoint + &#x27;budgetAllocationGraph&#x27;, userData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get budget vs spent graph data
+   * @param any data
+   */
+  getSpentVsBudgetGraphData(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;spentvsbudgetGraph&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get budget category graph data
+   * @param any data
+   */
+  budgetCategoryGraph(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;categoryWiseSpendingChart&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get dummy budget allocation graph data
+   */
+  getDummyBudgetAllocation() {
+    return budgetAllocationGraphData;
+  }
+
+  /**
+   * To add new budget
+   * @param any data
+   */
+  addBudget(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;addBudget&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To edit budget
+   * @param any data
+   */
+  editBudget(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;editBudget&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To delete budget
+   * @param any data
+   */
+  deleteBudget(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;deleteBudget&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get budget year range
+   */
+  getYearRange() {
+    const date &#x3D; new Date();
+    let month: any &#x3D; date.getMonth();
+    month &#x3D; (&#x27;0&#x27; + (date.getMonth() + 1)).slice(-2);
+    let currYear &#x3D; date.getFullYear();
+    const yearList: any[] &#x3D; [];
+    for (let i &#x3D; 0; i &lt; 5; i++) {
+      yearList.push(currYear);
+      currYear &#x3D; currYear + 1;
+    }
+    return yearList;
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'BudgetService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

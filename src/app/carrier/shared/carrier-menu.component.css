@@ -1,0 +1,113 @@
+.nav-pills1 li {
+    float: right;
+}
+/** Breadcum for nav-tabs*/
+.breadcrumb-arrow {
+height: 36px;
+padding: 0;
+line-height: 36px;
+list-style: none;
+background-color: #ffffff;
+}
+.breadcrumb-arrow li:first-child a {
+border-radius: 0px 0px 0px 0px;
+-webkit-border-radius: 0px 0px 0px 0px;
+-moz-border-radius: 0px 0px 0px 0px;
+}
+.breadcrumb-arrow li, .breadcrumb-arrow li a, .breadcrumb-arrow li span {
+/* display: inline-block; */
+vertical-align: top
+}
+.breadcrumb-arrow li:not(:first-child) {
+margin-left: -5px
+}
+.breadcrumb-arrow li+li:before {
+padding: 0;
+content: ""
+}
+.breadcrumb-arrow li span {
+padding: 0 10px
+}
+.breadcrumb-arrow li a, .breadcrumb-arrow li:not(:first-child) span {
+height: 36px;
+padding: 0 10px 0 25px;
+line-height: 36px
+}
+.breadcrumb-arrow li:first-child a {
+padding: 0 10px
+}
+.breadcrumb-arrow li a {
+position: relative;
+color: #fff;
+text-decoration: none;
+background-color: #003863;
+border: 1px solid #003863;
+}
+.breadcrumb-arrow > li > a {
+margin-right: 3px;
+}
+.breadcrumb-arrow li:first-child a {
+padding-left: 10px
+}
+.breadcrumb-arrow li a:after, .breadcrumb-arrow li a:before {
+position: absolute;
+top: -1px;
+width: 0;
+height: 0;
+content: '';
+border-top: 18px solid transparent;
+border-bottom: 18px solid transparent
+}
+.breadcrumb-arrow li a:before {
+right: -10px;
+z-index: 3;
+border-left-color: #003863;
+border-left-style: solid;
+border-left-width: 11px
+}
+.breadcrumb-arrow li a:after {
+right: -11px;
+z-index: 2;
+border-left: 11px solid #2494be
+}
+.breadcrumb-arrow li a:focus, .breadcrumb-arrow li a:hover {
+background-color: #003863;
+border: 1px solid #003863;
+}
+.breadcrumb-arrow li a:focus:before, .breadcrumb-arrow li a:hover:before {
+border-left-color: #003863;
+}
+.breadcrumb-arrow > li.active > a:active {
+background-color: #003863;
+border: 1px solid #003863
+}
+/**
+    color: #4285F4
+*/
+.breadcrumb-arrow > li.active > a,
+.breadcrumb-arrow > li.active > a:focus, .breadcrumb-arrow > li.active > a:hover { background-color: #962721; }
+.breadcrumb-arrow > li.active > a:before {
+border-left-color: #962721;
+}
+.breadcrumb-arrow > li.active > a:after {
+border-left: 11px solid #962721
+}
+.breadcrumb-arrow li span {
+color: #434a54
+}
+a.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+.breadcrumb-arrow li a.disabled:before {
+    right: -10px;
+    z-index: 3;
+    border-left-color: #99afc0;
+    border-left-style: solid;
+    border-left-width: 11px;
+    /* opacity: 1; */
+}
+.breadcrumb-arrow li a.disabled {
+    background-color: #99afc0;
+    border: 1px solid #99afc0;
+}

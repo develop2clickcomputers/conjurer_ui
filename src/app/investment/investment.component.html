@@ -1,0 +1,1231 @@
+<div class="b47PM-wrapper logged-in">
+  <!-- "logged-in" add this class when user login successfully -->
+
+  <!-- Header Part Html Starts -->
+  <app-authorised-header></app-authorised-header>
+  <!-- Header Part Html Ends -->
+
+  <!-- Main Display Html Starts -->
+
+  <!-- Loader section -->
+  <div class="b47PM-center-body" *ngIf="!investmentPageLoad && !investmentError"> <!-- *ngIf="!investmentPageLoad && !investmentError" -->
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <img src="/assets/img/loader/page_loading.gif">
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="investmentError">
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1 grey-quad" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h4>Oops! Something went wrong!!!</h4>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="(investments.length == 0 && !investmentError) && investmentPageLoad">
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1 grey-quad" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <img src="/assets/img/investments/investment-plan-icon.png" alt="">
+              <p>
+                Consolidate your investment portfolio and see a summary sorted by institution, asset categories and security names. Conjurer
+                shows your profits/losses up to date both at a consolidated level and at individual asset level. You'll now
+                be empowered to make smarter investment decisions.
+              </p>
+              <h4>You haven't added any investment account, <span class="blue"><a href ng-click="redirectToOverviewToAddAccount('addAccount')">You should get started now.</a></span></h4>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="(investments.length > 0 && !investmentError) && investmentPageLoad"> <!-- *ngIf="(investments.length > 0 && !investmentError) && investmentPageLoad" -->
+    <div class="container-fluid b47PM-container investment-landing-page">
+
+      <div class="misc-table-showcase">
+        <div class="b47PM-financesTab-quad1">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs investment-tabs" role="tablist">
+            <li role="presentation" class="pull-right">
+              <a href data-target="#Analytics-content" aria-controls="Analytics" role="tab" data-toggle="tab">Analytics</a> <!--  (click)="drawWorldMapChart();" -->
+            </li>
+            <li role="presentation" class="pull-right">
+              <a href data-target="#Transactions-content" aria-controls="profile" role="tab" data-toggle="tab" ng-click="vm.drawCreditCardChart()">Transactions</a>
+            </li>
+            <li role="presentation" class="active pull-right">
+              <a href data-target="#Assets-content" aria-controls="home" role="tab" data-toggle="tab" ng-click="vm.drawBankChart()">Holdings</a>
+            </li>
+          </ul>
+
+          <div class="tab-content" style="margin-top: 6px;">
+            <div role="tabpanel" class="tab-pane active" id="Assets-content">
+              <div class="b47PM-investment-quad2 grey-quad">
+                  <div class="row clearfix">
+                    <div class="col-xs-12 col-sm-7 col-md-8 investment-graph-quad1">
+                      <header style="z-index: 1;">
+
+                        <span>Sort by</span>
+                        <select class="form-control" [(ngModel)]="investmentViewValue" (change)="changeInvestmentHeaderGraph()" style="margin-right: 6px;">
+                          <option value="assetCategory" selected>Asset Distribution</option>
+                          <!-- <option value="assetSecurityId">Security</option> -->
+                          <option value="institutionName">Institution Name</option>                    
+                        </select>
+                        <img *ngIf="investmentHeaderDataLoading" src="/assets/img/loader/wheel.gif" style="float: left;margin-top: 8px;width: 20px;"/>
+
+                        <!-- <span *ngIf="investmentViewValue === 'assetCategory'">Type</span> -->
+                        <select *ngIf="investmentViewValue === 'assetCategory'" class="form-control" [(ngModel)]="investmentViewType" (change)="changeInvestmentTypeGraph()" style="margin-right: 6px;">
+                          <option value="asset" selected>Asset Pi Chart</option>
+                          <!-- <option value="assetSecurityId">Security</option> -->
+                          <!-- <option value="liability">Liability Pi Chart</option> -->
+                          <option value="barChart">Category Bar Chart</option>
+                        </select>
+                      </header>
+                      <div *ngIf="investmentHeaderChartLoading" style="display: table; height: 230px; overflow: hidden;text-align: center;">
+                        <div style="display: table-cell; vertical-align: middle;">
+                          <!--fetching information<br />-->
+                          <img src="/assets/img/loader/preloader.gif" style="width: 50%;margin-top: 8px;">
+                        </div>
+                      </div>
+                      <div class="investment-chart-container pull-left">
+                        <div *ngIf="!investmentHeaderChartLoading"  style="height: 230px;" id="invest-chart-container"> <!-- *ngIf="investmentHeaderGraphData" -->
+                          <canvas id="investment_header_view"></canvas>
+                        </div>
+                      </div>
+                      <div class="investment-legend-container">
+                        <div id="investment-legend" class="goal-chart-legend"></div>
+                      </div>
+                      <!--<h3 ng-if="investmentTotalAmount">Total Current Value: <span>{{investmentTotalAmount | number:0 | currencySymbol:investmentCurrency}}</span></h3>-->
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-4">
+                      <div class="summary-quad">
+                        <h5>Investment Performance</h5>
+                        <div class="summary-body invest-perfm-div-scroll">
+                          <div class="summary-row" *ngFor="let invstPerformance of investmentPerformance">
+                            <div class="truncatequd cursor" title="{{invstPerformance.name}}">{{invstPerformance.name}}</div>
+                            <div class="" align="right">
+                              <span *ngIf="invstPerformance.value < 0" class="pm-red">{{invstPerformance.value | number:'1.1-3'}}%</span>
+                              <span *ngIf="invstPerformance.value >= 0">{{invstPerformance.value | number:'1.1-3'}}%</span>
+                            </div>
+                            <div class="clearfix"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              <div class="row clearfix">
+                <div class="col-md-12" style="margin-top: 15px;">
+                  <div class="col-xs-12 col-sm-7 col-md-8 investment-graph-quad1" align="center">
+                    <header style="z-index: 1;" class="pull-right">
+                      <span>View by</span>
+                      <select class="form-control" [(ngModel)]="investmentView" (change)="changeInvestmentView(investmentView)" style="width: 164px;">
+                            <option value="view1">Account and Asset</option>
+                            <option value="view2">Account</option>
+                          </select>
+                    </header>
+                  </div>
+                </div>
+              </div>
+              <!-- view 1 by account level  -->
+              <div class="table b47PM-misc-table1 investmentTbl1" [hidden]="!view1">
+                <header class="clearfix">
+                  <div>&nbsp;</div>
+                  <div style="width: 24%">INSTITUTION</div>
+                  <div style="width: 26%;">ACCOUNT NAME</div>
+                  <div style="width: 19%;">ACCOUNT NO.</div>
+                  <div>CURRENCY</div>
+                  <!-- <div style="text-align: right;width: 21%;">TOTAL CURRENT VALUE</div> -->
+                  <!--<div>TOTAL <br>PROFIT/LOSS</div>
+                      <div>TOTAL <br>PROFIT/LOSS(%)</div>-->
+                </header>
+                <div class="tbl-body">
+                  <div class="record-row" *ngFor="let investment of investmentByAccount; let i = index;">
+                    <!-- First level-->
+                    <table width="100%" class="table inner-data-table expand">
+                      <thead>
+                        <tr>
+                          <th>
+                            <a class="toggle-expand-btn cursor" (click)="investment.account = !investment.account" [class.open]="investment.account">
+                                  <i class="fa fa-plus-circle" id="expand_collapse1_{{i}}" aria-hidden="true"></i>
+                                  <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                </a>
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.institutionName | ValidateValue}}
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.accountName | ValidateValue}}
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.accountNumber | ValidateValue}}
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.currency}}
+                          </th>
+                          <!-- <th class="truncatequd">
+                             <span>{{investment.totalCurrentValue | NumberFormatWithCurrencySymbol:investment.holdingAcctValuationCurrency}}</span> 
+                          </th> -->
+                        </tr>
+                      </thead>
+                      <tbody *ngIf="investment.account" id="investmentHoldingAssetTable1_{{i}}"> <!-- display: none; -->
+                        <tr>
+                          <td colspan="8">
+                            <div class="table b47PM-misc-table1 investmentTbl2 expand">
+                              <div class="tbl-body">
+                                <div class="record-row">
+                                  <!-- 2nd level -->
+                                  <table width="100%" class="table inner-data-table investmentTbl3">
+                                    <tbody id="investmentHoldingAssetByCategoryTable">
+                                      <tr>
+                                        <td colspan="6" style="padding:0">
+                                          <table class="investmentTxnPrvTbl custom-invst-table" style="margin-bottom: 20px;width: 98%;float: right;">
+                                            <thead>
+                                              <tr>
+                                                <th style="text-align: center;">&nbsp;</th>
+                                                <th>Description</th>
+                                                <th>ISIN</th>
+                                                <th>Start Date</th>
+                                                <th align="right">
+                                                  Asset Quantity
+                                                </th>
+                                                <th align="right">Coupon</th>
+                                                <th align="right">Cost</th>
+                                                <th align="right">Market Value</th>
+                                                <th align="right">Value in {{investment.currency}}</th>
+                                              </tr>
+                                              <tr>
+                                                <th>&nbsp;</th>
+                                                <th>Security Group</th>
+                                                <th>Currency</th>
+                                                <th>Maturity Date</th>
+                                                <th align="right">
+                                                  Strike Price
+                                                </th>
+                                                <th align="right">Accrued Int.</th>
+                                                <th align="right">Av. Cost Price</th>
+                                                <th align="right">Market Price</th>
+                                                <th style="text-align: right">Unrealized P/L</th>
+                                              </tr>
+                                            </thead>
+                                              <ng-container *ngFor="let asset of investment.holdingAssets; let j = index; odd as isAssetOdd; even as isAssetEven" >
+                                                <tbody [class.even-tbody]="isAssetEven" [class.odd-tbody]="isAssetOdd"> <!-- [class.even-tbody]="isAssetEven" [class.odd-tbody]="isAssetOdd" -->
+                                                  <tr style="cursor: pointer;" (click)="editAssetByAccount(j, asset)" class="edit_investment_asset_row1 cursor edit_row"> <!-- (click)="editAssetByAccount(j, asset)" -->
+                                                    <td class="restrictClickChange">
+                                                      &nbsp;
+                                                    </td>
+                                                    <td> <!-- description and security group -->
+                                                      <span *ngIf="!asset.editAccountAsset">{{asset.holdingAssetDescription | filterInputValue | ValidateValue}}</span>
+                                                      <input appModelRestrictSplChar *ngIf="asset.editAccountAsset" type="text" name="description" [(ngModel)]="asset.holdingAssetDescription" class="form-control" disabled>
+                                                      
+                                                      <span *ngIf="!asset.editAccountAsset">
+                                                        <span>{{asset.holdingAssetCategory | filterInputValue | ValidateValue}}</span>
+                                                      </span>
+                                                      <input appModelRestrictSplChar *ngIf="asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetCategory" class="form-control">
+                                                    </td>
+                                                    <td><!-- ISIN and currency -->
+                                                      <span *ngIf="!asset.editAccountAsset">{{asset.holdingAssetISIN | filterInputValue | ValidateValue | ValidateISIN}}</span>
+                                                      <input appModelRestrictSplChar *ngIf="asset.editAccountAsset" type="text" name="assetISIN" [(ngModel)]="asset.holdingAssetISIN" class="form-control">
+                                                      
+                                                      <span *ngIf="!asset.editAccountAsset">{{asset.holdingAssetCurrency}}</span>
+                                                      <!-- <select *ngIf="!asset.editAccountAsset" [(ngModel)]="asset.holdingAssetCurrency" class="form-control" style="padding-top: 0px;">
+                                                        <option *ngFor="let currency of currencyListData" value="{{currency.code}}" [selected]="asset.holdingAssetCurrency">{{currency.name}} ({{currency.code}})</option> 
+                                                      </select> --> 
+                                                      <input appModelRestrictSplChar *ngIf="asset.editAccountAsset" type="text" name="assetCurrency" [(ngModel)]="asset.holdingAssetCurrency" class="form-control" disabled>
+                                                    </td>
+                                                    <td align="right"><!-- start Date and maturity date -->
+                                                      <span *ngIf="!asset.editAccountAsset">
+                                                        <span>{{asset.holdingAssetStartDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                                      </span>
+                                                      <input *ngIf="asset.editAccountAsset" type="date" [ngModel]="asset.holdingAssetStartDate | date:'yyyy-MM-dd'" (ngModelChange)="asset.holdingAssetStartDate = $event" class="form-control">
+                                                      
+                                                      <span *ngIf="!asset.editAccountAsset">
+                                                        <!-- <span *ngIf="asset.holdingAssetMaturityDate == null"> - </span> -->
+                                                        <span>{{asset.holdingAssetMaturityDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                                      </span>
+                                                      <input *ngIf="asset.editAccountAsset" type="date" [ngModel]="asset.holdingAssetMaturityDate | date:'yyyy-MM-dd'" (ngModelChange)="asset.holdingAssetMaturityDate = $event" class="form-control">
+                                                    </td>
+                                                    <td><!-- quantity and strike price -->
+                                                      <span *ngIf="!asset.editAccountAsset">
+                                                        <span>{{asset.holdingAssetQuantity | filterInputValue | NumberFormatWithoutCurrencySymbol}}</span>
+                                                      </span>
+                                                      <input appModelRestrictSplChar *ngIf="asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetQuantity" appOnlyNumber="true" class="form-control pointNumber">
+                                                      
+                                                      <span *ngIf="!asset.editAccountAsset">
+                                                        <span>{{asset.holdingAssetStrikePrice | filterInputValue | NumberFormatWithoutCurrencySymbol}}</span>
+                                                      </span>
+                                                      <input appModelRestrictSplChar *ngIf="asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetStrikePrice" appOnlyNumber="true" class="form-control pointNumber"> 
+                                                    </td> 
+                                                    <td align="right"><!-- Coupon and accrued Int. -->
+                                                      <span *ngIf="!asset.editAccountAsset">
+                                                        <span *ngIf="asset.holdingAssetCoupon == 'tbd'"> - </span>
+                                                        <span *ngIf="asset.holdingAssetCoupon != 'tbd'">{{asset.holdingAssetCoupon | filterInputValue}}<span *ngIf="asset.holdingAssetCoupon != 'tbd' && asset.holdingAssetCoupon" style="display: inline-block;">%</span></span>
+                                                        <!-- <span>{{asset.holdingAssetCoupon | filterInputValue}}<span *ngIf="asset.holdingAssetCoupon">%</span></span> -->
+                                                      </span>
+                                                      <input appModelRestrictSplChar *ngIf="asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetCoupon" appOnlyNumber="true" class="form-control">
+                                                      
+                                                      <span *ngIf="!asset.editAccountAsset">
+                                                        <span>{{asset.holdingAssetAccruedInterest | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                      </span>
+                                                      <input appModelRestrictSplChar *ngIf="asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetAccruedInterest" appOnlyNumber="true" class="form-control pointNumber">
+                                                    </td>
+                                                    <td align="right"><!-- cost and Av. cost price -->
+                                                      <span *ngIf="!asset.editAccountAsset">
+                                                        <span>{{asset.holdingAssetCost | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                      </span>
+                                                      <input appModelRestrictSplChar *ngIf="asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetCost" appOnlyNumber="true" class="form-control pointNumberFourDecimals">
+                                                      
+                                                      <span *ngIf="!asset.editAccountAsset">
+                                                        <span>{{asset.holdingAssetAverageUnitCost | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                      </span>
+                                                      <input appModelRestrictSplChar *ngIf="asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetAverageUnitCost" appOnlyNumber="true" class="form-control pointNumberFourDecimals">
+                                                    </td>
+                                                    <!-- Market value and market price-->
+                                                    <td align="right">
+                                                      <span *ngIf="!asset.editAccountAsset">
+                                                        <span>{{asset.holdingAssetCurrentValue | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                      </span>
+                                                      <input appModelRestrictSplChar *ngIf="asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetCurrentValue" appOnlyNumber="true" class="form-control pointNumber">
+                                                      
+                                                      <span *ngIf="!asset.editAccountAsset">
+                                                        <span>{{asset.holdingAssetIndicativePrice | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                      </span>
+                                                      <input appModelRestrictSplChar *ngIf="asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetIndicativePrice" appOnlyNumber="true" class="form-control pointNumberFourDecimals">
+                                                    </td>
+                                                    <!-- value in usd(account type currency) and MTM/Unrealized P/L -->
+                                                    <td align="right">
+                                                      <span *ngIf="!asset.editAccountAsset">
+                                                        <span>{{asset.holdingAssetFxMarketValue | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                      </span>
+                                                      <input appModelRestrictSplChar *ngIf="asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetFxMarketValue" appOnlyNumber="true" class="form-control pointNumber">
+                                                      
+                                                      <span *ngIf="!asset.editAccountAsset">
+                                                          <span>{{asset.holdingAssetUnrealizedProfitLoss | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                      </span>
+                                                      <input appModelRestrictSplChar *ngIf="asset.editAccountAsset" type="text" [(ngModel)]="asset.holdingAssetUnrealizedProfitLoss" appOnlyNumber="true" class="form-control pointNumber">
+                                                    </td>
+                                                  </tr>
+                                                  <tr *ngIf="asset.editAccountAsset" style="text-align: center">
+                                                    <td colspan="9" class="filter-button">
+                                                      <span class="pm-red" id="assetError_{{i}}_{{j}}" style="display: block;"></span>
+                                                      <button type="button" class="btn btn-primary" (click)="showRemainingHoldingAssetFields(i, j, asset)">Show More</button>
+                                                      <button type="button" class="btn btn-primary" (click)="saveAssetsByAccount(i, j, asset)">Save</button>
+                                                      <button type="button" class="btn btn-warning" (click)="cancelAssetByAccount(i, j, asset)">Cancel</button>
+                                                      <img style="padding: 5px 4px 4px 7px;" *ngIf="asset.investmentDataLoading" src="/assets/img/loader/spin.gif" />
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </ng-container>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- view 2 account and asset level -->
+              <div class="table b47PM-misc-table1 investmentTbl1" [hidden]="!view2">
+                <header class="clearfix">
+                  <div>&nbsp;</div>
+                  <div style="width: 24%">INSTITUTION</div>
+                  <div style="width: 26%;">ACCOUNT NAME</div>
+                  <div style="width: 19%;">ACCOUNT NO.</div>
+                  <div>CURRENCY</div>
+                  <!-- <div style="text-align: right;width: 21%;">TOTAL CURRENT VALUE</div> -->
+                  <!--<div>TOTAL <br>PROFIT/LOSS</div>
+                      <div>TOTAL <br>PROFIT/LOSS(%)</div>-->
+                </header>
+                <div class="tbl-body">
+                  <div class="record-row" *ngFor="let investment of investments; let i = index">
+                    <!-- First level-->
+                    <table width="100%" class="table inner-data-table expand">
+                      <thead>
+                        <tr>
+                          <th>
+                            <a class="toggle-expand-btn cursor" (click)="investment.showAssetLevel = !investment.showAssetLevel" [class.open]="investment.showAssetLevel"> <!--  ng-click="toggleInvestmentHoldingAssetTable($index)" -->
+                                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                  <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                </a>
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.institutionName | ValidateValue}}
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.accountName | ValidateValue}}
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.accountNumber | ValidateValue}}
+                          </th>
+                          <th class="truncatequd">
+                            {{investment.currency}}
+                          </th>
+                          <!-- <th class="truncatequd">
+                            <span>{{investment.totalCurrentValue | NumberFormatWithCurrencySymbol:investment.holdingAcctValuationCurrency}}</span>
+                          </th> -->
+
+                          <!--<th class="truncatequd">
+                                <span ng-if="investment.totalProfitLoss >= 0">{{investment.totalProfitLoss | NumberFormatWithCurrencySymbol:investment.holdingAcctValuationCurrency}}</span>
+                                <span ng-if="investment.totalProfitLoss < 0" class="pm-red">{{investment.totalProfitLoss | NumberFormatWithCurrencySymbol:investment.holdingAcctValuationCurrency}}</span>
+                              </th>
+                              <th class="truncatequd">
+                                <span ng-if="investment.totalProfitLostPerc == 'No Data'"> - </span>
+                                <span ng-if="investment.totalProfitLostPerc >= 0">{{investment.totalProfitLostPerc | number:'3.1-5'}}%</span>
+                                <span ng-if="investment.totalProfitLostPerc < 0" class="pm-red">{{investment.totalProfitLostPerc | number:'3.1-5'}}%</span>
+                              </th>-->
+                        </tr>
+                      </thead>
+                      <tbody *ngIf="investment.showAssetLevel" id="investmentHoldingAssetTable_{{i}}"> <!--  style="display: none;" -->
+                        <tr>
+                          <td colspan="8">
+                            <div class="table b47PM-misc-table1 investmentTbl2 expand">
+                              <header class="clearfix">
+                                <div>
+                                  &nbsp;
+                                </div>
+                                <div style="width: 40%;">ASSET CATEGORY</div>
+                                <!-- <div style="width: 33%;">CURRENCY</div> -->
+                                <!--<div>TOTAL COST</div>-->
+                                <!-- <div style="width: 21%;">TOTAL CURRENT VALUE</div> -->
+                                <!--<div>TOTAL PROFIT/LOSS</div>-->
+                                <div class="clearfix"></div>
+                              </header>
+                              <div class="tbl-body">
+                                <div class="record-row" *ngFor="let investmentHoldingAssetData of investment.investmentHoldingAssetData; let j = index">
+                                  <!-- 2nd level -->
+                                  <table width="100%" class="table inner-data-table investmentTbl3">
+                                    <thead>
+                                      <tr>
+                                        <th style="width: 2%;">
+                                          <a class="toggle-expand-btn cursor" (click)="investmentHoldingAssetData.showAssetHolding = !investmentHoldingAssetData.showAssetHolding" [class.open]="investmentHoldingAssetData.showAssetHolding">
+                                                <i class="fa fa-plus-circle" id="expand_collapse" aria-hidden="true"></i>
+                                                <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                              </a>
+                                        </th>
+                                        <th class="truncatequd" style="width: 40%;">
+                                          {{investmentHoldingAssetData.holdingAssetCategory | ValidateValue}}
+                                        </th>
+                                        <!-- <th class="truncatequd" style="width: 33%;">
+                                          {{investmentHoldingAssetData.assetCurrency}}
+                                        </th> -->
+                                        <!--<th class="truncatequd">
+                                              <span>{{investmentHoldingAssetData.totalAssetCost | NumberFormatWithCurrencySymbol:investmentHoldingAssetData.assetCurrency}}</span>
+                                            </th>-->
+                                        <!-- <th class="truncatequd" style="width: 21%;">
+                                          <span>{{investmentHoldingAssetData.totalAssetCurrentValue | NumberFormatWithCurrencySymbol:investmentHoldingAssetData.assetCurrency}}</span>
+                                        </th> -->
+                                      </tr>
+                                    </thead>
+                                    <tbody id="investmentHoldingAssetByCategoryTable"> <!-- display: none; -->
+                                      <tr>
+                                        <td colspan="6" style="padding:0">
+                                          <table *ngIf="investmentHoldingAssetData.showAssetHolding" class="investmentTxnPrvTbl custom-invst-table" style="margin-bottom: 20px;width: 98%;float: right;">
+                                            <thead>
+                                              <tr>
+                                                <th style="text-align: center;">&nbsp;</th>
+                                                <th>Description</th>
+                                                <th>ISIN</th>
+                                                <th>Start Date</th>
+                                                <th align="right">
+                                                  Asset Quantity
+                                                </th>
+                                                <th align="right">Coupon</th>
+                                                <th align="right">Cost</th>
+                                                <th align="right">Market Value</th>
+                                                <th align="right">Value in {{investment.currency}}</th>
+                                              </tr>
+                                              <tr>
+                                                <th>&nbsp;</th>
+                                                <th>Security Group</th>
+                                                <th>Currency</th>
+                                                <th>Maturity Date</th>
+                                                <th align="right">
+                                                  Strike Price
+                                                </th>
+                                                <th align="right">Accrued Int.</th>
+                                                <th align="right">Av. Cost Price</th>
+                                                <th align="right">Market Price</th>
+                                                <th style="text-align: right">Unrealized P/L</th>
+                                              </tr>
+                                            </thead>
+                                            <ng-container *ngFor="let asset of investmentHoldingAssetData.investmentHoldingAssetByCategoryData; let k = index; even as isAssetEven; odd as isAssetOdd">
+                                              <tbody style="cursor: pointer;" [class.even-tbody]="isAssetEven" [class.odd-tbody]="isAssetOdd">
+                                                <!-- Third level --> <!-- [class.even-tbody]="isAssetEven" [class.odd-tbody]="isAssetOdd"  -->
+                                                <tr (click)="editAssetByAccountAsset(k, asset)" class="edit_investment_asset_row cursor edit_row" style="cursor: pointer;"> <!-- (click)="editAssetByAccountAsset(k, asset)" -->
+                                                  <td class="restrictClickChange">
+                                                    &nbsp;
+                                                  </td>
+                                                  <td> <!-- description and security group -->
+                                                    <span *ngIf="!asset.editAsset">{{asset.holdingAssetDescription | filterInputValue | ValidateValue}}</span>
+                                                    <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" name="description" [(ngModel)]="asset.holdingAssetDescription" class="form-control" disabled>
+                                                    
+                                                    <span *ngIf="!asset.editAsset">
+                                                      <span>{{asset.holdingAssetCategory | filterInputValue | ValidateValue}}</span>
+                                                    </span>
+                                                    <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetCategory" class="form-control">
+                                                  </td>
+                                                  <td><!-- ISIN and currency -->
+                                                    <span *ngIf="!asset.editAsset">{{asset.holdingAssetISIN | filterInputValue | ValidateValue | ValidateISIN}}</span>
+                                                    <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" name="assetISIN" [(ngModel)]="asset.holdingAssetISIN" class="form-control">
+                                                    
+                                                    <span *ngIf="!asset.editAsset">{{asset.holdingAssetCurrency}}</span>
+                                                    <!-- <select *ngIf="!asset.editAsset" [(ngModel)]="asset.holdingAssetCurrency" class="form-control" style="padding-top: 0px;">
+                                                      <option *ngFor="let currency of currencyListData" value="{{currency.code}}" [selected]="asset.holdingAssetCurrency">{{currency.name}} ({{currency.code}})</option> 
+                                                    </select> --> 
+                                                    <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" name="assetCurrency" [(ngModel)]="asset.holdingAssetCurrency" class="form-control" disabled>
+                                                  </td>
+                                                  <td align="right"><!-- start Date and maturity date -->
+                                                    <span *ngIf="!asset.editAsset">
+                                                      <span>{{asset.holdingAssetStartDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                                    </span>
+                                                    <input *ngIf="asset.editAsset" type="date" [ngModel]="asset.holdingAssetStartDate | date:'yyyy-MM-dd'" (ngModelChange)="asset.holdingAssetStartDate = $event" class="form-control">
+                                                    
+                                                    <span *ngIf="!asset.editAsset">
+                                                      <!-- <span *ngIf="asset.holdingAssetMaturityDate == null"> - </span> -->
+                                                      <span>{{asset.holdingAssetMaturityDate | ValidateDate: 'DD-MM-YYYY'}}</span>
+                                                    </span>
+                                                    <input *ngIf="asset.editAsset" type="date" [ngModel]="asset.holdingAssetMaturityDate | date:'yyyy-MM-dd'" (ngModelChange)="asset.holdingAssetMaturityDate = $event" class="form-control">
+                                                  </td>
+                                                  <td><!-- quantity and strike price -->
+                                                    <span *ngIf="!asset.editAsset">
+                                                      <span>{{asset.holdingAssetQuantity | filterInputValue | NumberFormatWithoutCurrencySymbol}}</span>
+                                                    </span>
+                                                    <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetQuantity" appOnlyNumber="true" class="form-control pointNumber">
+                                                    
+                                                    <span *ngIf="!asset.editAsset">
+                                                      <span>{{asset.holdingAssetStrikePrice | filterInputValue | NumberFormatWithoutCurrencySymbol}}</span>
+                                                    </span>
+                                                    <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetStrikePrice" appOnlyNumber="true" class="form-control pointNumber"> 
+                                                  </td> 
+                                                  <td align="right"><!-- Coupon and accrued Int. -->
+                                                    <span *ngIf="!asset.editAsset">
+                                                      <span *ngIf="asset.holdingAssetCoupon == 'tbd'"> - </span>
+                                                      <span *ngIf="asset.holdingAssetCoupon != 'tbd'">{{asset.holdingAssetCoupon | filterInputValue}}<span *ngIf="asset.holdingAssetCoupon != 'tbd' && asset.holdingAssetCoupon" style="display: inline-block;">%</span></span>
+                                                      <!-- <span>{{asset.holdingAssetCoupon | filterInputValue}}<span *ngIf="asset.holdingAssetCoupon">%</span></span> -->
+                                                    </span>
+                                                    <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetCoupon" appOnlyNumber="true" class="form-control">
+                                                    
+                                                    <span *ngIf="!asset.editAsset">
+                                                      <span>{{asset.holdingAssetFxAccruedInterest | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                    </span>
+                                                    <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetFxAccruedInterest" appOnlyNumber="true" class="form-control pointNumber">
+                                                  </td>
+                                                  <td align="right"><!-- cost and Av. cost price -->
+                                                    <span *ngIf="!asset.editAsset">
+                                                      <span>{{asset.holdingAssetCost | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                    </span>
+                                                    <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetCost" appOnlyNumber="true" class="form-control pointNumberFourDecimals">
+                                                    
+                                                    <span *ngIf="!asset.editAsset">
+                                                      <span>{{asset.holdingAssetAverageUnitCost | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                    </span>
+                                                    <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetAverageUnitCost" appOnlyNumber="true" class="form-control pointNumberFourDecimals">
+                                                  </td>
+                                                  <!-- Market value and market price-->
+                                                  <td align="right">
+                                                    <span *ngIf="!asset.editAsset">
+                                                      <span>{{asset.holdingAssetCurrentValue | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                    </span>
+                                                    <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetCurrentValue" appOnlyNumber="true" class="form-control pointNumber">
+                                                    
+                                                    <span *ngIf="!asset.editAsset">
+                                                      <span>{{asset.holdingAssetIndicativePrice | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                    </span>
+                                                    <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetIndicativePrice" appOnlyNumber="true" class="form-control pointNumberFourDecimals">
+                                                  </td>
+                                                  <!-- value in usd(account type currency) and MTM/Unrealized P/L -->
+                                                  <td align="right">
+                                                    <span *ngIf="!asset.editAsset">
+                                                      <span>{{asset.holdingAssetFxMarketValue | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                    </span>
+                                                    <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetFxMarketValue" appOnlyNumber="true" class="form-control pointNumber">
+                                                    
+                                                    <span *ngIf="!asset.editAsset">
+                                                        <span>{{asset.holdingAssetUnrealizedProfitLoss | filterInputValue | NumberFormatWithCurrencySymbol: asset.holdingAssetCurrency}}</span>
+                                                    </span>
+                                                    <input appModelRestrictSplChar *ngIf="asset.editAsset" type="text" [(ngModel)]="asset.holdingAssetUnrealizedProfitLoss" appOnlyNumber="true" class="form-control pointNumber">
+                                                  </td>
+                                                </tr>
+                                                <tr *ngIf="asset.editAsset" style="text-align: center">
+                                                  <td colspan="9" class="filter-button">
+                                                    <span class="pm-red" id="assetError_{{i}}_{{j}}_{{k}}" style="display: block;"></span>
+                                                    <button type="button" class="btn btn-primary" (click)="showRemainingHoldingAssetFieldsByCategory(i, j, k, asset)">Show More</button>
+                                                    <button type="button" class="btn btn-primary" (click)="saveAssetsByAccountAssetCategory(i, j, k, asset)">Save</button>
+                                                    <button type="button" class="btn btn-warning" (click)="cancelAssets(i, j, k, asset)">Cancel</button>
+                                                    <img style="padding: 5px 4px 4px 7px;" *ngIf="asset.investmentDataLoading" src="/assets/img/loader/spin.gif" />
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </ng-container>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Investment transaction -->
+            <div role="tabpanel" class="tab-pane" id="Transactions-content">
+              <div *ngIf="xmlFileDataByInstitution.length === 0"  class="row clearfix">
+                  <div class="col-sm-12 col-md-12">
+                      <div class="col-sm-12 text-center" style="margin: 8px -13px 8px 0px;">
+                        There are no transactions
+                      </div>
+                  </div>
+              </div>
+              <div *ngIf="xmlFileDataByInstitution.length > 0" class="row clearfix">
+                <div class="col-xs-12 col-sm-4 pull-right" style="margin: 8px -9px 8px 0px;">
+                  <select class="form-control pull-right" id="selectRange" style="width:auto; height: 30px; padding: 0 12px; margin: 3px 0 0 9px;"
+                    [(ngModel)]="pagesize">
+                    <option value="10" selected>10</option>
+                    <option value="25">25</option>                
+                    <option value="50">50</option>                
+                    <option value="75">75</option>          
+                  </select>
+                  <!-- <span class="pull-right" style="line-height:30px">show</span> -->
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-sm-12">
+                  <div *ngFor="let instWise of xmlFileDataByInstitution; let j = index;" class="panel-group" id="accordion_inst" style="margin-top: 20px;">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion_inst" href="#collapseOneInst_{{j}}" class="panel-name"><span class="fa fa-university panel-icon"> <!--  (click)="resetPagination()" -->
+                            </span>&nbsp;{{instWise.institutionName}} - {{instWise.accountNumber}}</a>
+                        </h4>
+                      </div>
+                      <div id="collapseOneInst_{{j}}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <div *ngIf="instWise['transactions'].length > 0"  class="row clearfix">
+                            <div class="col-sm-12 col-md-12">
+                              <div class="statement-detail-tbl data-table-quad" style="padding: 5px 0px 0px 0px;">
+                                <table class="investment-txn-table" width="100%">
+                                  <thead>
+                                    <tr>
+                                      <th style="width: 5%;">
+                                          Date
+                                      </th>
+                                      <th style="width: 20%">
+                                        Description
+                                      </th>
+                                      <th style="width: 10%">
+                                        Category
+                                      </th>
+                                      <th style="width: 4%">
+                                        Currency
+                                      </th>
+                                      <th style="width: 10%">
+                                        Operation Type
+                                      </th>
+                                      <th style="width: 12%;text-align: right">
+                                        Qty
+                                      </th>
+                                      <th style="width: 10%;text-align: right">
+                                        Price
+                                      </th>
+                                      <th style="width: 10%;text-align: right">
+                                        Amount
+                                      </th>
+                                      <th></th>
+                                    </tr>
+                                  </thead>
+                                    <ng-container *ngFor="let transaction of instWise['transactions'] | paginate: { itemsPerPage: pagesize, currentPage: currentPage[j], totalItems: instWise['transactions'].length, id: 'instWise_' + j }; let i = index; odd as isTxnOdd; even as isTxnEven">
+                                      <tbody [class.odd-tbody]="isTxnOdd" [class.even-tbody]="isTxnEven">
+                                        <tr (click)="editTxn(i, transaction)" class="edit_investment_txn_row cursor" [class.edit-mode]="transaction.editTxn"> <!-- (click)="editTxn(i, transaction)" -->
+                                          <td style="width: 13%" class="truncatequd">
+                                            <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_date_{{i}}">{{transaction.transactionDate | date: 'dd-MM-yyyy'}}</span>
+                                            <input type="date" [hidden]="!transaction.editTxn" [ngModel]="transaction.transactionDate | date:'yyyy-MM-dd'" (ngModelChange)="transaction.transactionDate = $event" class="investment-txn-editbox form-control">
+                                          </td>
+                                          <td>
+                                            <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_description_{{i}}">{{transaction.description | filterInputValue | ValidateValue}}</span>
+                                            <input appModelRestrictSplChar [hidden]="!transaction.editTxn" [(ngModel)]="transaction.description" class="investment-txn-editbox form-control" type="text" disabled>
+                                          </td>
+                                          <td style="width: 10%" class="break-word">
+                                            <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_assetCategory_{{i}}">
+                                              <span class="investment-txn-text">{{transaction.assetCategory | filterInputValue | ValidateValue}}</span>
+                                            </span>
+                                            <input appModelRestrictSplChar [hidden]="!transaction.editTxn" [(ngModel)]="transaction.assetCategory" class="investment-txn-editbox form-control" type="text">
+                                          </td>
+                                          <td style="width: 10%">
+                                            <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_currency_{{i}}">{{transaction.currency}}</span>
+                                            <select [hidden]="!transaction.editTxn" [(ngModel)]="transaction.currency" class="investment-txn-editbox form-control" style="height: 28px;padding-top: 0px;">
+                                                  <option *ngFor="let currency of currencyListData; let i = index" value="{{currency.code}}" [selected]="transaction.currency">{{currency.name}} ({{currency.code}})</option> 
+                                                </select>
+                                          </td>
+                                          <td style="width: 10%">
+                                            <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_transactionType_{{i}}">
+                                                <span>{{transaction.type | filterInputValue | ValidateValue}}</span>
+                                            </span>
+                                            <input appModelRestrictSplChar [hidden]="!transaction.editTxn" [(ngModel)]="transaction.type" class="investment-txn-editbox form-control" type="text" disabled>
+                                          </td>
+                                          <td style="width: 12%;text-align: right">
+                                            <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_assetQuantity_{{i}}">
+                                                  <span>{{transaction.assetQuantity | filterInputValue | NumberFormatWithoutCurrencySymbol}}</span>
+                                            </span>
+                                            <input appModelRestrictSplChar [hidden]="!transaction.editTxn" [(ngModel)]="transaction.assetQuantity" appOnlyNumber="true" class="investment-txn-editbox form-control" type="text">
+                                          </td>
+                                          <td style="width: 10%;text-align: right">
+                                            <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_assetUnitCost_{{i}}">
+                                                  <span>{{transaction.assetUnitCost | filterInputValue | NumberFormatWithCurrencySymbol:transaction.currency}}</span>
+                                            </span>
+                                            <input appModelRestrictSplChar [hidden]="!transaction.editTxn" [(ngModel)]="transaction.assetUnitCost" appOnlyNumber="true" class="investment-txn-editbox form-control" type="text">
+                                          </td>
+                                          <td style="width: 10%;text-align: right" class="truncatequd">
+                                            <span [hidden]="transaction.editTxn" class="investment-text" id="investment_txn_text_amount_{{i}}">
+                                                  <span>{{transaction.amount | filterInputValue | NumberFormatWithCurrencySymbol:transaction.currency}}</span>
+                                            </span>
+                                            <input appModelRestrictSplChar [hidden]="!transaction.editTxn" [(ngModel)]="transaction.amount" appOnlyNumber="true" class="investment-txn-editbox form-control pointNumber" type="text">
+                                          </td>
+                                          <td class="restrictClickChange">
+                                            <button class="pull-right btn delete-btn" style="margin-left: 0px;" title="Delete" data-toggle="modal" data-target="#deleteAssetTransaction"
+                                              (click)="prepareAssetTxnDelete(transaction)">
+                                                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </button>
+                                          </td>
+                                        </tr>
+                                        <tr [hidden]="!transaction.editTxn" style="text-align: center">
+                                          <td colspan="9" class="filter-button">
+                                            <span class="pm-red" id="txnError_{{i}}" style="display: block;"></span>
+                                            <button type="button" class="btn btn-primary" (click)="saveTxn(i, transaction)">Save</button>
+                                            <button type="button" class="btn btn-warning" (click)="cancelTxn(i, transaction)">Cancel</button>
+                                            <img style="padding: 5px 4px 4px 7px;" *ngIf="transaction.txnDataLoading" src="/assets/img/loader/spin.gif" />
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </ng-container>
+                                </table>
+                              </div>
+                            </div>
+                            <!-- pagination template -->
+                            <div class="col-sm-12 col-md-12">
+                              <pagination-controls
+                                (pageChange)="currentPage[j] = $event"
+                                directionLinks="true"
+                                autoHide="true"
+                                responsive="true"
+                                previousLabel="Previous"
+                                nextLabel="Next"
+                                screenReaderPaginationLabel="Pagination"
+                                screenReaderPageLabel="page"
+                                screenReaderCurrentLabel="You're on page"
+                                [id]="'instWise_' + j" class="pm-pagination pull-right"></pagination-controls>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Anatytics content -->
+            <div role="tabpanel" class="tab-pane" id="Analytics-content">
+              <div class="row clearfix" style="background: #F0F0F0;padding-bottom: 30px;margin-left: -10px;margin-right: -10px;">
+                 <!-- Nav tabs -->
+                 <div class="col-sm-12 col-md-12" style="margin-top: 5px;">
+                   <ul class="nav nav-tabs investment-tabs" role="tablist" style="background-color: transparent;">
+                     <li role="presentation" class="pull-right">
+                       <a href data-target="#Pivot-content" aria-controls="profile" role="tab" data-toggle="tab">Pivots</a> <!--  (click)="loadCustomPivotTable();" -->
+                      </li>
+                      <li role="presentation" class="active pull-right">
+                        <a href data-target="#Graph-content" aria-controls="home" role="tab" data-toggle="tab">Graphs</a>
+                      </li>
+                   </ul>
+                 </div>
+                <div class="tab-content" style="margin-top: 6px;">
+                  <div role="tabpanel" class="tab-pane active" id="Graph-content">
+                    <!-- <div class="col-sm-12 col-md-12">
+                      <h3>Portfolio Distribution</h3>
+                    </div> -->
+                    <!-- <div class="col-sm-12 col-md-12" id="graphContainer" style="margin-top: 5px">
+                        <div id="tooltip-container"></div>
+    
+                        <div id="canvas-svg" style="text-align: center;"></div>
+                    </div> -->
+                    <div class="col-sm-12">
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="dropdown-quad">
+                            <select class="form-control" [(ngModel)]="allocationGraphType" (change)="onChangeGraphType()" style="background: #FFFFFF;">
+                              <option value="assetAllocation">Asset Allocation</option>
+                              <option value="allocationMatrix">Allocation Matrix</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-8 text-right">
+                          <div *ngIf="allocationGraphType === 'assetAllocation'" class="dropdown-quad1">
+                            <!-- <span>Graph By:</span> -->
+                            <select (change)="onPortfolioGraphTypeChange()" [(ngModel)]="portfolioGraphType" class="form-control">
+                              <option value="assetClass">Asset Class</option>
+                              <option value="currency">Currency</option>
+                              <option value="custodian">Custodian</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div *ngIf="allocationGraphType === 'allocationMatrix'" class="col-sm-12">
+                          <div class="row">
+                            <div class="col-sm-11 text-right">
+                              <ul class="chec-radio">
+                                <li class="pz">
+                                  <label class="radio-inline">
+                                    <input type="radio" [(ngModel)]="allocationMatrixCategoryGroupOne" (change)="onAllocationMatrixSelctionChange()"
+                                      [disabled]="allocationMatrixCategoryGroupTwo === 'assetClass'" name="property_type" class="pro-chx" value="assetClass">
+                                    <div class="clab">Asset Class</div>
+                                  </label>
+                                </li>
+                                <li class="pz">
+                                  <label class="radio-inline">
+                                    <input type="radio" [(ngModel)]="allocationMatrixCategoryGroupOne" (change)="onAllocationMatrixSelctionChange()"
+                                      [disabled]="allocationMatrixCategoryGroupTwo === 'currency'" name="property_type" class="pro-chx" value="currency">
+                                    <div class="clab">Currency</div>
+                                  </label>
+                                </li>
+                                <li class="pz">
+                                  <label class="radio-inline">
+                                    <input type="radio" [(ngModel)]="allocationMatrixCategoryGroupOne" (change)="onAllocationMatrixSelctionChange()"
+                                      [disabled]="allocationMatrixCategoryGroupTwo === 'custodian'" name="property_type" class="pro-chx" value="custodian">
+                                    <div class="clab">Custodian</div>
+                                  </label>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="col-sm-1 text-right" style="padding: 0px;">
+                              <h5>Vertical Axis</h5>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-sm-11 text-right">
+                              <ul class="chec-radio">
+                                <li class="pz">
+                                  <label class="radio-inline">
+                                    <input type="radio" [(ngModel)]="allocationMatrixCategoryGroupTwo" (change)="onAllocationMatrixSelctionChange()"
+                                      [disabled]="allocationMatrixCategoryGroupOne === 'assetClass'" name="property_type1" class="pro-chx" value="assetClass">
+                                    <div class="clab">Asset Class</div>
+                                  </label>
+                                </li>
+                                <li class="pz">
+                                  <label class="radio-inline">
+                                    <input type="radio" [(ngModel)]="allocationMatrixCategoryGroupTwo" (change)="onAllocationMatrixSelctionChange()"
+                                      [disabled]="allocationMatrixCategoryGroupOne === 'currency'" name="property_type1" class="pro-chx" value="currency">
+                                    <div class="clab">Currency</div>
+                                  </label>
+                                </li>
+                                <li class="pz">
+                                  <label class="radio-inline">
+                                    <input type="radio" [(ngModel)]="allocationMatrixCategoryGroupTwo" (change)="onAllocationMatrixSelctionChange()"
+                                      [disabled]="allocationMatrixCategoryGroupOne === 'custodian'" name="property_type1" class="pro-chx" value="custodian">
+                                    <div class="clab">Custodian</div>
+                                  </label>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="col-sm-1 text-right" style="padding: 0px;">
+                              <h5>Horizontal Axis</h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-sm-1"></div>
+                    <div *ngIf="allocationGraphType === 'assetAllocation'" class="col-sm-10 graph-main-container grey-quad box-shadow" style="background: #FFFFFF;">
+                      <div class="col-sm-7 col-md-7 text-center">
+                        <div id="allocation-pichart"></div>
+                        <!-- <div class="chart"></div> -->
+                      </div>
+                      <div class="col-sm-5 col-md-5">
+                        <div class="allocation-pichart-legend-container summary-quad" style="background: #F0F0F0;box-shadow: -2px 3px 1px rgba(192,192,192, 0.4);"></div>
+                      </div>
+                    </div>
+                    <div *ngIf="allocationGraphType === 'allocationMatrix'" class="col-sm-12 graph-main-container grey-quad box-shadow" style="background: #FFFFFF;">
+                      <div class="col-sm-12 col-md-12 text-center">
+                        <div id="allocation-pichart"></div>
+                        <!-- <div class="chart"></div> -->
+                      </div>
+                    </div>
+                    <!-- <div class="col-sm-12 col-md-12" style="margin-top: 70px">
+                      <h3>Asset Allocation</h3>
+                    </div> -->
+                    <!-- <div class="col-sm-12 col-md-12" style="margin-top: 10px">
+                      <div id="caterogy-chart"></div>
+                    </div> -->
+
+                    <!-- <div class="col-sm-12 col-md-12" style="margin-top: 70px">
+                      <div id="caterogy-bar-chart"></div>
+                    </div> -->
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="Pivot-content">
+                    <!-- <div class="col-sm-12 col-md-12">
+                      <h3>Pivot Table</h3>
+                    </div> -->
+                    <div class="col-sm-12 col-md-12 dropdown-quad">
+                      <!-- <span>View by</span> -->
+                      <select class="form-control" [(ngModel)]="anlyticsInputDataType" (change)="onDataFormatTypeChange()" style="margin-right: 6px;width: 20%">
+                        <option value="holdings" selected>Holdings</option>
+                        <option value="transactions">Transactions</option>
+                        <option value="local">Upload File</option>
+                      </select>
+                      <span id="fileUploaderFunctionality">
+                        <!-- Drop a CSV file on this page or -->
+                        <label class="btn btn-warning" id="filechooser" style="height: 30px; padding-top: 4px;">Choose File
+                          <input id="csv" name="fileName" type="file" style="display:none" />
+                        </label>
+                      </span>
+                    </div>
+                    <div class="col-sm-12 col-md-12" style="margin-top: 20px">
+                      <!-- <div id="output" style="margin: 10px;"></div> -->
+    
+                      <!-- <p align="center" style="line-height: 1.5">
+                        Drop a CSV file on this page or
+                        <label id="filechooser">click here to choose one<input id="csv" name="fileName" type="file" style="display:none" /></label>
+                        <br /><br />
+                        <textarea placeholder="or type or paste CSV text here" style="width: 300px;" id="textarea"></textarea>
+                        <br />
+                        <em><small>note: the data never leaves your browser!</small></em>
+                      </p> -->
+                      
+                      <div id="output" class="box-shadow" style="overflow-x: auto;"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- <div class="col-sm-12 col-md-12" style="margin-top: 80px">
+                  <h3>Bubble Chart</h3>
+                </div>
+                <div class="col-sm-12 col-md-12" style="margin-top: 20px">
+                  <div id="svg2"></div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <!-- Main Display Html Ends -->
+
+  <!-- Footer Part Html Starts -->
+  <app-authorised-footer></app-authorised-footer>
+  <!-- Footer Part Html Ends -->
+</div>
+
+<ng-template #holdingAssetModal>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelHoldingAssetsDetails(remaingHoldingAssets)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h5>Holding Asset Details</h5>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-sm-12 form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Sub Category</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetSubCategory" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Last Price Date</label>
+          <div class="col-sm-10">
+            <input type="date" [ngModel]="remaingHoldingAssets.holdingAssetIndicativePriceDate | date:'yyyy-MM-dd'" (ngModelChange)="remaingHoldingAssets.holdingAssetIndicativePriceDate = $event" class="form-control date">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Account Number</label>
+          <div class="col-sm-10">
+             <input type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetAccountNumber" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Sub Account Number</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetSubAccountNumber" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">YTM</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetYield" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Accrued Interest</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetFxAccruedInterest" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Last Fx. Rate</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetLastFxRate" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">MTM</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetUnrealizedProfitLossCurrency" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Trans Code</label>
+          <div class="col-sm-10">
+             <!-- <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.transCode" class="form-control">  -->
+             <select [(ngModel)]="remaingHoldingAssets.transCode" class="form-control">
+              <option value="">Select Trans Code</option>
+              <option *ngFor="let transCode of transCodeData; let i = index" [selected]="remaingHoldingAssets.transCode" value="{{ transCode }}">{{ transCode }}</option> 
+             </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Commission</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.commission" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Other Fees</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.otherFees" class="form-control"> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <span class="pm-red" id="assetError_{{remaingHoldingAssets.investmentIndex}}_{{remaingHoldingAssets.assetIndex}}" style="margin-right: 10px;"></span>
+    <button type="button" class="btn btn-primary" [disabled]="remainingHoldingAssetDataLoading" 
+      (click)="saveAssetsByAccount(remaingHoldingAssets.investmentIndex, remaingHoldingAssets.assetIndex, remaingHoldingAssets)">Save</button>
+    <button type="button" class="btn btn-warning" [disabled]="remainingHoldingAssetDataLoading" (click)="cancelHoldingAssetsDetails(remaingHoldingAssets)">Cancel</button>
+    <img *ngIf="remainingHoldingAssetDataLoading" src="/assets/img/loader/spin.gif" />
+  </div>
+</ng-template>
+
+<ng-template #holdingAssetByCategoryModal>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelHoldingAssetsByCategoryDetails(remaingHoldingAssets)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h5>Holding Asset Details</h5>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-sm-12 form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Sub Category</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetSubCategory" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Last Price Date</label>
+          <div class="col-sm-10">
+            <input type="date" [ngModel]="remaingHoldingAssets.holdingAssetIndicativePriceDate | date:'yyyy-MM-dd'" (ngModelChange)="remaingHoldingAssets.holdingAssetIndicativePriceDate = $event" class="form-control date">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Account Number</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetAccountNumber" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Sub Account Number</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetSubAccountNumber" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">YTM</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetYield" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Accrued Interest</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetFxAccruedInterest" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Last Fx. Rate</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetLastFxRate" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">MTM</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.holdingAssetUnrealizedProfitLossCurrency" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Trans Code</label>
+          <div class="col-sm-10">
+             <!-- <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.transCode" class="form-control">  -->
+             <select [(ngModel)]="remaingHoldingAssets.transCode" class="form-control">
+              <option value="">Select Trans Code</option>
+              <option *ngFor="let transCode of transCodeData; let i = index" [selected]="remaingHoldingAssets.transCode" value="{{ transCode }}">{{ transCode }}</option> 
+             </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Commission</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.commission" class="form-control"> 
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Other Fees</label>
+          <div class="col-sm-10">
+             <input appModelRestrictSplChar type="text" [(ngModel)]="remaingHoldingAssets.otherFees" class="form-control"> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <span class="pm-red" id="assetError_{{remaingHoldingAssets.investmentIndex}}_{{remaingHoldingAssets.categoryIndex}}_{{remaingHoldingAssets.assetIndex}}" style="margin-right: 10px;"></span>
+    <button type="button" class="btn btn-primary" [disabled]="remainingHoldingAssetDataLoading" 
+      (click)="saveAssetsByAccountAssetCategory(remaingHoldingAssets.investmentIndex, remaingHoldingAssets.categoryIndex, remaingHoldingAssets.assetIndex, remaingHoldingAssets)">Save</button>
+    <button type="button" class="btn btn-warning" [disabled]="remainingHoldingAssetDataLoading" (click)="cancelHoldingAssetsByCategoryDetails(remaingHoldingAssets)">Cancel</button>
+    <img *ngIf="remainingHoldingAssetDataLoading" src="/assets/img/loader/spin.gif" />
+  </div>
+</ng-template>
+
+<div class="modal fade invstNotificationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+  data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="min-height: 160px">
+      <div class="modal-header">
+        <h5>Notification</h5>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+          <p class="text-center">You need to refresh the page to view changes</p>
+        </div>
+        <div class="col-md-12" align="center" style="margin-top: 2%;">
+          <input appModelRestrictSplChar type="button" class="btn btn-large btn-notification-ok" data-dismiss="modal" value="OK">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- deleteTransconfModal -->
+<div class="modal fade deleteTransconfModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static"
+  data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row clearfix">
+          <div class="col-md-12" align="center">
+            <p>Are you sure want to delete transaction permanently.</p>
+          </div>
+          <div class="col-md-12" align="center">
+            <input appModelRestrictSplChar type="button" class="b47PM-deltran-btn" value="DELETE">
+            <input appModelRestrictSplChar type="button" class="b47PM-dCancel-btn" value="CANCEL">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- deleteAssetTransaction -->
+<!-- <div class="modal fade deleteTransconfModal" id="deleteAssetTransaction" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row clearfix">
+          <div class="col-md-12" align="center">
+            <p>Are you sure want to delete transaction permanently.</p>
+          </div>
+          <div class="col-md-12 pm-red" align="center">
+            <span id="delAsserTxnError"></span>
+          </div>
+          <div class="col-md-12" align="center">
+            <img *ngIf="delAssetTxnDataLoading" src="/assets/img/loader/spin.gif" />
+            <input appModelRestrictSplChar type="button" class="b47PM-deltran-btn" [disabled]="delAssetTxnDataLoading" value="DELETE" (click)="deleteAssetTxn()">
+            <input appModelRestrictSplChar type="button" class="b47PM-dCancel-btn" data-dismiss="modal" value="CANCEL">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<ng-template #deleteAssetTransactionModal>
+  <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelDeleteAssetTxnDetails()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row clearfix">
+          <div class="col-md-12" align="center">
+            <p>Are you sure want to delete transaction permanently.</p>
+          </div>
+          <div class="col-md-12 pm-red" align="center">
+            <span id="delAsserTxnError"></span>
+          </div>
+          <div class="col-md-12" align="center">
+            <img *ngIf="delAssetTxnDataLoading" src="/assets/img/loader/spin.gif" />
+            <input type="button" class="b47PM-deltran-btn" [disabled]="delAssetTxnDataLoading" value="DELETE" (click)="deleteAssetTxn()">
+            <input type="button" (click)="cancelDeleteAssetTxnDetails()" class="b47PM-dCancel-btn" data-dismiss="modal" value="CANCEL">
+          </div>
+        </div>
+      </div>
+</ng-template>

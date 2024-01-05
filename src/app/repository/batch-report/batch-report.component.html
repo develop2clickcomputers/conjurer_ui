@@ -1,0 +1,328 @@
+<div class="b47PM-wrapper logged-in">
+  <!-- "logged-in" add this class when user login successfully -->
+
+  <!-- Header Part Html Starts -->
+  <app-authorised-header></app-authorised-header>
+  <!-- Header Part Html Ends -->
+
+  <!-- Loader section -->
+  <div class="b47PM-center-body" *ngIf="!batchReportPageLoad && !batchReportError">
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <img src="/assets/img/loader/page_loading.gif">
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="batchReportError">
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1 grey-quad" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h4>Oops! Something went wrong!!!</h4>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="(batchReportData.length == 0 && !batchReportError) && batchReportPageLoad">
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1 grey-quad" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h4>You haven't added statement</h4>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="(batchReportData.length > 0 && !batchReportError) && batchReportPageLoad">
+    <div class="container-fluid b47PM-container">
+      <div class="col-sm-12">
+        <div class="row clearfix">
+          <h3>Batch Reports</h3>
+          <div class="misc-table-showcase">
+            <div class="b47PM-financesTab-quad1">
+              <div class="b47PM-filter-quad1">
+                <div class="row">
+                  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-2 form-group rowPusher">
+                    <div class="row">
+                      <label>Batch Id</label>
+                      <select class="form-control" [(ngModel)]="searchInst.batchId" (change)="setFilter()">
+                              <option value="">All</option>
+                              <option *ngFor="let batchId of statementData.batchId" value="{{batchId}}">{{batchId}}</option>
+                            </select>
+                    </div>
+                  </div>
+                  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-2 form-group rowPusher">
+                    <div class="row">
+                      <label>Choose Institution</label>
+                      <select class="form-control" [(ngModel)]="search.institutionName" (change)="setFilter()">
+                              <option value="" selected>All</option>
+                              <option *ngFor="let institution of statementData.institutionName" value="{{institution}}">{{institution}}</option>
+                            </select>
+                    </div>
+                  </div>
+                  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-5 col-md-2 form-group rowPusher">
+                    <div class="row">
+                      <label>Choose Portfolio Number</label>
+                      <select class="form-control" [(ngModel)]="search.portfolioNumber" (change)="setFilter()">
+                              <option value="">All</option>
+                              <option *ngFor="let portfolioNumber of statementData.portfolioNumber" value="{{portfolioNumber}}">{{portfolioNumber}}</option>
+                            </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-12" *ngIf="hasFilter">
+                    <div class="filter-box" *ngIf="searchInst.batchId != ''">
+                      <span>{{searchInst.batchId}}</span>
+                      <i class="fa fa-times" aria-hidden="true" (click)="searchInst.batchId = '';setFilter();" role="button"></i>
+                    </div>
+                    <div class="filter-box" *ngIf="search.institutionName != ''">
+                      <span>{{search.institutionName}}</span>
+                      <i class="fa fa-times" aria-hidden="true" (click)="search.institutionName = '';setFilter();" role="button"></i>
+                    </div>
+                    <div class="filter-box" *ngIf="search.portfolioNumber != ''">
+                      <span>{{search.portfolioNumber}}</span>
+                      <i class="fa fa-times" aria-hidden="true" (click)="search.portfolioNumber = '';setFilter();" role="button"></i>
+                    </div>
+                    <div class="clear-filter-box">
+                      <a role="button" (click)="clearAllFilter()">
+                              Clear All
+                            </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <div class="statement-detail-quad5">
+                <div class="col-xs-12 col-sm-4 pull-right" style="margin: 8px -13px 8px 0px;">
+                  <select class="form-control pull-right" id="selectRange" style="width:auto; height: 30px; padding: 0 12px; margin: 3px 0 0 9px;"
+                     [(ngModel)]="pagesize">
+                    <option value="10" selected>10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="75">75</option>
+                  </select>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div *ngFor="let instWise of stmtRepoFileDataByBatchId | tablefilter: searchInst;let i = index" class="panel-group" id="accordion_inst" style="margin-top: 20px;">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion_inst" href="#collapseOneInst_{{i}}" class="panel-name"><span class="fa fa-university panel-icon">
+                              </span>&nbsp;{{instWise.batchId}}</a>
+                          </h4>
+                          <div class="pull-right tool-list">
+                            <button class="btn delete-btn" (click)="prepareStatementDelete(instWise)" style="cursor: pointer;">
+                              <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                        </div>
+                        <div id="collapseOneInst_{{i}}" class="panel-collapse collapse">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="statement-detail-quad5">
+                                  <table class="statement-detail-tbl">
+                                    <thead>
+                                      <tr>
+                                        <th>BATCH ID</th>
+                                        <th>INSTITUTION</th>
+                                        <th style="width: 18%">PORTFOLIO NUMBER</th>
+                                        <th>CURRENCY</th>
+                                        <!-- <th>STATEMENT DATE</th> -->
+                                        <th>STATUS</th>
+                                        <th></th>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="9" style="height: 10px; background: #fff;"></td>
+                                      </tr>
+                                    </thead>
+                                    <tbody [hidden]="instWise.statementDetails.length == 0">
+                                      <tr *ngFor="let statement of instWise.statementDetails | tablefilter: search | paginate: { itemsPerPage: pagesize, currentPage: p }; let i = index">
+                                        <td class="">{{statement?.batchId}}</td>
+                                        <td class="">{{statement?.institutionName}}</td>
+                                        <td class="truncatequd" style="width: 11%;">{{statement.portfolioNumber}}</td>
+                                        <td class="truncatequd">{{statement?.currency}}</td>
+                                        <td class="truncatequd" style="width: 12%;">{{statement.status}}</td>
+                                        <!-- <td class="break-word"><a (click)="downloadPdfStatement(statement)" title="{{statement.fileName}}" class="cursor">{{statement.fileName}}</a></td> -->
+                                        <td class="truncatequd">
+                                          <button class="pull-right btn delete-btn" (click)="getFileDetails(statement)" title="View XML Files">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                          </button>
+                                          <!-- <button class="pull-right btn delete-btn" (click)="prepareStatementDelete(statement)">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                          </button> -->
+                                        </td>
+                                      </tr>
+                                      <tr [hidden]="(batchReportData | tablefilter: search).length != 0" style="border: none;">
+                                        <td style="text-align: center;" colspan="9">There are no statements matching this criteria</td>
+                                      </tr>
+                                    </tbody>
+                                    <tbody [hidden]="batchReportData.length != 0">
+                                      <tr>
+                                        <td style="text-align: center;" colspan="9">You have not uploaded any statements.</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!---->
+              <div class="row">
+                <div class="col-md-12 text-right">
+                  <pagination-controls (pageChange)="p = $event" class="pm-pagination"></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Part Html Starts -->
+  <app-authorised-footer></app-authorised-footer>
+  <!-- Footer Part Html Ends -->
+</div>
+
+<ng-template #deleteStatementModal>
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="cancelDeleteStatementModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-md-12" align="center">
+        <p>Are you sure want to delete this batch permanently.</p>
+      </div>
+      <div class="col-md-12 pm-red" align="center">
+        <span id="delStatementRepoError"></span>
+      </div>
+      <div class="col-md-12" align="center">
+        <img *ngIf="delStatementDataLoading" src="/assets/img/loader/spin.gif" />
+        <input type="button" class="b47PM-deltran-btn" [disabled]="delStatementDataLoading" value="DELETE" (click)="deleteBatch()">
+        <input type="button" (click)="cancelDeleteStatementModal()" class="b47PM-dCancel-btn" data-dismiss="modal" value="CANCEL">
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #viewBatchFileModal>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" (click)="closeViewXMLFileModal()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-md-12" align="center" style="margin-top: -26px;">
+        <div class="row b47PM-budget-tbl-quad1">
+          <div class="table b47PM-misc-table1 b47PM-budget-tbl1">
+            <header class="clearfix">
+              <div align="left" style="width: 30%">Files</div>
+              <!-- <div>Institution Name</div> -->
+              <!-- <div>Review</div> -->
+            </header>
+            <div>
+              <div *ngIf="xmlFileList.length === 0" class="record-row transc-row">
+                  <table class="table inner-data-table">
+                    <thead>
+                        <tr>
+                          <td>There are no files</td>
+                        </tr>
+                    </thead>
+                  </table>
+              </div>
+              <div class="record-row transc-row" *ngFor="let xml of xmlFileList; let i = index;">
+                <table class="table inner-data-table">
+                  <thead>
+                    <tr>
+                      <td class="break-word">
+                        <a (click)="downloadBatchReportFiles(xml)" title="{{xml.name}}" class="cursor">{{xml.name}}</a>
+                      </td>
+                      <!-- <td>
+                        <button class="pull-right btn delete-btn" (click)="reviewSelectedFile(xml)" title="Review">
+                          <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                      </td> -->
+                      <div class="clearfix"></div>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12" align="center">
+        <span class="pm-red" id="deleteManualAccountErr"></span>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #setCredentialModal>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeSetCredentialModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h5>Set Credential</h5>
+  </div>
+  <div class="modal-body">
+    <form role="form" [formGroup]="credentialForm" (ngSubmit)="updateCredential()" class="form-horizontal">
+      <div class="row clearfix">
+          <div class="col-md-12">
+            <div class="row clearfix" style="margin-top: 20px;">
+                <div class="col-sm-12" style="margin-top: 10px;">
+                    <input type="text" name="username" formControlName="username" class="form-control" placeholder="Username" required/>
+                </div>
+                <div class="col-sm-12" style="margin-top: 10px;">
+                    <input type="password" name="password" formControlName="password" class="form-control" placeholder="Password" autocomplete="off" required/>
+                </div>
+            </div>
+            <div class="row clearfix">
+              <div class="col-sm-12" style="margin-top: 5px;">
+                <label id="updateCredentailErrorMsg" class="pm-red"></label>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row clearfix">
+        <div class="col-sm-12">
+          <button type="submit" [disabled]="credentialForm.invalid || updateCredentialLoader" class="btn b47PM-default-btn">DONE</button>
+          <img *ngIf="updateCredentialLoader" src="/assets/img/loader/spin.gif" />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+  </div>
+</ng-template>
+
+<!-- Notification component -->
+<app-common-notification #notificationComponent></app-common-notification>

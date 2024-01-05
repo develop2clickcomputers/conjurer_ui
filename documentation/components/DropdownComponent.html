@@ -1,0 +1,2316 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>conjurer documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">conjurer documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>DropdownComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/dropdown/dropdown.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>This class represents the lazy loaded DropdownComponent.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code><a href="../injectables/DropdownService.html" target="_self" >DropdownService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-dropdown</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>dropdown.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>dropdown.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addDropdownForm">addDropdownForm</a>
+                            </li>
+                            <li>
+                                <a href="#autocompleListFormatter">autocompleListFormatter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#delModalRef">delModalRef</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dropdown">dropdown</a>
+                            </li>
+                            <li>
+                                <a href="#dropdownDeleteModal">dropdownDeleteModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#dropdownEditObject">dropdownEditObject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dropdownList">dropdownList</a>
+                            </li>
+                            <li>
+                                <a href="#dropdownModal">dropdownModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#dropdownObject">dropdownObject</a>
+                            </li>
+                            <li>
+                                <a href="#dropdownRemoveModal">dropdownRemoveModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#editDropdownForm">editDropdownForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#filterDropdown">filterDropdown</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#modalRef">modalRef</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#newDropdownIndex">newDropdownIndex</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#newPolicyTypeObject">newPolicyTypeObject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeModalRef">removeModalRef</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#tempDropdownList">tempDropdownList</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addDropdown">addDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#cancelDropdown">cancelDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#cancelDropdownModal">cancelDropdownModal</a>
+                            </li>
+                            <li>
+                                <a href="#cancelNewDropdown">cancelNewDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#closeDropdownDeleteModal">closeDropdownDeleteModal</a>
+                            </li>
+                            <li>
+                                <a href="#closeDropdownRemoveModal">closeDropdownRemoveModal</a>
+                            </li>
+                            <li>
+                                <a href="#deleteDropdown">deleteDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#editDropdown">editDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#openDropdownDeleteModal">openDropdownDeleteModal</a>
+                            </li>
+                            <li>
+                                <a href="#openDropdownModal">openDropdownModal</a>
+                            </li>
+                            <li>
+                                <a href="#openDropdownRemoveModal">openDropdownRemoveModal</a>
+                            </li>
+                            <li>
+                                <a href="#removeDropdown">removeDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#submitDropdown">submitDropdown</a>
+                            </li>
+                            <li>
+                                <a href="#updateDropdown">updateDropdown</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onDropdownChanged">onDropdownChanged</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDropdownChanged"></a>
+                        <b>onDropdownChanged</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:42</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addDropdown"></a>
+                        <span class="name">
+                            <b>
+                            addDropdown
+                            </b>
+                            <a href="#addDropdown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>addDropdown(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, dropdown, addType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:125</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To add a new dropdown</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>index</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>dropdown</td>
+                                                        <td>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>addType</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cancelDropdown"></a>
+                        <span class="name">
+                            <b>
+                            cancelDropdown
+                            </b>
+                            <a href="#cancelDropdown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>cancelDropdown(dropdown)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="216" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:216</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To cancel editable mode</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dropdown</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cancelDropdownModal"></a>
+                        <span class="name">
+                            <b>
+                            cancelDropdownModal
+                            </b>
+                            <a href="#cancelDropdownModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>cancelDropdownModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:84</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To close or hide dropdown modal</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cancelNewDropdown"></a>
+                        <span class="name">
+                            <b>
+                            cancelNewDropdown
+                            </b>
+                            <a href="#cancelNewDropdown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>cancelNewDropdown(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, dropdown)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="172" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:172</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To cancel or ignore new dropdown</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>index</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>dropdown</td>
+                                                        <td>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="closeDropdownDeleteModal"></a>
+                        <span class="name">
+                            <b>
+                            closeDropdownDeleteModal
+                            </b>
+                            <a href="#closeDropdownDeleteModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>closeDropdownDeleteModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:114</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To close dropdown delete modal</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="closeDropdownRemoveModal"></a>
+                        <span class="name">
+                            <b>
+                            closeDropdownRemoveModal
+                            </b>
+                            <a href="#closeDropdownRemoveModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>closeDropdownRemoveModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:162</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To close dropdown remove modal</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteDropdown"></a>
+                        <span class="name">
+                            <b>
+                            deleteDropdown
+                            </b>
+                            <a href="#deleteDropdown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>deleteDropdown()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="309" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:309</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To delete dropdown data</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="editDropdown"></a>
+                        <span class="name">
+                            <b>
+                            editDropdown
+                            </b>
+                            <a href="#editDropdown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>editDropdown(dropdown)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="200" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:200</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To edit dropdown data</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dropdown</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openDropdownDeleteModal"></a>
+                        <span class="name">
+                            <b>
+                            openDropdownDeleteModal
+                            </b>
+                            <a href="#openDropdownDeleteModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>openDropdownDeleteModal(dropdown, index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:104</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To open dropdown delete modal</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dropdown</td>
+                                                        <td>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>index</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openDropdownModal"></a>
+                        <span class="name">
+                            <b>
+                            openDropdownModal
+                            </b>
+                            <a href="#openDropdownModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>openDropdownModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:76</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To open dropdown modal</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openDropdownRemoveModal"></a>
+                        <span class="name">
+                            <b>
+                            openDropdownRemoveModal
+                            </b>
+                            <a href="#openDropdownRemoveModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>openDropdownRemoveModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:154</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To open dropdown remove moda</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeDropdown"></a>
+                        <span class="name">
+                            <b>
+                            removeDropdown
+                            </b>
+                            <a href="#removeDropdown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>removeDropdown()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="188" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:188</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To remove dropdown</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="submitDropdown"></a>
+                        <span class="name">
+                            <b>
+                            submitDropdown
+                            </b>
+                            <a href="#submitDropdown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>submitDropdown(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, dropdown)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="232" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:232</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To submit new dropdown</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>index</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>dropdown</td>
+                                                        <td>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updateDropdown"></a>
+                        <span class="name">
+                            <b>
+                            updateDropdown
+                            </b>
+                            <a href="#updateDropdown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>updateDropdown(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, dropdown)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="277" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:277</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To update existing dropdown</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>index</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>dropdown</td>
+                                                        <td>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addDropdownForm"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            addDropdownForm</b>
+                            <a href="#addDropdownForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="autocompleListFormatter"></a>
+                        <span class="name">
+                            <b>
+                            autocompleListFormatter</b>
+                            <a href="#autocompleListFormatter"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:96</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Auto complete list formatter </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="delModalRef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            delModalRef</b>
+                            <a href="#delModalRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>BsModalRef</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:53</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dropdown"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dropdown</b>
+                            <a href="#dropdown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dropdownDeleteModal"></a>
+                        <span class="name">
+                            <b>
+                            dropdownDeleteModal</b>
+                            <a href="#dropdownDeleteModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;dropdownDeleteModal&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Dropdown delete modal reference </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dropdownEditObject"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            dropdownEditObject</b>
+                            <a href="#dropdownEditObject"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dropdownList"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dropdownList</b>
+                            <a href="#dropdownList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dropdownModal"></a>
+                        <span class="name">
+                            <b>
+                            dropdownModal</b>
+                            <a href="#dropdownModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;dropdownModal&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Dropdown modal reference </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dropdownObject"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            dropdownObject</b>
+                            <a href="#dropdownObject"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dropdownRemoveModal"></a>
+                        <span class="name">
+                            <b>
+                            dropdownRemoveModal</b>
+                            <a href="#dropdownRemoveModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;dropdownRemoveModal&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Dropdown remove modal </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="editDropdownForm"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            editDropdownForm</b>
+                            <a href="#editDropdownForm"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filterDropdown"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            filterDropdown</b>
+                            <a href="#filterDropdown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modalRef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            modalRef</b>
+                            <a href="#modalRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>BsModalRef</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="newDropdownIndex"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            newDropdownIndex</b>
+                            <a href="#newDropdownIndex"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:47</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="newPolicyTypeObject"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            newPolicyTypeObject</b>
+                            <a href="#newPolicyTypeObject"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeModalRef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            removeModalRef</b>
+                            <a href="#removeModalRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>BsModalRef</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tempDropdownList"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            tempDropdownList</b>
+                            <a href="#tempDropdownList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/shared/dropdown/dropdown.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Input, Output, TemplateRef, ViewChild, EventEmitter } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, FormArray, Validators } from &#x27;@angular/forms&#x27;;
+import { DomSanitizer, SafeHtml } from &#x27;@angular/platform-browser&#x27;;
+
+import { BsModalService } from &#x27;ngx-bootstrap/modal&#x27;;
+import { BsModalRef } from &#x27;ngx-bootstrap/modal/modal-options.class&#x27;;
+import { ModalConfig } from &#x27;../../shared/common/modal.config&#x27;;
+
+import { CommonConstant } from &#x27;../../constants/common/common.constant&#x27;;
+import { DropdownConstant } from &#x27;./dropdown.constant&#x27;;
+import { CommonHttpAdapterService } from &#x27;../../adapters/common-http-adapter.service&#x27;;
+
+import { DropdownService } from &#x27;../dropdown/dropdown.service&#x27;;
+
+/**
+* This class represents the lazy loaded DropdownComponent.
+*/
+@Component({
+    selector: &#x27;app-dropdown&#x27;,
+    templateUrl: &#x27;dropdown.component.html&#x27;,
+    styleUrls: [&#x27;dropdown.component.css&#x27;],
+    providers: [
+        DropdownService
+    ]
+})
+export class DropdownComponent implements OnInit {
+
+    /** Dropdown modal reference */
+    @ViewChild(&#x27;dropdownModal&#x27;) dropdownModal: TemplateRef&lt;any&gt;;
+
+    /** Dropdown delete modal reference */
+    @ViewChild(&#x27;dropdownDeleteModal&#x27;) dropdownDeleteModal: TemplateRef&lt;any&gt;;
+
+    /** Dropdown remove modal */
+    @ViewChild(&#x27;dropdownRemoveModal&#x27;) dropdownRemoveModal: TemplateRef&lt;any&gt;;
+
+    public dropdownList: Array&lt;any&gt; &#x3D; [];
+    public tempDropdownList: Array&lt;any&gt; &#x3D; [];
+
+    // @Input() dropdownList;
+
+    @Output() onDropdownChanged: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+
+    private dropdownObject: any &#x3D; {};
+    private dropdownEditObject: any &#x3D; {};
+    private newPolicyTypeObject: any &#x3D; {};
+    private newDropdownIndex: number;
+    public dropdown: any &#x3D; {};
+
+    public editDropdownForm: FormGroup;
+    public addDropdownForm: FormGroup;
+    public modalRef: BsModalRef;
+    public delModalRef: BsModalRef;
+    public removeModalRef: BsModalRef;
+
+    public filterDropdown;
+
+    /** @ignore */
+    constructor(
+        private formBuilder: FormBuilder,
+        private modalService: BsModalService,
+        private modalConfig: ModalConfig,
+        private _sanitizer: DomSanitizer,
+        private dropdownService: DropdownService,
+        private commonHttpAdapterService: CommonHttpAdapterService
+    ) {}
+
+    /** @ignore */
+    ngOnInit() {
+
+    }
+
+    /**
+     * To open dropdown modal
+     */
+    openDropdownModal() {
+        this.tempDropdownList &#x3D; this.dropdownList;
+        this.modalRef &#x3D; this.modalService.show(this.dropdownModal, Object.assign({}, this.modalConfig.config, {class: &#x27;modal-md&#x27;}));
+    }
+
+    /**
+     * To close or hide dropdown modal
+     */
+    cancelDropdownModal() {
+        this.modalRef.hide();
+        this.modalRef &#x3D; null;
+
+        // to hide editable mode and disabled property
+        this.tempDropdownList.forEach(element &#x3D;&gt; {
+            element.editable &#x3D; false;
+            element.disabled &#x3D; false;
+        });
+    }
+
+    /** Auto complete list formatter */
+    autocompleListFormatter &#x3D; (data: any): SafeHtml &#x3D;&gt; {
+        const html &#x3D; &#x60;&lt;span&gt;${data.type}&lt;/span&gt;&#x60;;
+        return this._sanitizer.bypassSecurityTrustHtml(html);
+    }
+
+    /**
+     * To open dropdown delete modal
+     */
+    openDropdownDeleteModal(dropdown, index: number) {
+        this.dropdownObject &#x3D; dropdown;
+        this.dropdownObject[&#x27;dropdownIndex&#x27;] &#x3D; index;
+        // tslint:disable-next-line:max-line-length
+        this.delModalRef &#x3D; this.modalService.show(this.dropdownDeleteModal, Object.assign({}, this.modalConfig.config, {class: &#x27;modal-sm deleteTransconfModal&#x27;}));
+    }
+
+    /**
+     * To close dropdown delete modal
+     */
+    closeDropdownDeleteModal() {
+        this.delModalRef.hide();
+        this.delModalRef &#x3D; null;
+    }
+
+    /**
+     * To add a new dropdown
+     * @param number index
+     * @param any dropdown
+     * @param string addType
+     */
+    addDropdown(index: number, dropdown, addType: string) {
+        const obj: any &#x3D; {};
+        this.dropdownObject &#x3D; {};
+        if (addType &#x3D;&#x3D;&#x3D; &#x27;addnew&#x27;) {
+            obj[&#x27;id&#x27;] &#x3D; &#x27;&#x27;;
+            obj[&#x27;dropdownType&#x27;] &#x3D; dropdown[&#x27;dropdownType&#x27;];
+            obj[&#x27;displayText&#x27;] &#x3D; &#x27;&#x27;;
+            obj[&#x27;value&#x27;] &#x3D; &#x27;&#x27;;
+            obj[&#x27;newField&#x27;] &#x3D; true;
+            obj[&#x27;editable&#x27;] &#x3D; false;
+        } else {
+            obj[&#x27;id&#x27;] &#x3D; &#x27;&#x27;;
+            obj[&#x27;dropdownType&#x27;] &#x3D; dropdown[&#x27;dropdownType&#x27;];
+            obj[&#x27;displayText&#x27;] &#x3D; dropdown[&#x27;displayText&#x27;];
+            obj[&#x27;value&#x27;] &#x3D; dropdown[&#x27;value&#x27;];
+            obj[&#x27;newField&#x27;] &#x3D; true;
+            obj[&#x27;editable&#x27;] &#x3D; false;
+        }
+        this.dropdownObject &#x3D; Object.assign({}, obj);
+        this.tempDropdownList.splice(index + 1, 0, obj);
+
+        this.tempDropdownList.forEach(element &#x3D;&gt; {
+            element.disabled &#x3D; true;
+        });
+    }
+
+    /**
+     * To open dropdown remove moda
+     */
+    openDropdownRemoveModal() {
+        // tslint:disable-next-line:max-line-length
+        this.removeModalRef &#x3D; this.modalService.show(this.dropdownRemoveModal, Object.assign({}, this.modalConfig.config, {class: &#x27;modal-sm deleteTransconfModal&#x27;}));
+    }
+
+    /**
+     * To close dropdown remove modal
+     */
+    closeDropdownRemoveModal() {
+        this.removeModalRef.hide();
+        this.removeModalRef &#x3D; null;
+    }
+
+    /**
+     * To cancel or ignore new dropdown
+     * @param number index
+     * @param any dropdown
+     */
+    cancelNewDropdown(index: number, dropdown) {
+        this.newDropdownIndex &#x3D; index;
+        // If input field has value then show popup
+        if (this.dropdownObject[&#x27;displayText&#x27;] || this.dropdownObject[&#x27;value&#x27;]) {
+            this.openDropdownRemoveModal();
+        } else {
+            this.tempDropdownList.splice(this.newDropdownIndex, 1);
+            this.tempDropdownList.forEach(element &#x3D;&gt; {
+                element.disabled &#x3D; false;
+            });
+        }
+    }
+
+    /**
+     * To remove dropdown
+     */
+    removeDropdown() {
+        this.tempDropdownList.splice(this.newDropdownIndex, 1);
+        this.closeDropdownRemoveModal();
+        this.tempDropdownList.forEach(element &#x3D;&gt; {
+            element.disabled &#x3D; false;
+        });
+    }
+
+    /**
+     * To edit dropdown data
+     * @param any dropdown
+     */
+    editDropdown(dropdown) {
+        this.tempDropdownList.forEach(element &#x3D;&gt; {
+            element.editable &#x3D; false;
+            element.disabled &#x3D; true;
+        });
+        // shallow copy of dropdown object
+        this.dropdownObject &#x3D; {};
+        this.dropdownObject &#x3D; Object.assign({}, dropdown);
+        dropdown.disabled &#x3D; false;
+        dropdown.editable &#x3D; true;
+    }
+
+    /**
+     * To cancel editable mode
+     * @param any dropdown
+     */
+    cancelDropdown(dropdown) {
+        this.tempDropdownList.forEach(element &#x3D;&gt; {
+            element.disabled &#x3D; false;
+            element.editable &#x3D; false;
+        });
+        dropdown.editable &#x3D; false;
+        /* console.log(&#x27;**** original dropdown object****&#x27;);
+        this.dropdownObject &#x3D; dropdown;
+        console.log(this.dropdownObject); */
+    }
+
+    /**
+     * To submit new dropdown
+     * @param number index
+     * @param any dropdown
+     */
+    submitDropdown(index: number, dropdown) {
+        document.getElementById(&#x27;dropdownErrMessage&#x27;).innerHTML &#x3D; &#x27;&#x27;;
+        let dropdownData: any &#x3D; {};
+        dropdownData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+        dropdownData[DropdownConstant.DROPDOWN_TYPE] &#x3D; this.dropdownObject[DropdownConstant.DROPDOWN_TYPE];
+        const dropdowObj: any &#x3D; {};
+        if (!this.dropdownObject[DropdownConstant.DROPDOWN_VALUE]) {
+            document.getElementById(&#x27;dropdownErrMessage&#x27;).innerHTML &#x3D; &#x27;Please enter dropdown value&#x27;;
+            return;
+        }
+        if (!this.dropdownObject[DropdownConstant.DROPDOWN_DISPLAY_TEXT]) {
+            document.getElementById(&#x27;dropdownErrMessage&#x27;).innerHTML &#x3D; &#x27;Please enter dropdown text&#x27;;
+            return;
+        }
+        dropdowObj[DropdownConstant.DROPDOWN_VALUE] &#x3D; this.dropdownObject[DropdownConstant.DROPDOWN_VALUE];
+        dropdowObj[DropdownConstant.DROPDOWN_DISPLAY_TEXT] &#x3D; this.dropdownObject[DropdownConstant.DROPDOWN_DISPLAY_TEXT];
+
+        dropdownData[DropdownConstant.DROPDOWN] &#x3D; dropdowObj;
+        dropdownData &#x3D; JSON.stringify(dropdownData);
+
+        this.dropdownService.addDropdownData(dropdownData).subscribe(
+            res &#x3D;&gt; {
+                if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+                    this.onDropdownChanged.emit(dropdownData);
+                    this.tempDropdownList[index] &#x3D; res[CommonConstant.DATA];
+                    // to hide editable mode and disabled property
+                    this.tempDropdownList.forEach(element &#x3D;&gt; {
+                        element.editable &#x3D; false;
+                        element.disabled &#x3D; false;
+                    });
+                } else {
+                    document.getElementById(&#x27;dropdownErrMessage&#x27;).innerHTML &#x3D; res[CommonConstant.MESSAGE];
+                }
+            },
+            error &#x3D;&gt; {
+                document.getElementById(&#x27;dropdownErrMessage&#x27;).innerHTML &#x3D; &#x27;Something went wrong..Please try again.&#x27;
+            }
+        )
+    }
+
+    /**
+     * To update existing dropdown
+     * @param number index
+     * @param any dropdown
+     */
+    updateDropdown(index: number, dropdown) {
+        document.getElementById(&#x27;dropdownErrMessage&#x27;).innerHTML &#x3D; &#x27;&#x27;;
+        let dropdownData: any &#x3D; {};
+        dropdownData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+        dropdownData[CommonConstant.PLAIN_ID] &#x3D; this.dropdownObject[CommonConstant.PLAIN_ID];
+        dropdownData[DropdownConstant.DROPDOWN_VALUE] &#x3D; this.dropdownObject[DropdownConstant.DROPDOWN_VALUE];
+        dropdownData[DropdownConstant.DROPDOWN_DISPLAY_TEXT] &#x3D; this.dropdownObject[DropdownConstant.DROPDOWN_DISPLAY_TEXT];
+
+        dropdownData &#x3D; JSON.stringify(dropdownData);
+
+        this.dropdownService.updateDropdownData(dropdownData).subscribe(
+            res &#x3D;&gt; {
+                if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+                    this.onDropdownChanged.emit(dropdownData);
+                    this.tempDropdownList[index] &#x3D; res[CommonConstant.DATA];
+                    this.tempDropdownList.forEach(element &#x3D;&gt; {
+                        element.editable &#x3D; false;
+                        element.disabled &#x3D; false;
+                    });
+                } else {
+                    document.getElementById(&#x27;dropdownErrMessage&#x27;).innerHTML &#x3D; res[CommonConstant.MESSAGE];
+                }
+            },
+            error &#x3D;&gt; {
+                document.getElementById(&#x27;dropdownErrMessage&#x27;).innerHTML &#x3D; &#x27;Something went wrong..Please try again.&#x27;
+            }
+        )
+    }
+
+    /**
+     * To delete dropdown data
+     */
+    deleteDropdown() {
+        document.getElementById(&#x27;dropdownErrMessage&#x27;).innerHTML &#x3D; &#x27;&#x27;;
+        let dropdownData: any &#x3D; {};
+        dropdownData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+        // dropdownData[DropdownConstant.DROPDOWN_TYPE] &#x3D; dropdown[DropdownConstant.DROPDOWN_TYPE];
+        dropdownData[CommonConstant.PLAIN_ID] &#x3D; this.dropdownObject[CommonConstant.PLAIN_ID];
+
+        dropdownData &#x3D; JSON.stringify(dropdownData);
+
+        this.dropdownService.deleteDropdownData(dropdownData).subscribe(
+            res &#x3D;&gt; {
+                this.closeDropdownDeleteModal();
+                if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+                    this.onDropdownChanged.emit(dropdownData);
+                    this.tempDropdownList.splice(this.dropdownObject[&#x27;dropdownIndex&#x27;], 1);  // remove deleted item
+                    this.tempDropdownList.forEach(element &#x3D;&gt; {
+                        element.editable &#x3D; false;
+                        element.disabled &#x3D; false;
+                    });
+                } else {
+                    document.getElementById(&#x27;dropdownErrMessage&#x27;).innerHTML &#x3D; res[CommonConstant.MESSAGE];
+                }
+            },
+            error &#x3D;&gt; {
+                document.getElementById(&#x27;dropdownErrMessage&#x27;).innerHTML &#x3D; &#x27;Something went wrong..Please try again.&#x27;
+            }
+        )
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;openDropdownModal()&quot;&gt;
+    add Type
+&lt;/button&gt; --&gt;
+
+&lt;ng-template #dropdownModal&gt;
+    &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;cancelDropdownModal()&quot; class&#x3D;&quot;close&quot; aria-label&#x3D;&quot;Close&quot;&gt;
+            &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;h3 class&#x3D;&quot;modal-title&quot;&gt;Dropdown Action&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-12 col-md-12 col-lg-12&quot;&gt;
+                &lt;div class&#x3D;&quot;misc-table-showcase&quot;&gt;
+                    &lt;div class&#x3D;&quot;table b47PM-misc-table1 b47PM-transac-tbl1 b47PM-transaction-tbl1&quot;&gt;
+                        &lt;!-- &lt;header class&#x3D;&quot;clearfix&quot;&gt;
+                                &lt;div&gt;Plan Type&lt;/div&gt;
+                                &lt;div&gt;&amp;nbsp;&lt;/div&gt;
+                            &lt;/header&gt; --&gt;
+                        &lt;div class&#x3D;&quot;record-row transc-row&quot;&gt;
+                            &lt;!-- &lt;input type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;filterDropdown&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;&quot; value&#x3D;&quot;&quot;&gt; --&gt;
+                            &lt;div class&#x3D;&quot;input-group stylish-input-group&quot;&gt;
+                                &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;filterDropdown&quot; placeholder&#x3D;&quot;Search&quot;&gt;
+                                &lt;span class&#x3D;&quot;input-group-addon&quot;&gt;
+                                    &lt;button type&#x3D;&quot;submit&quot;&gt;
+                                        &lt;span class&#x3D;&quot;glyphicon glyphicon-search&quot;&gt;&lt;/span&gt;
+                                    &lt;/button&gt;
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div *ngFor&#x3D;&quot;let dropdown of tempDropdownList | filter: filterDropdown; let i &#x3D; index&quot; class&#x3D;&quot;record-row transc-row&quot;&gt;
+                            &lt;table width&#x3D;&quot;100%&quot; class&#x3D;&quot;table inner-data-table inner-dropdown-table&quot;&gt;
+                                &lt;thead class&#x3D;&quot;edit_no&quot; style&#x3D;&quot;cursor: pointer;&quot;&gt;
+                                    &lt;tr style&#x3D;&quot;background-color: #bce8f1;height: 30px&quot; *ngIf&#x3D;&quot;i &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+                                        &lt;th&gt;Display Text&lt;/th&gt;
+                                        &lt;th&gt;Value&lt;/th&gt;
+                                        &lt;th&gt;&amp;nbsp;&lt;/th&gt;
+                                    &lt;/tr&gt;
+                                    &lt;tr&gt;
+                                        &lt;th&gt;
+                                            &lt;span *ngIf&#x3D;&quot;!dropdown.editable &amp;&amp; !dropdown.newField&quot; class&#x3D;&quot;text&quot;&gt;{{dropdown.displayText}}&lt;/span&gt;
+                                            &lt;input *ngIf&#x3D;&quot;dropdown.editable &amp;&amp; !dropdown.newField&quot; type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;dropdownObject.displayText&quot; class&#x3D;&quot;form-control&quot;&gt;
+                                            &lt;input *ngIf&#x3D;&quot;dropdown.newField&quot; type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;dropdownObject.displayText&quot; class&#x3D;&quot;form-control&quot;&gt;
+                                        &lt;/th&gt;
+                                        &lt;th&gt;
+                                            &lt;span *ngIf&#x3D;&quot;!dropdown.editable &amp;&amp; !dropdown.newField&quot; class&#x3D;&quot;text&quot;&gt;{{dropdown.value}}&lt;/span&gt;
+                                            &lt;input *ngIf&#x3D;&quot;dropdown.editable &amp;&amp; !dropdown.newField&quot; type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;dropdownObject.value&quot; class&#x3D;&quot;form-control&quot;&gt;
+                                            &lt;input *ngIf&#x3D;&quot;dropdown.newField&quot; type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;dropdownObject.value&quot; class&#x3D;&quot;form-control&quot;&gt;
+                                        &lt;/th&gt;
+                                        &lt;th&gt;
+                                            &lt;!-- add, edit and delete --&gt;
+                                            &lt;button *ngIf&#x3D;&quot;!dropdown.newField &amp;&amp; !dropdown.editable&quot; class&#x3D;&quot;pull-right btn split-dropdown-btn&quot; (click)&#x3D;&quot;addDropdown(i, dropdown, &#x27;addnew&#x27;)&quot;
+                                                [disabled]&#x3D;&quot;dropdown.disabled&quot; title&#x3D;&quot;Add New&quot;&gt;
+                                                &lt;img src&#x3D;&quot;/assets/img/transaction/add.svg&quot; width&#x3D;&quot;15px&quot;&gt;
+                                            &lt;/button&gt;
+                                            &lt;button *ngIf&#x3D;&quot;!dropdown.newField &amp;&amp; !dropdown.editable&quot; class&#x3D;&quot;pull-right btn split-dropdown-btn&quot; (click)&#x3D;&quot;addDropdown(i, dropdown, &#x27;copyandcreatenew&#x27;)&quot;
+                                                [disabled]&#x3D;&quot;dropdown.disabled&quot; title&#x3D;&quot;Copy And Create New&quot;&gt;
+                                                &lt;img src&#x3D;&quot;/assets/img/transaction/clone.svg&quot; width&#x3D;&quot;17px&quot;&gt;
+                                            &lt;/button&gt;
+                                            &lt;button *ngIf&#x3D;&quot;!dropdown.newField &amp;&amp; !dropdown.editable&quot; class&#x3D;&quot;pull-right btn delete-dropdown-btn&quot;
+                                                (click)&#x3D;&quot;openDropdownDeleteModal(dropdown, i)&quot;
+                                                [disabled]&#x3D;&quot;dropdown.disabled&quot; title&#x3D;&quot;Delete&quot;&gt;
+                                                &lt;img src&#x3D;&quot;/assets/img/transaction/delete2.svg&quot; width&#x3D;&quot;18px&quot;&gt;
+                                            &lt;/button&gt;
+                                            &lt;button *ngIf&#x3D;&quot;!dropdown.newField &amp;&amp; !dropdown.editable&quot; class&#x3D;&quot;pull-right btn edit-dropdown-btn&quot; (click)&#x3D;&quot;editDropdown(dropdown)&quot;
+                                                [disabled]&#x3D;&quot;dropdown.disabled&quot; title&#x3D;&quot;Edit&quot;&gt;
+                                                &lt;img src&#x3D;&quot;/assets/img/transaction/edit_multiple2.svg&quot; width&#x3D;&quot;25px&quot;&gt;
+                                            &lt;/button&gt;
+
+                                            &lt;!-- update --&gt;
+                                            &lt;button *ngIf&#x3D;&quot;dropdown.editable &amp;&amp; !dropdown.newField&quot; class&#x3D;&quot;pull-right btn edit-dropdown-btn&quot; (click)&#x3D;&quot;cancelDropdown(dropdown)&quot;
+                                                title&#x3D;&quot;Cancel&quot;&gt;
+                                                &lt;img src&#x3D;&quot;/assets/img/transaction/cancel.svg&quot; width&#x3D;&quot;15px&quot;&gt;
+                                            &lt;/button&gt;
+                                            &lt;button *ngIf&#x3D;&quot;dropdown.editable &amp;&amp; !dropdown.newField&quot; class&#x3D;&quot;pull-right btn edit-dropdown-btn&quot; (click)&#x3D;&quot;updateDropdown(i, dropdown)&quot;
+                                                title&#x3D;&quot;Save&quot;&gt;
+                                                &lt;img src&#x3D;&quot;/assets/img/transaction/save.svg&quot; width&#x3D;&quot;20px&quot;&gt;
+                                            &lt;/button&gt;
+
+                                            &lt;!-- add new --&gt;
+                                            &lt;button *ngIf&#x3D;&quot;dropdown.newField&quot; class&#x3D;&quot;pull-right btn edit-dropdown-btn&quot; (click)&#x3D;&quot;cancelNewDropdown(i, dropdown)&quot;
+                                                title&#x3D;&quot;Cancel&quot;&gt;
+                                                &lt;img src&#x3D;&quot;/assets/img/transaction/cancel.svg&quot; width&#x3D;&quot;15px&quot;&gt;
+                                            &lt;/button&gt;
+                                            &lt;button *ngIf&#x3D;&quot;dropdown.newField&quot; class&#x3D;&quot;pull-right btn edit-dropdown-btn&quot; (click)&#x3D;&quot;submitDropdown(i, dropdown)&quot; title&#x3D;&quot;Submit&quot;&gt;
+                                                &lt;img src&#x3D;&quot;/assets/img/transaction/save.svg&quot; width&#x3D;&quot;20px&quot;&gt;
+                                            &lt;/button&gt;
+                                            &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+                                        &lt;/th&gt;
+                                    &lt;/tr&gt;
+                                &lt;/thead&gt;
+                            &lt;/table&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;modal-footer dropdown-modal-footer&quot;&gt;
+        &lt;span class&#x3D;&quot;pm-red&quot; id&#x3D;&quot;dropdownErrMessage&quot; style&#x3D;&quot;float: left; width: 72%;text-align: left&quot;&gt;&lt;/span&gt;
+        &lt;input type&#x3D;&quot;button&quot; (click)&#x3D;&quot;cancelDropdownModal()&quot; class&#x3D;&quot;b47PM-dCancel-btn&quot; value&#x3D;&quot;CANCEL&quot;&gt;
+    &lt;/div&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #dropdownDeleteModal&gt;
+    &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; aria-label&#x3D;&quot;Close&quot;&gt;
+            &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+        &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+            &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+                &lt;p&gt;Are you sure want to delete permanently.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+                &lt;input type&#x3D;&quot;button&quot; (click)&#x3D;&quot;deleteDropdown()&quot; class&#x3D;&quot;b47PM-deltran-btn&quot; value&#x3D;&quot;DELETE&quot;&gt;
+                &lt;!-- &lt;img ng-if&#x3D;&quot;vm.delTxnDataLoading&quot; src&#x3D;&quot;img/loader/spin.gif&quot; /&gt; --&gt;
+                &lt;input type&#x3D;&quot;button&quot; (click)&#x3D;&quot;closeDropdownDeleteModal()&quot; class&#x3D;&quot;b47PM-dCancel-btn&quot; value&#x3D;&quot;CANCEL&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #dropdownRemoveModal&gt;
+    &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;closeDropdownRemoveModal()&quot; class&#x3D;&quot;close&quot; aria-label&#x3D;&quot;Close&quot;&gt;
+            &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+        &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+            &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+                &lt;p&gt;Cancelling this will delete this row, no value would be save.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+                &lt;input type&#x3D;&quot;button&quot; (click)&#x3D;&quot;removeDropdown()&quot; class&#x3D;&quot;b47PM-deltran-btn&quot; value&#x3D;&quot;REMOVE&quot;&gt;
+                &lt;!-- &lt;img ng-if&#x3D;&quot;vm.delTxnDataLoading&quot; src&#x3D;&quot;img/loader/spin.gif&quot; /&gt; --&gt;
+                &lt;input type&#x3D;&quot;button&quot; (click)&#x3D;&quot;closeDropdownRemoveModal()&quot; class&#x3D;&quot;b47PM-dCancel-btn&quot; value&#x3D;&quot;CANCEL&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/ng-template&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>dropdown.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.nav-tabs { border-bottom: 2px solid #DDD; }
+.nav-tabs &gt; li.active &gt; a, .nav-tabs &gt; li.active &gt; a:focus, .nav-tabs &gt; li.active &gt; a:hover { border-width: 0; }
+.nav-tabs &gt; li &gt; a { border: none; color: #666; }
+    .nav-tabs &gt; li.active &gt; a, .nav-tabs &gt; li &gt; a:hover { border: none; color: #4285F4 !important; background: transparent; }
+    .nav-tabs &gt; li &gt; a::after { content: &quot;&quot;; background: #4285F4; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
+.nav-tabs &gt; li.active &gt; a::after, .nav-tabs &gt; li:hover &gt; a::after { transform: scale(1); }
+.tab-nav &gt; li &gt; a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
+.tab-pane { padding: 15px 0; }
+.tab-content{padding:20px}
+
+.card {background: #FFF none repeat scroll 0% 0%; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); margin-bottom: 30px; }
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- <button type="button" (click)="openDropdownModal()">    add Type</button> --><ng-template #dropdownModal>    <div class="modal-header">        <button type="button" (click)="cancelDropdownModal()" class="close" aria-label="Close">            <span aria-hidden="true">&times;</span>        </button>        <h3 class="modal-title">Dropdown Action</h3>    </div>    <div class="modal-body">        <div class="row">            <div class="col-sm-12 col-md-12 col-lg-12">                <div class="misc-table-showcase">                    <div class="table b47PM-misc-table1 b47PM-transac-tbl1 b47PM-transaction-tbl1">                        <!-- <header class="clearfix">                                <div>Plan Type</div>                                <div>&nbsp;</div>                            </header> -->                        <div class="record-row transc-row">                            <!-- <input type="text" [(ngModel)]="filterDropdown" class="form-control" id="" value=""> -->                            <div class="input-group stylish-input-group">                                <input type="text" class="form-control" [(ngModel)]="filterDropdown" placeholder="Search">                                <span class="input-group-addon">                                    <button type="submit">                                        <span class="glyphicon glyphicon-search"></span>                                    </button>                                </span>                            </div>                        </div>                        <div *ngFor="let dropdown of tempDropdownList | filter: filterDropdown; let i = index" class="record-row transc-row">                            <table width="100%" class="table inner-data-table inner-dropdown-table">                                <thead class="edit_no" style="cursor: pointer;">                                    <tr style="background-color: #bce8f1;height: 30px" *ngIf="i === 0">                                        <th>Display Text</th>                                        <th>Value</th>                                        <th>&nbsp;</th>                                    </tr>                                    <tr>                                        <th>                                            <span *ngIf="!dropdown.editable && !dropdown.newField" class="text">{{dropdown.displayText}}</span>                                            <input *ngIf="dropdown.editable && !dropdown.newField" type="text" [(ngModel)]="dropdownObject.displayText" class="form-control">                                            <input *ngIf="dropdown.newField" type="text" [(ngModel)]="dropdownObject.displayText" class="form-control">                                        </th>                                        <th>                                            <span *ngIf="!dropdown.editable && !dropdown.newField" class="text">{{dropdown.value}}</span>                                            <input *ngIf="dropdown.editable && !dropdown.newField" type="text" [(ngModel)]="dropdownObject.value" class="form-control">                                            <input *ngIf="dropdown.newField" type="text" [(ngModel)]="dropdownObject.value" class="form-control">                                        </th>                                        <th>                                            <!-- add, edit and delete -->                                            <button *ngIf="!dropdown.newField && !dropdown.editable" class="pull-right btn split-dropdown-btn" (click)="addDropdown(i, dropdown, \'addnew\')"                                                [disabled]="dropdown.disabled" title="Add New">                                                <img src="/assets/img/transaction/add.svg" width="15px">                                            </button>                                            <button *ngIf="!dropdown.newField && !dropdown.editable" class="pull-right btn split-dropdown-btn" (click)="addDropdown(i, dropdown, \'copyandcreatenew\')"                                                [disabled]="dropdown.disabled" title="Copy And Create New">                                                <img src="/assets/img/transaction/clone.svg" width="17px">                                            </button>                                            <button *ngIf="!dropdown.newField && !dropdown.editable" class="pull-right btn delete-dropdown-btn"                                                (click)="openDropdownDeleteModal(dropdown, i)"                                                [disabled]="dropdown.disabled" title="Delete">                                                <img src="/assets/img/transaction/delete2.svg" width="18px">                                            </button>                                            <button *ngIf="!dropdown.newField && !dropdown.editable" class="pull-right btn edit-dropdown-btn" (click)="editDropdown(dropdown)"                                                [disabled]="dropdown.disabled" title="Edit">                                                <img src="/assets/img/transaction/edit_multiple2.svg" width="25px">                                            </button>                                            <!-- update -->                                            <button *ngIf="dropdown.editable && !dropdown.newField" class="pull-right btn edit-dropdown-btn" (click)="cancelDropdown(dropdown)"                                                title="Cancel">                                                <img src="/assets/img/transaction/cancel.svg" width="15px">                                            </button>                                            <button *ngIf="dropdown.editable && !dropdown.newField" class="pull-right btn edit-dropdown-btn" (click)="updateDropdown(i, dropdown)"                                                title="Save">                                                <img src="/assets/img/transaction/save.svg" width="20px">                                            </button>                                            <!-- add new -->                                            <button *ngIf="dropdown.newField" class="pull-right btn edit-dropdown-btn" (click)="cancelNewDropdown(i, dropdown)"                                                title="Cancel">                                                <img src="/assets/img/transaction/cancel.svg" width="15px">                                            </button>                                            <button *ngIf="dropdown.newField" class="pull-right btn edit-dropdown-btn" (click)="submitDropdown(i, dropdown)" title="Submit">                                                <img src="/assets/img/transaction/save.svg" width="20px">                                            </button>                                            <div class="clearfix"></div>                                        </th>                                    </tr>                                </thead>                            </table>                        </div>                    </div>                </div>            </div>        </div>    </div>    <div class="modal-footer dropdown-modal-footer">        <span class="pm-red" id="dropdownErrMessage" style="float: left; width: 72%;text-align: left"></span>        <input type="button" (click)="cancelDropdownModal()" class="b47PM-dCancel-btn" value="CANCEL">    </div></ng-template><ng-template #dropdownDeleteModal>    <div class="modal-header">        <button type="button" class="close" aria-label="Close">            <span aria-hidden="true">&times;</span>        </button>    </div>    <div class="modal-body">        <div class="row clearfix">            <div class="col-md-12" align="center">                <p>Are you sure want to delete permanently.</p>            </div>            <div class="col-md-12" align="center">                <input type="button" (click)="deleteDropdown()" class="b47PM-deltran-btn" value="DELETE">                <!-- <img ng-if="vm.delTxnDataLoading" src="img/loader/spin.gif" /> -->                <input type="button" (click)="closeDropdownDeleteModal()" class="b47PM-dCancel-btn" value="CANCEL">            </div>        </div>    </div></ng-template><ng-template #dropdownRemoveModal>    <div class="modal-header">        <button type="button" (click)="closeDropdownRemoveModal()" class="close" aria-label="Close">            <span aria-hidden="true">&times;</span>        </button>    </div>    <div class="modal-body">        <div class="row clearfix">            <div class="col-md-12" align="center">                <p>Cancelling this will delete this row, no value would be save.</p>            </div>            <div class="col-md-12" align="center">                <input type="button" (click)="removeDropdown()" class="b47PM-deltran-btn" value="REMOVE">                <!-- <img ng-if="vm.delTxnDataLoading" src="img/loader/spin.gif" /> -->                <input type="button" (click)="closeDropdownRemoveModal()" class="b47PM-dCancel-btn" value="CANCEL">            </div>        </div>    </div></ng-template></div>'
+    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AdminDropdownComponent', 'selector': 'app-admin-dropdown'},{'name': 'AlertComponent', 'selector': 'alert'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorisedFooterComponent', 'selector': 'app-authorised-footer'},{'name': 'AuthorisedHeaderComponent', 'selector': 'app-authorised-header'},{'name': 'BatchReportComponent', 'selector': 'app-batch-report'},{'name': 'BeforeLoginFooterComponent', 'selector': 'app-before-login-footer'},{'name': 'BeforeLoginHeaderComponent', 'selector': 'app-before-login-header'},{'name': 'BudgetComponent', 'selector': 'app-budget'},{'name': 'CarrierComponent', 'selector': 'app-carrier'},{'name': 'CarrierInformationComponent', 'selector': 'app-carrier-information'},{'name': 'CarrierMenuComponent', 'selector': 'app-carrier-menu-temp'},{'name': 'ClientAdvisorsComponent', 'selector': 'app-client-advisors'},{'name': 'CommonNotificationComponent', 'selector': 'app-common-notification'},{'name': 'CustomOutputComponent', 'selector': 'app-custom-output'},{'name': 'DeleteComponent', 'selector': 'app-delete'},{'name': 'DropdownComponent', 'selector': 'app-dropdown'},{'name': 'FactFinderComponent', 'selector': 'app-fact-finder'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'InvestmentComponent', 'selector': 'app-investment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'NewPolicyComponent', 'selector': 'app-new-policy'},{'name': 'PageNotFoundComponent', 'selector': ''},{'name': 'PlanComponent', 'selector': 'app-plan'},{'name': 'PolicyInformationComponent', 'selector': 'app-policy-information'},{'name': 'PreviewComponent', 'selector': 'app-preview'},{'name': 'RepositoryComponent', 'selector': 'app-repository'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewComponent', 'selector': 'app-review'},{'name': 'RiderCommissionComponent', 'selector': 'app-rider-commission'},{'name': 'RiderMenuComponent', 'selector': 'app-rider-menu-temp'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StatementRepositoryComponent', 'selector': 'app-statement-repository'},{'name': 'TransactionComponent', 'selector': 'app-transaction'},{'name': 'XmlfileComponent', 'selector': 'app-xmlfile'},{'name': 'XMLViewerComponent', 'selector': 'app-xml-viewer'}];
+    var DIRECTIVES = [{'name': 'AppRestrictSpecialCharDirective', 'selector': '[appRestrictSplChar]'},{'name': 'MyCurrencyFormatterDirective', 'selector': '[appNumberFormatter]'},{'name': 'OnlyNumberDirective', 'selector': '[appOnlyNumber]'},{'name': 'RestrictSpecialCharacterDirective', 'selector': '[appModelRestrictSplChar]'},{'name': 'UpperCaseDirective', 'selector': '[appControlUpperCase]'}];
+    var ACTUAL_COMPONENT = {'name': 'DropdownComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DropdownComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

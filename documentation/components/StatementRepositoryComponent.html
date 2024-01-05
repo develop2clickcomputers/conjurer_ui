@@ -1,0 +1,2363 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>conjurer documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">conjurer documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>StatementRepositoryComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/repository/statement-repository/statement-repository.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Statement Repository Component Class</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code><a href="../injectables/StatementRepositoryService.html" target="_self" >StatementRepositoryService</a></code>
+                            <code><a href="../injectables/CommonHttpAdapterService.html" target="_self" >CommonHttpAdapterService</a></code>
+                            <code><a href="../injectables/RxJSHelper.html" target="_self" >RxJSHelper</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-statement-repository</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./statement-repository.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./statement-repository.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#deleteStatementModal">deleteStatementModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteStatementModalRef">deleteStatementModalRef</a>
+                            </li>
+                            <li>
+                                <a href="#delStatementDataLoading">delStatementDataLoading</a>
+                            </li>
+                            <li>
+                                <a href="#hasFilter">hasFilter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#p">p</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#pagesize">pagesize</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#search">search</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#searchInst">searchInst</a>
+                            </li>
+                            <li>
+                                <a href="#selectedManualInstitution">selectedManualInstitution</a>
+                            </li>
+                            <li>
+                                <a href="#statementData">statementData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#statementObj">statementObj</a>
+                            </li>
+                            <li>
+                                <a href="#statementRepoError">statementRepoError</a>
+                            </li>
+                            <li>
+                                <a href="#statementRepoPageLoad">statementRepoPageLoad</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#statmentRepositoryData">statmentRepositoryData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stmtRepoFileDataByInstitution">stmtRepoFileDataByInstitution</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#xmlFileList">xmlFileList</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#arrangeStatementRepoData">arrangeStatementRepoData</a>
+                            </li>
+                            <li>
+                                <a href="#cancelDeleteStatementModal">cancelDeleteStatementModal</a>
+                            </li>
+                            <li>
+                                <a href="#checkInstitutionValue">checkInstitutionValue</a>
+                            </li>
+                            <li>
+                                <a href="#clearAllFilter">clearAllFilter</a>
+                            </li>
+                            <li>
+                                <a href="#closeModals">closeModals</a>
+                            </li>
+                            <li>
+                                <a href="#deleteStatement">deleteStatement</a>
+                            </li>
+                            <li>
+                                <a href="#downloadPdfStatement">downloadPdfStatement</a>
+                            </li>
+                            <li>
+                                <a href="#downloadXmlFiles">downloadXmlFiles</a>
+                            </li>
+                            <li>
+                                <a href="#getStatementRepositoryData">getStatementRepositoryData</a>
+                            </li>
+                            <li>
+                                <a href="#getXMLFilesFromStatements">getXMLFilesFromStatements</a>
+                            </li>
+                            <li>
+                                <a href="#openDeleteStatementModal">openDeleteStatementModal</a>
+                            </li>
+                            <li>
+                                <a href="#prepareStatementDelete">prepareStatementDelete</a>
+                            </li>
+                            <li>
+                                <a href="#setFilter">setFilter</a>
+                            </li>
+                            <li>
+                                <a href="#showFilterData">showFilterData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="arrangeStatementRepoData"></a>
+                        <span class="name">
+                            <b>
+                            arrangeStatementRepoData
+                            </b>
+                            <a href="#arrangeStatementRepoData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>arrangeStatementRepoData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:134</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To arrange data by statement date and institution </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cancelDeleteStatementModal"></a>
+                        <span class="name">
+                            <b>
+                            cancelDeleteStatementModal
+                            </b>
+                            <a href="#cancelDeleteStatementModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>cancelDeleteStatementModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="252" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:252</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To close deleteStatementModal </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checkInstitutionValue"></a>
+                        <span class="name">
+                            <b>
+                            checkInstitutionValue
+                            </b>
+                            <a href="#checkInstitutionValue"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>checkInstitutionValue(obj: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, list: any[])</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:123</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To check statement date</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>obj</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>list</td>
+                                                        <td>
+                                                                    <code>any[]</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clearAllFilter"></a>
+                        <span class="name">
+                            <b>
+                            clearAllFilter
+                            </b>
+                            <a href="#clearAllFilter"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>clearAllFilter()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:162</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To clear filter </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="closeModals"></a>
+                        <span class="name">
+                            <b>
+                            closeModals
+                            </b>
+                            <a href="#closeModals"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>closeModals()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:92</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To close modals </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteStatement"></a>
+                        <span class="name">
+                            <b>
+                            deleteStatement
+                            </b>
+                            <a href="#deleteStatement"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>deleteStatement()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="272" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:272</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To delete pdf statement </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="downloadPdfStatement"></a>
+                        <span class="name">
+                            <b>
+                            downloadPdfStatement
+                            </b>
+                            <a href="#downloadPdfStatement"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>downloadPdfStatement(statement: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="316" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:316</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To download pdf statement</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>statement</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="downloadXmlFiles"></a>
+                        <span class="name">
+                            <b>
+                            downloadXmlFiles
+                            </b>
+                            <a href="#downloadXmlFiles"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>downloadXmlFiles(xmlData: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="353" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:353</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To download xml file</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>xmlData</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getStatementRepositoryData"></a>
+                        <span class="name">
+                            <b>
+                            getStatementRepositoryData
+                            </b>
+                            <a href="#getStatementRepositoryData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getStatementRepositoryData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:98</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get statement repository details </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getXMLFilesFromStatements"></a>
+                        <span class="name">
+                            <b>
+                            getXMLFilesFromStatements
+                            </b>
+                            <a href="#getXMLFilesFromStatements"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getXMLFilesFromStatements(statement: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="236" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:236</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get xml files object from statement</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>statement</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="openDeleteStatementModal"></a>
+                        <span class="name">
+                            <b>
+                            openDeleteStatementModal
+                            </b>
+                            <a href="#openDeleteStatementModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>openDeleteStatementModal(template: TemplateRef<any>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="246" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:246</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To open delete Statement modal</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>template</td>
+                                                        <td>
+                                                                    <code>TemplateRef&lt;any&gt;</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="prepareStatementDelete"></a>
+                        <span class="name">
+                            <b>
+                            prepareStatementDelete
+                            </b>
+                            <a href="#prepareStatementDelete"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>prepareStatementDelete(statement: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="264" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:264</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To prepare delete statement</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>statement</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setFilter"></a>
+                        <span class="name">
+                            <b>
+                            setFilter
+                            </b>
+                            <a href="#setFilter"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setFilter()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="178" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:178</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To set filter </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showFilterData"></a>
+                        <span class="name">
+                            <b>
+                            showFilterData
+                            </b>
+                            <a href="#showFilterData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>showFilterData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="194" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:194</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To show filter drop down data </p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteStatementModal"></a>
+                        <span class="name">
+                            <b>
+                            deleteStatementModal</b>
+                            <a href="#deleteStatementModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;deleteStatementModal&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Delete statement modal reference </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteStatementModalRef"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            deleteStatementModalRef</b>
+                            <a href="#deleteStatementModalRef"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>BsModalRef</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="delStatementDataLoading"></a>
+                        <span class="name">
+                            <b>
+                            delStatementDataLoading</b>
+                            <a href="#delStatementDataLoading"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:53</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hasFilter"></a>
+                        <span class="name">
+                            <b>
+                            hasFilter</b>
+                            <a href="#hasFilter"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="p"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            p</b>
+                            <a href="#p"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>1</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pagesize"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            pagesize</b>
+                            <a href="#pagesize"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>10</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="search"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            search</b>
+                            <a href="#search"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    accountType: &#x27;&#x27;,
+    accountNumber: &#x27;&#x27;,
+    country: &#x27;&#x27;,
+    filterMonth: &#x27;&#x27;
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="searchInst"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            searchInst</b>
+                            <a href="#searchInst"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    institutionName: &#x27;&#x27;
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedManualInstitution"></a>
+                        <span class="name">
+                            <b>
+                            selectedManualInstitution</b>
+                            <a href="#selectedManualInstitution"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="statementData"></a>
+                        <span class="name">
+                            <b>
+                            statementData</b>
+                            <a href="#statementData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    &#x27;accountType&#x27;: [],
+    &#x27;accountNumber&#x27;: [],
+    &#x27;institutionName&#x27;: [],
+    &#x27;country&#x27;: [],
+    &#x27;filterMonth&#x27;: []
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:57</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="statementObj"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            statementObj</b>
+                            <a href="#statementObj"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="statementRepoError"></a>
+                        <span class="name">
+                            <b>
+                            statementRepoError</b>
+                            <a href="#statementRepoError"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="statementRepoPageLoad"></a>
+                        <span class="name">
+                            <b>
+                            statementRepoPageLoad</b>
+                            <a href="#statementRepoPageLoad"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="statmentRepositoryData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            statmentRepositoryData</b>
+                            <a href="#statmentRepositoryData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stmtRepoFileDataByInstitution"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            stmtRepoFileDataByInstitution</b>
+                            <a href="#stmtRepoFileDataByInstitution"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="xmlFileList"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            xmlFileList</b>
+                            <a href="#xmlFileList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/repository/statement-repository/statement-repository.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild, TemplateRef, OnDestroy } from &#x27;@angular/core&#x27;;
+import { Title } from &#x27;@angular/platform-browser&#x27;;
+
+import &#x27;rxjs/add/operator/takeUntil&#x27;;
+import { RxJSHelper } from &#x27;../../helpers/rxjs-helper/rxjs.helper&#x27;;
+
+import { BsModalService } from &#x27;ngx-bootstrap/modal&#x27;;
+import { BsModalRef } from &#x27;ngx-bootstrap/modal/modal-options.class&#x27;;
+import { ModalConfig } from &#x27;../../shared/common/modal.config&#x27;;
+
+import { CommonConstant } from &#x27;../../constants/common/common.constant&#x27;;
+import { StatementRepositoryConstant } from &#x27;../../constants/statement-repository/statement-repository.constant&#x27;;
+
+import { StatementRepositoryService } from &#x27;./statement-repository.service&#x27;;
+import { CommonHttpAdapterService } from &#x27;../../adapters/common-http-adapter.service&#x27;;
+
+/**
+ * Statement Repository Component Class
+ */
+@Component({
+  selector: &#x27;app-statement-repository&#x27;,
+  templateUrl: &#x27;./statement-repository.component.html&#x27;,
+  styleUrls: [&#x27;./statement-repository.component.css&#x27;],
+  providers: [
+    StatementRepositoryService, CommonHttpAdapterService, RxJSHelper
+  ]
+})
+export class StatementRepositoryComponent implements OnInit, OnDestroy {
+
+  /** Delete statement modal reference */
+  @ViewChild(&#x27;deleteStatementModal&#x27;) deleteStatementModal: TemplateRef&lt;any&gt;
+
+  public statmentRepositoryData: any &#x3D; [];
+  public xmlFileList: any &#x3D; [];
+  public stmtRepoFileDataByInstitution: Array&lt;any&gt; &#x3D; [];
+  private statementObj: any &#x3D; {};
+  public deleteStatementModalRef: BsModalRef;
+  public p &#x3D; 1;
+  public pagesize &#x3D; 10;
+  public search: any &#x3D; {
+    accountType: &#x27;&#x27;,
+    accountNumber: &#x27;&#x27;,
+    country: &#x27;&#x27;,
+    filterMonth: &#x27;&#x27;
+  };
+  public searchInst &#x3D; {
+    institutionName: &#x27;&#x27;
+  };
+  hasFilter &#x3D; false;
+  statementRepoError &#x3D; false;
+  statementRepoPageLoad &#x3D; false;
+
+  delStatementDataLoading &#x3D; false;
+  selectedManualInstitution &#x3D; false;
+
+  // initialize statementData to get data for all filters
+  statementData: any &#x3D; {
+    &#x27;accountType&#x27;: [],
+    &#x27;accountNumber&#x27;: [],
+    &#x27;institutionName&#x27;: [],
+    &#x27;country&#x27;: [],
+    &#x27;filterMonth&#x27;: []
+  };
+
+  /** @ignore */
+  constructor(
+    private titleService: Title,
+    private statementRepositoryService: StatementRepositoryService,
+    private commonHttpAdapterService: CommonHttpAdapterService,
+    private modalService: BsModalService,
+    private modalConfig: ModalConfig,
+    private rxjsHelper: RxJSHelper
+  ) {
+    /** To set the page title */
+    this.titleService.setTitle(&#x27;Conjurer | Statement Repo&#x27;);
+  }
+
+  /** @ignore */
+  ngOnInit() {
+    this.getStatementRepositoryData();
+  }
+
+  /** @ignore */
+  ngOnDestroy() {
+    this.rxjsHelper.unSubscribeServices.next();
+    this.rxjsHelper.unSubscribeServices.complete();
+
+    this.closeModals();
+  }
+
+  /** To close modals */
+  closeModals() {
+    this.cancelDeleteStatementModal();
+  }
+
+
+  /**To get statement repository details */
+  getStatementRepositoryData() {
+    this.statementRepositoryService.getStatementRepositoryDetails().subscribe(
+      res &#x3D;&gt; {
+        this.statementRepoError &#x3D; false;
+        this.statementRepoPageLoad &#x3D; true;
+        if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+          this.statmentRepositoryData &#x3D; res.statementDetails;
+          this.arrangeStatementRepoData();
+          this.showFilterData();
+        } else {
+          console.log(&#x27;Something went wrong&#x27;);
+        }
+      },
+      error &#x3D;&gt; {
+        this.statementRepoError &#x3D; true;
+        console.log(&#x27;Something went wrong&#x27;);
+      }
+    )
+  }
+
+  /**
+   * To check statement date
+   * @param any obj
+   * @param any[] list
+   */
+  checkInstitutionValue(obj: any, list: any[]) {
+    let i;
+    for (i &#x3D; 0; i &lt; list.length; i++) {
+      if (list[i].institutionName &#x3D;&#x3D;&#x3D; obj.institutionName) {
+        return i;
+      }
+    }
+    return false;
+  }
+
+  /**  To arrange data by statement date and institution */
+  arrangeStatementRepoData() {
+    if (this.statmentRepositoryData) {
+
+      let xmlFilesDataByInstitutionObject: Object &#x3D; {}
+      const xmlFilesDataByInstitutionArray: Array&lt;any&gt; &#x3D; [];
+
+      this.statmentRepositoryData.forEach((element, key) &#x3D;&gt; {
+        // arrange data by institution name
+        xmlFilesDataByInstitutionObject &#x3D; {};
+        const instIndex &#x3D; this.checkInstitutionValue(element, xmlFilesDataByInstitutionArray);
+        if (instIndex &#x3D;&#x3D;&#x3D; 0 || instIndex &gt; 0) {
+          xmlFilesDataByInstitutionArray[instIndex].statementDetails.push(element);
+        } else {
+          xmlFilesDataByInstitutionObject[&#x27;institutionName&#x27;] &#x3D; element.institutionName;
+          xmlFilesDataByInstitutionObject[&#x27;statementDetails&#x27;] &#x3D; [];
+          xmlFilesDataByInstitutionObject[&#x27;statementDetails&#x27;].push(element);
+        }
+        if (Object.keys(xmlFilesDataByInstitutionObject).length &gt; 0) {
+          xmlFilesDataByInstitutionArray.push(xmlFilesDataByInstitutionObject);
+        }
+
+      });
+
+      this.stmtRepoFileDataByInstitution &#x3D; xmlFilesDataByInstitutionArray;
+    }
+  }
+
+  /** To clear filter */
+  clearAllFilter() {
+    this.search &#x3D; {
+      accountType: &#x27;&#x27;,
+      accountNumber: &#x27;&#x27;,
+      country: &#x27;&#x27;,
+      filterMonth: &#x27;&#x27;
+    };
+
+    this.searchInst &#x3D; {
+      institutionName: &#x27;&#x27;
+    }
+
+    this.hasFilter &#x3D; false;
+  }
+
+  /** To set filter */
+  setFilter() {
+    let count &#x3D; 0;
+    if (this.searchInst.institutionName &#x3D;&#x3D;&#x3D; &#x27;&#x27; ) { count++; }
+    if (this.search.accountType &#x3D;&#x3D;&#x3D; &#x27;&#x27; ) { count++; }
+    if (this.search.accountNumber &#x3D;&#x3D;&#x3D; &#x27;&#x27; ) { count++; }
+    if (this.search.country &#x3D;&#x3D;&#x3D; &#x27;&#x27; ) { count++; }
+    if (this.search.filterMonth &#x3D;&#x3D;&#x3D; &#x27;&#x27; ) { count++; }
+
+    if (count &#x3D;&#x3D;&#x3D; 5) {
+        this.hasFilter &#x3D; false;
+    } else if (count &lt; 5) {
+        this.hasFilter &#x3D; true;
+    }
+  }
+
+  /**To show filter drop down data */
+  showFilterData() {
+    if (this.statmentRepositoryData) {
+      // initialize search for filters
+      this.search &#x3D; {
+          accountType: &#x27;&#x27;,
+          accountNumber: &#x27;&#x27;,
+          institutionName: &#x27;&#x27;,
+          country: &#x27;&#x27;,
+          filterMonth: &#x27;&#x27;
+      };
+
+      this.searchInst &#x3D; {
+        institutionName: &#x27;&#x27;
+      };
+
+      // To clear all the filter
+      this.clearAllFilter();
+
+      this.statmentRepositoryData.forEach(element &#x3D;&gt; {
+        if (this.statementData.accountNumber.indexOf(element.accountNumber) &#x3D;&#x3D;&#x3D; -1) {
+          this.statementData[&#x27;accountNumber&#x27;].push(element.accountNumber);
+        }
+
+        if (!this.statementData.institutionName.includes(element.institutionName)) {
+          this.statementData.institutionName.push(element.institutionName);
+        }
+
+        if (!this.statementData.country.includes(element.country)) {
+          this.statementData.country.push(element.country);
+        }
+
+        if (!this.statementData.country.includes(element.filterMonth)) {
+          this.statementData.filterMonth.push(element.filterMonth);
+        }
+      });
+    }
+  }
+
+  /**
+   * To get xml files object from statement
+   * @param any statement
+   */
+  getXMLFilesFromStatements(statement: any) {
+    if (statement) {
+      this.xmlFileList &#x3D; statement.files;
+    }
+  }
+
+  /**
+   * To open delete Statement modal
+   * @param TemplateRef template
+   */
+  openDeleteStatementModal(template: TemplateRef&lt;any&gt;) {
+    // tslint:disable-next-line:max-line-length
+    this.deleteStatementModalRef &#x3D; this.modalService.show(template, Object.assign({}, this.modalConfig.config, {class: &#x27;modal-md deleteTransconfModal&#x27;}));
+  }
+
+  /** To close deleteStatementModal */
+  cancelDeleteStatementModal() {
+    if (this.deleteStatementModalRef) {
+      this.deleteStatementModalRef.hide();
+      this.deleteStatementModalRef &#x3D; null;
+    }
+    this.delStatementDataLoading &#x3D; false;
+  }
+
+  /**
+   * To prepare delete statement
+   * @param any statement
+   */
+  prepareStatementDelete(statement: any) {
+    if (statement) {
+      this.statementObj &#x3D; statement;
+      this.openDeleteStatementModal(this.deleteStatementModal);
+    }
+  }
+
+  /** To delete pdf statement */
+  deleteStatement() {
+    if (this.statementObj) {
+      this.delStatementDataLoading &#x3D; true;
+      let deleteStmtData &#x3D; {};
+      deleteStmtData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+      deleteStmtData[CommonConstant.FLOW] &#x3D; &#x27;pimoney&#x27;;
+      deleteStmtData[CommonConstant.REPO_ID] &#x3D; this.statementObj.id;
+      deleteStmtData[CommonConstant.ACCOUNT_NUMBER] &#x3D; this.statementObj.accountNumber;
+      deleteStmtData[CommonConstant.TAG] &#x3D; this.statementObj[CommonConstant.TAG];
+      deleteStmtData &#x3D; JSON.stringify(deleteStmtData);
+
+      this.statementRepositoryService.deletePdfStatement(deleteStmtData).subscribe(
+        res &#x3D;&gt; {
+          this.delStatementDataLoading &#x3D; false;
+          if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+            // to hide delete modal
+            this.cancelDeleteStatementModal();
+            // to get statement repository list
+            this.statementRepositoryService.getStatementRepositoryDetails().subscribe(
+              data &#x3D;&gt; {
+                this.statmentRepositoryData &#x3D; data.statementDetails;
+                this.arrangeStatementRepoData();
+                this.showFilterData(); // to refresh filter data
+              },
+              error &#x3D;&gt; {
+                console.log(error);
+              }
+            )
+          } else {
+            document.getElementById(&#x27;delStatementRepoError&#x27;).innerHTML &#x3D; res[CommonConstant.MESSAGE];
+          }
+        },
+        error &#x3D;&gt; {
+          this.delStatementDataLoading &#x3D; false;
+          document.getElementById(&#x27;delStatementRepoError&#x27;).innerHTML &#x3D; &#x27;Something went wrong..Please try again&#x27;;
+        }
+      )
+    }
+  }
+
+  /**
+   * To download pdf statement
+   * @param any statement
+   */
+  downloadPdfStatement(statement: any) {
+    const dynamic_anchor_tag: any &#x3D; document.createElement(&#x27;a&#x27;);  // Creating anchor tag dynamically
+    document.body.appendChild(dynamic_anchor_tag);
+    dynamic_anchor_tag.style &#x3D; &#x27;display: none&#x27;;
+
+    if (statement) {
+
+      let downloadStmtData &#x3D; {};
+      downloadStmtData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+      downloadStmtData[CommonConstant.FLOW] &#x3D; &#x27;pimoney&#x27;;
+      downloadStmtData[CommonConstant.REPO_ID] &#x3D; statement.id;
+      downloadStmtData[CommonConstant.TAG] &#x3D; statement[CommonConstant.TAG];
+      downloadStmtData &#x3D; JSON.stringify(downloadStmtData);
+
+      // call service to download
+      this.statementRepositoryService.downloadPdfStatement(downloadStmtData).subscribe(
+        res &#x3D;&gt; {
+          if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+            dynamic_anchor_tag.href &#x3D; CommonConstant.PDF_FILE_HEAD + res[CommonConstant.BYTE_CODE];
+            dynamic_anchor_tag.download &#x3D; statement.fileName;
+            dynamic_anchor_tag.click();
+          } else {
+            console.log(&#x27;Something went wrong&#x27;);
+          }
+        },
+        error &#x3D;&gt; {
+          console.log(&#x27;Something went wrong&#x27;);
+        }
+      )
+    }
+
+  }
+
+  /**
+   * To download xml file
+   * @param any xmlData
+   */
+  downloadXmlFiles(xmlData: any) {
+    const dynamic_anchor_tag: any &#x3D; document.createElement(&#x27;a&#x27;);  // Creating anchor tag dynamically
+    document.body.appendChild(dynamic_anchor_tag);
+    dynamic_anchor_tag.style &#x3D; &#x27;display: none&#x27;;
+
+    let downloadXmlData: any &#x3D; {};
+    downloadXmlData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    downloadXmlData[StatementRepositoryConstant.FILE_HASH] &#x3D; xmlData.fileHash;
+    downloadXmlData[CommonConstant.TAG] &#x3D; xmlData[CommonConstant.TAG];
+    downloadXmlData &#x3D; JSON.stringify(downloadXmlData);
+
+    this.statementRepositoryService.downloadXmlFile(downloadXmlData).subscribe(
+      res &#x3D;&gt; {
+        if (res[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+          dynamic_anchor_tag.href &#x3D; res.file;
+          dynamic_anchor_tag.download &#x3D; xmlData.fileName;
+          dynamic_anchor_tag.click();
+        } else {
+          console.log(&#x27;Something went wrong&#x27;);
+        }
+      },
+      error &#x3D;&gt; {
+        console.log(&#x27;Something went wrong&#x27;);
+      }
+    )
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;b47PM-wrapper logged-in&quot;&gt;
+  &lt;!-- &quot;logged-in&quot; add this class when user login successfully --&gt;
+
+  &lt;!-- Header Part Html Starts --&gt;
+  &lt;app-authorised-header&gt;&lt;/app-authorised-header&gt;
+  &lt;!-- Header Part Html Ends --&gt;
+
+  &lt;!-- Loader section --&gt;
+  &lt;div class&#x3D;&quot;b47PM-center-body&quot; *ngIf&#x3D;&quot;!statementRepoPageLoad &amp;&amp; !statementRepoError&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid b47PM-container investment-landing-page&quot;&gt;
+      &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+          &lt;div class&#x3D;&quot;b47PM-investment-quad1&quot; align&#x3D;&quot;center&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-8 col-sm-offset-2&quot;&gt;
+              &lt;img src&#x3D;&quot;/assets/img/loader/page_loading.gif&quot;&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;b47PM-center-body&quot; *ngIf&#x3D;&quot;statementRepoError&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid b47PM-container investment-landing-page&quot;&gt;
+      &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+          &lt;div class&#x3D;&quot;b47PM-investment-quad1 grey-quad&quot; align&#x3D;&quot;center&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-8 col-sm-offset-2&quot;&gt;
+              &lt;h4&gt;Oops! Something went wrong!!!&lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;b47PM-center-body&quot; *ngIf&#x3D;&quot;(statmentRepositoryData.length &#x3D;&#x3D; 0 &amp;&amp; !statementRepoError) &amp;&amp; statementRepoPageLoad&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid b47PM-container investment-landing-page&quot;&gt;
+      &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+          &lt;div class&#x3D;&quot;b47PM-investment-quad1 grey-quad&quot; align&#x3D;&quot;center&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-8 col-sm-offset-2&quot;&gt;
+              &lt;h4&gt;You haven&#x27;t added statement&lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;b47PM-center-body&quot; *ngIf&#x3D;&quot;(statmentRepositoryData.length &gt; 0 &amp;&amp; !statementRepoError) &amp;&amp; statementRepoPageLoad&quot;&gt;
+    &lt;div class&#x3D;&quot;container-fluid b47PM-container&quot;&gt;
+      &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+        &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+          &lt;h3&gt;Statement Repository&lt;/h3&gt;
+          &lt;div class&#x3D;&quot;misc-table-showcase&quot;&gt;
+            &lt;div class&#x3D;&quot;b47PM-financesTab-quad1&quot;&gt;
+              &lt;div class&#x3D;&quot;b47PM-filter-quad1&quot;&gt;
+                &lt;div class&#x3D;&quot;row&quot;&gt;
+                  &lt;div class&#x3D;&quot;col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-2 form-group rowPusher&quot;&gt;
+                    &lt;div class&#x3D;&quot;row&quot;&gt;
+                      &lt;label&gt;Choose Institution&lt;/label&gt;
+                      &lt;select class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;searchInst.institutionName&quot; (change)&#x3D;&quot;setFilter()&quot;&gt;
+                              &lt;option value&#x3D;&quot;&quot; selected&gt;All&lt;/option&gt;
+                              &lt;option *ngFor&#x3D;&quot;let institution of statementData.institutionName&quot; value&#x3D;&quot;{{institution}}&quot;&gt;{{institution}}&lt;/option&gt;
+                            &lt;/select&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-2 form-group rowPusher&quot;&gt;
+                    &lt;div class&#x3D;&quot;row&quot;&gt;
+                      &lt;label&gt;Account Number&lt;/label&gt;
+                      &lt;select class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;search.accountNumber&quot; (change)&#x3D;&quot;setFilter()&quot;&gt;
+                              &lt;option value&#x3D;&quot;&quot;&gt;All&lt;/option&gt;
+                              &lt;option *ngFor&#x3D;&quot;let accountNumber of statementData.accountNumber&quot; value&#x3D;&quot;{{accountNumber}}&quot;&gt;{{accountNumber}}&lt;/option&gt;
+                            &lt;/select&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-5 col-md-2 form-group rowPusher&quot;&gt;
+                    &lt;div class&#x3D;&quot;row&quot;&gt;
+                      &lt;label&gt;Choose Country&lt;/label&gt;
+                      &lt;select class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;search.country&quot; (change)&#x3D;&quot;setFilter()&quot;&gt;
+                              &lt;option value&#x3D;&quot;&quot;&gt;All&lt;/option&gt;
+                              &lt;option *ngFor&#x3D;&quot;let country of statementData.country&quot; value&#x3D;&quot;{{country}}&quot;&gt;{{country}}&lt;/option&gt;
+                            &lt;/select&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;col-sm-12&quot; *ngIf&#x3D;&quot;hasFilter&quot;&gt;
+                    &lt;div class&#x3D;&quot;filter-box&quot; *ngIf&#x3D;&quot;searchInst.institutionName !&#x3D; &#x27;&#x27;&quot;&gt;
+                      &lt;span&gt;{{searchInst.institutionName}}&lt;/span&gt;
+                      &lt;i class&#x3D;&quot;fa fa-times&quot; aria-hidden&#x3D;&quot;true&quot; (click)&#x3D;&quot;searchInst.institutionName &#x3D; &#x27;&#x27;;setFilter();&quot; role&#x3D;&quot;button&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;filter-box&quot; *ngIf&#x3D;&quot;search.accountType !&#x3D; &#x27;&#x27;&quot;&gt;
+                      &lt;span&gt;{{search.accountType}}&lt;/span&gt;
+                      &lt;i class&#x3D;&quot;fa fa-times&quot; aria-hidden&#x3D;&quot;true&quot; (click)&#x3D;&quot;search.accountType &#x3D; &#x27;&#x27;;setFilter();&quot; role&#x3D;&quot;button&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;filter-box&quot; *ngIf&#x3D;&quot;search.accountNumber !&#x3D; &#x27;&#x27;&quot;&gt;
+                      &lt;span&gt;{{search.accountNumber}}&lt;/span&gt;
+                      &lt;i class&#x3D;&quot;fa fa-times&quot; aria-hidden&#x3D;&quot;true&quot; (click)&#x3D;&quot;search.accountNumber &#x3D; &#x27;&#x27;;setFilter();&quot; role&#x3D;&quot;button&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;filter-box&quot; *ngIf&#x3D;&quot;search.country !&#x3D; &#x27;&#x27;&quot;&gt;
+                      &lt;span&gt;{{search.country}}&lt;/span&gt;
+                      &lt;i class&#x3D;&quot;fa fa-times&quot; aria-hidden&#x3D;&quot;true&quot; (click)&#x3D;&quot;search.country &#x3D; &#x27;&#x27;;setFilter();&quot; role&#x3D;&quot;button&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;filter-box&quot; *ngIf&#x3D;&quot;search.filterMonth !&#x3D; &#x27;&#x27;&quot;&gt;
+                      &lt;span&gt;{{search.filterMonth}}&lt;/span&gt;
+                      &lt;i class&#x3D;&quot;fa fa-times&quot; aria-hidden&#x3D;&quot;true&quot; (click)&#x3D;&quot;search.filterMonth &#x3D; &#x27;&#x27;;setFilter();&quot; role&#x3D;&quot;button&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;clear-filter-box&quot;&gt;
+                      &lt;a role&#x3D;&quot;button&quot; (click)&#x3D;&quot;clearAllFilter()&quot;&gt;
+                              Clear All
+                            &lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+              &lt;div class&#x3D;&quot;statement-detail-quad5&quot;&gt;
+                &lt;div class&#x3D;&quot;col-xs-12 col-sm-4 pull-right&quot; style&#x3D;&quot;margin: 8px -13px 8px 0px;&quot;&gt;
+                  &lt;select class&#x3D;&quot;form-control pull-right&quot; id&#x3D;&quot;selectRange&quot; style&#x3D;&quot;width:auto; height: 30px; padding: 0 12px; margin: 3px 0 0 9px;&quot;
+                    [(ngModel)]&#x3D;&quot;pagesize&quot;&gt;
+                    &lt;option value&#x3D;&quot;10&quot; selected&gt;10&lt;/option&gt; 
+                    &lt;option value&#x3D;&quot;25&quot;&gt;25&lt;/option&gt;                
+                    &lt;option value&#x3D;&quot;50&quot;&gt;50&lt;/option&gt;                
+                    &lt;option value&#x3D;&quot;75&quot;&gt;75&lt;/option&gt;          
+                  &lt;/select&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;row&quot;&gt;
+                  &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+                    &lt;div *ngFor&#x3D;&quot;let instWise of stmtRepoFileDataByInstitution | tablefilter: searchInst;let i &#x3D; index&quot; class&#x3D;&quot;panel-group&quot; id&#x3D;&quot;accordion_inst&quot; style&#x3D;&quot;margin-top: 20px;&quot;&gt;
+                      &lt;div class&#x3D;&quot;panel panel-default&quot;&gt;
+                        &lt;div class&#x3D;&quot;panel-heading&quot;&gt;
+                          &lt;h4 class&#x3D;&quot;panel-title&quot;&gt;
+                            &lt;a data-toggle&#x3D;&quot;collapse&quot; data-parent&#x3D;&quot;#accordion_inst&quot; href&#x3D;&quot;#collapseOneInst_{{i}}&quot; class&#x3D;&quot;panel-name&quot;&gt;&lt;span class&#x3D;&quot;fa fa-university panel-icon&quot;&gt;
+                              &lt;/span&gt;&amp;nbsp;{{instWise.institutionName}}&lt;/a&gt;
+                          &lt;/h4&gt;
+                        &lt;/div&gt;
+                        &lt;div id&#x3D;&quot;collapseOneInst_{{i}}&quot; class&#x3D;&quot;panel-collapse collapse&quot;&gt;
+                          &lt;div class&#x3D;&quot;panel-body&quot;&gt;
+                            &lt;div class&#x3D;&quot;row&quot;&gt;
+                              &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+                                &lt;div class&#x3D;&quot;statement-detail-quad5&quot;&gt;
+                                  &lt;table class&#x3D;&quot;statement-detail-tbl&quot;&gt;
+                                    &lt;thead&gt;
+                                      &lt;tr&gt;
+                                        &lt;th&gt;ACCOUNT NO.&lt;/th&gt;
+                                        &lt;th&gt;INSTITUTION&lt;/th&gt;
+                                        &lt;th&gt;COUNTRY&lt;/th&gt;
+                                        &lt;th&gt;STATEMENT DATE&lt;/th&gt;
+                                        &lt;th&gt;FILE&lt;/th&gt;
+                                        &lt;th&gt;FILE UPLOADED AT&lt;/th&gt;
+                                        &lt;th&gt;&lt;/th&gt;
+                                      &lt;/tr&gt;
+                                      &lt;tr&gt;
+                                        &lt;td colspan&#x3D;&quot;9&quot; style&#x3D;&quot;height: 10px; background: #fff;&quot;&gt;&lt;/td&gt;
+                                      &lt;/tr&gt;
+                                    &lt;/thead&gt;
+                                    &lt;tbody [hidden]&#x3D;&quot;instWise.statementDetails.length &#x3D;&#x3D; 0&quot;&gt;
+                                      &lt;tr *ngFor&#x3D;&quot;let statement of instWise.statementDetails | tablefilter: search | paginate: { itemsPerPage: pagesize, currentPage: p }; let i &#x3D; index&quot;&gt;
+                                        &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;width: 11%;&quot;&gt;{{statement.accountNumber}}&lt;/td&gt;
+                                        &lt;td class&#x3D;&quot;&quot;&gt;{{statement.institutionName}}&lt;/td&gt;
+                                        &lt;td class&#x3D;&quot;truncatequd&quot;&gt;{{statement.country}}&lt;/td&gt;
+                                        &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;width: 12%;&quot;&gt;{{statement.statementDate | dateFormat: &#x27;DD-MM-YYYY&#x27;}}&lt;/td&gt;
+                                        &lt;td class&#x3D;&quot;break-word&quot;&gt;&lt;a (click)&#x3D;&quot;downloadPdfStatement(statement)&quot; title&#x3D;&quot;{{statement.fileName}}&quot; class&#x3D;&quot;cursor&quot;&gt;{{statement.fileName}}&lt;/a&gt;&lt;/td&gt;
+                                        &lt;td class&#x3D;&quot;truncatequd&quot; style&#x3D;&quot;width: 13%;&quot;&gt;
+                                          &lt;span class&#x3D;&quot;pull-right&quot;&gt;{{statement.fileUploaded | dateFormat: &#x27;DD-MM-YYYY&#x27;}}&lt;/span&gt;
+                                        &lt;/td&gt;
+                                        &lt;td class&#x3D;&quot;truncatequd&quot;&gt;
+                                          &lt;button class&#x3D;&quot;pull-right btn delete-btn&quot; data-toggle&#x3D;&quot;modal&quot; data-target&#x3D;&quot;#deleteStatementModal&quot; (click)&#x3D;&quot;prepareStatementDelete(statement)&quot;&gt;
+                                                  &lt;i class&#x3D;&quot;fa fa-trash-o&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+                                                &lt;/button&gt;
+                                        &lt;/td&gt;
+                                      &lt;/tr&gt;
+                                      &lt;tr [hidden]&#x3D;&quot;(statmentRepositoryData | tablefilter: search).length !&#x3D; 0&quot; style&#x3D;&quot;border: none;&quot;&gt;
+                                        &lt;td style&#x3D;&quot;text-align: center;&quot; colspan&#x3D;&quot;9&quot;&gt;There are no statements matching this criteria&lt;/td&gt;
+                                      &lt;/tr&gt;
+                                    &lt;/tbody&gt;
+                                    &lt;tbody [hidden]&#x3D;&quot;statmentRepositoryData.length !&#x3D; 0&quot;&gt;
+                                      &lt;tr&gt;
+                                        &lt;td style&#x3D;&quot;text-align: center;&quot; colspan&#x3D;&quot;9&quot;&gt;You have not uploaded any statements.&lt;/td&gt;
+                                      &lt;/tr&gt;
+                                    &lt;/tbody&gt;
+                                  &lt;/table&gt;
+                                &lt;/div&gt;
+                              &lt;/div&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;!----&gt;
+              &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-md-12 text-right&quot;&gt;
+                  &lt;pagination-controls (pageChange)&#x3D;&quot;p &#x3D; $event&quot; class&#x3D;&quot;pm-pagination&quot;&gt;&lt;/pagination-controls&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Footer Part Html Starts --&gt;
+  &lt;app-authorised-footer&gt;&lt;/app-authorised-footer&gt;
+  &lt;!-- Footer Part Html Ends --&gt;
+&lt;/div&gt;
+
+&lt;ng-template #deleteStatementModal&gt;
+  &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal&quot; aria-label&#x3D;&quot;Close&quot; (click)&#x3D;&quot;cancelDeleteStatementModal()&quot;&gt;
+          &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+    &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+        &lt;p&gt;Are you sure want to delete statement permanently.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-12 pm-red&quot; align&#x3D;&quot;center&quot;&gt;
+        &lt;span id&#x3D;&quot;delStatementRepoError&quot;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+        &lt;img *ngIf&#x3D;&quot;delStatementDataLoading&quot; src&#x3D;&quot;/assets/img/loader/spin.gif&quot; /&gt;
+        &lt;input type&#x3D;&quot;button&quot; class&#x3D;&quot;b47PM-deltran-btn&quot; [disabled]&#x3D;&quot;delStatementDataLoading&quot; value&#x3D;&quot;DELETE&quot; (click)&#x3D;&quot;deleteStatement()&quot;&gt;
+        &lt;input type&#x3D;&quot;button&quot; (click)&#x3D;&quot;cancelDeleteStatementModal()&quot; class&#x3D;&quot;b47PM-dCancel-btn&quot; data-dismiss&#x3D;&quot;modal&quot; value&#x3D;&quot;CANCEL&quot;&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+
+&lt;!-- view xml file list --&gt;
+&lt;div class&#x3D;&quot;modal fade deleteTransconfModal&quot; id&#x3D;&quot;viewXMLFileModal&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot; aria-labelledby&#x3D;&quot;myModalLabel&quot;
+  data-backdrop&#x3D;&quot;static&quot; data-keyboard&#x3D;&quot;false&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog&quot; role&#x3D;&quot;document&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+      &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal&quot; ng-disabled&#x3D;&quot;vm.deleteManualAccountDataLoading&quot; aria-label&#x3D;&quot;Close&quot;&gt;
+      &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+    &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+        &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+          &lt;form ng-submit&#x3D;&quot;deleteManualAccount()&quot;&gt;
+            &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+              &lt;div class&#x3D;&quot;row b47PM-budget-tbl-quad1&quot;&gt;
+                &lt;div class&#x3D;&quot;table b47PM-misc-table1 b47PM-budget-tbl1&quot;&gt;
+                  &lt;header class&#x3D;&quot;clearfix&quot;&gt;
+                    &lt;div align&#x3D;&quot;left&quot; style&#x3D;&quot;width: 30%&quot;&gt;Account Number&lt;/div&gt;
+                    &lt;div&gt;Institution Name&lt;/div&gt;
+                    &lt;!-- &lt;div&gt;Review&lt;/div&gt; --&gt;
+                  &lt;/header&gt;
+                  &lt;div&gt;
+                    &lt;div class&#x3D;&quot;record-row transc-row&quot; [hidden]&#x3D;&quot;!selectedManualInstitution&quot;&gt;
+                      &lt;div class&#x3D;&quot;col-md-12 text-center&quot;&gt;
+                        &lt;img src&#x3D;&quot;/assets/img/overview/balls_loader.gif&quot;&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;record-row transc-row&quot; *ngFor&#x3D;&quot;let xml of xmlFileList; let i &#x3D; index;&quot;&gt;
+                      &lt;table class&#x3D;&quot;table inner-data-table&quot;&gt;
+                        &lt;thead&gt;
+                          &lt;tr&gt;
+                            &lt;!-- &lt;th style&#x3D;&quot;width: 1%;&quot;&gt;
+                              &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;checkBoxAccount&quot; ng-init&#x3D;&quot;xml.selected &#x3D; false&quot; ng-model&#x3D;&quot;xml.selected&quot;
+                                ng-change&#x3D;&quot;optionToggled(xml)&quot; /&gt;
+                            &lt;/th&gt; --&gt;
+                            &lt;th style&#x3D;&quot;width: 30%;&quot;&gt;
+                              {{xml.fileName}}
+                            &lt;/th&gt;
+                            &lt;th&gt;
+                              {{xml.fileName}}
+                            &lt;/th&gt;
+                            &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+                          &lt;/tr&gt;
+                        &lt;/thead&gt;
+                      &lt;/table&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!-- &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;ignoreCheckbox&quot; ng-init&#x3D;&quot;statementDeleteFlag &#x3D; true&quot; ng-model&#x3D;&quot;statementDeleteFlag&quot;&gt;                    Delete from repository
+            &lt;/div&gt; --&gt;
+            &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+              &lt;span class&#x3D;&quot;pm-red&quot; id&#x3D;&quot;deleteManualAccountErr&quot;&gt;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;!-- &lt;div class&#x3D;&quot;col-md-12&quot; align&#x3D;&quot;center&quot;&gt;
+              &lt;input type&#x3D;&quot;submit&quot; id&#x3D;&quot;deleteSubmit&quot; class&#x3D;&quot;b47PM-deltran-btn&quot; ng-disabled&#x3D;&quot;vm.deleteManualAccountDataLoading&quot; value&#x3D;&quot;DELETE&quot;&gt;
+              &lt;img *ngIf&#x3D;&quot;deleteManualAccountDataLoading&quot; src&#x3D;&quot;/assets/img/loader/spin.gif&quot; /&gt;
+              &lt;input type&#x3D;&quot;button&quot; class&#x3D;&quot;b47PM-dCancel-btn&quot; ng-disabled&#x3D;&quot;vm.deleteManualAccountDataLoading&quot; data-dismiss&#x3D;&quot;modal&quot; value&#x3D;&quot;CANCEL&quot;&gt;
+            &lt;/div&gt; --&gt;
+          &lt;/form&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./statement-repository.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.panel-name {
+    font-size: 13px;
+}
+.panel-icon {
+    font-size: 16px;
+    color: #4C629A;
+    margin-right: 6px;
+}
+
+.panel-heading {
+    padding: 8px 15px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="b47PM-wrapper logged-in">  <!-- "logged-in" add this class when user login successfully -->  <!-- Header Part Html Starts -->  <app-authorised-header></app-authorised-header>  <!-- Header Part Html Ends -->  <!-- Loader section -->  <div class="b47PM-center-body" *ngIf="!statementRepoPageLoad && !statementRepoError">    <div class="container-fluid b47PM-container investment-landing-page">      <div class="row clearfix">        <div class="col-md-12">          <div class="b47PM-investment-quad1" align="center">            <div class="col-sm-8 col-sm-offset-2">              <img src="/assets/img/loader/page_loading.gif">            </div>          </div>          <div class="clearfix"></div>        </div>      </div>    </div>  </div>  <div class="b47PM-center-body" *ngIf="statementRepoError">    <div class="container-fluid b47PM-container investment-landing-page">      <div class="row clearfix">        <div class="col-md-12">          <div class="b47PM-investment-quad1 grey-quad" align="center">            <div class="col-sm-8 col-sm-offset-2">              <h4>Oops! Something went wrong!!!</h4>            </div>            <div class="clearfix"></div>          </div>        </div>      </div>    </div>  </div>  <div class="b47PM-center-body" *ngIf="(statmentRepositoryData.length == 0 && !statementRepoError) && statementRepoPageLoad">    <div class="container-fluid b47PM-container investment-landing-page">      <div class="row clearfix">        <div class="col-md-12">          <div class="b47PM-investment-quad1 grey-quad" align="center">            <div class="col-sm-8 col-sm-offset-2">              <h4>You haven\'t added statement</h4>            </div>            <div class="clearfix"></div>          </div>        </div>      </div>    </div>  </div>  <div class="b47PM-center-body" *ngIf="(statmentRepositoryData.length > 0 && !statementRepoError) && statementRepoPageLoad">    <div class="container-fluid b47PM-container">      <div class="col-sm-12">        <div class="row clearfix">          <h3>Statement Repository</h3>          <div class="misc-table-showcase">            <div class="b47PM-financesTab-quad1">              <div class="b47PM-filter-quad1">                <div class="row">                  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-2 form-group rowPusher">                    <div class="row">                      <label>Choose Institution</label>                      <select class="form-control" [(ngModel)]="searchInst.institutionName" (change)="setFilter()">                              <option value="" selected>All</option>                              <option *ngFor="let institution of statementData.institutionName" value="{{institution}}">{{institution}}</option>                            </select>                    </div>                  </div>                  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-2 form-group rowPusher">                    <div class="row">                      <label>Account Number</label>                      <select class="form-control" [(ngModel)]="search.accountNumber" (change)="setFilter()">                              <option value="">All</option>                              <option *ngFor="let accountNumber of statementData.accountNumber" value="{{accountNumber}}">{{accountNumber}}</option>                            </select>                    </div>                  </div>                  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-5 col-md-2 form-group rowPusher">                    <div class="row">                      <label>Choose Country</label>                      <select class="form-control" [(ngModel)]="search.country" (change)="setFilter()">                              <option value="">All</option>                              <option *ngFor="let country of statementData.country" value="{{country}}">{{country}}</option>                            </select>                    </div>                  </div>                  <div class="col-sm-12" *ngIf="hasFilter">                    <div class="filter-box" *ngIf="searchInst.institutionName != \'\'">                      <span>{{searchInst.institutionName}}</span>                      <i class="fa fa-times" aria-hidden="true" (click)="searchInst.institutionName = \'\';setFilter();" role="button"></i>                    </div>                    <div class="filter-box" *ngIf="search.accountType != \'\'">                      <span>{{search.accountType}}</span>                      <i class="fa fa-times" aria-hidden="true" (click)="search.accountType = \'\';setFilter();" role="button"></i>                    </div>                    <div class="filter-box" *ngIf="search.accountNumber != \'\'">                      <span>{{search.accountNumber}}</span>                      <i class="fa fa-times" aria-hidden="true" (click)="search.accountNumber = \'\';setFilter();" role="button"></i>                    </div>                    <div class="filter-box" *ngIf="search.country != \'\'">                      <span>{{search.country}}</span>                      <i class="fa fa-times" aria-hidden="true" (click)="search.country = \'\';setFilter();" role="button"></i>                    </div>                    <div class="filter-box" *ngIf="search.filterMonth != \'\'">                      <span>{{search.filterMonth}}</span>                      <i class="fa fa-times" aria-hidden="true" (click)="search.filterMonth = \'\';setFilter();" role="button"></i>                    </div>                    <div class="clear-filter-box">                      <a role="button" (click)="clearAllFilter()">                              Clear All                            </a>                    </div>                  </div>                </div>              </div>              <div class="clearfix"></div>              <div class="statement-detail-quad5">                <div class="col-xs-12 col-sm-4 pull-right" style="margin: 8px -13px 8px 0px;">                  <select class="form-control pull-right" id="selectRange" style="width:auto; height: 30px; padding: 0 12px; margin: 3px 0 0 9px;"                    [(ngModel)]="pagesize">                    <option value="10" selected>10</option>                     <option value="25">25</option>                                    <option value="50">50</option>                                    <option value="75">75</option>                            </select>                </div>                <div class="row">                  <div class="col-sm-12">                    <div *ngFor="let instWise of stmtRepoFileDataByInstitution | tablefilter: searchInst;let i = index" class="panel-group" id="accordion_inst" style="margin-top: 20px;">                      <div class="panel panel-default">                        <div class="panel-heading">                          <h4 class="panel-title">                            <a data-toggle="collapse" data-parent="#accordion_inst" href="#collapseOneInst_{{i}}" class="panel-name"><span class="fa fa-university panel-icon">                              </span>&nbsp;{{instWise.institutionName}}</a>                          </h4>                        </div>                        <div id="collapseOneInst_{{i}}" class="panel-collapse collapse">                          <div class="panel-body">                            <div class="row">                              <div class="col-md-12">                                <div class="statement-detail-quad5">                                  <table class="statement-detail-tbl">                                    <thead>                                      <tr>                                        <th>ACCOUNT NO.</th>                                        <th>INSTITUTION</th>                                        <th>COUNTRY</th>                                        <th>STATEMENT DATE</th>                                        <th>FILE</th>                                        <th>FILE UPLOADED AT</th>                                        <th></th>                                      </tr>                                      <tr>                                        <td colspan="9" style="height: 10px; background: #fff;"></td>                                      </tr>                                    </thead>                                    <tbody [hidden]="instWise.statementDetails.length == 0">                                      <tr *ngFor="let statement of instWise.statementDetails | tablefilter: search | paginate: { itemsPerPage: pagesize, currentPage: p }; let i = index">                                        <td class="truncatequd" style="width: 11%;">{{statement.accountNumber}}</td>                                        <td class="">{{statement.institutionName}}</td>                                        <td class="truncatequd">{{statement.country}}</td>                                        <td class="truncatequd" style="width: 12%;">{{statement.statementDate | dateFormat: \'DD-MM-YYYY\'}}</td>                                        <td class="break-word"><a (click)="downloadPdfStatement(statement)" title="{{statement.fileName}}" class="cursor">{{statement.fileName}}</a></td>                                        <td class="truncatequd" style="width: 13%;">                                          <span class="pull-right">{{statement.fileUploaded | dateFormat: \'DD-MM-YYYY\'}}</span>                                        </td>                                        <td class="truncatequd">                                          <button class="pull-right btn delete-btn" data-toggle="modal" data-target="#deleteStatementModal" (click)="prepareStatementDelete(statement)">                                                  <i class="fa fa-trash-o" aria-hidden="true"></i>                                                </button>                                        </td>                                      </tr>                                      <tr [hidden]="(statmentRepositoryData | tablefilter: search).length != 0" style="border: none;">                                        <td style="text-align: center;" colspan="9">There are no statements matching this criteria</td>                                      </tr>                                    </tbody>                                    <tbody [hidden]="statmentRepositoryData.length != 0">                                      <tr>                                        <td style="text-align: center;" colspan="9">You have not uploaded any statements.</td>                                      </tr>                                    </tbody>                                  </table>                                </div>                              </div>                            </div>                          </div>                        </div>                      </div>                    </div>                  </div>                </div>              </div>              <!---->              <div class="row">                <div class="col-md-12 text-right">                  <pagination-controls (pageChange)="p = $event" class="pm-pagination"></pagination-controls>                </div>              </div>            </div>          </div>        </div>      </div>    </div>  </div>  <!-- Footer Part Html Starts -->  <app-authorised-footer></app-authorised-footer>  <!-- Footer Part Html Ends --></div><ng-template #deleteStatementModal>  <div class="modal-header">    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelDeleteStatementModal()">          <span aria-hidden="true">&times;</span>        </button>  </div>  <div class="modal-body">    <div class="row clearfix">      <div class="col-md-12" align="center">        <p>Are you sure want to delete statement permanently.</p>      </div>      <div class="col-md-12 pm-red" align="center">        <span id="delStatementRepoError"></span>      </div>      <div class="col-md-12" align="center">        <img *ngIf="delStatementDataLoading" src="/assets/img/loader/spin.gif" />        <input type="button" class="b47PM-deltran-btn" [disabled]="delStatementDataLoading" value="DELETE" (click)="deleteStatement()">        <input type="button" (click)="cancelDeleteStatementModal()" class="b47PM-dCancel-btn" data-dismiss="modal" value="CANCEL">      </div>    </div>  </div></ng-template><!-- view xml file list --><div class="modal fade deleteTransconfModal" id="viewXMLFileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  data-backdrop="static" data-keyboard="false">  <div class="modal-dialog" role="document">    <div class="modal-content">      <div class="modal-header">        <button type="button" class="close" data-dismiss="modal" ng-disabled="vm.deleteManualAccountDataLoading" aria-label="Close">      <span aria-hidden="true">&times;</span>    </button>      </div>      <div class="modal-body">        <div class="row clearfix">          <form ng-submit="deleteManualAccount()">            <div class="col-md-12" align="center">              <div class="row b47PM-budget-tbl-quad1">                <div class="table b47PM-misc-table1 b47PM-budget-tbl1">                  <header class="clearfix">                    <div align="left" style="width: 30%">Account Number</div>                    <div>Institution Name</div>                    <!-- <div>Review</div> -->                  </header>                  <div>                    <div class="record-row transc-row" [hidden]="!selectedManualInstitution">                      <div class="col-md-12 text-center">                        <img src="/assets/img/overview/balls_loader.gif">                      </div>                    </div>                    <div class="record-row transc-row" *ngFor="let xml of xmlFileList; let i = index;">                      <table class="table inner-data-table">                        <thead>                          <tr>                            <!-- <th style="width: 1%;">                              <input type="checkbox" class="checkBoxAccount" ng-init="xml.selected = false" ng-model="xml.selected"                                ng-change="optionToggled(xml)" />                            </th> -->                            <th style="width: 30%;">                              {{xml.fileName}}                            </th>                            <th>                              {{xml.fileName}}                            </th>                            <div class="clearfix"></div>                          </tr>                        </thead>                      </table>                    </div>                  </div>                </div>              </div>            </div>            <!-- <div class="col-md-12" align="center">              <input type="checkbox" class="ignoreCheckbox" ng-init="statementDeleteFlag = true" ng-model="statementDeleteFlag">                    Delete from repository            </div> -->            <div class="col-md-12" align="center">              <span class="pm-red" id="deleteManualAccountErr"></span>            </div>            <!-- <div class="col-md-12" align="center">              <input type="submit" id="deleteSubmit" class="b47PM-deltran-btn" ng-disabled="vm.deleteManualAccountDataLoading" value="DELETE">              <img *ngIf="deleteManualAccountDataLoading" src="/assets/img/loader/spin.gif" />              <input type="button" class="b47PM-dCancel-btn" ng-disabled="vm.deleteManualAccountDataLoading" data-dismiss="modal" value="CANCEL">            </div> -->          </form>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AdminDropdownComponent', 'selector': 'app-admin-dropdown'},{'name': 'AlertComponent', 'selector': 'alert'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorisedFooterComponent', 'selector': 'app-authorised-footer'},{'name': 'AuthorisedHeaderComponent', 'selector': 'app-authorised-header'},{'name': 'BatchReportComponent', 'selector': 'app-batch-report'},{'name': 'BeforeLoginFooterComponent', 'selector': 'app-before-login-footer'},{'name': 'BeforeLoginHeaderComponent', 'selector': 'app-before-login-header'},{'name': 'BudgetComponent', 'selector': 'app-budget'},{'name': 'CarrierComponent', 'selector': 'app-carrier'},{'name': 'CarrierInformationComponent', 'selector': 'app-carrier-information'},{'name': 'CarrierMenuComponent', 'selector': 'app-carrier-menu-temp'},{'name': 'ClientAdvisorsComponent', 'selector': 'app-client-advisors'},{'name': 'CommonNotificationComponent', 'selector': 'app-common-notification'},{'name': 'CustomOutputComponent', 'selector': 'app-custom-output'},{'name': 'DeleteComponent', 'selector': 'app-delete'},{'name': 'DropdownComponent', 'selector': 'app-dropdown'},{'name': 'FactFinderComponent', 'selector': 'app-fact-finder'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'InvestmentComponent', 'selector': 'app-investment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'NewPolicyComponent', 'selector': 'app-new-policy'},{'name': 'PageNotFoundComponent', 'selector': ''},{'name': 'PlanComponent', 'selector': 'app-plan'},{'name': 'PolicyInformationComponent', 'selector': 'app-policy-information'},{'name': 'PreviewComponent', 'selector': 'app-preview'},{'name': 'RepositoryComponent', 'selector': 'app-repository'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewComponent', 'selector': 'app-review'},{'name': 'RiderCommissionComponent', 'selector': 'app-rider-commission'},{'name': 'RiderMenuComponent', 'selector': 'app-rider-menu-temp'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StatementRepositoryComponent', 'selector': 'app-statement-repository'},{'name': 'TransactionComponent', 'selector': 'app-transaction'},{'name': 'XmlfileComponent', 'selector': 'app-xmlfile'},{'name': 'XMLViewerComponent', 'selector': 'app-xml-viewer'}];
+    var DIRECTIVES = [{'name': 'AppRestrictSpecialCharDirective', 'selector': '[appRestrictSplChar]'},{'name': 'MyCurrencyFormatterDirective', 'selector': '[appNumberFormatter]'},{'name': 'OnlyNumberDirective', 'selector': '[appOnlyNumber]'},{'name': 'RestrictSpecialCharacterDirective', 'selector': '[appModelRestrictSplChar]'},{'name': 'UpperCaseDirective', 'selector': '[appControlUpperCase]'}];
+    var ACTUAL_COMPONENT = {'name': 'StatementRepositoryComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'StatementRepositoryComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,79 @@
+[hidden] {
+  display: none;
+}
+.b47PM-misc-table1.investmentTbl1 .inner-data-table>thead th{
+    background:0 0;margin-bottom:0;border:0;vertical-align:middle;max-width:inherit;padding:12px 8px
+}
+
+/* transaction preview investment table */
+.investmentTxnPrvTbl {
+    table-layout: fixed;
+}
+.investmentTxnPrvTbl.custom-invst-table>thead>tr>td {
+    line-height: 18px;
+    vertical-align: top;
+}
+
+.custom-invst-table>thead>tr>th {
+    vertical-align: middle;
+}
+.investmentTxnPrvTbl.custom-invst-table>thead>tr {
+    height: 25px;
+}
+.investmentTxnPrvTbl.custom-invst-table>thead>tr:first-child {
+    border-bottom: 1px solid #ffc200;
+}
+.investmentTxnPrvTbl.custom-invst-table>thead>tr:nth-child(2) {
+    border-bottom: 1px solid #ffc200;
+}
+.investmentTxnPrvTbl.custom-invst-table>tbody {
+    font-size: 12px;
+}
+.investmentTxnPrvTbl.custom-invst-table>tbody>tr>td {
+    vertical-align: top;
+}
+/* .investmentTxnPrvTbl.custom-invst-table>tbody>tr>td span:first-child{
+    display: block;
+} */ 
+.investmentTxnPrvTbl.custom-invst-table>tbody>tr>td span:first-child{
+    display: block;
+    line-height: 15px;
+    margin-bottom: 7px;
+}
+.investmentTxnPrvTbl.custom-invst-table>tbody>tr>td input:first-child{
+    margin-bottom: 7px;
+}
+.investment-txn-table>thead>tr>th{
+    line-height: 12px;
+    padding: 5px 5px 5px 15px;
+}
+
+.investment-txn-table>tbody>tr>td, .investment-txn-table>thead>tr>th{
+    vertical-align: top;
+    font-size: 12px;
+}
+
+/* .b47PM-misc-table1 .record-row:nth-child(odd), .data-table-quad table tbody:nth-child(odd){
+    background: #FFF;
+    border-top: solid 1px transparent;
+    border-bottom: solid 1px transparent;
+} */
+
+.form-control {
+    height: 30px;
+}
+
+.b47PM-misc-table1 .record-row:nth-child(odd), .data-table-quad table tbody tr:nth-child(odd) {
+    background: none;
+}
+.b47PM-misc-table1 .record-row:nth-child(odd), .data-table-quad table tbody:nth-child(odd) {
+    background: #FFF;
+    border-top: solid 1px transparent;
+    border-bottom: solid 1px transparent;
+}
+
+.b47PM-misc-table1 .record-row:nth-child(even), .data-table-quad table tbody:nth-child(even) {
+    background: #F6F6F6;
+    border-top: solid 1px transparent;
+    border-bottom: solid 1px transparent;
+}

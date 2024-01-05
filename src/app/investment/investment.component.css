@@ -1,0 +1,381 @@
+[hidden] {
+  display: none;
+}
+.b47PM-misc-table1.investmentTbl1 .inner-data-table>thead th{
+    background:0 0;margin-bottom:0;border:0;vertical-align:middle;max-width:inherit;padding:12px 8px
+}
+
+/* transaction preview investment table */
+.investmentTxnPrvTbl {
+    table-layout: fixed;
+}
+.investmentTxnPrvTbl.custom-invst-table>thead>tr>td {
+    line-height: 18px;
+    vertical-align: top;
+}
+
+.custom-invst-table>thead>tr>th {
+    vertical-align: middle;
+}
+.investmentTxnPrvTbl.custom-invst-table>thead>tr {
+    height: 25px;
+}
+.investmentTxnPrvTbl.custom-invst-table>thead>tr:first-child {
+    border-bottom: 1px solid #ffc200;
+}
+/* .investmentTxnPrvTbl.custom-invst-table>thead>tr:nth-child(2) {
+    border-bottom: 1px solid #ffc200;
+} */
+.investmentTxnPrvTbl.custom-invst-table>tbody {
+    font-size: 12px;
+}
+.investmentTxnPrvTbl.custom-invst-table>tbody>tr>td {
+    vertical-align: top;
+}
+/* .investmentTxnPrvTbl.custom-invst-table>tbody>tr>td span:first-child{
+    display: block;
+} */ 
+.investmentTxnPrvTbl.custom-invst-table>tbody>tr>td span:first-child{
+    display: block;
+    line-height: 15px;
+    margin-bottom: 7px;
+}
+.investmentTxnPrvTbl.custom-invst-table>tbody>tr>td input:first-child{
+    margin-bottom: 7px;
+}
+.investment-txn-table>thead>tr>th{
+    line-height: 12px;
+    padding: 12px 5px 12px 15px;
+    background: #CDE0FF;
+}
+
+.investment-txn-table>tbody>tr>td, .investment-txn-table>thead>tr>th{
+    vertical-align: top;
+    font-size: 12px;
+}
+
+/* .b47PM-misc-table1 .record-row:nth-child(odd), .data-table-quad table tbody:nth-child(odd){
+    background: #FFF;
+    border-top: solid 1px transparent;
+    border-bottom: solid 1px transparent;
+} */
+
+.form-control {
+    height: 30px;
+}
+
+even-tbody {
+    background: #FFF;
+    border-top: solid 1px transparent;
+    border-bottom: solid 1px transparent;
+}
+
+.odd-tbody {
+    background: #F6F6F6;
+    border-top: solid 1px transparent;
+    border-bottom: solid 1px transparent;
+}
+
+.b47PM-misc-table1 .record-row:nth-child(odd), .data-table-quad table tbody tr:nth-child(odd) {
+    background: none;
+}
+/* .b47PM-misc-table1 .record-row:nth-child(odd), .data-table-quad table tbody:nth-child(odd) {
+    background: #FFF;
+    border-top: solid 1px transparent;
+    border-bottom: solid 1px transparent;
+}
+
+.b47PM-misc-table1 .record-row:nth-child(even), .data-table-quad table tbody:nth-child(even) {
+    background: #F6F6F6;
+    border-top: solid 1px transparent;
+    border-bottom: solid 1px transparent;
+} */
+
+.inner-data-table .investmentTxnPrvTbl tbody tr {
+    background: none;
+}
+
+.invest-perfm-div-scroll{
+    height: 215px;
+    overflow-y: auto;
+}
+
+/** graph **/
+.country {
+    fill: #cccccc;
+    stroke: #333333;
+    stroke-width: 0.2;
+}
+.selected {
+    fill: #6C0;
+}
+circle {
+    fill: steelblue;
+    fill-opacity: .6;
+    stroke: #FF4500;
+}
+
+#tooltip-container {
+    position: absolute;
+    background-color: #fff;
+    /* color: #000; */
+    padding: 10px;
+    border: 1px solid;
+    display: none;
+}
+  
+.tooltip_key {
+    font-weight: bold;
+}
+  
+.tooltip_value {
+    /* margin-left: 20px; */
+    float: right;
+}
+.subunit {
+    fill: none;
+    stroke: #FFF;
+    stroke-width: 1px;
+}
+text.subunit-label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    text-anchor: middle;
+    fill: #000;
+}
+.subunit-label {
+    display: none;
+}
+.graticule {
+    fill: none;
+    stroke: #aaa;
+    stroke-opacity: .5;
+    stroke-width: .5px;
+}
+/* .bar {
+    fill: steelblue;
+}
+  
+.axis path {
+    display: none;
+} */
+
+
+/** pivot table implementation **/
+.whiteborder {border-color: white;}
+.greyborder {border-color: lightgrey;}
+#filechooser {
+    color: #555;
+    /* text-decoration: underline;; */
+    cursor: pointer; /* "hand" cursor */
+}
+.pvtUi {
+    width: 100%;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+.pvtUi > tr > td:nth-child(1) {
+    width: 20%;
+    border: 1px solid gray;
+    padding-left: 4px;
+    /* background: #EEE; */
+}
+.pvtUi > tr > td:nth-child(2) {
+    width: 20%;
+    text-align: left;
+}
+.pvtUi > tr > td:nth-child(3) {
+    width: 60%;
+}
+.pvtAxisContainer, .pvtVals {
+    background: #FFF;
+}
+
+.node {
+    border: solid 1px white;
+    font: 10px sans-serif;
+    line-height: 12px;
+    overflow: hidden;
+    position: absolute;
+    text-indent: 2px;
+}
+.c3-line, .c3-focused {stroke-width: 3px;}
+.c3-bar {stroke: rgb(245, 158, 158); stroke-width: 1;}
+.c3 text { font-size: 12px; color: grey;}
+.c3 .tick line {stroke: white;}
+.c3-axis path {stroke: grey;}
+.c3-circle { opacity: 1; }
+.c3-xgrid-focus {visibility: hidden;}
+
+div.legendContainer {
+    color: #000000;
+    background-color: #fff;
+    padding: .2em;
+    opacity: 0.7;
+    position: absolute;
+    font-family: "Lato", sans-serif;
+    display: table;
+    position:absolute;
+    top: -40px;
+    bottom: 0;
+    right: -4px;
+    min-width: 190px;
+    border-radius: 1px;
+    border: 1px solid gray;
+}
+
+ul.legend {
+    list-style-type: none;
+    list-style: none;
+    padding: 3px;
+    vertical-align: middle;
+    display: block;
+    line-height: 50px;
+    font-family: "Lato", sans-serif;
+    /* cursor:pointer; */
+    background: aliceblue;
+    padding: 10px;
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 0px;
+}
+ul.legend li {
+    line-height: 25px;
+}
+
+.bar {
+    fill: steelblue;
+}
+
+.bar:hover {
+    fill: brown;
+}
+.scale .domain {
+    stroke: rgb(111, 111, 111);
+}  
+.scale line  {
+    stroke: rgb(70, 70, 70);
+}
+.axis text {
+    fill:black;   /* <== Set the fill */
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+    cursor: move;
+}
+/* polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+} */
+.allocation-pichart-legend-container .main-item {
+    display: block;
+    padding-left: 5px;
+    margin-bottom: 4px;
+    line-height: 23px;
+    cursor: pointer;
+}
+#allocation-pichart svg circle {
+    fill: steelblue;
+    fill-opacity: .6;
+    /* stroke: #FF4500; */
+    stroke: none;
+}
+#allocation-pichart {
+    text-align: center;
+}
+.dropdown-quad, .dropdown-quad1 {
+    margin-top: 14px;
+}
+.dropdown-quad span {
+    float: left;
+    margin-right: 13px;
+    /* line-height: 35px; */
+}
+.dropdown-quad select {
+    float: left;
+    width: 200px;
+    margin-bottom: 22px;
+}
+.dropdown-quad1 span {
+    float: right;
+    margin-right: 13px;
+    /* line-height: 35px; */
+}
+.dropdown-quad1 select {
+    float: right;
+    width: 200px;
+    margin-bottom: 22px;
+}
+.graph-main-container {
+    /* border: 2px solid #777; */
+    padding: 10px 2px 10px 2px;
+}
+.allocation-pichart-legend-container {
+    padding: 8px;
+}
+
+/** category buttons */
+ul.chec-radio {
+    /* margin: 5px; */
+    /* margin-left: -40px; */
+}
+ul.chec-radio li.pz {
+    display: inline;
+}
+.chec-radio label.radio-inline input[type="checkbox"] {
+    display: none;
+}
+.chec-radio label.radio-inline input[type="checkbox"]:checked+div {
+    color: #fff;
+    background-color: #000;
+}
+.chec-radio .radio-inline .clab {
+    cursor: pointer;
+    /* background: #e7e7e7; */
+    background: #FFFFFF;
+    padding: 7px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #333;
+    position: relative;
+    height: 34px;
+    float: left;
+    margin: 0;
+    margin-bottom: 5px;
+}
+.chec-radio label.radio-inline input[type="checkbox"]:checked+div:before {
+    content: "\e013";
+    margin-right: 5px;
+    font-family: 'Glyphicons Halflings';
+}
+.chec-radio label.radio-inline input[type="radio"] {
+    display: none;
+}
+.chec-radio label.radio-inline input[type="radio"]:checked+div {
+    color: #fff;
+    background-color: #000;
+}
+.chec-radio label.radio-inline input[type="radio"]:checked+div:before {
+    content: "\e013";
+    margin-right: 5px;
+    font-family: 'Glyphicons Halflings';
+}
+.chec-radio label.radio-inline input[type="radio"] [disabled] {
+    cursor: not-allowed;
+}
+.chec-radio label.radio-inline {
+    padding-left: 0px;
+}
+#allocation-pichart .tick line {
+    fill: none;
+    stroke: rgb(0, 0, 0);
+    shape-rendering: crispEdges;
+    opacity: 0.2;
+}
+#allocation-pichart path.domain {
+    background-color: #FFFFFF;
+}
+.box-shadow {
+    box-shadow: rgb(136, 136, 136) 3px 3px 20px 2px;
+}

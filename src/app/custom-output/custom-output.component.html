@@ -1,0 +1,411 @@
+<ng-template #availableHeaderModal>
+  <div class="modal-header">
+      <button type="button" (click)="closeAvailableHeaderModal()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      <h3 class="modal-title">Edit Header Group</h3>
+  </div>
+  <div class="modal-body">
+      <div class="row">
+          <form name="form" [formGroup]="editCustomOutputHeaderFieldForm" (ngSubmit)="submitNewHeader()" role="form">
+            <!-- header -->
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <div class="form-group">
+                <select name="filedType" formControlName="fieldType" (change)="onFieldTypeSelect();onSelectionChange();" class="form-control">
+                  <option value="">select type</option>
+                  <option *ngFor="let fieldType of fieldTypeList" value="{{fieldType.value}}">{{fieldType.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <div class="form-group">
+                <select name="headerGroup" formControlName="headerGroup" (change)="onSelectionChange()" class="form-control">
+                  <option value="">select header group</option>
+                  <option *ngFor="let headerGr of customHeaderGroupList" value="{{headerGr.headerGroup}}">{{headerGr.headerGroup}}</option>
+                </select>
+              </div>
+            </div>
+            <ng-container *ngIf="displayCustomFieldTable">
+              <div class="col-sm-12 header-panel" formArrayName="headerList">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h3 class="panel-title">
+                                  Header Group<span> : {{editCustomOutputHeaderFieldForm.get('headerGroup').value}}</span>
+                                </h3>
+                            </div>
+                            <div class="col-sm-6 text-right">
+                                <button type="button" (click)="prepareImportHeaderFields()" class="btn btn-sm btn-primary btn-create">Import Form Header</button>
+                                <!-- <button type="button" class="btn btn-sm btn-warning btn-create">Clear Commission Table</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+      
+                      <div class="table-responsive table-height points_table_scrollbar">
+                        <table class="table wm-table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th>Summit Header</th>
+                                    <th>Desire Output Header</th>
+                                    <th>Default Value</th>
+                                    <th>Column Index</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let phone_no of editCustomOutputHeaderFieldForm['controls'].headerList['controls']; let i = index; odd as isOdd; even as isEven">
+                              <tr [formGroupName]="i" [class.odd-list]="isEven" [class.even-list]="isOdd">
+                                <td>
+                                    <a *ngIf="editCustomOutputHeaderFieldForm['controls'].headerList['controls'][i]['controls'].description.value" class="cursor"
+                                    popover="{{editCustomOutputHeaderFieldForm['controls'].headerList['controls'][i]['controls'].description.value}}"
+                                    [popoverAnimation]="true"
+                                    [popoverOnHover]="true"
+                                    popoverPlacement="top" style="text-decoration: none;">{{editCustomOutputHeaderFieldForm['controls'].headerList['controls'][i]['controls'].existingHeader.value}}</a>
+      
+                                  <a *ngIf="!editCustomOutputHeaderFieldForm['controls'].headerList['controls'][i]['controls'].description.value" class="cursor"
+                                    popover="No description"
+                                    [popoverAnimation]="true"
+                                    [popoverOnHover]="true"
+                                    popoverPlacement="top" style="text-decoration: none;">{{editCustomOutputHeaderFieldForm['controls'].headerList['controls'][i]['controls'].existingHeader.value}}</a>
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" formControlName="outputHeader">
+                                </td>
+                                <td>
+                                  <input type="text" class="form-control" formControlName="defaultValue">
+                                </td>
+                                <td>
+                                  <input type="text" appControlUpperCase class="form-control" formControlName="columnIndex"
+                                  (input)="validateEditHeaderFieldColumn(i)" maxlength="2" [ngStyle]="{'backgroundColor': editCustomOutputHeaderFieldForm['controls'].headerList['controls'][i]['controls'].colIndexCheck.value ? '#FA8072': 'transparent'}">
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <div class="col-md-8 form-group has-error" id="errorEditCred">
+                  <span class="help-block"></span>
+              </div>
+              <div class="col-md-12 text-right form-group filter-button">
+                  <button type="button" class="btn btn-default b47PM-dCancel-btn" (click)="closeAvailableHeaderModal()">CANCEL</button>
+                  <button *ngIf="!disableSubmitButtonForEditField" type="submit" class="btn add-account-btn b47PM-default-btn">SUBMIT</button>
+                  <button *ngIf="disableSubmitButtonForEditField" type="button" [disabled]="disableSubmitButtonForEditField" class="btn add-account-btn b47PM-default-btn">SUBMIT</button>
+              </div>
+            </ng-container>
+          </form>
+          <div class="clearfix"></div>
+          <div class="col-md-8 form-group has-error">
+            <span id="errorMessage" class="help-block"></span>
+          </div>
+          <div class="clearfix"></div>
+          <!-- <div *ngIf="displayCustomFieldTable && customFieldsList.length > 0"  class="col-sm-12 col-md-12 col-lg-12">
+              <div class="table-responsive table-height points_table_scrollbar">
+                  <table class="table table-bordered wm-table table-borderless">
+                      <thead>
+                          <tr>
+                              <th style="width: 60px;">Sr. No</th>
+                              <th>PiSight Default Header</th>
+                              <th>Custom Output Header</th>
+                              <th>Column Index</th>
+                              <th colspan="2" style="text-align: right">Actions</th>
+                          </tr>
+                      </thead>
+                      <tbody *ngFor="let customField of customFieldsList; let i = index; odd as isOdd; even as isEven">
+                        <tr [class.odd-list]="isEven" [class.even-list]="isOdd">
+                          <td>{{ i + 1}}</td>
+                          <td>
+                              <a *ngIf="customField.description" class="cursor"
+                                popover="{{customField.description}}"
+                                [popoverAnimation]="true"
+                                [popoverOnHover]="true"
+                                popoverPlacement="top" style="text-decoration: none;">{{customField.fieldName}}</a>
+
+                              <a *ngIf="!customField.description" class="cursor"
+                                popover="No description"
+                                [popoverAnimation]="true"
+                                [popoverOnHover]="true"
+                                popoverPlacement="top" style="text-decoration: none;">{{customField.fieldName}}</a>
+                          </td>
+                          <td>
+                              {{customField.header}}
+                          </td>
+                          <td>
+                              {{customField.columnIndex}}
+                          </td>
+                          <td class="price right-align" colspan="2">
+                            <button class="pull-right delete-btn account-action" title="Delete" (click)="prepareDeleteAvailableHeader(customField, i);">
+                              <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </button>
+                            <button class="pull-right edit-btn account-action" title="Edit" (click)="prepareEditAvailableHeader(customField)">
+                              <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          <div *ngIf="displayCustomFieldTable && customFieldsList.length === 0" class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <span>There are no fields available, try selecting another pair of type and group</span>
+          </div> -->
+      </div>
+  </div>
+</ng-template>
+
+<ng-template #outputTypeModal>
+  <div class="modal-header">
+      <button type="button" (click)="closeOutputTypeModal()" class="close" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      <h3 class="modal-title">New Header Group</h3>
+  </div>
+  <div class="modal-body">
+      <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <form name="form" [formGroup]="outputTypeForm" (ngSubmit)="proceedToHeaderModal()" role="form">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <select name="filedType" formControlName="fieldType" class="form-control">
+                    <option value="">select type</option>
+                    <option *ngFor="let fieldType of fieldTypeList" value="{{fieldType.value}}">{{fieldType.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <select name="headerGroup" formControlName="headerGroup" (change)="onOutputFormHeaderGroupChange()" class="form-control">
+                    <option value="">select header group</option>
+                    <option *ngFor="let headerGr of customHeaderGroupList"  value="{{headerGr}}">{{headerGr}}</option>
+                    <option value="others">Others</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"></div> -->
+              <div class="col-md-6 form-group"> <!--  *ngIf="newHeaderGroupShow" -->
+                  <input type="text" formControlName="newHeaderGroup" class="form-control" placeholder="New Header Group" autocomplete="off" />
+              </div>
+              <div class="clearfix"></div>
+              <div class="col-md-8 form-group has-error">
+                  <span class="help-block" id="outputTypeErrorMsg"></span>
+              </div>
+              <div class="col-md-12 text-right form-group filter-button">
+                  <button type="button" class="btn btn-default b47PM-dCancel-btn" (click)="closeOutputTypeModal()">CANCEL</button>
+                  <button type="submit" [disabled]="outputTypeForm.invalid" class="btn add-account-btn b47PM-default-btn">NEXT</button>
+              </div>
+          </form>
+        </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #deleteModal>
+  <div class="modal-header">
+    <button type="button" (click)="closeDeleteModal()" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-md-12" align="center">
+        <p>Are you sure?</p>
+      </div>
+      <div class="col-md-12" align="center">
+        <input type="button" class="b47PM-deltran-btn" [disabled]="delTxnDataLoading" value="DELETE" (click)="deleteItem()">
+        <!-- <img *ngIf="delDataLoading" src="/assets/img/loader/spin.gif" /> -->
+        <input type="button" (click)="closeDeleteModal()" class="b47PM-dCancel-btn" value="CANCEL">
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #newHeaderModal>
+  <div class="modal-header">
+      <button type="button" (click)="closeNewHeaderModal()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      <h3 class="modal-title">New Header</h3>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <form name="form" [formGroup]="newHeaderForm" (ngSubmit)="submitNewHeader()" role="form">
+        <!-- header -->
+        <div class="col-sm-12 header-panel" formArrayName="headerList">
+          <div class="panel panel-info">
+              <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <h3 class="panel-title">
+                            Header Group<span> : {{newHeaderForm.get('headerGroup').value}}</span>
+                          </h3>
+                      </div>
+                      <div class="col-sm-6 text-right">
+                          <button type="button" (click)="prepareImportHeaderFields()" class="btn btn-sm btn-primary btn-create">Import Form Header</button>
+                          <!-- <button type="button" class="btn btn-sm btn-warning btn-create">Clear Commission Table</button> -->
+                      </div>
+                  </div>
+              </div>
+              <div class="panel-body">
+
+                <div class="table-responsive table-height points_table_scrollbar">
+                  <table class="table wm-table table-borderless">
+                      <thead>
+                          <tr>
+                              <th>Summit Header</th>
+                              <th>Desire Output Header</th>
+                              <th>Default Value</th>
+                              <th>Column Index</th>
+                          </tr>
+                      </thead>
+                      <tbody *ngFor="let phone_no of newHeaderForm['controls'].headerList['controls']; let i = index; odd as isOdd; even as isEven">
+                        <tr [formGroupName]="i" [class.odd-list]="isEven" [class.even-list]="isOdd">
+                          <td>
+                              <a *ngIf="newHeaderForm['controls'].headerList['controls'][i]['controls'].description.value" class="cursor"
+                              popover="{{newHeaderForm['controls'].headerList['controls'][i]['controls'].description.value}}"
+                              [popoverAnimation]="true"
+                              [popoverOnHover]="true"
+                              popoverPlacement="top" style="text-decoration: none;">{{newHeaderForm['controls'].headerList['controls'][i]['controls'].existingHeader.value}}</a>
+
+                            <a *ngIf="!newHeaderForm['controls'].headerList['controls'][i]['controls'].description.value" class="cursor"
+                              popover="No description"
+                              [popoverAnimation]="true"
+                              [popoverOnHover]="true"
+                              popoverPlacement="top" style="text-decoration: none;">{{newHeaderForm['controls'].headerList['controls'][i]['controls'].existingHeader.value}}</a>
+                          </td>
+                          <td>
+                            <input type="text" class="form-control" formControlName="outputHeader">
+                          </td>
+                          <td>
+                            <input type="text" class="form-control" formControlName="defaultValue">
+                          </td>
+                          <td>
+                            <input type="text" appControlUpperCase class="form-control" formControlName="columnIndex"
+                            (input)="validateColumn(i)" maxlength="2" [ngStyle]="{'backgroundColor': newHeaderForm['controls'].headerList['controls'][i]['controls'].colIndexCheck.value ? '#FA8072': 'transparent'}">
+                          </td>
+                        </tr>
+                      </tbody>
+                  </table>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-8 form-group has-error" id="errorEditCred">
+            <span class="help-block"></span>
+        </div>
+        <div class="col-md-12 text-right form-group filter-button">
+            <button type="button" class="btn btn-default b47PM-dCancel-btn" (click)="closeNewHeaderModal()">CANCEL</button>
+            <button *ngIf="!disableSubmitButton" type="submit" class="btn add-account-btn b47PM-default-btn">SUBMIT</button>
+            <button *ngIf="disableSubmitButton" type="button" [disabled]="disableSubmitButton" class="btn add-account-btn b47PM-default-btn">SUBMIT</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #importHeaderFieldModal>
+  <div class="modal-header">
+      <button type="button" (click)="closeImportHeaderFieldModal()" class="close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      <h3 class="modal-title">Import Header Fields</h3>
+  </div>
+  <div class="modal-body">
+      <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <form name="form" [formGroup]="importHeaderFieldForm" (ngSubmit)="importHeaderFields()" role="form">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <select name="filedType" formControlName="fieldType" disabled class="form-control">
+                    <option value="">select type</option>
+                    <option *ngFor="let fieldType of fieldTypeList" value="{{fieldType.value}}">{{fieldType.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <select name="headerGroup" formControlName="headerGroup" (change)="onImportHeaderFieldHeaderGrChange()" class="form-control">
+                    <option value="">select header group</option>
+                    <option *ngFor="let headerGr of customHeaderGroupList" value="{{headerGr.headerGroup}}">{{headerGr.headerGroup}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <div class="col-md-8 form-group has-error" id="importHeaderFieldErrorMsg">
+                  <span class="help-block"></span>
+              </div>
+              <div class="col-md-12 text-right form-group filter-button">
+                  <!-- <img *ngIf="importHeaderFieldDataLoading" src="/assets/img/loader/spin.gif" /> -->
+                  <button type="button" class="btn btn-default b47PM-dCancel-btn" (click)="closeImportHeaderFieldModal()">CANCEL</button>
+                  <button type="submit" class="btn add-account-btn b47PM-default-btn">IMPORT</button>
+              </div>
+          </form>
+        </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #viewCustomHeaderOutputModal>
+  <div class="modal-header">
+    <button type="button" class="close" (click)="closeViewCustomHeaderOutputModal()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h3 class="modal-title">Delete Custom Header</h3>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-md-12" align="center" style="margin-top: -26px;">
+        <div class="row b47PM-budget-tbl-quad1">
+          <div class="table b47PM-misc-table1 b47PM-budget-tbl1">
+            <header class="clearfix">
+              <div align="left" style="width: 30%">Custom Header</div>
+              <div>Type</div>
+              <div></div>
+            </header>
+            <div>
+              <div *ngIf="tempHeaderGroupList.length === 0" class="record-row transc-row">
+                  <table class="table inner-data-table">
+                    <thead>
+                        <tr>
+                          <td>There are no list</td>
+                        </tr>
+                    </thead>
+                  </table>
+              </div>
+              <div class="record-row transc-row" *ngFor="let header of tempHeaderGroupList; let i = index;">
+                <table class="table inner-data-table inner-data-table1">
+                  <thead>
+                    <tr>
+                      <td class="break-word" style="width: 40%">
+                        {{header.headerGroup}}
+                      </td>
+                      <td>
+                        {{header.fieldType}}
+                      </td>
+                      <td>
+                        <button class="pull-right btn delete-btn" (click)="deleteCustomHeader(header)" title="Delete Custom Header">
+                          <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </button>
+                      </td>
+                      <div class="clearfix"></div>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12" align="center">
+        <span class="pm-red" id="deleteManualAccountErr"></span>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<app-common-notification #notificationComponent></app-common-notification>
+
+<!-- common delete modal -->
+<app-delete #deleteComponent (onDelete)="onDeleteEvent($event)"></app-delete>

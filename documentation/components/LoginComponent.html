@@ -1,0 +1,954 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>conjurer documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">conjurer documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>LoginComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/login/login.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Login component class</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code><a href="../injectables/AuthenticationService.html" target="_self" >AuthenticationService</a></code>
+                            <code><a href="../injectables/AlertService.html" target="_self" >AlertService</a></code>
+                            <code><a href="../injectables/LoginService.html" target="_self" >LoginService</a></code>
+                            <code><a href="../injectables/CommonHelperService.html" target="_self" >CommonHelperService</a></code>
+                            <code><a href="../injectables/RxJSHelper.html" target="_self" >RxJSHelper</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-login</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./login.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./login.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#showRecaptcha">showRecaptcha</a>
+                            </li>
+                            <li>
+                                <a href="#user">user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#hideRecaptchForLocal">hideRecaptchForLocal</a>
+                            </li>
+                            <li>
+                                <a href="#login">login</a>
+                            </li>
+                            <li>
+                                <a href="#registerChartJsService">registerChartJsService</a>
+                            </li>
+                            <li>
+                                <a href="#testBackendAPI">testBackendAPI</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, authenticationService: <a href="../injectables/AuthenticationService.html">AuthenticationService</a>, alertService: <a href="../injectables/AlertService.html">AlertService</a>, loginService: <a href="../injectables/LoginService.html">LoginService</a>, commonHelperService: <a href="../injectables/CommonHelperService.html">CommonHelperService</a>, rxjsHelper: <a href="../injectables/RxJSHelper.html">RxJSHelper</a>, loaderService: Ng4LoadingSpinnerService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/login/login.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Login component class dependencies</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authenticationService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/AuthenticationService.html" target="_self" >AuthenticationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>alertService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/AlertService.html" target="_self" >AlertService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>loginService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/LoginService.html" target="_self" >LoginService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>commonHelperService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/CommonHelperService.html" target="_self" >CommonHelperService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>rxjsHelper</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/RxJSHelper.html" target="_self" >RxJSHelper</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>loaderService</td>
+                                                  
+                                                        <td>
+                                                                    <code>Ng4LoadingSpinnerService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hideRecaptchForLocal"></a>
+                        <span class="name">
+                            <b>
+                            hideRecaptchForLocal
+                            </b>
+                            <a href="#hideRecaptchForLocal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>hideRecaptchForLocal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/login/login.component.ts:75</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To hide recaptcha in development mode</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="login"></a>
+                        <span class="name">
+                            <b>
+                            login
+                            </b>
+                            <a href="#login"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>login()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/login/login.component.ts:86</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To login into wealth management</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="registerChartJsService"></a>
+                        <span class="name">
+                            <b>
+                            registerChartJsService
+                            </b>
+                            <a href="#registerChartJsService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>registerChartJsService()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">src/app/login/login.component.ts:128</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To show center label text in chart js</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="testBackendAPI"></a>
+                        <span class="name">
+                            <b>
+                            testBackendAPI
+                            </b>
+                            <a href="#testBackendAPI"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>testBackendAPI()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/login/login.component.ts:113</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To test the backend service</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showRecaptcha"></a>
+                        <span class="name">
+                            <b>
+                            showRecaptcha</b>
+                            <a href="#showRecaptcha"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/login/login.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>To hide and show recaptcha </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="user"></a>
+                        <span class="name">
+                            <b>
+                            user</b>
+                            <a href="#user"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/login/login.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>user object </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy } from &#x27;@angular/core&#x27;;
+import { Router, ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { environment } from &#x27;../../environments/environment&#x27;;
+
+import &#x27;rxjs/add/operator/takeUntil&#x27;;
+import { RxJSHelper } from &#x27;../helpers/rxjs-helper/rxjs.helper&#x27;;
+
+import { CommonHelperService } from &#x27;../helpers/common/common.helper&#x27;;
+import { AuthenticationService } from &#x27;../services/authentication.service&#x27;;
+import { AlertService } from &#x27;../services/alert.service&#x27;;
+import { LoginService } from &#x27;./login.service&#x27;;
+
+import * as Chart from &#x27;chart.js&#x27;;
+
+import { CommonConstant } from &#x27;../constants/common/common.constant&#x27;;
+import { Ng4LoadingSpinnerService } from &#x27;ng4-loading-spinner&#x27;;
+
+/**
+ * Login component class
+ */
+@Component({
+  selector: &#x27;app-login&#x27;,
+  templateUrl: &#x27;./login.component.html&#x27;,
+  styleUrls: [&#x27;./login.component.css&#x27;],
+  providers: [
+    AuthenticationService, AlertService, LoginService,
+    CommonHelperService, RxJSHelper
+  ]
+})
+export class LoginComponent implements OnInit, OnDestroy {
+
+  /** user object */
+  user: any &#x3D; {};
+
+  /** To hide and show recaptcha */
+  showRecaptcha &#x3D; false;
+
+  /**
+   * Login component class dependencies
+   * @param ActivatedRoute route
+   * @param Router router
+   * @param AuthenticationService authenticationService
+   * @param AlertService alertService
+   * @param LoginService loginService
+   * @param CommonHelperService commonHelperService
+   * @param RxJSHelper rxjsHelper
+   * @param Ng4LoadingSpinnerService loaderService
+   */
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private alertService: AlertService,
+    private loginService: LoginService,
+    private commonHelperService: CommonHelperService,
+    private rxjsHelper: RxJSHelper,
+    private loaderService: Ng4LoadingSpinnerService
+  ) { }
+
+  /** @ignore */
+  ngOnInit() {
+    this.loaderService.hide();
+    this.hideRecaptchForLocal();
+  }
+
+  /** @ignore */
+  ngOnDestroy() {
+    this.rxjsHelper.unSubscribeServices.next();
+    this.rxjsHelper.unSubscribeServices.complete();
+  }
+
+  /**
+   * To hide recaptcha in development mode
+   */
+  hideRecaptchForLocal() {
+    if (environment.production) {
+      this.showRecaptcha &#x3D; true;
+    } else {
+      this.showRecaptcha &#x3D; false;
+    }
+  }
+
+  /**
+   * To login into wealth management
+   */
+  login() {
+    // console.log(this);
+    if (this.user) {
+      this.loginService.login(this.user.username, this.user.password).subscribe(
+        data &#x3D;&gt; {
+          if (data[CommonConstant.ERROR_CODE] &#x3D;&#x3D;&#x3D; 0) {
+            // To store credential to session storage
+            this.authenticationService.setSessionData(data);
+            this.commonHelperService.setPreferredCurrency(data[CommonConstant.PREFERRED_CURRENCY]);
+
+            setTimeout(() &#x3D;&gt; {
+              this.router.navigateByUrl(&#x27;overview&#x27;);
+            });
+          } else {
+            this.alertService.error(data.message);
+          }
+        },
+        error &#x3D;&gt; {
+          console.log(error);
+          this.alertService.error(&#x27;Something went wrong&#x27;);
+        });
+    }
+  }
+
+  /**
+   * To test the backend service
+   */
+  testBackendAPI(): void {
+    this.loginService.checkBackendAPI().subscribe(
+      data &#x3D;&gt; {
+        console.log(data);
+      },
+      error &#x3D;&gt; {
+        console.log(error);
+        console.log(&#x27;Something went wrong&#x27;);
+      }
+    )
+  }
+
+  /**
+   * To show center label text in chart js
+   */
+  registerChartJsService() {
+    // to show the center level value chartjs
+    Chart.pluginService.register({
+      afterUpdate: function (chart) {
+        if (chart.config.options.elements.center) {
+          const helpers &#x3D; Chart.helpers;
+          const centerConfig &#x3D; chart.config.options.elements.center;
+          const globalConfig &#x3D; Chart.defaults.global;
+          const ctx &#x3D; chart.chart.ctx;
+
+          const fontStyle &#x3D; helpers.getValueOrDefault(centerConfig.fontStyle, globalConfig.defaultFontStyle);
+          const fontFamily &#x3D; helpers.getValueOrDefault(centerConfig.fontFamily, globalConfig.defaultFontFamily);
+          let fontSize;
+          if (centerConfig.fontSize) {
+            fontSize &#x3D; centerConfig.fontSize;
+          } else {  // figure out the best font size, if one is not specified
+            ctx.save();
+            fontSize &#x3D; helpers.getValueOrDefault(centerConfig.minFontSize, 1);
+            const maxFontSize &#x3D; helpers.getValueOrDefault(centerConfig.maxFontSize, 256);
+            const maxText &#x3D; helpers.getValueOrDefault(centerConfig.maxText, centerConfig.text);
+
+            do {
+              ctx.font &#x3D; helpers.fontString(fontSize, fontStyle, fontFamily);
+              const textWidth &#x3D; ctx.measureText(maxText).width;
+
+              // check if it fits, is within configured limits and that we are not simply toggling back and forth
+              if (textWidth &lt; chart.innerRadius * 2 &amp;&amp; fontSize &lt; maxFontSize) {
+                fontSize +&#x3D; 1;
+              } else {
+                // reverse last step
+                fontSize -&#x3D; 1;
+                break;
+              }
+            } while (true)
+            ctx.restore();
+          }
+
+          // save properties
+          chart.center &#x3D; {
+            font: helpers.fontString(fontSize, fontStyle, fontFamily),
+            fillStyle: helpers.getValueOrDefault(centerConfig.fontColor, globalConfig.defaultFontColor)
+          };
+        }
+      },
+      afterDraw: function (chart, easingValue) {
+        if (chart.center) {
+          const centerConfig &#x3D; chart.config.options.elements.center;
+          const ctx &#x3D; chart.chart.ctx;
+
+          ctx.save();
+          ctx.font &#x3D; chart.center.font;
+          ctx.fillStyle &#x3D; chart.center.fillStyle;
+          ctx.textAlign &#x3D; &#x27;center&#x27;;
+          ctx.textBaseline &#x3D; &#x27;middle&#x27;;
+          const centerX &#x3D; (chart.chartArea.left + chart.chartArea.right) / 2;
+          const centerY &#x3D; (chart.chartArea.top + chart.chartArea.bottom) / 2;
+          const txt &#x3D; centerConfig.text;
+          const lineheight &#x3D; 17;
+          let lines &#x3D; &#x27;&#x27;;
+          lines &#x3D; txt.split(&#x27;&lt;br /&gt;&#x27;);
+
+          for (let i &#x3D; 0; i &lt; lines.length; i++) {
+            ctx.fillText(lines[i], centerX, centerY + (i * lineheight));
+          }
+          ctx.restore();
+        }
+
+      }
+    })
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;b47PM-wrapper before-login&quot;&gt;
+   &lt;!-- &quot;.before-login&quot; add this Class when user is not loged in --&gt;
+   &lt;app-before-login-header&gt;&lt;/app-before-login-header&gt;
+   &lt;div class&#x3D;&quot;b47PM-center-body b47PM-signin-page&quot;&gt;
+      &lt;div class&#x3D;&quot;b47PM-LR-quad&quot;&gt;
+         &lt;div class&#x3D;&quot;row clearfix&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-7 col-md-7&quot;&gt;
+               &lt;div class&#x3D;&quot;left-form-quad&quot;&gt;
+                  &lt;header&gt;
+                     &lt;!-- &lt;img src&#x3D;&quot;/assets/img/login-registration/piemony-logo.png&quot; alt&#x3D;&quot;&quot;&gt; --&gt;
+                     Conjurer
+                     &lt;br&gt;
+                     &lt;span&gt;Sign in to start your session&lt;/span&gt;
+                  &lt;/header&gt;
+                  &lt;div&gt;
+                     &lt;!--&lt;div ng-class&#x3D;&quot;{ &#x27;alert&#x27;: flash, &#x27;alert-success&#x27;: flash.type &#x3D;&#x3D;&#x3D; &#x27;success&#x27;, &#x27;alert-danger&#x27;: flash.type &#x3D;&#x3D;&#x3D; &#x27;error&#x27; }&quot; ng-if&#x3D;&quot;flash&quot; ng-bind&#x3D;&quot;flash.message&quot;&gt;&lt;/div&gt;--&gt;
+                     &lt;alert&gt;&lt;/alert&gt;
+                     &lt;form name&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;loginForm.form.valid &amp;&amp; login()&quot; #loginForm&#x3D;&quot;ngForm&quot; role&#x3D;&quot;form&quot; autocomplete&#x3D;&quot;off&quot;&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot; [ngClass]&#x3D;&quot;{ &#x27;has-error&#x27;: loginForm.submitted &amp;&amp; !usernameRefVar.valid }&quot;&gt;
+                           &lt;!-- &quot;.has-error&quot; add this class for showing validations when input is not filled by user  --&gt;
+                           &lt;label&gt;Email or Username&lt;/label&gt;
+                           &lt;input appRestrictSplChar type&#x3D;&quot;text&quot; name&#x3D;&quot;username&quot; class&#x3D;&quot;form-control restrictSplChr&quot; [(ngModel)]&#x3D;&quot;user.username&quot; #usernameRefVar&#x3D;&quot;ngModel&quot;
+                              required autocomplete&#x3D;&quot;off&quot; /&gt;
+                           &lt;span class&#x3D;&quot;help-block&quot; *ngIf&#x3D;&quot;loginForm.submitted &amp;&amp; !usernameRefVar.valid&quot;&gt;Username is required&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot; [ngClass]&#x3D;&quot;{ &#x27;has-error&#x27;: loginForm.submitted &amp;&amp; !passwordRefVar.valid }&quot;&gt;
+                           &lt;label&gt;Password&lt;/label&gt;
+                           &lt;input type&#x3D;&quot;password&quot; name&#x3D;&quot;password&quot; class&#x3D;&quot;form-control&quot; [(ngModel)]&#x3D;&quot;user.password&quot; #passwordRefVar&#x3D;&quot;ngModel&quot; required/&gt;
+                           &lt;span class&#x3D;&quot;help-block&quot; *ngIf&#x3D;&quot;loginForm.submitted &amp;&amp; !passwordRefVar.valid&quot;&gt;Password is required&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- &lt;div *ngIf&#x3D;&quot;showRecaptcha&quot; class&#x3D;&quot;form-group&quot; [ngClass]&#x3D;&quot;{ &#x27;has-error&#x27;: loginForm.submitted &amp;&amp; !captchaControl.valid }&quot;&gt;
+                           &lt;div class&#x3D;&quot;g-recaptcha&quot;&gt;
+                              &lt;re-captcha [(ngModel)]&#x3D;&quot;user.captcha&quot; name&#x3D;&quot;captcha&quot; required siteKey&#x3D;&quot;6LdpOGoUAAAAAPcEpM26JUDdlzUQwJ2DpBnaHAo1&quot; #captchaControl&#x3D;&quot;ngModel&quot;&gt;&lt;/re-captcha&gt;
+                           &lt;/div&gt;
+                           &lt;span class&#x3D;&quot;help-block&quot; *ngIf&#x3D;&quot;loginForm.submitted &amp;&amp; !captchaControl.valid&quot;&gt;Captcha is required&lt;/span&gt;
+                        &lt;/div&gt; --&gt;
+
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                           &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn signin-btn&quot;&gt;SIGN IN&lt;/button&gt;
+                           &lt;!--&lt;img src&#x3D;/assets/img/loader/spin.gif&quot; /&gt;--&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group mr0&quot;&gt;
+                           &lt;!--  Don&#x27;t have account, &lt;a href&#x3D;&quot;&quot; [routerLink]&#x3D;&quot;[&#x27;/signup&#x27;]&quot;&gt;register a new account&lt;/a&gt;
+                      &lt;hr&gt; --&gt;
+                           &lt;a href&#x3D;&quot;&quot; [routerLink]&#x3D;&quot;[&#x27;/forgotpassword&#x27;]&quot;&gt;Forgot your password?&lt;/a&gt;
+                        &lt;/div&gt;
+                     &lt;/form&gt;
+                  &lt;/div&gt;
+               &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-sm-5 col-md-5&quot;&gt;
+               &lt;div class&#x3D;&quot;app-request-quad&quot;&gt;
+                  &lt;footer&gt;
+                     &lt;h2&gt;AUTOMATION
+                        &lt;br&gt;DELIVERED&lt;/h2&gt;
+                  &lt;/footer&gt;
+                  &lt;div class&#x3D;&quot;clearfix&quot;&gt;&lt;/div&gt;
+               &lt;/div&gt;
+            &lt;/div&gt;
+         &lt;/div&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;app-before-login-footer&gt;&lt;/app-before-login-footer&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./login.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.app-request-quad {
+    padding: 67px 45px 0;
+    margin-left: -25px;
+    /* background: url(/assets/img/gray-pie-image.png) 32px 82% no-repeat; */
+    background-size: 100% auto;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="b47PM-wrapper before-login">   <!-- ".before-login" add this Class when user is not loged in -->   <app-before-login-header></app-before-login-header>   <div class="b47PM-center-body b47PM-signin-page">      <div class="b47PM-LR-quad">         <div class="row clearfix">            <div class="col-sm-7 col-md-7">               <div class="left-form-quad">                  <header>                     <!-- <img src="/assets/img/login-registration/piemony-logo.png" alt=""> -->                     Conjurer                     <br>                     <span>Sign in to start your session</span>                  </header>                  <div>                     <!--<div ng-class="{ \'alert\': flash, \'alert-success\': flash.type === \'success\', \'alert-danger\': flash.type === \'error\' }" ng-if="flash" ng-bind="flash.message"></div>-->                     <alert></alert>                     <form name="form" (ngSubmit)="loginForm.form.valid && login()" #loginForm="ngForm" role="form" autocomplete="off">                        <div class="form-group" [ngClass]="{ \'has-error\': loginForm.submitted && !usernameRefVar.valid }">                           <!-- ".has-error" add this class for showing validations when input is not filled by user  -->                           <label>Email or Username</label>                           <input appRestrictSplChar type="text" name="username" class="form-control restrictSplChr" [(ngModel)]="user.username" #usernameRefVar="ngModel"                              required autocomplete="off" />                           <span class="help-block" *ngIf="loginForm.submitted && !usernameRefVar.valid">Username is required</span>                        </div>                        <div class="form-group" [ngClass]="{ \'has-error\': loginForm.submitted && !passwordRefVar.valid }">                           <label>Password</label>                           <input type="password" name="password" class="form-control" [(ngModel)]="user.password" #passwordRefVar="ngModel" required/>                           <span class="help-block" *ngIf="loginForm.submitted && !passwordRefVar.valid">Password is required</span>                        </div>                        <!-- <div *ngIf="showRecaptcha" class="form-group" [ngClass]="{ \'has-error\': loginForm.submitted && !captchaControl.valid }">                           <div class="g-recaptcha">                              <re-captcha [(ngModel)]="user.captcha" name="captcha" required siteKey="6LdpOGoUAAAAAPcEpM26JUDdlzUQwJ2DpBnaHAo1" #captchaControl="ngModel"></re-captcha>                           </div>                           <span class="help-block" *ngIf="loginForm.submitted && !captchaControl.valid">Captcha is required</span>                        </div> -->                        <div class="form-group">                           <button type="submit" class="btn signin-btn">SIGN IN</button>                           <!--<img src=/assets/img/loader/spin.gif" />-->                        </div>                        <div class="form-group mr0">                           <!--  Don\'t have account, <a href="" [routerLink]="[\'/signup\']">register a new account</a>                      <hr> -->                           <a href="" [routerLink]="[\'/forgotpassword\']">Forgot your password?</a>                        </div>                     </form>                  </div>               </div>            </div>            <div class="col-sm-5 col-md-5">               <div class="app-request-quad">                  <footer>                     <h2>AUTOMATION                        <br>DELIVERED</h2>                  </footer>                  <div class="clearfix"></div>               </div>            </div>         </div>      </div>   </div>   <app-before-login-footer></app-before-login-footer></div></div>'
+    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AdminDropdownComponent', 'selector': 'app-admin-dropdown'},{'name': 'AlertComponent', 'selector': 'alert'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorisedFooterComponent', 'selector': 'app-authorised-footer'},{'name': 'AuthorisedHeaderComponent', 'selector': 'app-authorised-header'},{'name': 'BatchReportComponent', 'selector': 'app-batch-report'},{'name': 'BeforeLoginFooterComponent', 'selector': 'app-before-login-footer'},{'name': 'BeforeLoginHeaderComponent', 'selector': 'app-before-login-header'},{'name': 'BudgetComponent', 'selector': 'app-budget'},{'name': 'CarrierComponent', 'selector': 'app-carrier'},{'name': 'CarrierInformationComponent', 'selector': 'app-carrier-information'},{'name': 'CarrierMenuComponent', 'selector': 'app-carrier-menu-temp'},{'name': 'ClientAdvisorsComponent', 'selector': 'app-client-advisors'},{'name': 'CommonNotificationComponent', 'selector': 'app-common-notification'},{'name': 'CustomOutputComponent', 'selector': 'app-custom-output'},{'name': 'DeleteComponent', 'selector': 'app-delete'},{'name': 'DropdownComponent', 'selector': 'app-dropdown'},{'name': 'FactFinderComponent', 'selector': 'app-fact-finder'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'InvestmentComponent', 'selector': 'app-investment'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'LogoutComponent', 'selector': 'app-logout'},{'name': 'NewPolicyComponent', 'selector': 'app-new-policy'},{'name': 'PageNotFoundComponent', 'selector': ''},{'name': 'PlanComponent', 'selector': 'app-plan'},{'name': 'PolicyInformationComponent', 'selector': 'app-policy-information'},{'name': 'PreviewComponent', 'selector': 'app-preview'},{'name': 'RepositoryComponent', 'selector': 'app-repository'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewComponent', 'selector': 'app-review'},{'name': 'RiderCommissionComponent', 'selector': 'app-rider-commission'},{'name': 'RiderMenuComponent', 'selector': 'app-rider-menu-temp'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StatementRepositoryComponent', 'selector': 'app-statement-repository'},{'name': 'TransactionComponent', 'selector': 'app-transaction'},{'name': 'XmlfileComponent', 'selector': 'app-xmlfile'},{'name': 'XMLViewerComponent', 'selector': 'app-xml-viewer'}];
+    var DIRECTIVES = [{'name': 'AppRestrictSpecialCharDirective', 'selector': '[appRestrictSplChar]'},{'name': 'MyCurrencyFormatterDirective', 'selector': '[appNumberFormatter]'},{'name': 'OnlyNumberDirective', 'selector': '[appOnlyNumber]'},{'name': 'RestrictSpecialCharacterDirective', 'selector': '[appModelRestrictSplChar]'},{'name': 'UpperCaseDirective', 'selector': '[appControlUpperCase]'}];
+    var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

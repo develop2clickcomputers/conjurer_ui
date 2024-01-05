@@ -1,0 +1,18 @@
+<ng-template #commonNotificationModal>
+    <div class="modal-header">
+        <button type="button" (click)="cancelCommonNotificationModal()" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        <h5>Notification</h5>
+    </div>
+    <div class="modal-body">
+        <div class="row clearfix">
+            <div class="col-md-12" align="center">
+                <p id="commonNotificationText">{{notificationMessage}}</p>
+            </div>
+            <div class="col-md-12" align="center">
+                <input type="button" (click)="cancelCommonNotificationModal()" class="btn btn-large btn-notification-ok" data-dismiss="modal" value="OK">
+            </div>
+        </div>
+    </div>
+</ng-template>

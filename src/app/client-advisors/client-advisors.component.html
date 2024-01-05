@@ -1,0 +1,554 @@
+<div class="b47PM-wrapper logged-in">
+
+   <!-- Header Part Html Starts -->
+   <app-authorised-header></app-authorised-header>
+   <!-- Header Part Html Ends -->
+
+   <!-- Main Display Html Starts -->
+   <div class="b47PM-center-body">
+      <!-- Main Display Html Starts -->
+      <div class="container-fluid b47PM-container">
+         <div class="row">
+            <div *ngIf="showAdvisorList" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-container-margin">
+               <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                     <h3>Advisors</h3>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="submenu-container">
+                     <div class="container-fluid">
+                        <div class="row">
+                           <div *ngFor="let advisor of advisorList; let i = index" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+                              <!-- Advisor info -->
+                              <div class="panel panel-default main-info-panel">
+                                 <div class="panel-heading main-info-panel-heading">
+                                    <h3 class="panel-title">Advisor Info</h3>
+                                    <div class="pull-right tool-list">
+                                       <a (click)="viewAdvisorDetails(advisor)" style="cursor: pointer;">
+                                          <!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
+                                          view more
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <div class="panel-body main-info-panel-body">
+                                    <div class="media">
+                                       <div class="media-body">
+                                          <header class="text-left">
+                                             <div class="text-title">{{advisor['firstName'] | ValidateValue}}</div>
+                                          </header>
+                                       </div>
+                                       <div class="media-right">
+                                          <figure class="profile-image">
+                                             <img *ngIf="advisor['imageIcon']" class="media-object" src="{{advisor['imageIcon']}}" alt="">
+                                             <img *ngIf="!advisor['imageIcon']" class="media-object" src="/assets/img/profile_image/prof_placeholder.jpg" alt="">
+                                          </figure>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div *ngIf="!showAdvisorList" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-container-margin">
+               <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                     <h3>{{employeeObj?.firstName}}</h3>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                     <div class="btn-group head-button-group">
+                        <button *ngIf="!mappedAdvisor" type="button" (click)="mapAdvisor()" class="btn btn-info">Map Advisor</button>
+                        <button *ngIf="!showButton" type="button" (click)="mapAdvisor('primary')" class="btn btn-info">Map Advisor As Primary</button>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="submenu-container">
+                     <div *ngIf="employeeErrorFlag" class="container-fluid main-container">
+                        <div class="row">
+                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                              <span>Opps..Something went wrong</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div *ngIf="employeeCountFlag" class="container-fluid main-container">
+                        <div class="row">
+                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                              <span>There are no data</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="container-fluid">
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right" style="margin-bottom: 10px;">
+                              <a class="btn btn-default cursor" (click)="backToAdvisorList()">&laquo; Previous</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div *ngIf="showEmployeeFlag && !employeeErrorFlag" class="main-container">
+                        <div class="container-fluid">
+                           <div class="row">
+                              <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+                                 <!-- Employee info -->
+                                 <div class="panel panel-default main-info-panel">
+                                    <div class="panel-heading main-info-panel-heading">
+                                       <h3 class="panel-title">Employee Info</h3>
+                                    </div>
+                                    <div class="panel-body main-info-panel-body">
+                                       <div class="media">
+                                          <div class="media-body">
+                                             <header class="text-left">
+                                                <div class="text-title">{{employeeObj['firstName'] | ValidateValue}}</div>
+                                             </header>
+                                             <div *ngIf="employeeObj['martialStatus']">
+                                                <div class="span4">
+                                                   <div class="left-section">
+                                                      <span class="left-section-heading">Martial Status</span>
+                                                      <span class="colon-span">:</span>
+                                                   </div>
+                                                   <div class="right-section">
+                                                      <span>{{employeeObj?.martialStatus?.displayText | ValidateValue}}</span>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div *ngIf="employeeObj['nationality']">
+                                                <div class="span4">
+                                                   <div class="left-section">
+                                                      <span class="left-section-heading">Nationality</span>
+                                                      <span class="colon-span">:</span>
+                                                   </div>
+                                                   <div class="right-section">
+                                                      <span>{{employeeObj?.nationality?.displayText | ValidateValue}}</span>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div *ngIf="employeeObj['dateOfJoining']">
+                                                <div class="span4">
+                                                   <div class="left-section">
+                                                      <span class="left-section-heading">Hire Date</span>
+                                                      <span class="colon-span">:</span>
+                                                   </div>
+                                                   <div class="right-section">
+                                                      <span>{{employeeObj['dateOfJoining'] | standardDateFormat | ValidateValue}}
+                                                      </span>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div *ngIf="employeeObj['dateOfResignation']">
+                                                <div class="span4">
+                                                   <div class="left-section">
+                                                      <span class="left-section-heading">Resigned On</span>
+                                                      <span class="colon-span">:</span>
+                                                   </div>
+                                                   <div class="right-section">
+                                                      <span>{{employeeObj['dateOfResignation'] | standardDateFormat | ValidateValue}}</span>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="media-right">
+                                             <figure class="profile-image">
+                                                <img *ngIf="employeeObj['imageIcon']" class="media-object" src="{{employeeObj['imageIcon']}}" alt="">
+                                                <img *ngIf="!employeeObj['imageIcon']" class="media-object" src="/assets/img/profile_image/prof_placeholder.jpg" alt="">
+                                             </figure>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <!-- employee identity -->
+                                 <div *ngIf="employeeObj['employeeIdentity'] && employeeObj['employeeIdentity'].length > 0" class="panel panel-default main-info-panel">
+                                    <div class="panel-heading main-info-panel-heading">
+                                       <h3 class="panel-title">Employee Identity</h3>
+                                    </div>
+                                    <div class="panel-body main-panel-body">
+                                       <div class="table-responsive">
+                                          <table class="table table-hover table-bordered info-table">
+                                             <thead>
+                                                <tr>
+                                                   <th>IDENTITY TYPE</th>
+                                                   <th>NUMBER</th>
+                                                </tr>
+                                             </thead>
+                                             <tbody *ngFor="let idObj of employeeObj['employeeIdentity']">
+                                                <tr>
+                                                   <td>
+                                                      {{idObj?.type?.displayText}}
+                                                   </td>
+                                                   <td>
+                                                      <span>{{idObj.idNo | ValidateValue}}</span>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <!-- Languages -->
+                                 <div *ngIf="employeeObj['employeeLanguages'] && employeeObj['employeeLanguages'].length > 0" class="panel panel-default main-info-panel">
+                                    <div class="panel-heading main-info-panel-heading">
+                                       <h3 class="panel-title">Languages</h3>
+                                    </div>
+                                    <div class="panel-body main-panel-body">
+                                       <div class="table-responsive">
+                                          <table class="table table-hover table-bordered info-table">
+                                             <thead>
+                                                <tr>
+                                                   <th>NAME</th>
+                                                   <th>PROFICIENCY</th>
+                                                </tr>
+                                             </thead>
+                                             <tbody *ngFor="let language of employeeObj['employeeLanguages']">
+                                                <tr>
+                                                   <td>
+                                                      {{language?.language}}
+                                                   </td>
+                                                   <td>
+                                                      {{language?.proficiency?.displayText}}
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <!-- address -->
+                                 <div *ngIf="employeeObj['employeeAddresses'] && employeeObj['employeeAddresses'].length > 0" class="panel panel-default main-info-panel">
+                                    <div class="panel-heading main-info-panel-heading">
+                                       <h3 class="panel-title">Employee Address</h3>
+                                    </div>
+
+                                    <div class="panel-body main-panel-body">
+                                       <div class="table-responsive">
+                                          <table class="table table-hover table-bordered info-table">
+                                             <thead>
+                                                <tr>
+                                                   <th>ADDRESS</th>
+                                                   <th class="text-center">TYPE</th>
+                                                   <th class="text-center">LAST UPDATED</th>
+                                                </tr>
+                                             </thead>
+                                             <tbody *ngFor="let address of employeeObj['employeeAddresses']">
+                                                <tr>
+                                                   <td>
+                                                      <span *ngIf="address?.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                      <span *ngIf="address?.unitNumber">{{address?.unitNumber}}</span>
+                                                      <span *ngIf="address?.unitNumber">, </span>
+                                                      <span *ngIf="address?.address1">{{address?.address1}}</span>
+                                                      <br />
+                                                      <span *ngIf="address?.address2">{{address?.address2}}</span>
+                                                      <br *ngIf="address?.address2" />
+                                                      <span *ngIf="address?.city">{{address?.city}}</span>
+                                                      <span *ngIf="address?.state">, {{address?.state}}</span>
+                                                      <span *ngIf="address?.country">, {{address?.country}}</span>
+                                                      <span *ngIf="address?.pinCode"> - {{address?.pinCode}}</span>
+                                                   </td>
+                                                   <td class="text-center">
+                                                      {{address?.type?.displayText}}
+                                                   </td>
+                                                   <td class="text-center">
+                                                      {{address?.updatedAt | standardDateFormat}}
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <!-- educations -->
+                                 <div *ngIf="employeeObj['educationDetails'] && employeeObj['educationDetails'].length > 0" class="panel panel-default main-info-panel">
+                                    <div class="panel-heading main-info-panel-heading">
+                                       <h3 class="panel-title">Employee Education</h3>
+                                    </div>
+
+                                    <div class="panel-body main-panel-body">
+                                       <div class="table-responsive">
+                                          <table class="table table-hover table-bordered info-table">
+                                             <thead>
+                                                <tr>
+                                                   <th>INSTITUTION NAME</th>
+                                                   <th>DEGREE</th>
+                                                   <th>SPECIALIZATION</th>
+                                                   <th>DATE</th>
+                                                </tr>
+                                             </thead>
+                                             <tbody *ngFor="let education of employeeObj['educationDetails']">
+                                                <tr>
+                                                   <td>
+                                                      {{education.instituteName}}
+                                                   </td>
+                                                   <td>
+                                                      {{education?.programOrDegree}}
+                                                   </td>
+                                                   <td>
+                                                      {{education?.specialisation}}
+                                                   </td>
+                                                   <td>
+                                                      <span *ngIf="education['persuing']">
+                                                         <span *ngIf="education.fromDate">{{education.fromDate | standardDateFormat}} - Current</span>
+                                                      </span>
+                                                      <span *ngIf="!education['persuing']">
+                                                         <span *ngIf="education.fromDate">{{education.fromDate | standardDateFormat}}</span>
+                                                         <span *ngIf="education.toDate"> to {{education.toDate | standardDateFormat}}</span>
+                                                      </span>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <!-- Certifications -->
+                                 <div *ngIf="employeeObj['certificationDetails'] && employeeObj['certificationDetails'].length > 0" class="panel panel-default main-info-panel">
+                                    <div class="panel-heading main-info-panel-heading">
+                                       <h3 class="panel-title">Employee Certifications</h3>
+                                    </div>
+                                    <div class="panel-body main-panel-body">
+                                       <div class="table-responsive">
+                                          <table class="table table-hover table-bordered info-table">
+                                             <thead>
+                                                <tr>
+                                                   <th>INSTITUTION NAME</th>
+                                                   <th>DEGREE</th>
+                                                   <th>SPECIALIZATION</th>
+                                                   <th>DATE</th>
+                                                </tr>
+                                             </thead>
+                                             <tbody *ngFor="let exp of employeeObj['certificationDetails']">
+                                                <tr>
+                                                   <td>
+                                                      {{exp.institute}}
+                                                   </td>
+                                                   <td>
+                                                      {{exp?.name}}
+                                                   </td>
+                                                   <td>
+                                                      {{education?.specialisation}}
+                                                   </td>
+                                                   <td>
+                                                      <span *ngIf="exp.fromDate">{{exp.fromDate | standardDateFormat}}</span>
+                                                      <span *ngIf="exp.toDate"> - {{exp.toDate | standardDateFormat}}</span>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <!-- Experience -->
+                                 <div *ngIf="employeeObj['experienceDetails'] && employeeObj['experienceDetails'].length > 0" class="panel panel-default main-info-panel">
+                                    <div class="panel-heading main-info-panel-heading">
+                                       <h3 class="panel-title">Profession Experience</h3>
+                                    </div>
+                                    <div class="panel-body main-panel-body">
+                                       <div class="table-responsive">
+                                          <table class="table table-hover table-bordered info-table">
+                                             <thead>
+                                                <tr>
+                                                   <th>COMPANY</th>
+                                                   <th>DESIGNATION</th>
+                                                   <th>LOCATION</th>
+                                                   <th>DATE</th>
+                                                </tr>
+                                             </thead>
+                                             <tbody *ngFor="let exp of employeeObj['experienceDetails']">
+                                                <tr>
+                                                   <td>
+                                                      {{exp.companyName}}
+                                                   </td>
+                                                   <td>
+                                                      {{exp.designation}}
+                                                   </td>
+                                                   <td>
+                                                      {{exp.location}}
+                                                   </td>
+                                                   <td>
+                                                      <label class="pull-right" *ngIf="exp.currentlyWorking">
+                                                         <span *ngIf="exp.fromDate">{{exp.fromDate | standardDateFormat}} – Present</span>
+                                                      </label>
+                                                      <label class="pull-right" *ngIf="!exp.currentlyWorking">
+                                                         <span *ngIf="exp.fromDate">{{exp.fromDate | standardDateFormat}}</span>
+                                                         <span *ngIf="exp.toDate">
+                                                            – {{exp.toDate | standardDateFormat}}</span>
+                                                      </label>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                              </div>
+
+                              <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                                    <!-- employee contacts -->
+                                 <div *ngIf="employeeObj['contactNumbers'] && employeeObj['contactNumbers'].length > 0" class="panel panel-default main-info-panel">
+                                    <div class="panel-heading main-info-panel-heading">
+                                       <h3 class="panel-title">Employee Contact</h3>
+                                    </div>
+                                    <div class="panel-body main-panel-body">
+                                       <div class="table-responsive">
+                                          <table class="table table-hover table-bordered info-table">
+                                             <thead>
+                                                <tr>
+                                                   <th>PHONE</th>
+                                                   <th class="text-center">LAST UPDATED</th>
+                                                </tr>
+                                             </thead>
+                                             <tbody *ngFor="let phno of employeeObj['contactNumbers']">
+                                                <tr>
+                                                   <td>
+                                                      <span *ngIf="phno?.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                      <span>({{phno?.countryCode}}) </span>
+                                                      <span>{{phno?.number}}</span>
+                                                   </td>
+                                                   <td class="text-center">
+                                                      {{phno?.updatedAt | standardDateFormat}}
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <!-- emails -->
+                                 <div *ngIf="employeeObj['emails'] && employeeObj['emails'].length > 0" class="panel panel-default main-info-panel">
+                                    <div class="panel-heading main-info-panel-heading">
+                                       <h3 class="panel-title">Employee Emails</h3>
+                                    </div>
+                                    <div class="panel-body main-panel-body">
+                                       <div class="media">
+                                          <div class="media-body">
+                                             <div class="table-responsive">
+                                                <table class="table table-hover table-bordered info-table">
+                                                   <thead>
+                                                      <tr>
+                                                         <th>EMAIL</th>
+                                                         <th class="text-center">LAST UPDATED</th>
+                                                      </tr>
+                                                   </thead>
+                                                   <tbody *ngFor="let email of employeeObj['emails']">
+                                                      <tr>
+                                                         <td>
+                                                            <span *ngIf="email.primary" class="label wm-label-primary pull-right">Primary</span>
+                                                            <span>{{email.email}}</span>
+                                                         </td>
+                                                         <td class="text-center">
+                                                            {{email?.updatedAt | standardDateFormat}}
+                                                         </td>
+                                                      </tr>
+                                                   </tbody>
+                                                </table>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <!-- social profile -->
+                                 <div *ngIf="employeeObj['socialProfiles'] && employeeObj['socialProfiles'].length > 0" class="panel panel-default main-info-panel">
+                                    <div class="panel-heading main-info-panel-heading">
+                                       <h3 class="panel-title">Social Profile</h3>
+                                    </div>
+                                    <div class="panel-body main-panel-body">
+                                       <div class="table-responsive">
+                                          <table class="table table-hover table-bordered info-table">
+                                             <thead>
+                                                <tr>
+                                                   <th>TYPE</th>
+                                                   <th>LINK</th>
+                                                   <th>STATUS</th>
+                                                </tr>
+                                             </thead>
+                                             <tbody *ngFor="let social of employeeObj['socialProfiles']">
+                                                <tr>
+                                                   <td>
+                                                      {{social?.type?.displayText}}
+                                                   </td>
+                                                   <td>
+                                                      {{social.profileUrl}}
+                                                   </td>
+                                                   <td>
+                                                      <span *ngIf="social?.status; else unActive">
+                                                         Active
+                                                      </span>
+                                                      <ng-template #unActive>
+                                                         Deactive
+                                                      </ng-template>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <!-- Registration's & membership's -->
+                                 <div *ngIf="employeeObj['employeeRegistrationAndMemberShips'] && employeeObj['employeeRegistrationAndMemberShips'].length > 0" class="panel panel-default main-info-panel">
+                                    <div class="panel-heading main-info-panel-heading">
+                                       <h3 class="panel-title">Registration & Memberships</h3>
+                                    </div>
+                                    <div class="panel-body main-panel-body">
+                                       <div class="table-responsive">
+                                          <table class="table table-hover table-bordered info-table">
+                                             <thead>
+                                                <tr>
+                                                   <th>REGULATORY BODY</th>
+                                                   <th>SEGEMENT</th>
+                                                   <th>REG. NO.</th>
+                                                   <th>VALID UPTO</th>
+                                                </tr>
+                                             </thead>
+                                             <tbody *ngFor="let reg of employeeObj['employeeRegistrationAndMemberShips']">
+                                                <tr>
+                                                   <td>
+                                                      {{reg.regulatoryBody}}
+                                                   </td>
+                                                   <td>
+                                                      <span>{{reg.segment}}</span>
+                                                   </td>
+                                                   <td>
+                                                      <span>{{reg.registrationNo}}</span>
+                                                   </td>
+                                                   <td>
+                                                      {{reg.validUpto | standardDateFormat | ValidateValue}}
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Main Display Html Ends -->
+
+   <!-- Footer Part Html Starts -->
+   <app-authorised-footer></app-authorised-footer>
+   <!-- Footer Part Html Ends -->
+</div>
+
+<!-- Notification component -->
+<app-common-notification #notificationComponent></app-common-notification>

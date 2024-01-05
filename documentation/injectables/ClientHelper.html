@@ -1,0 +1,2244 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>conjurer documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">conjurer documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>ClientHelper</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/helpers/client/client.helper.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Client helper service class</p>
+
+            </p>
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_clientData">_clientData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_newclientData">_newclientData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getClientData">getClientData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getClientId">getClientId</a>
+                            </li>
+                            <li>
+                                <a href="#getCommissionTermMonth">getCommissionTermMonth</a>
+                            </li>
+                            <li>
+                                <a href="#getCommissionTermYear">getCommissionTermYear</a>
+                            </li>
+                            <li>
+                                <a href="#getFrequency">getFrequency</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getNewClientData">getNewClientData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getPolicyProcessId">getPolicyProcessId</a>
+                            </li>
+                            <li>
+                                <a href="#initAdvisor">initAdvisor</a>
+                            </li>
+                            <li>
+                                <a href="#initBusinessRegistrationDetail">initBusinessRegistrationDetail</a>
+                            </li>
+                            <li>
+                                <a href="#initHouseholdMember">initHouseholdMember</a>
+                            </li>
+                            <li>
+                                <a href="#initIdentityDetail">initIdentityDetail</a>
+                            </li>
+                            <li>
+                                <a href="#initLoadingPremium">initLoadingPremium</a>
+                            </li>
+                            <li>
+                                <a href="#initPolicyPremium">initPolicyPremium</a>
+                            </li>
+                            <li>
+                                <a href="#initPremium">initPremium</a>
+                            </li>
+                            <li>
+                                <a href="#initRiderPremium">initRiderPremium</a>
+                            </li>
+                            <li>
+                                <a href="#initRidersLoadingPremium">initRidersLoadingPremium</a>
+                            </li>
+                            <li>
+                                <a href="#initRidersPremium">initRidersPremium</a>
+                            </li>
+                            <li>
+                                <a href="#initTargetPremium">initTargetPremium</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setClientData">setClientData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setNewClientData">setNewClientData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setPolicyPocessId">setPolicyPocessId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getClientData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getClientData
+                            </b>
+                            <a href="#getClientData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getClientData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/helpers/client/client.helper.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get stored carrier data object</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getClientId"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getClientId
+                            </b>
+                            <a href="#getClientId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getClientId()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/helpers/client/client.helper.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get client ID</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCommissionTermMonth"></a>
+                        <span class="name">
+                            <b>
+                            getCommissionTermMonth
+                            </b>
+                            <a href="#getCommissionTermMonth"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCommissionTermMonth(commTerm)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="330" class="link-to-prism">src/app/helpers/client/client.helper.ts:330</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get months from commission term</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>commTerm</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCommissionTermYear"></a>
+                        <span class="name">
+                            <b>
+                            getCommissionTermYear
+                            </b>
+                            <a href="#getCommissionTermYear"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCommissionTermYear(commTerm)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="341" class="link-to-prism">src/app/helpers/client/client.helper.ts:341</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get years from commission term</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>commTerm</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getFrequency"></a>
+                        <span class="name">
+                            <b>
+                            getFrequency
+                            </b>
+                            <a href="#getFrequency"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getFrequency(flag)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="472" class="link-to-prism">src/app/helpers/client/client.helper.ts:472</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get frequency to send to server</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>flag</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getNewClientData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getNewClientData
+                            </b>
+                            <a href="#getNewClientData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getNewClientData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/helpers/client/client.helper.ts:67</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get stored client data</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getPolicyProcessId"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getPolicyProcessId
+                            </b>
+                            <a href="#getPolicyProcessId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getPolicyProcessId()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/helpers/client/client.helper.ts:98</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get policy process id</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initAdvisor"></a>
+                        <span class="name">
+                            <b>
+                            initAdvisor
+                            </b>
+                            <a href="#initAdvisor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initAdvisor(element?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="195" class="link-to-prism">src/app/helpers/client/client.helper.ts:195</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To initialize a advisor</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>element</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initBusinessRegistrationDetail"></a>
+                        <span class="name">
+                            <b>
+                            initBusinessRegistrationDetail
+                            </b>
+                            <a href="#initBusinessRegistrationDetail"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initBusinessRegistrationDetail(element?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="171" class="link-to-prism">src/app/helpers/client/client.helper.ts:171</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To initialize business registration detail array</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>element</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initHouseholdMember"></a>
+                        <span class="name">
+                            <b>
+                            initHouseholdMember
+                            </b>
+                            <a href="#initHouseholdMember"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initHouseholdMember(element?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/app/helpers/client/client.helper.ts:111</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To initialize household member array for individal form</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>element</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initIdentityDetail"></a>
+                        <span class="name">
+                            <b>
+                            initIdentityDetail
+                            </b>
+                            <a href="#initIdentityDetail"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initIdentityDetail(element?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">src/app/helpers/client/client.helper.ts:147</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To initialize identity deial array for individal form</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>element</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initLoadingPremium"></a>
+                        <span class="name">
+                            <b>
+                            initLoadingPremium
+                            </b>
+                            <a href="#initLoadingPremium"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initLoadingPremium(loadingPremium?, premiumFreq?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="285" class="link-to-prism">src/app/helpers/client/client.helper.ts:285</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To intialize loading premium</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>loadingPremium</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>premiumFreq</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initPolicyPremium"></a>
+                        <span class="name">
+                            <b>
+                            initPolicyPremium
+                            </b>
+                            <a href="#initPolicyPremium"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initPolicyPremium(premium?, loadingPremium?, premiumFreq?, targetPremiumApplicable?, targetPremium?, targetPremiumFrequency?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="229" class="link-to-prism">src/app/helpers/client/client.helper.ts:229</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To initialize a policy premium</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>premium</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>loadingPremium</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>premiumFreq</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>targetPremiumApplicable</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>targetPremium</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>targetPremiumFrequency</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initPremium"></a>
+                        <span class="name">
+                            <b>
+                            initPremium
+                            </b>
+                            <a href="#initPremium"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initPremium(premium?, premiumFreq?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="262" class="link-to-prism">src/app/helpers/client/client.helper.ts:262</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To intialize premium</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>premium</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>premiumFreq</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initRiderPremium"></a>
+                        <span class="name">
+                            <b>
+                            initRiderPremium
+                            </b>
+                            <a href="#initRiderPremium"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initRiderPremium(element?, premiumFreq?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="354" class="link-to-prism">src/app/helpers/client/client.helper.ts:354</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To initialize rider premium</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>element</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>premiumFreq</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initRidersLoadingPremium"></a>
+                        <span class="name">
+                            <b>
+                            initRidersLoadingPremium
+                            </b>
+                            <a href="#initRidersLoadingPremium"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initRidersLoadingPremium(loadingPremium?, premiumFreq?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="439" class="link-to-prism">src/app/helpers/client/client.helper.ts:439</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To initialize a rider loading premium</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>loadingPremium</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>premiumFreq</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initRidersPremium"></a>
+                        <span class="name">
+                            <b>
+                            initRidersPremium
+                            </b>
+                            <a href="#initRidersPremium"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initRidersPremium(premium?, premiumFreq?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="405" class="link-to-prism">src/app/helpers/client/client.helper.ts:405</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To intialize rier premium</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>premium</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>premiumFreq</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initTargetPremium"></a>
+                        <span class="name">
+                            <b>
+                            initTargetPremium
+                            </b>
+                            <a href="#initTargetPremium"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initTargetPremium(targetPremium?, targetPremiumFrequency?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="308" class="link-to-prism">src/app/helpers/client/client.helper.ts:308</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To intialize target premium</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>targetPremium</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>targetPremiumFrequency</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setClientData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setClientData
+                            </b>
+                            <a href="#setClientData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>setClientData(v: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/helpers/client/client.helper.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To set client data object</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>v</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setNewClientData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setNewClientData
+                            </b>
+                            <a href="#setNewClientData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>setNewClientData(v: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/helpers/client/client.helper.ts:75</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To set client data</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>v</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setPolicyPocessId"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setPolicyPocessId
+                            </b>
+                            <a href="#setPolicyPocessId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>setPolicyPocessId(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/helpers/client/client.helper.ts:85</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To set policy process id</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>id</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_clientData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _clientData</b>
+                            <a href="#_clientData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/helpers/client/client.helper.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_newclientData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _newclientData</b>
+                            <a href="#_newclientData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/helpers/client/client.helper.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { FormGroup, FormArray, FormBuilder, Validators } from &#x27;@angular/forms&#x27;;
+
+import { CommonConstant } from &#x27;../../constants/common/common.constant&#x27;;
+import { ClientConstant } from &#x27;../../constants/client/client.constant&#x27;;
+import { CarrierConstant } from &#x27;../../constants/carrier/carrier.constant&#x27;;
+
+/**
+ * Client helper service class
+ */
+@Injectable()
+export class ClientHelper {
+
+    private _clientData: any &#x3D; {};
+    private _newclientData: any &#x3D; {};
+
+    /** @ignore */
+    constructor(
+        private _fb: FormBuilder
+    ) {  }
+
+    /**
+     * To get stored carrier data object
+     */
+    public getClientData(): any {
+        let clientData &#x3D; sessionStorage.getItem(&#x27;clientData&#x27;);
+        if (clientData) {
+            clientData &#x3D; JSON.parse(clientData);
+            return clientData;
+        }
+        return {};
+    }
+
+    /**
+     * To get client ID
+     */
+    public getClientId() {
+        let clientData &#x3D; sessionStorage.getItem(&#x27;clientData&#x27;);
+        if (clientData) {
+            clientData &#x3D; JSON.parse(clientData);
+            return clientData[&#x27;clientId&#x27;];
+        }
+    }
+
+    /**
+     * To set client data object
+     * @param any v
+     */
+    public setClientData(v: any) {
+        // console.log(v);
+        if (Object.keys(v).length &gt; 0) {
+            this._clientData &#x3D; {};
+            this._clientData[&#x27;clientId&#x27;] &#x3D; v[CommonConstant.PLAIN_ID];
+
+            this._clientData &#x3D; JSON.stringify(this._clientData);
+            sessionStorage.setItem(&#x27;clientData&#x27;, this._clientData);
+        } else {
+            this._clientData &#x3D; {};
+            this._clientData &#x3D; JSON.stringify(this._clientData);
+            sessionStorage.setItem(&#x27;clientData&#x27;, this._clientData);
+        }
+    }
+
+    /**
+     * To get stored client data
+     */
+    public getNewClientData(): any {
+        return this._newclientData;
+    }
+
+    /**
+     * To set client data
+     * @param any v
+     */
+    public setNewClientData(v: any) {
+        // console.log(v);
+        this._newclientData &#x3D; {};
+        this._newclientData &#x3D; v;
+    }
+
+    /**
+     * To set policy process id
+     * @param string id
+     */
+    public setPolicyPocessId(id: string) {
+        const processId &#x3D; id;
+        let policyData: any &#x3D; {};
+        if (processId) {
+            policyData[&#x27;processId&#x27;] &#x3D; processId;
+            policyData &#x3D; JSON.stringify(policyData);
+            sessionStorage.setItem(&#x27;policyData&#x27;, policyData);
+        }
+    }
+
+    /**
+     * To get policy process id
+     */
+    public getPolicyProcessId() {
+        let policyData &#x3D; sessionStorage.getItem(&#x27;policyData&#x27;);
+        console.log(policyData);
+        if (policyData) {
+            policyData &#x3D; JSON.parse(policyData);
+            return policyData[&#x27;processId&#x27;];
+        }
+    }
+
+    /**
+     * To initialize household member array for individal form
+     * @param element
+     */
+    initHouseholdMember(element?) {
+        let headSelected: boolean;
+        if (element) {
+        if (typeof element &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+            headSelected &#x3D; false;
+        } else if (typeof element &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+            let relationship &#x3D; &#x27;&#x27;;
+            if (element[ClientConstant.RELATIONSHIP_WITH_HEAD]) {
+                relationship &#x3D; element[ClientConstant.RELATIONSHIP_WITH_HEAD][&#x27;value&#x27;];
+            }
+            return this._fb.group({
+                id: element[CommonConstant.PLAIN_ID],
+                memberName: element[ClientConstant.MEMBER_NAME],
+                head: element[ClientConstant.HOUSEHOLD_HEAD],
+                relationship: relationship,
+                premium: element[ClientConstant.PREMIUM],
+                newField: false
+            })
+        }
+        } else {
+        headSelected &#x3D; true;
+        }
+        return this._fb.group({
+            id: [&#x27;&#x27;],
+            memberName: [&#x27;&#x27;],
+            head: [headSelected],
+            relationship: [&#x27;&#x27;],
+            premium: [&#x27;&#x27;],
+            newField: [true]
+        })
+    }
+
+    /**
+     * To initialize identity deial array for individal form
+     * @param any element
+     */
+    initIdentityDetail(element?) {
+        if (element) {
+        return this._fb.group({
+            id: element[CommonConstant.PLAIN_ID],
+            identityType: element[ClientConstant.IDENTITY_TYPE],
+            countryOfIssuance: element[ClientConstant.COUNTRY_OFF_ISSUANCE],
+            idNo: element[ClientConstant.ID_NO],
+            newField: false
+        })
+        } else {
+        return this._fb.group({
+            id: [&#x27;&#x27;],
+            identityType: [&#x27;&#x27;],
+            countryOfIssuance: [&#x27;&#x27;],
+            idNo: [&#x27;&#x27;],
+            newField: [true]
+        })
+        }
+    }
+
+  /**
+   * To initialize business registration detail array
+   * @param any element
+   */
+  initBusinessRegistrationDetail(element?) {
+    if (element) {
+      return this._fb.group({
+        id: element[CommonConstant.PLAIN_ID],
+        agency: element[ClientConstant.AGENCY],
+        segment: element[ClientConstant.SEGEMENT],
+        regNo: element[ClientConstant.REG_NO],
+        newField: false
+      })
+    } else {
+      return this._fb.group({
+        id: [&#x27;&#x27;],
+        agency: [&#x27;&#x27;],
+        segment: [&#x27;&#x27;],
+        regNo: [&#x27;&#x27;],
+        newField: [true]
+      })
+    }
+  }
+
+  /**
+   * To initialize a advisor
+   * @param any element
+   */
+  initAdvisor(element?) {
+    let primarySelected: boolean;
+    if (element) {
+      if (typeof element &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+        return this._fb.group({
+          id: element[CommonConstant.PLAIN_ID],
+          advisorName: element[CommonConstant.PLAIN_ID],
+          primary: element[CommonConstant.PRIMARY],
+          active: [false]
+        })
+      } else if (typeof element &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+        primarySelected &#x3D; false;
+      }
+    } else {
+      primarySelected &#x3D; true;
+    }
+
+    return this._fb.group({
+      id: [&#x27;&#x27;],
+      advisorName: [&#x27;&#x27;],
+      primary: [primarySelected],
+      active: [false]
+    })
+  }
+
+  /**
+   * To initialize a policy premium
+   * @param any premium
+   * @param any loadingPremium
+   * @param any premiumFreq
+   * @param any targetPremiumApplicable
+   * @param any targetPremium
+   * @param any targetPremiumFrequency
+   */
+  initPolicyPremium(premium?, loadingPremium?, premiumFreq?, targetPremiumApplicable?, targetPremium?, targetPremiumFrequency?) {
+    if (premium || targetPremium) {
+      let targetPremApplicable &#x3D; false, targetPrem &#x3D; &#x27;&#x27;, targetPremFreq &#x3D; &#x27;&#x27;;
+      if (targetPremiumApplicable) {
+        targetPremApplicable &#x3D; targetPremiumApplicable;
+      }
+      if (targetPremium) {
+        targetPrem &#x3D; targetPremium;
+      }
+      if (targetPremiumFrequency) {
+        targetPremFreq &#x3D; targetPremiumFrequency;
+      }
+      return this._fb.group({
+        premium: this.initPremium(premium, premiumFreq),
+        loadingPremium: this.initLoadingPremium(loadingPremium, premiumFreq),
+        targetPremiumApplicable: [targetPremiumApplicable],
+        targetPremium: this.initTargetPremium(targetPrem, targetPremFreq)
+      })
+    } else {
+      return this._fb.group({
+        premium: this.initPremium(),
+        loadingPremium: this.initLoadingPremium(),
+        targetPremiumApplicable: [false],
+        targetPremium: this.initTargetPremium()
+      })
+    }
+  }
+
+  /**
+   * To intialize premium
+   * @param any premium
+   * @param any premiumFreq
+   */
+  initPremium(premium?, premiumFreq?) {
+    if (premium) {
+      return this._fb.group({
+        premium: [{value: &#x27;Model Premium&#x27;, disabled: true}],
+        premiumFrequency: [premiumFreq],
+        amount: [premium],
+        payableUpto: [&#x27;&#x27;]
+      })
+    } else {
+      return this._fb.group({
+        premium: [{value: &#x27;Model Premium&#x27;, disabled: true}],
+        premiumFrequency: [&#x27;annually&#x27;],
+        amount: [&#x27;&#x27;],
+        payableUpto: [&#x27;&#x27;]
+      })
+    }
+  }
+
+  /**
+   * To intialize loading premium
+   * @param any loadingPremium
+   * @param any premiumFreq
+   */
+  initLoadingPremium(loadingPremium?, premiumFreq?) {
+    if (loadingPremium) {
+      return this._fb.group({
+        premium: [{value: &#x27;Loading Premium&#x27;, disabled: true}],
+        premiumFrequency: [{value: premiumFreq, disabled: true}],
+        amount: loadingPremium,
+        payableUpto: [&#x27;&#x27;]
+      })
+    } else {
+      return this._fb.group({
+        premium: [{value: &#x27;Loading Premium&#x27;, disabled: true}],
+        premiumFrequency: [{value: &#x27;annually&#x27;, disabled: true}],
+        amount: [&#x27;&#x27;],
+        payableUpto: [&#x27;&#x27;]
+      })
+    }
+  }
+
+  /**
+   * To intialize target premium
+   * @param any targetPremium
+   * @param any targetPremiumFrequency
+   */
+  initTargetPremium(targetPremium?, targetPremiumFrequency?) {
+    if (targetPremium) {
+      return this._fb.group({
+        premium: [{value: &#x27;Target Premium&#x27;, disabled: true}],
+        targetPremium: [targetPremium],
+        targetPremiumFrequency: [targetPremiumFrequency],
+        payableUpto: [&#x27;&#x27;]
+      })
+    } else {
+      return this._fb.group({
+        premium: [{value: &#x27;Target Premium&#x27;, disabled: true}],
+        targetPremium: [&#x27;&#x27;],
+        targetPremiumFrequency: [&#x27;na&#x27;],
+        payableUpto: [&#x27;&#x27;]
+      })
+    }
+  }
+
+  /**
+   * To get months from commission term
+   * @param commTerm
+   */
+  getCommissionTermMonth(commTerm) {
+    if (commTerm) {
+        commTerm &#x3D; Number(commTerm);
+        const months &#x3D; commTerm % 12;
+        return months;
+    }
+  }
+  /**
+   * To get years from commission term
+   * @param any commTerm
+   */
+  getCommissionTermYear(commTerm) {
+    if (commTerm) {
+        commTerm &#x3D; Number(commTerm);
+        const years &#x3D; Math.floor(commTerm / 12);
+        return years;
+    }
+  }
+
+  /**
+   * To initialize rider premium
+   * @param any element
+   * @param any premiumFreq
+   */
+  initRiderPremium(element?, premiumFreq?) {
+    if (element) {
+      let policyRiderTermMonth: number, policyRiderTermYear: number, riderName &#x3D; &#x27;&#x27;;
+      if (element[CarrierConstant.POLICY_RIDER_TERM]) {
+        policyRiderTermMonth &#x3D; this.getCommissionTermMonth(element[CarrierConstant.POLICY_RIDER_TERM]);
+        policyRiderTermYear &#x3D; this.getCommissionTermYear(element[CarrierConstant.POLICY_RIDER_TERM]);
+      }
+      if (element[CommonConstant.NAME]) {
+        riderName &#x3D; element[CommonConstant.NAME]
+      }
+      return this._fb.group({
+        id: element[CommonConstant.PLAIN_ID],
+        name: riderName,
+        rider: element[CarrierConstant.POLICY_PLAN_RIDER1_ID],
+        riderTermId: element[ClientConstant.POLICY_PLAN_RIDER_TERM_ID],
+        policyRiderTermMonth: policyRiderTermMonth,
+        policyRiderTermYear: policyRiderTermYear,
+        death: element[ClientConstant.DEATH],
+        permanentDisability: element[ClientConstant.PERMANENT_DISABLITY],
+        criticalIllness: element[ClientConstant.CRITICAL_ILLNESS],
+        accidentalDeath: element[ClientConstant.ACCIDENTAL_DEATH],
+        premium: this.initRidersPremium(element[ClientConstant.PREMIUM], premiumFreq),
+        loadingPremium: this.initRidersLoadingPremium(element[ClientConstant.LOADING_PREMIUM], premiumFreq),
+        selected: [false],
+        newField: false
+      })
+    } else {
+      return this._fb.group({
+        id: [&#x27;&#x27;],
+        name: [&#x27;&#x27;],
+        rider: [&#x27;&#x27;],
+        riderTermId: [&#x27;&#x27;],
+        policyRiderTermMonth: [&#x27;&#x27;],
+        policyRiderTermYear: [&#x27;&#x27;],
+        death: [&#x27;&#x27;],
+        permanentDisability: [&#x27;&#x27;],
+        criticalIllness: [&#x27;&#x27;],
+        accidentalDeath: [&#x27;&#x27;],
+        premium: this.initRidersPremium(),
+        loadingPremium: this.initRidersLoadingPremium(),
+        selected: [false],
+        newField: [true]
+      })
+    }
+  }
+
+  /**
+   * To intialize rier premium
+   * @param any premium
+   * @param any premiumFreq
+   */
+  initRidersPremium(premium?, premiumFreq?) {
+    let premiumFrequency;
+    if (premiumFreq) {
+      premiumFrequency &#x3D; premiumFreq;
+    } else {
+      premiumFrequency &#x3D; &#x27;&#x27;;
+    }
+
+    const payableDate &#x3D; &#x27;&#x27;;
+
+    if (premium) {
+      return this._fb.group({
+        premium: [{value: &#x27;Model Premium&#x27;, disabled: true}],
+        premiumFrequency: [{value: premiumFrequency, disabled: true}],
+        amount: premium,
+        payableUpto: payableDate,
+        newField: false
+      })
+    } else {
+      return this._fb.group({
+        premium: [{value: &#x27;Model Premium&#x27;, disabled: true}],
+        premiumFrequency: [{value: premiumFrequency, disabled: true}],
+        amount: [&#x27;&#x27;],
+        payableUpto: [payableDate],
+        newField: [true]
+      })
+    }
+  }
+
+  /**
+   * To initialize a rider loading premium
+   * @param loadingPremium
+   * @param premiumFreq
+   */
+  initRidersLoadingPremium(loadingPremium?, premiumFreq?) {
+    let premiumFrequency;
+    if (premiumFreq) {
+      premiumFrequency &#x3D; premiumFreq;
+    } else {
+      premiumFrequency &#x3D; &#x27;&#x27;;
+    }
+
+    const payableDate &#x3D; &#x27;&#x27;;
+
+    if (loadingPremium) {
+      return this._fb.group({
+        premium: [{value: &#x27;Loading Premium&#x27;, disabled: true}],
+        premiumFrequency: [{value: premiumFrequency, disabled: true}],
+        amount: loadingPremium,
+        payableUpto: payableDate,
+        newField: false
+      })
+    } else {
+        return this._fb.group({
+          premium: [{value: &#x27;Loading Premium&#x27;, disabled: true}],
+          premiumFrequency: [{value: premiumFrequency, disabled: true}],
+          amount: [&#x27;&#x27;],
+          payableUpto: [payableDate],
+          newField: [true]
+        })
+    }
+  }
+
+  /**
+   * To get frequency to send to server
+   * @param any flag
+   */
+  getFrequency(flag) {
+    if (flag &#x3D;&#x3D;&#x3D; &#x27;annually&#x27;) {
+      return CommonConstant.FREQUENCY_YEARLY;
+    } else if (flag &#x3D;&#x3D;&#x3D; &#x27;semi-annually&#x27;) {
+      return CommonConstant.FREQUENCY_HALF_YEARLY;
+    } else if (flag &#x3D;&#x3D;&#x3D; &#x27;quarterly&#x27;) {
+      return CommonConstant.FREQUENCY_QUARTERLY;
+    } else if (flag &#x3D;&#x3D;&#x3D; &#x27;monthly&#x27;) {
+      return CommonConstant.FREQUENCY_MONTHLY;
+    } else {
+      return null;
+    }
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ClientHelper.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,315 @@
+<div class="b47PM-wrapper logged-in">
+  <!-- "logged-in" add this class when user login successfully -->
+
+  <!-- Header Part Html Starts -->
+  <app-authorised-header></app-authorised-header>
+  <!-- Header Part Html Ends -->
+
+  <!-- Loader section -->
+  <div class="b47PM-center-body" *ngIf="!statementRepoPageLoad && !statementRepoError">
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <img src="/assets/img/loader/page_loading.gif">
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="statementRepoError">
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1 grey-quad" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h4>Oops! Something went wrong!!!</h4>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="(xmlFilesData.length == 0 && !statementRepoError) && statementRepoPageLoad">
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1 grey-quad" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h4>You haven't added statement</h4>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b47PM-center-body" *ngIf="(xmlFilesData.length > 0 && !statementRepoError) && statementRepoPageLoad">
+    <div class="container-fluid b47PM-container">
+      <div class="col-sm-12">
+        <div class="row clearfix">
+          <h3>File Repository</h3>
+          <div class="misc-table-showcase">
+            <div class="b47PM-financesTab-quad1">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs investment-tabs" role="tablist">
+                <li role="presentation" class="active">
+                  <a href data-target="#institution-content" aria-controls="home" role="tab" data-toggle="tab">By Institution</a>
+                </li>
+                <li role="presentation">
+                  <a href data-target="#date-content" aria-controls="profile" role="tab" data-toggle="tab">By Date</a>
+                </li>
+              </ul>
+
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="institution-content">
+                  <div *ngFor="let instWise of xmlFileDataByInstitution;let i = index" class="panel-group" id="accordion_inst" style="margin-top: 20px;">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion_inst" href="#collapseOneInst_{{i}}" class="panel-name"><span class="fa fa-university panel-icon">
+                            </span>&nbsp;{{instWise.institutionName}}</a>
+                        </h4>
+                      </div>
+                      <div id="collapseOneInst_{{i}}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="statement-detail-quad5">
+                                <table class="statement-detail-tbl">
+                                  <thead>
+                                    <tr>
+                                      <!-- <th>ACCOUNT NO.</th> -->
+                                      <!-- <th>INSTITUTION TYPE</th> -->
+                                      <th>INSTITUTION</th>
+                                      <th>COUNTRY</th>
+                                      <th>STATEMENT DATE</th>
+                                      <th>FILE</th>
+                                      <!-- <th>FILE SIZE</th> -->
+                                      <th>FILE UPLOADED AT</th>
+                                      <th></th>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="9" style="height: 10px; background: #fff;"></td>
+                                    </tr>
+                                  </thead>
+                                  <tbody [hidden]="xmlFilesData.length == 0"> <!-- ng-show="xmlFilesData.length > 0" -->
+                                    <tr *ngFor="let statement of instWise.statementDetails; let i = index">
+                                      <!-- <td class="truncatequd" style="width: 11%;">{{statement.accountNumber}}</td> -->
+                                      <!-- <td class="truncatequd" style="width: 13%;">{{statement.accountType}}</td> -->
+                                      <td class="">{{statement.institutionName}}</td>
+                                      <td class="truncatequd">{{statement.country}}</td>
+                                      <td class="truncatequd" style="width: 12%;">{{statement.statementDate | ValidateDate:'DD-MM-YYYY'}}</td>
+                                      <td class="break-word"><a (click)="downloadPdfStatement(statement)" title="{{statement.fileName}}" class="cursor">{{statement.fileName}}</a></td>
+                                      <!-- <td class="truncatequd" style="text-align: right">{{statement.fileSize}}KB</td> -->
+                                      <td class="truncatequd" style="width: 13%;">
+                                        <!-- <span class="pull-left">{{statement.fileUploaded}}</span> -->
+                                        <span class="pull-right">{{statement.fileUploaded | ValidateDate:'DD-MM-YYYY'}}</span>
+                                      </td>
+                                      <td class="truncatequd">
+                                        <!-- <button class="pull-right btn delete-btn" (click)="reviewSelectedFile(statement)" title="Review">
+                                          <i class="fa fa-eye" aria-hidden="true"></i>
+                                        </button> -->
+                                        <button class="pull-right btn delete-btn" (click)="prepareStatementDelete(statement)">
+                                          <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </button>
+                                        <button class="pull-right btn delete-btn" (click)="openViewXMLFileModal(statement)" title="View XML Files">
+                                          <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                                        </button>
+                                      </td>
+                                    </tr>
+                                    <tr [hidden]="(xmlFilesData).length != 0" style="border: none;">
+                                      <td style="text-align: center;" colspan="9">There are no statements matching this criteria</td>
+                                    </tr>
+                                  </tbody>
+                                  <tbody [hidden]="xmlFilesData.length != 0">
+                                    <tr>
+                                      <td style="text-align: center;" colspan="9">You have not uploaded any statements.</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="date-content">
+                  <div *ngFor="let dateWise of xmlFilesDataByDate;let i = index" class="panel-group" id="accordion_date" style="margin-top: 20px;">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion_date" href="#collapseOneDate_{{i}}" class="panel-name"><span class="fa fa-calendar panel-icon">
+                            </span>&nbsp;{{dateWise.statementDate | ValidateDate:'DD-MM-YYYY'}}</a>
+                        </h4>
+                      </div>
+                      <div id="collapseOneDate_{{i}}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <div class="statement-detail-quad5">
+                            <table class="statement-detail-tbl">
+                              <thead>
+                                <tr>
+                                  <!-- <th>ACCOUNT NO.</th> -->
+                                  <!-- <th>INSTITUTION TYPE</th> -->
+                                  <th>INSTITUTION</th>
+                                  <th>COUNTRY</th>
+                                  <th>STATEMENT DATE</th>
+                                  <th>FILE</th>
+                                  <!-- <th>FILE SIZE</th> -->
+                                  <th>FILE UPLOADED AT</th>
+                                  <th></th>
+                                </tr>
+                                <tr>
+                                  <td colspan="9" style="height: 10px; background: #fff;"></td>
+                                </tr>
+                              </thead>
+                              <tbody [hidden]="xmlFilesData.length == 0"> <!-- ng-show="xmlFilesData.length > 0" -->
+                                <tr *ngFor="let statement of dateWise.statementDetails; let i = index">
+                                  <!-- <td class="truncatequd" style="width: 11%;">{{statement.accountNumber}}</td> -->
+                                  <!-- <td class="truncatequd" style="width: 13%;">{{statement.accountType}}</td> -->
+                                  <td class="">{{statement.institutionName}}</td>
+                                  <td class="truncatequd">{{statement.country}}</td>
+                                  <td class="truncatequd" style="width: 12%;">{{statement.statementDate | ValidateDate:'DD-MM-YYYY'}}</td>
+                                  <td class="break-word"><a (click)="downloadPdfStatement(statement)" title="{{statement.fileName}}" class="cursor">{{statement.fileName}}</a></td>
+                                  <!-- <td class="truncatequd" style="text-align: right">{{statement.fileSize}}KB</td> -->
+                                  <td class="truncatequd" style="width: 13%;">
+                                    <!-- <span class="pull-left">{{statement.fileUploaded}}</span> -->
+                                    <span class="pull-right">{{statement.fileUploaded | ValidateDate:'DD-MM-YYYY'}}</span>
+                                  </td>
+                                  <td class="truncatequd">
+                                    <!-- <button class="pull-right btn delete-btn" (click)="reviewSelectedFile(statement)" title="Review">
+                                      <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </button> -->
+                                    <button class="pull-right btn delete-btn" data-toggle="modal" data-target="#deleteStatementModal" (click)="prepareStatementDelete(statement)" title="Delete">
+                                      <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="pull-right btn delete-btn" (click)="openViewXMLFileModal(statement)" title="View XML Files">
+                                      <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                                    </button>
+                                  </td>
+                                </tr>
+                                <tr [hidden]="(xmlFilesData).length != 0" style="border: none;">
+                                  <td style="text-align: center;" colspan="9">There are no statements matching this criteria</td>
+                                </tr>
+                              </tbody>
+                              <tbody [hidden]="xmlFilesData.length != 0">
+                                <tr>
+                                  <td style="text-align: center;" colspan="9">You have not uploaded any statements.</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Part Html Starts -->
+  <app-authorised-footer></app-authorised-footer>
+  <!-- Footer Part Html Ends -->
+</div>
+
+<ng-template #deleteStatementModal>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancelDeleteStatementModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-md-12" align="center">
+        <p>Are you sure want to delete statement permanently.</p>
+      </div>
+      <div class="col-md-12 pm-red" align="center">
+        <span id="delStatementRepoError"></span>
+      </div>
+      <div class="col-md-12" align="center">
+        <img *ngIf="delStatementDataLoading" src="/assets/img/loader/spin.gif" />
+        <input type="button" class="b47PM-deltran-btn" [disabled]="delStatementDataLoading" value="DELETE" (click)="deleteStatement()">
+        <input type="button" (click)="cancelDeleteStatementModal()" class="b47PM-dCancel-btn" value="CANCEL">
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #viewXMLFileModal>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" (click)="closeViewXMLFileModal()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-md-12" align="center" style="margin-top: -26px;">
+        <div class="row b47PM-budget-tbl-quad1">
+          <div class="table b47PM-misc-table1 b47PM-budget-tbl1">
+            <header class="clearfix">
+              <div align="left" style="width: 30%">Files</div>
+              <!-- <div>Institution Name</div> -->
+              <!-- <div>Review</div> -->
+            </header>
+            <div>
+              <div *ngIf="xmlFileList.length === 0" class="record-row transc-row">
+                  <table class="table inner-data-table">
+                    <thead>
+                        <tr>
+                          <td>There are no files</td>
+                        </tr>
+                    </thead>
+                  </table>
+              </div>
+              <div class="record-row transc-row" *ngFor="let xml of xmlFileList; let i = index;">
+                <table class="table inner-data-table">
+                  <thead>
+                    <tr>
+                      <!-- <th style="width: 30%;">
+                        {{xml}}
+                      </th> -->
+                      <td class="break-word">
+                        <a (click)="downloadXmlFiles(xml)" title="Click here to download" class="cursor">{{xml}}</a> <!-- title="{{xml}}" -->
+                      </td>
+                      <td>
+                        <button *ngIf="!filterToView(xml)" class="pull-right btn delete-btn" (click)="reviewSelectedFile(xml)" title="Review">
+                          <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                      </td>
+                      <!-- <th>
+                        <button type="button" class="btn btn-primary" (click)="redirectToReviewScreen()">Review</button>
+                      </th> -->
+                      <div class="clearfix"></div>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12" align="center">
+        <span class="pm-red" id="deleteManualAccountErr"></span>
+      </div>
+      <!-- <div class="col-md-12" align="center">
+        <input type="submit" id="deleteSubmit" class="b47PM-deltran-btn" ng-disabled="vm.deleteManualAccountDataLoading" value="DELETE">
+        <img *ngIf="deleteManualAccountDataLoading" src="/assets/img/loader/spin.gif" />
+        <input type="button" class="b47PM-dCancel-btn" ng-disabled="vm.deleteManualAccountDataLoading" data-dismiss="modal" value="CANCEL">
+      </div> -->
+    </div>
+  </div>
+</ng-template>

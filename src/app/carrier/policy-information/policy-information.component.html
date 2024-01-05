@@ -1,0 +1,898 @@
+<!-- main display start when there is no transaction -->
+<div class="b47PM-center-body" *ngIf="overviewError">
+   <div class="container b47PM-container goals-landing-page">
+      <div class="row clearfix">
+         <div class="col-md-12">
+            <div class="b47PM-budget-quad1 grey-quad" align="center">
+               <div class="col-sm-8 col-sm-offset-2">
+                  <h4>Oops! Something went wrong!!!</h4>
+               </div>
+               <div class="clearfix"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Main Display Html Starts -->
+<div *ngIf="!overviewError" class="b47PM-center-body">
+   <!-- Main Display Html Starts -->
+   <div class="container-fluid b47PM-container">
+      <div class="row clearfix">
+         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-container-margin">
+            <div *ngIf="showCarrierPlans" class="row">
+               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <h3><span *ngIf="carrierInfo['institutionName']">{{carrierInfo['institutionName']}}</span></h3>
+               </div>
+            </div>
+            <div *ngIf="!showCarrierPlans" class="row">
+               <ng-container *ngIf="policyInfoDisplayFlag">
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                     <h3>{{policyInformation['name']}}</h3>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                     <div class="btn-group head-button-group">
+                        <button type="button" (click)="addNewPlan('new')" class="btn btn-info">Add New</button>
+                        <button type="button" (click)="addNewPlan('copy')" class="btn btn-info">Copy</button>
+                        <button type="button" class="btn btn-info">Delete Plan</button>
+                     </div>
+                  </div>
+               </ng-container>
+               <ng-container *ngIf="!policyInfoDisplayFlag">
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                     <!-- <h3>{{policyInformation['productName']}}</h3> -->
+                     <h3><a class="cursor" (click)="visitRespectivePage()" title="Click here to visit insurance website">{{policyInformation['productName']}}</a></h3>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                     <div class="btn-group head-button-group">
+                        <button type="button" (click)="prepareBuyPlan()" [disabled]="buyPlanLoader" class="btn btn-info">Buy Plan</button>
+                     </div>
+                  </div>
+               </ng-container>
+            </div>
+            <div class="row">
+               <div class="submenu-container">
+                  <app-carrier-menu-temp [showSecondLevelMenu]="showCarrierPlans" #carrierSidebarMenu></app-carrier-menu-temp>
+
+                  <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <h3>Carrier Plans</h3>
+               </div> -->
+
+                  <div *ngIf="policyFetchErrorFlag" class="container-fluid main-container">
+                     <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                           <h4>Opps..Something went wrong</h4>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- <div *ngIf="policyInfoCount" class="container-fluid main-container">
+                  <div class="row">
+                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                        <span>There are no data</span>
+                     </div>
+                  </div>
+               </div> -->
+                  <div *ngIf="showCarrierPlans" class="container-fluid">
+                     <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right" style="margin-bottom: 10px;">
+                           <a class="btn btn-default cursor" (click)="backToCarrierList()">&laquo; Previous</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div *ngIf="!showCarrierPlans" class="container-fluid">
+                     <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right" style="margin-bottom: 10px;">
+                           <a class="btn btn-default cursor" (click)="backToPlanList()">&laquo; Previous</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div *ngIf="policyInfoPageShow && !policyFetchErrorFlag" class="main-container">
+                     <!-- head -->
+                     <div *ngIf="showCarrierPlans" class="container-fluid">
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                              <!-- carrier plans -->
+                              <div class="panel panel-default main-panel">
+                                 <div class="panel-heading main-panel-heading">
+                                    <h3 class="panel-title">Insurance Plans</h3>
+                                    <div class="pull-right tool-list">
+                                       <a title="Filter Client" (click)="showFilterQuad =! showFilterQuad">
+                                          <i class="fa fa-filter" aria-hidden="true"></i>
+                                       </a>
+                                       <!-- <a (click)="addNewPlan('new')" title="New Carrier Plan">
+                                       <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </a> -->
+                                    </div>
+                                 </div>
+                                 <div class="panel-body">
+                                    <div *ngIf="showFilterQuad" class="b47PM-filter-quad1" style="margin: -15px -15px 15px -15px;padding: 10px 25px 10px 64px;">
+                                       <div class="row">
+                                          <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-3 rowPusher form-group">
+                                             <div class="row">
+                                                <label>Name</label>
+                                                <select class="form-control sideGraphClear" name="name" [(ngModel)]="productName">
+                                                   <option value="" selected="selected">All</option>
+                                                   <option *ngFor="let type of productNameFilterList" value="{{ type }}">{{ type }}</option>
+                                                </select>
+                                             </div>
+                                          </div>
+                                          <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4 col-md-3 rowPusher form-group">
+                                             <div class="row">
+                                                <label>Type</label>
+                                                <select class="form-control sideGraphClear" [(ngModel)]="categoryName">
+                                                   <option value="" selected>All</option>
+                                                   <option *ngFor="let item of carrierTypeFilterList" value=" {{ item }}">{{ item }}</option>
+                                                </select>
+                                             </div>
+                                          </div>
+                                          <div class="col-xs-offset-1 col-xs-10  col-sm-offset-0 col-sm-12">
+                                             <div class="row">
+                                                <ng-container *ngIf="Filter['productName'].length > 0">
+                                                   <div class="filter-box" *ngFor="let productName of Filter.productName; let i = index">
+                                                      <span [innerHtml]="productName"></span>
+                                                      <i class="fa fa-times" aria-hidden="true" (click)="spliceProductName(i);" role="button"></i>
+                                                   </div>
+                                                </ng-container>
+                                                <ng-container *ngIf="Filter['categoryName'].length > 0">
+                                                   <div class="filter-box" *ngFor="let categoryName of Filter.categoryName; let i = index">
+                                                      <span [innerHtml]="categoryName"></span>
+                                                      <i class="fa fa-times" aria-hidden="true" (click)="spliceCategoryName(i);" role="button"></i>
+                                                   </div>
+                                                </ng-container>
+                                             </div>
+                                          </div>
+                                       </div>
+
+                                       <div class="row">
+                                          <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-md-12 col-lg-12 text-right">
+                                             <div class="row filter-button">
+                                                <button type="button" class="btn btn-success" (click)="applyFilter()">Apply Filters</button>
+                                                <button type="button" class="btn btn-default" (click)="clearAllFilter()">Clear Filters</button>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="row">
+                                       <ng-container *ngFor="let policyInfo of scrapedPolicyInformationData | exactSearchFilter:Filter.productName | exactSearchFilter:Filter.categoryName; let i = index; odd as isOdd; even as isEven">
+                                          <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                             <div class="card">
+                                                <div class="card-img">
+                                                   <img *ngIf="policyInfo.productImageUrl" class="card-img-top img-responsive" src="{{policyInfo.productImageUrl}}" alt="">
+                                                   <img *ngIf="!policyInfo.productImageUrl" class="card-img-top img-responsive" src="/assets/img/icon/insurance_logo.png" alt="">
+                                                </div>
+                                                <div class="card-body">
+                                                   <h5 class="card-title">{{policyInfo?.productName | uppercase}}</h5>
+                                                   <div class="card-button-container">
+                                                      <a class="cursor btn btn-primary card-button" (click)="getScrapedPolicyInfo(policyInfo, i)">View More</a>
+                                                      <a class="cursor btn btn-primary card-button" (click)="visitRespectivePage(policyInfo)">Visit Page</a>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </ng-container>
+                                       <div *ngIf="policyInformationData.length === 0 && scrapedPolicyInformationData.length === 0" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                          <span>There are no associated plans</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div *ngIf="!showCarrierPlans && policyInfoDisplayFlag" class="container-fluid">
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                              <!-- carrier info -->
+                              <div class="panel panel-default main-info-panel">
+                                 <div class="panel-heading main-info-panel-heading">
+                                    <h3 class="panel-title">Plan Info</h3>
+                                    <div class="pull-right tool-list">
+                                       <a (click)="openPlanMetaDataModal(planMetaDataModal, policyInformation)" style="cursor: pointer;">
+                                          <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <div class="panel-body main-info-panel-body">
+                                    <div class="row">
+                                       <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
+                                          <header class="text-left">
+                                             <div class="text-title">
+                                                {{carrierInfo.name}}
+                                             </div>
+                                          </header>
+
+                                          <div>
+                                             <div class="span4">
+                                                <div class="left-section">
+                                                   <span class="left-section-heading">Name</span>
+                                                   <span class="colon-span">:</span>
+                                                </div>
+                                                <div class="right-section">
+                                                   <span>{{policyInformation['name'] | uppercase}}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div>
+                                             <div class="span4">
+                                                <div class="left-section">
+                                                   <span class="left-section-heading">Type</span>
+                                                   <span class="colon-span">:</span>
+                                                </div>
+                                                <div class="right-section">
+                                                   <span>{{policyInformation['type']['displayText']}}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div>
+                                             <div class="span4">
+                                                <div class="left-section">
+                                                   <span class="left-section-heading">Plan Type</span>
+                                                   <span class="colon-span">:</span>
+                                                </div>
+                                                <div class="right-section">
+                                                   <span>{{policyInformation['planType']['displayText']}}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div>
+                                             <div class="span4">
+                                                <div class="left-section">
+                                                   <span class="left-section-heading">Effective Date</span>
+                                                   <span class="colon-span">:</span>
+                                                </div>
+                                                <div class="right-section">
+                                                   <span>{{policyInformation['effectiveDate'] | standardDateFormat}}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div *ngIf="policyInformation['expirationDate']">
+                                             <div class="span4">
+                                                <div class="left-section">
+                                                   <span class="left-section-heading">Expiration Date</span>
+                                                   <span class="colon-span">:</span>
+                                                </div>
+                                                <div class="right-section">
+                                                   <span>{{policyInformation['expirationDate'] | standardDateFormat | ValidateValue}}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+                                          <figure class="profile-image">
+                                             <div class="header-img">
+                                                <img *ngIf="carrierInfo.imageIcon" class="header-img-top img-responsive" src="{{carrierInfo.imageIcon}}" alt="">
+                                                <img *ngIf="!carrierInfo.imageIcon" class="header-img-top img-responsive" src="/assets/img/icon/insurance_logo.png" alt="">
+                                             </div>
+                                          </figure>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="row">
+                                 <!-- riders -->
+                                 <div class="col-sm-12 col-sm-12">
+                                    <div class="panel panel-default">
+                                       <div class="panel-heading">
+                                          <h3 class="panel-title">Riders</h3>
+                                       </div>
+                                       <div *ngIf="policyInformation['policyPlanRiders'] && policyInformation['policyPlanRiders'].length > 0" class="panel-body">
+                                          <div class="row">
+                                             <div *ngFor="let item of policyInformation['policyPlanRiders']; let i = index" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                <div class="tile shades-of-whisper">
+                                                   <h3 class="title">{{item.rider}}</h3>
+                                                   <!-- <a (click)="openCarrierRiderModal(carrierRiderModal, item)" style="cursor: pointer;" class="profileeditbutton pull-right">
+                                                   <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                                </a> -->
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="panel-body" *ngIf="policyInformation['planTerms'] && policyInformation['planTerms'].length === 0">
+                                          <div class="row">
+                                             <!--  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                             <div class="span4">You haven't added any rider for this plan.
+                                                <a (click)="openCarrierRiderModal(carrierRiderModal)" style="cursor: pointer;" class="">Click to add</a> rider.
+                                             </div>
+                                          </div> -->
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <!-- plan terms -->
+                                 <div class="col-sm-12 col-sm-12">
+                                    <div class="panel panel-default">
+                                       <div class="panel-heading main-info-panel-heading">
+                                          <h3 class="panel-title">Plan Terms</h3>
+                                          <!-- <div class="pull-right tool-list">
+                                          <a (click)="openPlanTermModal(planTermModal)" style="cursor: pointer;">
+                                             <i class="fa fa-plus-icon" aria-hidden="true"></i>
+                                          </a>
+                                       </div> -->
+                                       </div>
+                                       <div *ngIf="policyInformation['planTerms'] && policyInformation['planTerms'].length > 0" class="panel-body">
+                                          <div class="row">
+                                             <div *ngFor="let term of policyInformation['planTerms']; let i = index" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                <div class="tile shades-of-whisper">
+                                                   <h3 class="title">{{formatTerms(term)}}</h3>
+                                                   <!-- <a (click)="openPlanTermModal(planTermModal, term)" style="cursor: pointer;" class="profileeditbutton pull-right">
+                                                   <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                                </a> -->
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div *ngIf="policyInformation['planTerms'] && policyInformation['planTerms'].length === 0" class="panel-body">
+                                          <div class="row">
+                                             <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                             <div class="span4">You haven't added any term for this plan.
+                                                <a (click)="openPlanTermModal(planTermModal)" style="cursor: pointer;" class="">Click to add</a> term.</div>
+                                          </div> -->
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div *ngIf="!showCarrierPlans && !policyInfoDisplayFlag" class="container-fluid">
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                              <!-- carrier info -->
+                              <div class="panel panel-default main-info-panel">
+                                 <div class="panel-heading main-info-panel-heading">
+                                    <h3 class="panel-title">Plan Info</h3>
+                                    <!-- <div class="pull-right tool-list">
+                                    <a (click)="openPlanMetaDataModal(planMetaDataModal, policyInformation)" style="cursor: pointer;">
+                                       <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                    </a>
+                                 </div> -->
+                                 </div>
+                                 <div class="panel-body main-info-panel-body">
+                                    <div class="row">
+                                       <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
+                                          <header class="text-left">
+                                             <div class="text-title">
+                                                {{policyInformation?.institutionName}}
+                                             </div>
+                                          </header>
+
+                                          <div>
+                                             <div class="span4">
+                                                <div class="left-section">
+                                                   <span class="left-section-heading">Name</span>
+                                                   <span class="colon-span">:</span>
+                                                </div>
+                                                <div class="right-section">
+                                                   <span>{{policyInformation['productName'] | uppercase}}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div>
+                                             <div class="span4">
+                                                <div class="left-section">
+                                                   <span class="left-section-heading">Category</span>
+                                                   <span class="colon-span">:</span>
+                                                </div>
+                                                <div class="right-section">
+                                                   <span>{{policyInformation?.categoryName}}</span>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
+                                          <figure>
+                                             <div class="header-img">
+                                                <img *ngIf="policyInformation.productImageUrl" class="header-img-top img-responsive" src="{{policyInformation.productImageUrl}}"
+                                                   alt="">
+                                                <img *ngIf="!policyInformation.productImageUrl" class="header-img-top img-responsive" src="/assets/img/icon/insurance_logo.png"
+                                                   alt="">
+                                             </div>
+                                          </figure>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="row">
+                                 <!-- Description -->
+                                 <div *ngIf="policyInformation.productDescription" class="col-sm-12 col-sm-12">
+                                    <div class="panel panel-default">
+                                       <div class="panel-heading">
+                                          <h3 class="panel-title">Description</h3>
+                                       </div>
+                                       <div class="panel-body">
+                                          <span>
+                                             {{policyInformation?.productDescription}}
+                                          </span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <!-- Benefits -->
+                                 <div *ngIf="policyInformation?.benifits && policyInformation?.benifits.length > 0" class="col-sm-12 col-sm-12">
+                                    <div class="panel panel-default">
+                                       <div class="panel-heading">
+                                          <h3 class="panel-title">Benefilts</h3>
+                                       </div>
+                                       <div class="panel-body">
+                                          <div *ngFor="let item of policyInformation?.benifits" class="portfolio-container media-list">
+                                             <!-- Left-aligned -->
+                                             <div class="media">
+                                                <!-- <div class="media-left">
+                                                <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="Avatar" style="width:90px">
+                                             </div> -->
+                                                <div class="media-body">
+                                                   <h4 class="media-heading" *ngIf="item?.key">{{item.key}}</h4>
+                                                   <p>
+                                                      {{item.value}}
+                                                   </p>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <!-- Benefits -->
+                                 <div *ngIf="policyInformation?.additionalBenifits && policyInformation?.additionalBenifits.length > 0" class="col-sm-12 col-sm-12">
+                                    <div class="panel panel-default">
+                                       <div class="panel-heading">
+                                          <h3 class="panel-title">Additional Benefilts</h3>
+                                       </div>
+                                       <div class="panel-body">
+                                          <div *ngFor="let item of policyInformation.additionalBenifits" class="portfolio-container media-list">
+                                             <!-- Left-aligned -->
+                                             <div class="media">
+                                                <!-- <div class="media-left">
+                                                <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="Avatar" style="width:90px">
+                                             </div> -->
+                                                <div class="media-body">
+                                                   <h4 class="media-heading">{{item.key}}</h4>
+                                                   <p>
+                                                      {{item.value}}
+                                                   </p>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <!-- Product features -->
+                                 <div *ngIf="policyInformation?.productFeatures && policyInformation?.productFeatures.length > 0" class="col-sm-12 col-sm-12">
+                                    <div class="panel panel-default">
+                                       <div class="panel-heading">
+                                          <h3 class="panel-title">Product Fetures</h3>
+                                       </div>
+                                       <div class="panel-body">
+                                          <div *ngFor="let item of policyInformation.productFeatures" class="portfolio-container media-list" style="margin-top: 0px;">
+                                             <!-- Left-aligned -->
+                                             <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                   <h3 class="panel-title">{{item.name}}</h3>
+                                                </div>
+                                                <div *ngFor="let varient of item.varients" class="panel-body" style="padding: 9px 7px 7px 15px;">
+                                                   <div class="media">
+                                                      <!-- <div class="media-left">
+                                                         <img src="https://www.w3schools.com/w3images/bandmember.jpg" alt="Avatar" style="width:90px">
+                                                   </div> -->
+                                                      <div class="media-body">
+                                                         <h4 class="media-heading" *ngIf="varient.key">{{varient.key}}</h4>
+                                                         <p>
+                                                            {{varient.value}}
+                                                         </p>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <!-- riders -->
+                                 <div class="col-sm-12 col-sm-12">
+                                    <div class="panel panel-default">
+                                       <div class="panel-heading">
+                                          <h3 class="panel-title">Riders</h3>
+                                       </div>
+                                       <div *ngIf="policyInformation['riders'] && policyInformation['riders'].length > 0" class="panel-body">
+                                          <div *ngFor="let item of policyInformation['riders']; let i = index" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                             <div class="tile shades-of-whisper">
+                                                <h3 class="title">{{item.name}}</h3>
+                                                <!-- <a (click)="openCarrierRiderModal(carrierRiderModal, item)" style="cursor: pointer;" class="profileeditbutton pull-right">
+                                                <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                             </a> -->
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="panel-body" *ngIf="policyInformation['riders'] && policyInformation['riders'].length === 0">
+                                          <div class="row">
+                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="span4">You haven't added any rider for this plan.
+                                                   <!-- <a (click)="openCarrierRiderModal(carrierRiderModal)" style="cursor: pointer;" class="">Click to add</a> rider. -->
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <!-- plan terms -->
+                                 <div class="col-sm-12 col-sm-12">
+                                    <div class="panel panel-default">
+                                       <div class="panel-heading main-info-panel-heading">
+                                          <h3 class="panel-title">Plan Terms</h3>
+                                          <!-- <div class="pull-right tool-list">
+                                          <a (click)="openPlanTermModal(planTermModal)" style="cursor: pointer;">
+                                             <i class="fa fa-plus-icon" aria-hidden="true"></i>
+                                          </a>
+                                       </div> -->
+                                       </div>
+                                       <div *ngIf="policyInformation['planTerms'] && policyInformation['planTerms'].length > 0" class="panel-body">
+                                          <div *ngFor="let term of policyInformation['planTerms']; let i = index" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                             <div class="tile shades-of-whisper">
+                                                <h3 class="title">{{formatTerms(term)}}</h3>
+                                                <!-- <a (click)="openPlanTermModal(planTermModal, term)" style="cursor: pointer;" class="profileeditbutton pull-right">
+                                                <i class="fa fa-edit-icon" aria-hidden="true"></i>
+                                             </a> -->
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div *ngIf="policyInformation['planTerms'] && policyInformation['planTerms'].length === 0" class="panel-body">
+                                          <div class="row">
+                                             <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                             <div class="span4">You haven't added any term for this plan.
+                                                <a (click)="openPlanTermModal(planTermModal)" style="cursor: pointer;" class="">Click to add</a> term.</div>
+                                             </div> -->
+                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="span4">You haven't added any term for this plan.</div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Notification component -->
+   <app-common-notification #notificationComponent></app-common-notification>
+
+   <ng-template #clientPolicyDetailModal>
+      <div class="modal-header">
+         <button type="button" (click)="closeClientPolicyDetailModal()" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+         </button>
+         <h3 class="modal-title">Policy Details</h3>
+      </div>
+      <div class="modal-body">
+         <div class="row">
+            <form [formGroup]="clientPolicyDetailForm" novalidate (ngSubmit)="buyPlan()">
+
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="panel panel-default">
+                     <div class="panel-heading">
+                        <span>Policy Info</span>
+                     </div>
+                     <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                           <label for="firstName" class="col-sm-3 control-label">Carrier Name
+                              <span class="pull-left">
+                                 <i class="fa fa-mandatory-icon" aria-hidden="true"></i>
+                              </span>
+                           </label>
+                           <div class="col-sm-9">
+                              <!-- <select name="carrierName" formControlName="carrierName" (change)="onCarrierSelect()" class="form-control">
+                              <option value="" selected>-select carrier-</option>
+                              <option *ngFor="let carrier of carriers" [value]="carrier.id">{{carrier.name}}</option>
+                           </select> -->
+                              <input name="carrierName" type="text" formControlName="carrierName" placeholder="Carrier" class="form-control restrictSplChr"
+                                 autocomplete="off">
+                           </div>
+                        </div>
+
+                        <div class="form-group">
+                           <label for="firstName" class="col-sm-3 control-label">Plan Name
+                              <span class="pull-left">
+                                 <i class="fa fa-mandatory-icon" aria-hidden="true"></i>
+                              </span>
+                           </label>
+                           <div class="col-sm-9">
+                              <!-- <select formControlName="planName" (change)="onPlanSelect()" class="form-control">
+                              <option value="" selected>-select plan-</option>
+                              <option *ngFor="let plan of policyInformationData" [value]="plan.id">{{plan.name}}</option>
+                           </select> -->
+                              <input type="text" class="form-control" formControlName="planName">
+                           </div>
+                        </div>
+
+                        <div class="form-group">
+                           <label for="firstName" class="col-sm-3 control-label">Plan Type
+                              <span class="pull-left">
+                                 <i class="fa fa-mandatory-icon" aria-hidden="true"></i>
+                              </span>
+                           </label>
+                           <div class="col-sm-9">
+                              <input type="text" class="form-control" formControlName="planType">
+                           </div>
+                        </div>
+
+                        <div class="form-group">
+                           <label for="firstName" class="col-sm-3 control-label">Policy Term
+                              <span class="pull-left">
+                                 <i class="fa fa-mandatory-icon" aria-hidden="true"></i>
+                              </span>
+                           </label>
+                           <div class="col-sm-9">
+                              <div class="row">
+                                 <div class="col-sm-5">
+                                    <select formControlName="policyTermYear" class="form-control" (change)="onPlanTermChange()">
+                                       <!--  (change)="onPlanTermYearChange()" -->
+                                       <option value="" selected>year</option>
+                                       <!-- <option *ngFor="let item of availableTerms" value="{{item.year}}">{{item.year}}</option> -->
+                                       <option *ngFor="let item of yearList" value="{{item}}">{{item}}</option>
+                                    </select>
+                                 </div>
+                                 <div class="col-sm-5">
+                                    <select formControlName="policyTermMonth" class="form-control" (change)="onPlanTermChange()">
+                                       <option value="" selected>month</option>
+                                       <!-- <option *ngFor="let item of availableTermMonthList" value="{{item}}">{{item}}</option> -->
+                                       <option *ngFor="let item of monthList" value="{{item}}">{{item}}</option>
+                                    </select>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="firstName" class="col-sm-3 control-label">Maturity Date
+                              <span class="pull-left">
+                                 <i class="fa fa-mandatory-icon" aria-hidden="true"></i>
+                              </span>
+                           </label>
+                           <div class="col-sm-9">
+                              <my-date-picker class="myDatePicker" [options]="myDatePickerOptions" formControlName="maturityDate" disabled></my-date-picker>
+                           </div>
+                        </div>
+
+                        <div class="form-group">
+                           <label for="firstName" class="col-sm-3 control-label">Premium Mode
+                              <span class="pull-left">
+                                 <i class="fa fa-mandatory-icon" aria-hidden="true"></i>
+                              </span>
+                           </label>
+                           <div class="col-sm-9">
+                              <select formControlName="premiumMode" class="form-control">
+                                 <option value="">Premium Mode</option>
+                                 <option value="giro">GIRO</option>
+                                 <option value="cash">CASH</option>
+                                 <option value="cheque">CHEQUE</option>
+                                 <option value="cc">CREDIT CARD</option>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- policy premium -->
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="panel panel-default">
+                     <div class="panel-heading">
+                        <span>Policy Info</span>
+                     </div>
+                     <div class="panel-body form-horizontal">
+                        <div class="form-group">
+                           <label for="firstName" class="col-sm-3 control-label">Currency
+                              <span class="pull-left">
+                                 <i class="fa fa-mandatory-icon" aria-hidden="true"></i>
+                              </span>
+                           </label>
+                           <div class="col-sm-9">
+                              <select formControlName="currency" (change)="onCurrencyChange()" class="form-control">
+                                 <option value="">Select currency</option>
+                                 <optgroup label="Popular Currencies">
+                                    <option *ngFor="let currency of popularCurrencyList | orderBy: 'name'" value="{{currency.code}}">{{currency.name}} ({{currency.code}})</option>
+                                 </optgroup>
+                                 <optgroup label="All Currencies">
+                                    <option *ngFor="let currency of currencyList | orderBy: 'name'" value="{{currency.code}}">{{currency.name}} ({{currency.code}})</option>
+                                 </optgroup>
+                              </select>
+                           </div>
+                        </div>
+
+                        <div class="form-group">
+                           <label for="firstName" class="col-sm-3 control-label">Basic Face Value
+                              <span class="pull-left">
+                                 <i class="fa fa-mandatory-icon" aria-hidden="true"></i>
+                              </span>
+                           </label>
+                           <div class="col-sm-9">
+                              <div class="input-group">
+                                 <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                 <input type="text" appNumberFormatter formControlName="basicFaceValue" (input)="setBasicValueToOtherFields()" class="form-control">
+                                 <!-- appNumberFormatter  -->
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="form-group">
+                           <label for="firstName" class="col-sm-3 control-label">Sum Assured</label>
+                           <div class="col-sm-9">
+                           </div>
+                        </div>
+
+                        <div class="form-group">
+                           <label for="firstName" class="col-sm-3 control-label">Death</label>
+                           <div class="col-sm-9">
+                              <div class="input-group">
+                                 <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                 <input type="text" appNumberFormatter formControlName="death" (change)="onChangePopulatedPolicyInputField()" class="form-control">
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="form-group">
+                           <label for="firstName" class="col-sm-3 control-label">Permanent Disability</label>
+                           <div class="col-sm-9">
+                              <div class="input-group">
+                                 <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                 <input type="text" appNumberFormatter formControlName="permanentDisability" (change)="onChangePopulatedPolicyInputField()"
+                                    class="form-control">
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="form-group">
+                           <label for="firstName" class="col-sm-3 control-label">Critical Illness</label>
+                           <div class="col-sm-9">
+                              <div class="input-group">
+                                 <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                 <input type="text" appNumberFormatter formControlName="criticalIllness" (change)="onChangePopulatedPolicyInputField()" class="form-control">
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="form-group">
+                           <label for="firstName" class="col-sm-3 control-label">Accidental Death</label>
+                           <div class="col-sm-9">
+                              <div class="input-group">
+                                 <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                 <input type="text" appNumberFormatter formControlName="accidentalDeath" (change)="onChangePopulatedPolicyInputField()" class="form-control">
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                  </div>
+               </div>
+               <!-- rider premium -->
+               <div *ngIf="riderAttached" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="panel panel-default">
+                     <div class="panel-heading">
+                        <h3 class="panel-title">Rider Premiums</h3>
+                     </div>
+                     <!-- Rider premium -->
+                     <div formArrayName="riderPremium" class="panel-body">
+                        <ng-container *ngFor="let riderPrem of clientPolicyDetailForm['controls'].riderPremium['controls']; let i = index">
+                           <ng-container [formGroupName]="i">
+                              <div class="panel panel-default">
+                                 <div class="panel-heading">
+                                    <div class="row">
+                                       <div class="col-sm-6">
+                                          <div class="input-group">
+                                             <!-- <select name="" formControlName="rider" class="form-control" (change)="onPolicyPlanRiderChange(i)">
+                                             <option value="">select rider</option>
+                                             <option *ngFor="let planRider of policyPlanRiders" value="{{planRider.id}}">{{planRider.rider}}</option>
+                                          </select> -->
+                                             <label>{{clientPolicyDetailForm['controls'].riderPremium['controls'][i].controls.name.value}}</label>
+                                             <!-- <span class="custom input-group-addon">
+                                             <a (click)="openCombineImportAddNewRiderModal()" title="Add New Rider">
+                                                <img src="/assets/img/icon/dropdown_menu.png" class="dropdown-menu-icon">
+                                             </a>
+                                          </span> -->
+                                          </div>
+                                       </div>
+                                       <div class="col-sm-4">
+                                          <!-- <select name="" formControlName="riderTermId" class="form-control">
+                                                      <option value="" selected>select rider term</option>
+                                                      <option *ngFor="let term of policyPlanRiderTermObj[i]" value="{{term.id}}">{{formatTerms(term)}}</option>
+                                                </select> -->
+                                       </div>
+                                       <div class="col-sm-2 text-right">
+                                          <!-- <button type="button" (click)="addRiderPremium()" class="btn btn-default btn-xs" title="Add">
+                                          <span class="glyphicon glyphicon-plus"></span>
+                                       </button>
+                                       <button type="button" [disabled]="clientPolicyDetailForm.controls.riderPremium.controls.length < 2" (click)="removeRiderPremium(i)"
+                                          class="btn btn-danger btn-xs" title="Delete">
+                                          <span class="glyphicon glyphicon-trash"></span>
+                                       </button> -->
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="panel-body">
+                                    <div>
+                                       <div class="col-sm-12">
+                                          <h5>Sum Assured</h5>
+                                       </div>
+                                       <div class="col-sm-12">
+                                          <div class="row">
+                                             <div class="col-sm-6">
+                                                <div class="row">
+                                                   <div class="col-sm-12">
+                                                      <label>Death</label>
+                                                   </div>
+                                                   <div class="col-sm-12 form-group">
+                                                      <div class="input-group">
+                                                         <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                         <input type="text" appNumberFormatter formControlName="death" class="form-control">
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="col-sm-6">
+                                                <div class="row">
+                                                   <div class="col-sm-12">
+                                                      <label>Permanent Disability</label>
+                                                   </div>
+                                                   <div class="col-sm-12 form-group">
+                                                      <div class="input-group">
+                                                         <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                         <input type="text" appNumberFormatter formControlName="permanentDisability" class="form-control">
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="col-sm-6">
+                                                <div class="row">
+                                                   <div class="col-sm-12">
+                                                      <label>Critical Illness</label>
+                                                   </div>
+                                                   <div class="col-sm-12 form-group">
+                                                      <div class="input-group">
+                                                         <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                         <input type="text" appNumberFormatter formControlName="criticalIllness" class="form-control">
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="col-sm-6">
+                                                <div class="row">
+                                                   <div class="col-sm-12">
+                                                      <label>Accidental Death</label>
+                                                   </div>
+                                                   <div class="col-sm-12 form-group">
+                                                      <div class="input-group">
+                                                         <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                                                         <input type="text" appNumberFormatter formControlName="accidentalDeath" class="form-control">
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </ng-container>
+                        </ng-container>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right" style="margin-bottom: 15px;">
+                  <button type="button" (click)="closeClientPolicyDetailModal()" class="btn btn-warning">Cancel</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <!-- <img *ngIf="buyPlanLoader" src="/assets/img/loader/spin.gif" /> -->
+               </div>
+            </form>
+         </div>
+      </div>
+   </ng-template>

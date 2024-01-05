@@ -1,0 +1,3489 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>conjurer documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">conjurer documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>AccountService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/account/account.service.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Account service class</p>
+
+            </p>
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addAccount">addAccount</a>
+                            </li>
+                            <li>
+                                <a href="#addProperty">addProperty</a>
+                            </li>
+                            <li>
+                                <a href="#changePreferredCurrency">changePreferredCurrency</a>
+                            </li>
+                            <li>
+                                <a href="#checkFileEncryption">checkFileEncryption</a>
+                            </li>
+                            <li>
+                                <a href="#checkMFA">checkMFA</a>
+                            </li>
+                            <li>
+                                <a href="#checkRefreshDetail">checkRefreshDetail</a>
+                            </li>
+                            <li>
+                                <a href="#deleteGroupStatements">deleteGroupStatements</a>
+                            </li>
+                            <li>
+                                <a href="#deleteManualAccount">deleteManualAccount</a>
+                            </li>
+                            <li>
+                                <a href="#deleteOnlineAccount">deleteOnlineAccount</a>
+                            </li>
+                            <li>
+                                <a href="#deleteProperty">deleteProperty</a>
+                            </li>
+                            <li>
+                                <a href="#editProperty">editProperty</a>
+                            </li>
+                            <li>
+                                <a href="#getAdvisorById">getAdvisorById</a>
+                            </li>
+                            <li>
+                                <a href="#getAdvisorByUserId">getAdvisorByUserId</a>
+                            </li>
+                            <li>
+                                <a href="#getAdvisors">getAdvisors</a>
+                            </li>
+                            <li>
+                                <a href="#getBudgetData">getBudgetData</a>
+                            </li>
+                            <li>
+                                <a href="#getCarriers">getCarriers</a>
+                            </li>
+                            <li>
+                                <a href="#getClients">getClients</a>
+                            </li>
+                            <li>
+                                <a href="#getCurrencies">getCurrencies</a>
+                            </li>
+                            <li>
+                                <a href="#getCurrenyList">getCurrenyList</a>
+                            </li>
+                            <li>
+                                <a href="#getDashboardData">getDashboardData</a>
+                            </li>
+                            <li>
+                                <a href="#getDropdownList">getDropdownList</a>
+                            </li>
+                            <li>
+                                <a href="#getInstitutions">getInstitutions</a>
+                            </li>
+                            <li>
+                                <a href="#getInsurance">getInsurance</a>
+                            </li>
+                            <li>
+                                <a href="#getManageAccountDetails">getManageAccountDetails</a>
+                            </li>
+                            <li>
+                                <a href="#getPolicies">getPolicies</a>
+                            </li>
+                            <li>
+                                <a href="#getPolicyInformation">getPolicyInformation</a>
+                            </li>
+                            <li>
+                                <a href="#getPrompts">getPrompts</a>
+                            </li>
+                            <li>
+                                <a href="#getRider">getRider</a>
+                            </li>
+                            <li>
+                                <a href="#getStatementCountryList">getStatementCountryList</a>
+                            </li>
+                            <li>
+                                <a href="#getStatementInstitutions">getStatementInstitutions</a>
+                            </li>
+                            <li>
+                                <a href="#multipleStatementParsing">multipleStatementParsing</a>
+                            </li>
+                            <li>
+                                <a href="#parseStatement">parseStatement</a>
+                            </li>
+                            <li>
+                                <a href="#processMFA">processMFA</a>
+                            </li>
+                            <li>
+                                <a href="#refreshAccount">refreshAccount</a>
+                            </li>
+                            <li>
+                                <a href="#storeStatement">storeStatement</a>
+                            </li>
+                            <li>
+                                <a href="#submitContactInformation">submitContactInformation</a>
+                            </li>
+                            <li>
+                                <a href="#submitInsurance">submitInsurance</a>
+                            </li>
+                            <li>
+                                <a href="#submitNewPlanInfo">submitNewPlanInfo</a>
+                            </li>
+                            <li>
+                                <a href="#submitNewRider">submitNewRider</a>
+                            </li>
+                            <li>
+                                <a href="#updateAccountCredential">updateAccountCredential</a>
+                            </li>
+                            <li>
+                                <a href="#updateClientAdvisor">updateClientAdvisor</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, config: <a href="../classes/AppConfig.html">AppConfig</a>, commonHttpAdapterService: <a href="../injectables/CommonHttpAdapterService.html">CommonHttpAdapterService</a>, carrierHelper: <a href="../injectables/CarrierHelper.html">CarrierHelper</a>, rxjsHelper: <a href="../injectables/RxJSHelper.html">RxJSHelper</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/account/account.service.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Account service dependencies</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>config</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../classes/AppConfig.html" target="_self" >AppConfig</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>commonHttpAdapterService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/CommonHttpAdapterService.html" target="_self" >CommonHttpAdapterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>carrierHelper</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/CarrierHelper.html" target="_self" >CarrierHelper</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>rxjsHelper</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/RxJSHelper.html" target="_self" >RxJSHelper</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addAccount"></a>
+                        <span class="name">
+                            <b>
+                            addAccount
+                            </b>
+                            <a href="#addAccount"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>addAccount(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/account/account.service.ts:96</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To add online account</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addProperty"></a>
+                        <span class="name">
+                            <b>
+                            addProperty
+                            </b>
+                            <a href="#addProperty"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>addProperty(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="270" class="link-to-prism">src/app/account/account.service.ts:270</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To add property</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="changePreferredCurrency"></a>
+                        <span class="name">
+                            <b>
+                            changePreferredCurrency
+                            </b>
+                            <a href="#changePreferredCurrency"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>changePreferredCurrency(preferredCurrency: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="303" class="link-to-prism">src/app/account/account.service.ts:303</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To change preferred currency</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>preferredCurrency</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checkFileEncryption"></a>
+                        <span class="name">
+                            <b>
+                            checkFileEncryption
+                            </b>
+                            <a href="#checkFileEncryption"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>checkFileEncryption(stmtFile: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="207" class="link-to-prism">src/app/account/account.service.ts:207</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To check statement file encription</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>stmtFile</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checkMFA"></a>
+                        <span class="name">
+                            <b>
+                            checkMFA
+                            </b>
+                            <a href="#checkMFA"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>checkMFA(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">src/app/account/account.service.ts:119</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To check mfa</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checkRefreshDetail"></a>
+                        <span class="name">
+                            <b>
+                            checkRefreshDetail
+                            </b>
+                            <a href="#checkRefreshDetail"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>checkRefreshDetail(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/account/account.service.ts:107</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To check refresh details</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteGroupStatements"></a>
+                        <span class="name">
+                            <b>
+                            deleteGroupStatements
+                            </b>
+                            <a href="#deleteGroupStatements"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>deleteGroupStatements(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="246" class="link-to-prism">src/app/account/account.service.ts:246</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To delete statement</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteManualAccount"></a>
+                        <span class="name">
+                            <b>
+                            deleteManualAccount
+                            </b>
+                            <a href="#deleteManualAccount"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>deleteManualAccount(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="236" class="link-to-prism">src/app/account/account.service.ts:236</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To delete statement</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteOnlineAccount"></a>
+                        <span class="name">
+                            <b>
+                            deleteOnlineAccount
+                            </b>
+                            <a href="#deleteOnlineAccount"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>deleteOnlineAccount(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="166" class="link-to-prism">src/app/account/account.service.ts:166</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To delete online account</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deleteProperty"></a>
+                        <span class="name">
+                            <b>
+                            deleteProperty
+                            </b>
+                            <a href="#deleteProperty"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>deleteProperty(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="292" class="link-to-prism">src/app/account/account.service.ts:292</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To delete property</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="editProperty"></a>
+                        <span class="name">
+                            <b>
+                            editProperty
+                            </b>
+                            <a href="#editProperty"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>editProperty(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="281" class="link-to-prism">src/app/account/account.service.ts:281</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To edit property</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getAdvisorById"></a>
+                        <span class="name">
+                            <b>
+                            getAdvisorById
+                            </b>
+                            <a href="#getAdvisorById"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getAdvisorById(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="377" class="link-to-prism">src/app/account/account.service.ts:377</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get all advisors</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getAdvisorByUserId"></a>
+                        <span class="name">
+                            <b>
+                            getAdvisorByUserId
+                            </b>
+                            <a href="#getAdvisorByUserId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getAdvisorByUserId()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="399" class="link-to-prism">src/app/account/account.service.ts:399</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get advisors by user id</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getAdvisors"></a>
+                        <span class="name">
+                            <b>
+                            getAdvisors
+                            </b>
+                            <a href="#getAdvisors"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getAdvisors()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="364" class="link-to-prism">src/app/account/account.service.ts:364</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get all advisors</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getBudgetData"></a>
+                        <span class="name">
+                            <b>
+                            getBudgetData
+                            </b>
+                            <a href="#getBudgetData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getBudgetData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/account/account.service.ts:62</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get statement country list</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCarriers"></a>
+                        <span class="name">
+                            <b>
+                            getCarriers
+                            </b>
+                            <a href="#getCarriers"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCarriers()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="439" class="link-to-prism">src/app/account/account.service.ts:439</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get all carriers</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any[]&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getClients"></a>
+                        <span class="name">
+                            <b>
+                            getClients
+                            </b>
+                            <a href="#getClients"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getClients(type?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, clientId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="472" class="link-to-prism">src/app/account/account.service.ts:472</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get the client details</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>type</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>clientId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any[]&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCurrencies"></a>
+                        <span class="name">
+                            <b>
+                            getCurrencies
+                            </b>
+                            <a href="#getCurrencies"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCurrencies()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="353" class="link-to-prism">src/app/account/account.service.ts:353</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get all currencies</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCurrenyList"></a>
+                        <span class="name">
+                            <b>
+                            getCurrenyList
+                            </b>
+                            <a href="#getCurrenyList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCurrenyList()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="256" class="link-to-prism">src/app/account/account.service.ts:256</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get curreny list</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getDashboardData"></a>
+                        <span class="name">
+                            <b>
+                            getDashboardData
+                            </b>
+                            <a href="#getDashboardData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getDashboardData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/account/account.service.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get statement country list</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getDropdownList"></a>
+                        <span class="name">
+                            <b>
+                            getDropdownList
+                            </b>
+                            <a href="#getDropdownList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getDropdownList(dropdownType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="338" class="link-to-prism">src/app/account/account.service.ts:338</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get dropdown list</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dropdownType</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getInstitutions"></a>
+                        <span class="name">
+                            <b>
+                            getInstitutions
+                            </b>
+                            <a href="#getInstitutions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getInstitutions()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/account/account.service.ts:73</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get online institution</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getInsurance"></a>
+                        <span class="name">
+                            <b>
+                            getInsurance
+                            </b>
+                            <a href="#getInsurance"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getInsurance()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="530" class="link-to-prism">src/app/account/account.service.ts:530</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get policy details</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getManageAccountDetails"></a>
+                        <span class="name">
+                            <b>
+                            getManageAccountDetails
+                            </b>
+                            <a href="#getManageAccountDetails"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getManageAccountDetails()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/account/account.service.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get statement country list</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getPolicies"></a>
+                        <span class="name">
+                            <b>
+                            getPolicies
+                            </b>
+                            <a href="#getPolicies"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getPolicies()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="323" class="link-to-prism">src/app/account/account.service.ts:323</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Everest API integration for insurance</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getPolicyInformation"></a>
+                        <span class="name">
+                            <b>
+                            getPolicyInformation
+                            </b>
+                            <a href="#getPolicyInformation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getPolicyInformation(carrierId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="453" class="link-to-prism">src/app/account/account.service.ts:453</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get policies information</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>carrierId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any[]&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getPrompts"></a>
+                        <span class="name">
+                            <b>
+                            getPrompts
+                            </b>
+                            <a href="#getPrompts"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getPrompts(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/account/account.service.ts:85</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get prompts</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getRider"></a>
+                        <span class="name">
+                            <b>
+                            getRider
+                            </b>
+                            <a href="#getRider"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getRider(carrierId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, policyId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="423" class="link-to-prism">src/app/account/account.service.ts:423</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get policies information by policy id</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>carrierId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>policyId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any[]&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getStatementCountryList"></a>
+                        <span class="name">
+                            <b>
+                            getStatementCountryList
+                            </b>
+                            <a href="#getStatementCountryList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getStatementCountryList()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="177" class="link-to-prism">src/app/account/account.service.ts:177</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get statement country list</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getStatementInstitutions"></a>
+                        <span class="name">
+                            <b>
+                            getStatementInstitutions
+                            </b>
+                            <a href="#getStatementInstitutions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getStatementInstitutions(country_code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="191" class="link-to-prism">src/app/account/account.service.ts:191</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get statement institution list</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>country_code</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="multipleStatementParsing"></a>
+                        <span class="name">
+                            <b>
+                            multipleStatementParsing
+                            </b>
+                            <a href="#multipleStatementParsing"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>multipleStatementParsing()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="544" class="link-to-prism">src/app/account/account.service.ts:544</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To upload multiple pdf statement</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="parseStatement"></a>
+                        <span class="name">
+                            <b>
+                            parseStatement
+                            </b>
+                            <a href="#parseStatement"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>parseStatement(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="225" class="link-to-prism">src/app/account/account.service.ts:225</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To upload statement</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="processMFA"></a>
+                        <span class="name">
+                            <b>
+                            processMFA
+                            </b>
+                            <a href="#processMFA"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>processMFA(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">src/app/account/account.service.ts:131</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To process MFA</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="refreshAccount"></a>
+                        <span class="name">
+                            <b>
+                            refreshAccount
+                            </b>
+                            <a href="#refreshAccount"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>refreshAccount(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="155" class="link-to-prism">src/app/account/account.service.ts:155</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To refresh online account</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="storeStatement"></a>
+                        <span class="name">
+                            <b>
+                            storeStatement
+                            </b>
+                            <a href="#storeStatement"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>storeStatement(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="556" class="link-to-prism">src/app/account/account.service.ts:556</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To store statement</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="submitContactInformation"></a>
+                        <span class="name">
+                            <b>
+                            submitContactInformation
+                            </b>
+                            <a href="#submitContactInformation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>submitContactInformation(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="498" class="link-to-prism">src/app/account/account.service.ts:498</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To submit contact information</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any[]&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="submitInsurance"></a>
+                        <span class="name">
+                            <b>
+                            submitInsurance
+                            </b>
+                            <a href="#submitInsurance"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>submitInsurance(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="411" class="link-to-prism">src/app/account/account.service.ts:411</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To add policy/insurance</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="submitNewPlanInfo"></a>
+                        <span class="name">
+                            <b>
+                            submitNewPlanInfo
+                            </b>
+                            <a href="#submitNewPlanInfo"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>submitNewPlanInfo(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="509" class="link-to-prism">src/app/account/account.service.ts:509</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To submit policy information</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any[]&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="submitNewRider"></a>
+                        <span class="name">
+                            <b>
+                            submitNewRider
+                            </b>
+                            <a href="#submitNewRider"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>submitNewRider(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="520" class="link-to-prism">src/app/account/account.service.ts:520</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To copy and create new carrier rider</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any[]&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updateAccountCredential"></a>
+                        <span class="name">
+                            <b>
+                            updateAccountCredential
+                            </b>
+                            <a href="#updateAccountCredential"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>updateAccountCredential(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">src/app/account/account.service.ts:143</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To update online account</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updateClientAdvisor"></a>
+                        <span class="name">
+                            <b>
+                            updateClientAdvisor
+                            </b>
+                            <a href="#updateClientAdvisor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>updateClientAdvisor(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="389" class="link-to-prism">src/app/account/account.service.ts:389</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To update client(map advisor to client)</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Inject } from &#x27;@angular/core&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { catchError, map, takeUntil } from &#x27;rxjs/operators&#x27;;
+
+import { K2_APP_CONFIG, AppConfig } from &#x27;../app-config&#x27;;
+import { K2_APP_HTTP_ADAPTER, CommonHttpAdapterService } from &#x27;../adapters/common-http-adapter.service&#x27;;
+
+import { CommonConstant } from &#x27;../constants/common/common.constant&#x27;;
+import { CarrierConstant } from &#x27;../constants/carrier/carrier.constant&#x27;;
+import { ClientConstant } from &#x27;../constants/client/client.constant&#x27;;
+import { CarrierHelper } from &#x27;../helpers/carrier/carrier.helper&#x27;;
+import { RxJSHelper } from &#x27;../helpers/rxjs-helper/rxjs.helper&#x27;;
+
+/**
+ * Account service class
+ */
+@Injectable()
+export class AccountService {
+
+  /**
+   * Account service dependencies
+   * @param HttpClient http
+   * @param AppConfig config
+   * @param CommonHttpAdapterService commonHttpAdapterService
+   * @param CarrierHelper carrierHelper
+   * @param RxJSHelper rxjsHelper
+   */
+  constructor(
+    private http: HttpClient,
+    @Inject(K2_APP_CONFIG) private config: AppConfig,
+    @Inject(K2_APP_HTTP_ADAPTER) private commonHttpAdapterService: CommonHttpAdapterService,
+    private carrierHelper: CarrierHelper,
+    private rxjsHelper: RxJSHelper
+  ) { }
+
+  /**
+   * To get statement country list
+  */
+  getDashboardData(): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;dashboardDetails&#x27;,
+      this.commonHttpAdapterService.getUserIdResponseStructure(), this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get statement country list
+   */
+  getManageAccountDetails(): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;getManageAccountsDetails&#x27;,
+      this.commonHttpAdapterService.getUserIdResponseStructure(), this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get statement country list
+   */
+  getBudgetData(): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;getBudgetData&#x27;,
+      this.commonHttpAdapterService.getUserIdResponseStructure(), this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get online institution
+   */
+  getInstitutions(): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;getInstitutions&#x27;,
+      this.commonHttpAdapterService.getUserIdResponseStructure(), this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get prompts
+   * @param any data
+   */
+  getPrompts(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;getPrompt&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To add online account
+   * @param any data
+   */
+  addAccount(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;addAccount&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To check refresh details
+   * @param any data
+   */
+  checkRefreshDetail(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;getRefreshDetail&#x27;,
+      data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To check mfa
+   * @param any data
+   */
+  checkMFA(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;checkMFA&#x27;,
+      data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To process MFA
+   * @param any data
+   */
+  processMFA(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;processMFA&#x27;,
+      data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To update online account
+   * @param any data
+   */
+  updateAccountCredential(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;updateCredential&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+
+  /**
+   * To refresh online account
+   * @param any data
+   */
+  refreshAccount(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;refreshAccount&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To delete online account
+   * @param any data
+   */
+  deleteOnlineAccount(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;deleteOnlineAccount&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+
+  /**
+   * To get statement country list
+   */
+  getStatementCountryList(): Observable&lt;any&gt; {
+    let countryData: any &#x3D; {};
+    countryData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    countryData &#x3D; JSON.stringify(countryData);
+    return this.http.post(this.config.apiEndpoint + &#x27;pdfCountryList&#x27;, countryData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get statement institution list
+   * @param string country_code
+   */
+  getStatementInstitutions(country_code: string): Observable&lt;any&gt; {
+    let instData: any &#x3D; {};
+    instData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    instData[CommonConstant.CODE] &#x3D; country_code;
+    instData &#x3D; JSON.stringify(instData);
+
+    return this.http.post(this.config.apiEndpoint + &#x27;pdfInstitutions&#x27;, instData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To check statement file encription
+   * @param any stmtFile
+   */
+  checkFileEncryption(stmtFile: any): Observable&lt;any&gt; {
+
+    let checkEncriptionData: any &#x3D; {};
+    checkEncriptionData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    checkEncriptionData[&#x27;docByte&#x27;] &#x3D; stmtFile;
+    checkEncriptionData &#x3D; JSON.stringify(checkEncriptionData);
+
+    return this.http.post(this.config.apiEndpoint + &#x27;checkFileEncryption&#x27;, checkEncriptionData,
+      this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To upload statement
+   * @param any data
+   */
+  parseStatement(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;statementParsing&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To delete statement
+   * @param any data
+   */
+  deleteManualAccount(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;deleteManualAccount&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To delete statement
+   */
+  deleteGroupStatements(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;deleteGroupStatements&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get curreny list
+   */
+  getCurrenyList(): Observable&lt;any&gt; {
+    let currData: Object &#x3D; {};
+    currData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    currData &#x3D; JSON.stringify(currData);
+    return this.http.post(this.config.apiEndpoint + &#x27;currencyList&#x27;, currData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To add property
+   * @param any data
+   */
+  addProperty(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;addProperty&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To edit property
+   * @param any data
+   */
+  editProperty(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;editProperty&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To delete property
+   * @param any data
+   */
+  deleteProperty(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;deleteProperty&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To change preferred currency
+   * @param any data
+   */
+  changePreferredCurrency(preferredCurrency: any): Observable&lt;any&gt; {
+    let userData &#x3D; {};
+    userData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    userData[CommonConstant.PREFERRED_CURRENCY] &#x3D; preferredCurrency;
+    userData &#x3D; JSON.stringify(userData);
+
+    return this.http.post(this.config.apiEndpoint + &#x27;changePreferredCurrency&#x27;, userData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+
+  /**
+   * Everest API integration for insurance
+   */
+
+  /**
+   * To get policy from everest platform
+   */
+  getPolicies() {
+    let reqData: any &#x3D; {};
+    reqData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    reqData &#x3D; JSON.stringify(reqData);
+
+    return this.http.post(this.config.everestApiUrl + &#x27;getPolicyByUserId&#x27;, reqData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get dropdown list
+   * @param string dropdownType
+   */
+  getDropdownList(dropdownType: string): Observable&lt;any&gt; {
+    let userData: any &#x3D; {};
+    userData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    userData[CommonConstant.DROPDOWN_TYPE] &#x3D; dropdownType;
+    userData &#x3D; JSON.stringify(userData);
+
+    return this.http.post(this.config.everestApiUrl + &#x27;getDropdownList&#x27;, userData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get all currencies
+   */
+  getCurrencies(): Observable&lt;any&gt; {
+    return this.http.post(this.config.everestApiUrl + &#x27;getCurrencyList&#x27;,
+      this.commonHttpAdapterService.getUserIdResponseStructure(), this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get all advisors
+   */
+  getAdvisors(): Observable&lt;any&gt; {
+
+    return this.http.post(this.config.everestApiUrl + &#x27;getAdvisors&#x27;,
+      this.commonHttpAdapterService.getUserIdResponseStructure(), this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get all advisors
+   * @param any data
+   */
+  getAdvisorById(data: any): Observable&lt;any&gt; {
+
+    return this.http.post(this.config.everestApiUrl + &#x27;getAdvisorById&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To update client(map advisor to client)
+   * @param any data
+   */
+  updateClientAdvisor(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.everestApiUrl + &#x27;updateClientAdvisor&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get advisors by user id
+   */
+  getAdvisorByUserId(): Observable&lt;any&gt; {
+
+    return this.http.post(this.config.everestApiUrl + &#x27;getAdvisorByUserId&#x27;,
+      this.commonHttpAdapterService.getUserIdResponseStructure(), this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To add policy/insurance
+   */
+  submitInsurance(data: any) {
+    return this.http.post(this.config.apiEndpoint + &#x27;addInsurance&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get policies information by policy id
+   * @param string carrierId
+   * @param string policyId
+   */
+  getRider(carrierId: string, policyId: string): Observable&lt;any[]&gt; {
+    let userData: any &#x3D; {};
+    userData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    userData[CarrierConstant.CARRIER_ID] &#x3D; carrierId;
+    userData[CarrierConstant.POLICY_PLAN_ID] &#x3D; policyId;
+    userData &#x3D; JSON.stringify(userData);
+
+    return this.http.post(this.config.apiEndpoint + &#x27;getRider&#x27;, userData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get all carriers
+   */
+  getCarriers(): Observable&lt;any[]&gt; {
+    let userData: any &#x3D; {};
+    userData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    userData &#x3D; JSON.stringify(userData);
+    return this.http.post(this.config.apiEndpoint + &#x27;getCarrier&#x27;, userData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get policies information
+   * @param string carrierId
+   */
+  getPolicyInformation(carrierId?: string): Observable&lt;any[]&gt; {
+    let userData: any &#x3D; {};
+    userData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    if (carrierId) {
+      userData[CarrierConstant.CARRIER_ID] &#x3D; carrierId;
+    }
+    userData &#x3D; JSON.stringify(userData);
+
+    return this.http.post(this.config.apiEndpoint + &#x27;getPolicyPlan&#x27;, userData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get the client details
+   * @param string type
+   * @param string clientId
+   */
+  getClients(type?: string, clientId?: string): Observable&lt;any[]&gt; {
+    let userData: any &#x3D; {};
+    userData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    if (type) {
+      type &#x3D; type.toUpperCase();
+      userData[CommonConstant.TYPE] &#x3D; type;
+    } else {
+      userData[CommonConstant.TYPE] &#x3D; &#x27;ALL&#x27;;
+    }
+
+    if (clientId) {
+      userData[ClientConstant.CLIENT_ID] &#x3D; clientId;
+    }
+    userData &#x3D; JSON.stringify(userData);
+
+    return this.http.post(this.config.everestApiUrl + &#x27;getClient&#x27;,
+      userData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To submit contact information
+   * @param any data
+   */
+  submitContactInformation(data: any): Observable&lt;any[]&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;addCarrier&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To submit policy information
+   * @param any data
+   */
+  submitNewPlanInfo(data: any): Observable&lt;any[]&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;addPolicyPlan&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To copy and create new carrier rider
+   * @param any data
+   */
+  submitNewRider(data: any): Observable&lt;any[]&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;addRider&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To get policy details
+   */
+  getInsurance() {
+    let reqData: any &#x3D; {};
+    reqData[CommonConstant.USER_ID] &#x3D; this.commonHttpAdapterService.getCurrentUserId();
+    reqData &#x3D; JSON.stringify(reqData);
+
+    return this.http.post(this.config.apiEndpoint + &#x27;getInsurance&#x27;, reqData, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To upload multiple pdf statement
+   */
+  multipleStatementParsing(): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;multipleStatementParsing&#x27;,
+      this.commonHttpAdapterService.getUserIdResponseStructure(), this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+  /**
+   * To store statement
+   * @param any data
+   */
+  storeStatement(data: any): Observable&lt;any&gt; {
+    return this.http.post(this.config.apiEndpoint + &#x27;storeStatement&#x27;, data, this.commonHttpAdapterService.jwt())
+      .pipe(map(res &#x3D;&gt; this.commonHttpAdapterService.extractData(res)),
+        catchError(error &#x3D;&gt; this.commonHttpAdapterService.handleError(error)),
+        takeUntil(this.rxjsHelper.unSubscribeServices));
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'AccountService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,695 @@
+<div class="b47PM-wrapper logged-in">
+  <!-- "logged-in" add this class when user login successfully -->
+
+  <!-- Header Part Html Starts -->
+  <app-authorised-header></app-authorised-header>
+  <!-- Header Part Html Ends -->
+
+  <!-- Main Display Html Starts -->
+  <div ng-show = "budgetListData.IsUserBudget == true" class="b47PM-center-body">
+      <div class="container-fluid b47PM-container budget-landing-page">
+        <div class="row clearfix">
+          <div class="col-md-12">
+            <h5 class="pull-left" style="font-weight:700">Budget summary for {{headMonth}}-{{headYear}}</h5>
+            <button class="btn b47PM-default-btn pull-right crt-bdgt-btn" (click)="prepareAddBudget(addBudgetModal)">CREATE A BUDGET</button>
+          </div>
+        </div>
+
+        <div class="b47PM-budget-quad2 grey-quad">
+          <div class="row clearfix">
+            <div class="col-sm-6 col-md-6 col-lg-4">
+              <h5 class="pull-left" style="margin-right:20px">Your budget allocation (SGD)</h5>
+              <select class="form-control pull-left" id="graphviewchange" style="width:120px;margin-bottom: 2px;" [(ngModel)]="headerGraphView" (change)="heroGraphViewChange()">
+                <option value="pie">Pie Chart</option>
+                <option value="bar">Bar Chart</option>
+              </select>
+              <!--<img src="../img/budget/graph-chart1.png" alt="" width="100%">-->
+              <div class="budget-chart-container pull-left">
+                <div id="budget-chart-content">
+                  <canvas id="budget_allocation"></canvas>
+                </div>
+              </div>
+              <div class="budget-legend-container">
+                <div id="budget-allocation-legend" class="chart-legend">
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4" align="center">
+              <h5>How are you doing this month</h5>
+                <div *ngIf="totalBudgetSpentPercentageFlag">There are no budgets</div>  <!-- class="clearfix" -->
+                <div *ngIf="!totalBudgetSpentPercentageFlag" class="budget-chart-container"> <!--  style="height: 190px;"   class="budget-chart-container" -->
+                  <div id="budget-spent-chart-content" style="height: 190px;">
+                    <canvas id="budget_spent"></canvas>
+                  </div>
+                </div>
+              <div class="clearfix"></div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+              <div class="saving-summary-quad summary-quad">
+                <h5>Current Status- {{headMonth}} {{headYear}}</h5>
+                <div class="summary-body" ng-cloak>
+                  <div class="summary-row">
+                    <div class="">Total Budget</div>
+                    <div class="" align="right"><span>{{budgetListData.totalBudgetAmount | number:0 | currencySymbol:preferredCurrency}}</span></div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="summary-row">
+                    <div class="">You Spent</div>
+                    <div class="" align="right"><span class="">{{budgetListData.totalSpentAmount | number:0 | currencySymbol:preferredCurrency}}</span></div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="summary-row">
+                    <div class="">Remaining Budget</div>
+                    <div class="" align="right">
+                      <span class="red" *ngIf="budgetListData.totalRemainingAmount < 0">{{budgetListData.totalRemainingAmount | number:0 | currencySymbol:preferredCurrency}}</span>
+                      <span *ngIf="budgetListData.totalRemainingAmount >= 0">{{budgetListData.totalRemainingAmount | number:0 | currencySymbol:preferredCurrency}}</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+              </div>
+              <a class="cursor pull-right" style="margin-top:33px" (click)="scrollTo('seeAllBudget')">See all Budget</a>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="row clearfix">
+          <div class="col-sm-3 col-md-2">
+            <select class="form-control selectedYear" [(ngModel)]="selectedYear" (change)="monthYearWiseBudget()">
+              <option *ngFor="let year of yearList" value="{{year}}" [selected]="year == currentYear">{{year}}</option>
+            </select>
+          </div>
+
+          <div class="col-sm-3 col-md-2">
+            <!--<img src="../img/budget/month-blocks.png" alt="" width="100%" height="auto">-->
+            <select class="form-control calender" [(ngModel)]="selectedMonth" (change)="monthYearWiseBudget()">
+              <option value="01">JAN</option>
+              <option value="02">FEB</option>
+              <option value="03">MAR</option>
+              <option value="04">APR</option>
+              <option value="05">MAY</option>
+              <option value="06">JUN</option>
+              <option value="07">JUL</option>
+              <option value="08">AUG</option>
+              <option value="09">SEP</option>
+              <option value="10">OCT</option>
+              <option value="11">NOV</option>
+              <option value="12">DEC</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="b47PM-budget-quad3">
+          <div class="row clearfix">
+            <div class="col-sm-12" id="seeAllBudget">
+              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default" *ngFor="let budget of budgetListData.budgets; let index = index">
+                  <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                      <span class="category-icon"><img src="/assets/{{budget.imageUrl}}" alt="" width="20px"></span> {{budget.category}} (Budget Assigned <span>{{budget.amount | number:0 | currencySymbol:budget.currency}})</span>
+                      <div class="dropdown pull-right budget-ellipsis-nav visible-xs-block">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                          <span class="glyphicon glyphicon-option-vertical"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                          <li>
+                            <button class="btn delete-btn pull-right" (click)="prepareDeleteBudget(deleteBudgetModal, budget)">
+                              <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                          </li>
+                          <li>
+                            <button class="btn pull-right edit-btn" (click)="prepareEditBudget(editBudgetModal, budget)">
+                              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </button></li>
+                          </ul>
+                        </div>
+                        <a class="pull-right expand-toggle collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                          [attr.data-target]="'#collapseOne_' + index" aria-expanded="true" aria-controls="collapseOne" (click)="showSpentVsCategoryChart(budget, index)">
+                          <i class="fa fa-angle-down" aria-hidden="true"></i>
+                          <i class="fa fa-angle-up" aria-hidden="true"></i>
+                        </a>
+                        <button class="btn delete-budget-btn pull-right" (click)="prepareDeleteBudget(deleteBudgetModal, budget)">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                        <button class="btn pull-right edit-budget-btn" (click)="prepareEditBudget(editBudgetModal, budget)">
+                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </button>
+                      </h4>
+                    </div>
+                    <div id="collapseOne_{{index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="panel-body">
+                        <div class="row clearfix">
+                          <div class="col-sm-12 col-lg-8">
+                            <div class="row clearfix">
+                              <div class="col-sm-3">
+                                <!--<img src="../img/budget/graph-chart5.png" alt="" width="100%" height="auto">-->
+                                <!-- <span ng-init="a=(100 * budget.spentAmount)/budget.amount"></span> -->
+                                <div class="clearfix" *ngIf="getBudgetPercentage(budget) <= 75">
+                                    <div class="c100 p{{ parseInt(getBudgetPercentage(budget)) }} green">
+                                        <span class="pm-green">{{parseInt(getBudgetPercentage(budget))}}%</span>
+                                        <div class="slice">
+                                            <div class="bar"></div>
+                                            <div class="fill"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix" *ngIf="getBudgetPercentage(budget) > 75 && getBudgetPercentage(budget) < 95">
+                                    <div class="c100 p{{ parseInt(getBudgetPercentage(budget)) }} orange">
+                                        <span class="pm-amber">{{parseInt(getBudgetPercentage(budget))}}%</span>
+                                        <div class="slice">
+                                            <div class="bar"></div>
+                                            <div class="fill"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix" *ngIf="getBudgetPercentage(budget) >= 95 && getBudgetPercentage(budget) <= 100">
+                                    <div class="c100 p{{ parseInt(getBudgetPercentage(budget)) }} ">
+                                        <span class="pm-red">{{parseInt(getBudgetPercentage(budget))}}%</span>
+                                        <div class="slice">
+                                            <div class="bar"></div>
+                                            <div class="fill"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix" *ngIf="getBudgetPercentage(budget) > 100">
+                                    <div class="c100 p100 ">
+                                        <span class="pm-red">{{parseInt(getBudgetPercentage(budget))}}%</span>
+                                        <div class="slice">
+                                            <div class="bar"></div>
+                                            <div class="fill"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-9 budget-detail-quad1">
+                                <h4>Budget Assigned <span>{{budget.amount | number:0 | currencySymbol:budget.currency}}</span></h4>
+                                <div class="row clearfix">
+                                  <div class="col-sm-5 col-md-4">
+                                    <h4>Total Spent<br><span class="braked-price"><i class="fa fa-stop red" aria-hidden="true"></i>{{budget.spentAmount | number:0 | currencySymbol:budget.currency}}</span></h4>
+                                  </div>                                
+                                  <div class="col-sm-5 col-md-4">
+                                    <h4>Remaining<br><span class="braked-price"><i class="fa fa-stop" aria-hidden="true"></i>{{budget.remainingAmount | number:0 | currencySymbol:budget.currency}}</span></h4>
+                                  </div>                                
+                                </div>
+                              </div>
+                              <div class="col-sm-12">
+                                <div class="misc-table-showcase">
+                                  <div class="row b47PM-budget-tbl-quad1">
+                                    <div *ngIf="budget.spentAmount == 0" class="table b47PM-misc-table1 b47PM-budget-tbl1">
+                                      <div align="center" >You have no transaction for this category in this Month.</div>
+                                    </div>
+                                    <div *ngIf="budget.spentAmount>0" class="table b47PM-misc-table1 b47PM-budget-tbl1">
+                                      <header class="clearfix">
+                                        <div>DATE</div>
+                                        <div>MERCHANT NAME</div>
+                                        <div>TRANSACTION TYPE</div>
+                                        <div align="right">AMOUNT</div>
+                                        <div style="text-align:center">ACTION</div>
+                                      </header>
+                                      <div>
+                                        <div class="record-row transc-row" *ngFor="let transaction of budget.transactions; let txnIndex = index">
+                                          <table width="100%" class="table inner-data-table">
+                                            <thead class="edit_no" id="{{transaction.id}}" style="cursor: pointer;"> <!-- val1="{{transaction.category}}" -->
+                                              <tr (click)="editTransaction(index, txnIndex, transaction, $event)">
+                                                <th>
+                                                  <span *ngIf="!transaction.editTxn" id="date_{{transaction.id}}" class="text">{{ transaction.transDate | dateFormat: 'DD-MM-YYYY'}}</span>
+                                                  <!-- <input type="text" class="form-control date" id="date_input_{{transaction.id}}" value="{{ transaction.transDate | dateFormat: 'DD-MM-YYYY'}}" readonly> -->
+                                                  <my-date-picker *ngIf="transaction.editTxn" name="mydate1" [options]="myDatePickerOptions" [(ngModel)]="editTransactionObj.updatedTransDate"
+                                                    (dateChanged)="onTxnDateChanged($event)" id="date_input_{{transaction.id}}"></my-date-picker>
+                                                </th>
+                                                <th class="break-word">
+                                                  <div bs-popover>
+                                                    <span [hidden]="transaction.editTxn" id="merchant_{{transaction.id}}" class="text" rel="popover">{{ transaction.merchantName }}</span> <!-- data-content="{{transaction.description}}" -->
+                                                  </div>
+                                                  <!-- <input *ngIf="transaction.editTxn" type="text" class="form-control restrictSplChr" auto-complete ui-items="merchantList" [(ngModel)]="editTransactionObj.updatedMerchantName" id="merchant_input_{{transaction.id}}"> -->
+                                                  <input [hidden]="!transaction.editTxn" name="merchant_name" type="text" auto-complete [source]="merchantList"
+                                                    [(ngModel)]="editTransactionObj.updatedMerchantName" [list-formatter]="autocompleListFormatter"
+                                                    value-property-name="id" display-property-name="name" placeholder="Merchant name" class="form-control restrictSplChr" id="merchant_input_{{transaction.id}}" required>
+                                                </th>
+                                                <!--<th class="truncatequd" title="{{ category }}">
+                                                  <span class="category-icon pull-left"><img src="img/category-icons/buissness-expense.png" alt="" width="20px"></span>
+                                                  {{ transaction.subcategory }}
+                                                </th>-->
+                                                <th>
+                                                  <span class="category-icon pull-left" style="vertical-align:middle"><img src="/assets/{{transaction.categoryImageUrl}}" id="image_{{transaction.id}}" alt="" width="20px" title="{{transaction.category}}"></span>
+                                                  <span *ngIf="!transaction.editTxn" id="subcategory_{{transaction.id}}" class="text" >{{transaction.subcategory}}</span>
+                                          
+                                                  <input type="hidden" [(ngModel)]="editTransactionObj.updatedCategory" id="category_{{transaction.id}}">
+                                          
+                                                  <!-- category subcategory dropdown start -->
+                                                  <div *ngIf="transaction.editTxn" class="transaction-select" style="vertical-align:middle;display: table-cell;" id="subcategory_input_{{transaction.id}}">
+                                                      <ul id="main-menu_{{transaction.id}}" class="sm sm-blue mainmenu" style="width: 95%;border-radius: 0px;">
+                                                          <li style="width: 100%;">
+                                                              <a href="javascript: void(0);" class="transaction-select">
+                                                                  <input *ngIf="transaction.editTxn" type="text" name="changeCategoryName" [(ngModel)]="editTransactionObj.updatedSubcategory" class="form-control inline-category" id="subcategory_inputbox_{{transaction.id}}"
+                                                                        placeholder="subcategory" onkeydown="return false;" onDrop="return false" onPaste="return false">
+                                                              </a>
+                                                              <ul style="z-index: 9999;">
+                                                                  <li *ngFor="let category of categorySubCategoryLists | orderBy: 'name'"> <!--  | orderBy: 'categoryName' -->
+                                                                      <a>{{category.name}}</a>
+                                                                      <ul>
+                                                                          <li *ngFor="let subcategory of category.subcategories">
+                                                                              <a href="javascript: void(0);" (click)="getCategorySubcategoryInline(transaction, category.name, subcategory.name, category.url)">
+                                                                                  {{subcategory.name}}
+                                                                              </a>
+                                                                          </li>
+                                                                          <!-- <li><a href="" style="font-weight:bold;" data-toggle="modal" data-target=".addSubcategoryModal" >Add Subcategory</a></li> -->
+                                                                      </ul>
+                                                                  </li>
+                                                              </ul>
+                                                          </li>
+                                                      </ul>
+                                                  </div>
+                                                  <!-- category subcategory dropdown end -->
+                                                </th>
+                                                <th style="text-align: right;">
+                                                  <span *ngIf="!transaction.editTxn">
+                                                    <span *ngIf="transaction.transactionType == 'debit'" id="amount_{{transaction.id}}" class="text pm-red">-{{removeSpecialCharacter(transaction.amount) | number:'1.1-2' | currencySymbol:transaction.currency}}</span>
+                                                    <span *ngIf="transaction.transactionType != 'debit'" id="amount_{{transaction.id}}" class="text" style=" color: #000000;">{{removeSpecialCharacter(transaction.amount) | number:'1.1-2' | currencySymbol:transaction.currency}}</span>
+                                                  </span>
+                                                  <input *ngIf="transaction.editTxn" type="text" [(ngModel)]="editTransactionObj.updatedAmount" class="form-control pointNumber" id="amount_input_{{transaction.id}}"
+                                                        style="text-align: right">
+                                                </th>
+                                                <th>
+                                                  <button class="pull-right btn delete-txn-btn" id="deltxnbtn_{{transaction.id}}"
+                                                    (click)="prepareDeleteTxn(index, txnIndex, transaction)" title="Delete" disabled>
+                                                    <img src="/assets/img/transaction/delete1.svg" width="18px">
+                                                  </button>
+                                                  <button class="pull-right btn split-txn-btn" id="splittxnbtn_{{transaction.id}}" (click)="showTransactionSplit($event, transaction)" title="Split" disabled>
+                                                    <img src="/assets/img/transaction/split1.svg" width="30px">
+                                                  </button>
+                                                  <button class="pull-right btn edit-txn-btn" id="edittxnbtn_{{transaction.id}}" (click)="showTransactionEdit($event, transaction);loadDropdown()" title="Edit" disabled>
+                                                    <img src="/assets/img/transaction/edit_multiple1.svg" width="25px">
+                                                  </button>
+                                                  <div class="clearfix"></div>
+                                                </th>
+                                              </tr>
+                                              <tr *ngIf="transaction.editTxn" style="text-align: center">
+                                                <td colspan="9">
+                                                  <span class="pm-red" id="txnError_{{index}}_{{txnIndex}}" style="display: block;"></span>
+                                                  <button type="button" class="btn btn-primary" (click)="saveTransaction(index, txnIndex, transaction)">Save</button>
+                                                  <button type="button" class="btn btn-warning" (click)="cancelTransaction(index, txnIndex, transaction)">Cancel</button>
+                                                  <img style="padding: 5px 4px 4px 7px;" *ngIf="transaction.transactionDataLoading" src="/assets/img/loader/spin.gif" />
+                                                </td>
+                                              </tr>
+                                            </thead>
+                                            <tbody class="editmultitxn" id="editmultitxn_{{transaction.id}}" style="display: none;">
+                                              <tr>
+                                                <td colspan="5">
+                                                  <div class="row clearfix" style="padding:15px 0 0 0">
+                                                    <form name="EidtMultiForm" (submit)="updateMultipleTxn(transaction)">
+                                                      <div class="col-md-6">
+                                                        <div class="row clearfix">
+                                                          <div class="col-md-12 form-group">
+                                                            <!-- <label>Description <small style="color:#3B5CCF">(This will affect other {{transactionCounts.transactionCount}} transactions)</small></label> -->
+                                                            <input type="text" name="description" [(ngModel)]="updateTxnObject.description" class="form-control" disabled>
+                                                          </div>
+                                                          <h5 class="col-md-12">Current name</h5>
+                                                          <div class="col-md-6 form-group">
+                                                            <label>Merchant</label>
+                                                            <input type="text" name="merchantName" [(ngModel)]="updateTxnObject.merchantName" class="form-control" disabled>
+                                                          </div>
+                                                          <div class="col-md-6 form-group">
+                                                            <label>Category</label>
+                                                            <p style="display: table;">
+                                                              <span class="category-icon" style="vertical-align:middle;display: table-cell;padding-right: 8px;"><img src="/assets/{{updateTxnObject.categoryImageUrl}}" alt="" width="20px"></span>
+                                                              <input type="text" name="category" style="vertical-align:middle;display: table-cell;" [(ngModel)]="updateTxnObject.category" class="form-control" disabled>
+                                                            <p>
+                                                          </div>
+                                                          <h5 class="col-md-12">Rename To</h5>
+                                                          <div class="col-md-6 form-group">
+                                                            <label>Merchant</label>
+                                                            <input type="text" name="changeMerchantName" auto-complete ui-items="merchantList" [(ngModel)]="updateTxnObject.merchantName" class="form-control" required>
+                                                          </div>
+                                                          <div class="col-md-6 form-group">
+                                                            <label>Category</label>
+                                                            <!--<input type="text" [(ngModel)]="updateTxnObject.changeCategory" ng-init="updateTxnObject.changeCategory = updateTxnObject.category" class="form-control">-->
+                                                            <div style="display: table;">
+                                                              <span style="vertical-align:middle;padding-right: 16px;"><img src="/assets/{{updateTxnObject.categoryImageUrl}}" height="20px" width="20px" id="image1_{{updateTxnObject.id}}" title="{{updateTxnObject.category}}"></span>
+                                                              <div style="vertical-align:middle;display: table-cell;">
+                                                                <ul id="main-menu1" class="sm sm-blue mainmenu" style="width: 100%;border-radius: 0px;vertical-align:middle;display: table-cell;">
+                                                                  <li style="width: 100%;"><a href="javascript: void(0);">
+                                                                          <input type="text" style="height: 35px;" placeholder="Choose Subcategory..." id="category2_{{updateTxnObject.id}}" name="changeCategoryName" onkeydown="return false;"
+                                                                                [(ngModel)]="updateTxnObject.category" hidden>
+                                          
+                                                                          <input type="text" style="height: 35px;width: 100%;" class="form-control" placeholder="Choose a category..." id="subcategory2_{{ updateTxnObject.id }}"  name="changeSubCategoryName" onkeydown="return false;" 
+                                                                          [(ngModel)]="updateTxnObject.subcategory" onDrop="return false" onPaste="return false">
+                                                                      </a>
+                                                                      <ul style="z-index: 9999;">
+                                                                          <li *ngFor="let category of categorySubCategoryLists | orderBy: 'name'"> <!--  | orderBy: 'categoryName' -->
+                                                                              <a>{{category.name}}</a>
+                                                                              <ul>
+                                                                                  <li *ngFor="let subcategory of category.subcategories">
+                                                                                      <a href="javascript: void(0);" (click)="getCategorySubcategoryEdit(updateTxnObject.id,category.name,subcategory.name,category.url)">
+                                                                                          {{subcategory.name}}
+                                                                                      </a>
+                                                                                  </li>
+                                                                                  <!-- <li><a href="" style="font-weight:bold;" data-toggle="modal" data-target=".addSubcategoryModal">Add Subcategory</a></li> -->
+                                                                              </ul>
+                                                                          </li>
+                                                                      </ul>
+                                                                  </li>
+                                                                </ul>
+                                                              </div>
+                                          
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                        <!-- <div style="padding-left: 0px !important; vertical-align: middle; margin-top: 0;" class="col-md-6">
+                                                          <input name="updateAllFlag" value="0" checked="checked" style="width:50px;" type="radio"><span style="font-size:15px;vertical-align: text-bottom;">This Transaction</span>
+                                                        </div>
+                                                        <div style="padding-left: 0px !important; vertical-align: middle; margin-top: 0;" class="col-md-6">
+                                                          <input name="updateAllFlag" value="1" style="width:50px;" type="radio"><span style="font-size:15px;vertical-align: text-bottom;">Similar Transactions</span>
+                                                        </div> -->
+                                                      </div>                                  
+                                                      <div class="col-md-6 colSep1">
+                                                        <div class="row clearfix">
+                                                          <!-- <div class="col-md-12 form-group">
+                                                            <label>Tags</label>
+                                                            <input type="text" name="changeTags" [(ngModel)]="updateTxnObject.tag" class="form-control">
+                                                          </div>
+                                                          <h5 class="col-md-12">&nbsp;</h5> -->
+                                                          <div class="col-md-12 form-group">
+                                                            <label>Notes</label>
+                                                            <textarea name="changeNarration" [(ngModel)]="updateTxnObject.narration" class="form-control" style="min-height:143px"></textarea>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                          
+                                                      <div class="col-md-12 clearfix">
+                                                        <hr style="margin:15px 0 15px 0">
+                                                        <button type="submit" class="btn b47PM-default-btn" ng-disabled="vm.editMulTxnDataLoading" style="margin:0 10px 8px 0">UPDATE</button>
+                                                        <img *ngIf="editMulTxnDataLoading" src="../asstes/img/loader/spin.gif" />
+                                                        <button type="button" class="btn b47PM-dCancel-btn" id="{{transaction.id}}" style="margin:0 10px 8px 0" (click)="cancelEditTransaction($event)">CANCEL</button>
+                                                      </div>
+                                                    </form>                               
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                            <tbody class="splittxn" id="splittxn_{{transaction.id}}" style="display: none;">
+                                              <tr>
+                                                <td colspan="5">
+                                                  <div class="row clearfix" style="padding:15px 0 0 0">
+                                                    <form method="post" accept-charset="utf-8" (submit)="splitTransactionDetails(transaction.id)">
+                                                      <div class="col-md-12 splited-row">
+                                                        <hr>
+                                                        <div class="row">
+                                                          <div class="col-md-2 form-group">
+                                                            <label>Date</label><br>
+                                                            <input type="text" name="splittransaction" date='dd-mm-yyyy' class="form-control" value="{{splitTxnObject.transDate | dateFormat: 'DD-MM-YYYY'}}" readonly>
+                                                          </div>
+                                                          <div class="col-md-2 form-group">
+                                                            <label>Merchant Name</label>
+                                                            <input type="text" name="splitmerchantName" class="form-control" [(ngModel)]="splitTxnObject.merchantName" readonly>
+                                                          </div>
+                                                          <div class="col-md-2 form-group">
+                                                            <label>Category</label>
+                                                            <input type="text" name="splitcategory" class="form-control" [(ngModel)]="splitTxnObject.category" readonly>
+                                                          </div>
+                                                          <div class="col-md-2 form-group">
+                                                            <label>&nbsp;</label>
+                                                            <input type="text" name="splitsubcategory" class="form-control" [(ngModel)]="splitTxnObject.subcategory" readonly>
+                                                          </div>
+                                                          <div class="col-md-2 form-group">
+                                                            <label>Amount</label>
+                                                            <input type="text" name="splitsubcategory" class="form-control" style="text-align: right;" id="txn_amount_{{splitTxnObject.id}}" [(ngModel)]="remainingAmount" readonly>
+                                                          </div>
+                                                          <div class="col-md-2 form-group">
+                                                            <label>&nbsp;</label><br>
+                                                            <button type="button" class="btn b47PM-default-btn" style="line-height:33px" (click)="newSplitRow();dropdownsplit();">SPLIT</button>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12 splited-row">
+                                                        <hr>
+                                                        <div class="row clearfix" *ngFor="let item of splitTransactionList.lists">
+                                                          <div class="col-md-2 form-group">
+                                                            <input type="text" name="splittransDate" class="form-control" [(ngModel)]="item.transDate" required jqdatepicker readonly>
+                                                          </div>
+                                                          <div class="col-md-2 form-group">
+                                                            <input type="text" name="splitmerchantName" class="form-control" auto-complete ui-items="merchantList" [(ngModel)]="item.merchantName" required>
+                                                          </div>
+                                                          <div class="col-md-2 form-group">
+                                                            <!--<input type="text" class="form-control" [(ngModel)]="item.category" required>-->
+                                                            <ul class="sm sm-blue mainmenu3">
+                                                              <li style="width: 100%;">
+                                                                <a href="javascript: void(0);">
+                                                                  <input type="text" class="form-control"
+                                                                      placeholder="Choose Category..." id="split_category_{{splitTxnObject.id}}_{{$index}}" name="category_name" [(ngModel)]="item.category" onkeydown="return false;" onDrop="return false" onPaste="return false" autocomplete="off" required>
+                                          
+                                                                </a>
+                                                                <ul style="z-index: 9999;">
+                                                                  <li *ngFor="let category of categorySubCategoryLists | orderBy: 'name'"> <!--  | orderBy: 'categoryName' -->
+                                                                    <a>{{category.name}}</a>
+                                                                    <ul>
+                                                                      <li *ngFor="let subcategory of category.subcategories">
+                                                                        <a href="javascript: void(0);" (click)="getCategorySubcategorysplit(i, splitTxnObject.id, category.name,subcategory.name)">
+                                                                          {{subcategory.name}}
+                                                                        </a>
+                                                                      </li>
+                                                                    </ul>
+                                                                  </li>
+                                                                </ul>
+                                                              </li>
+                                                            </ul>
+                                                          </div>
+                                                          <div class="col-md-2 form-group">
+                                                            <input type="text" class="form-control" name="subcategory" id="split_subcategory_{{splitTxnObject.id}}_{{$index}}" [(ngModel)]="item.subcategory" onkeydown="return false;" onDrop="return false" onPaste="return false" autocomplete="off" required>
+                                                          </div>
+                                                          <div class="col-md-2 form-group">
+                                                            <input type="text" class="form-control pointNumber" name="amount" style="text-align: right;" [(ngModel)]="item.amount" (keyup)="validateAmount(splitTxnObject.amount, splitTxnObject.id)" required>
+                                                          </div>
+                                                          <div class="col-md-2 form-group">
+                                                            <button type="button" class="btn cancel-split-operation" style="line-height:33px" (click)="removeSplitRow($index);validateAmount(splitTxnObject.amount, splitTxnObject.id)">
+                                                              <i class="fa fa-times-circle-o" aria-hidden="true"></i>
+                                                            </button>
+                                                          </div>
+                                                        </div>
+                                                        <div class="row clearfix">
+                                                          <div class="col-md-12" id="spliterrormsg">
+                                          
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <div class="col-md-12 clearfix">
+                                                        <hr style="margin:15px 0 15px 0">
+                                                        <button type="submit" class="btn b47PM-default-btn splitsubmit" [disabled]="splitTxnDataLoading" style="margin:0 10px 8px 0">SUBMIT</button>
+                                                        <img *ngIf="splitTxnDataLoading" src="/assets/img/loader/spin.gif" />
+                                                        <button type="button" class="btn b47PM-dCancel-btn" id="{{splitTxnObject.id}}" style="margin:0 10px 8px 0" (click)="cancelSplitTransaction($event)">CANCEL</button>
+                                                      </div>
+                                                    </form>                                 
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>                            
+                            </div>
+                          </div>
+                          <div class="col-sm-12 col-lg-4">
+                            <div class="budget-graph-quad1">
+                              <!--<img src="../img/budget/graph-chart4.png" alt="" width="100%" >-->
+                              <div id="spentVsBudget_{{index}}_content" width="100%">
+                                <canvas id="spentVsBudget_{{index}}"></canvas>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="budgetListData.budgets && budgetListData.budgets.length == 0" style="background-color: #f0f0f0;padding: 1%;text-align: center;">
+                    There are no budgets in this month
+                </div>                        
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Main Display Html Ends -->
+
+      
+  </div>
+
+  <!-- Footer Part Html Starts -->
+  <app-authorised-footer></app-authorised-footer>
+  <!-- Footer Part Html Ends -->
+
+</div>
+
+<!-- Notification component -->
+<app-common-notification [notificationMessage]="notificationMessage" #notificationComponent></app-common-notification>
+
+<ng-template #addBudgetModal>
+  <div class="modal-header">
+    <button type="button" (click)="closeBudgetModal()" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h5>Create a Budget</h5>
+  </div>
+  <form method="post" accept-charset="utf-8" (submit)="addBudget()">
+    <div class="modal-body">
+      <div class="row clearfix">
+        <div class="col-sm-7 col-md-7">
+          <div class="row clearfix">
+            <div class="col-sm-12 form-group">
+              <!--  | orderBy:'categoryName' -->
+              <select name="budgetCategory" class="form-control" [(ngModel)]="budgetObj.category" (change)="budgetCategoryGraph()" id="budgetCategory" required>
+                <option value="">Choose category</option>
+                <ng-container *ngFor="let category of categorySubCategoryLists | orderBy: 'name'; let i = index">
+                  <option *ngIf="category.name !='Income' && category.name != 'Investments' && category.name != 'Transfer' && category.name != 'uncategorised'"value="{{category.name}}">{{category.name}}</option>
+                </ng-container>
+              </select>
+            </div>
+            <div class="col-sm-12 form-group">
+              <!-- | orderBy -->
+              <select name="budgetCurrency" class="form-control selectedCurrency" [(ngModel)]="budgetObj.currency" id="budgetCurrency" required>
+                <option value="">Select currency</option>
+                <optgroup label="Popular Currencies">
+                  <option *ngFor="let currency of popularCurrencyList | orderBy: 'name'" value="{{currency.code}}">{{currency.name}} ({{currency.code}})</option>
+                </optgroup>
+                <optgroup label="All Currencies">
+                  <option *ngFor="let currency of currencyListData | orderBy: 'name'" value="{{currency.code}}">{{currency.name}} ({{currency.code}})</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="col-sm-12 form-group">
+              <!-- ".has-error"  add this class when email field is blank or invalid data-->
+              <input type="text" name="budgetAmount" [(ngModel)]="budgetObj.amount" class="form-control number" id="addAmount" placeholder="Amount" required autocomplete="off" maxlength="10">
+            </div>
+            <h6 class="col-sm-12">This Budget is for</h6>
+            <div class="col-sm-6 form-group">
+              <input type="radio" name="addBudgetmonth" [(ngModel)]="budgetObj.budgetOption" value="This Month" checked>
+              <label>This month only</label>
+            </div>
+            <div class="col-sm-6 form-group">
+              <input type="radio" name="addBudgetmonth" [(ngModel)]="budgetObj.budgetOption" value="Every Month">
+              <label>Every month</label>
+            </div>
+            <div class="col-md-12 form-group" align="center">
+              <span id="addBudgetErrMsg" class="pm-red"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 col-md-5">
+          <!--<img src="../img/budget/graph-chart3.png" alt="">-->
+          <div id="budget_category_graph_content">
+            <canvas id="budget_category_graph"></canvas>
+          </div>
+          <div align="center">
+            <label id="average" style="color: #000000;font-size: 12px"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" [disabled]="addBudgetDataLoading" class="btn add-account-btn b47PM-default-btn">ADD BUDGET</button>
+      <img *ngIf="addBudgetDataLoading" src="/assets/img/loader/spin.gif" />
+      <!-- ".disabled" Remove disable class when all Fields are validated-->
+  
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #editBudgetModal>
+  <div class="modal-header">
+    <button type="button" (click)="closeBudgetModal()" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h5>Edit Budget</h5>
+  </div>
+  <form accept-charset="utf-8" (submit)="editBudget()">
+    <div class="modal-body">
+      <div class="row clearfix">
+        <div class="col-md-8">
+          <div class="row clearfix">
+            <div class="col-md-12 form-group">
+              <input class="form-control" name="editCategory" [(ngModel)]="budgetObj.category" id="budgetCategoryName" placeholder="Category" readonly>
+            </div>
+            <div class="col-md-12 form-group">
+              <label>Amount</label>
+              <input class="form-control number" name="editAmount" [(ngModel)]="budgetObj.amount" id="budgetAmount" placeholder="Amount" required>
+            </div>
+            <h6 class="col-md-12">This Budget is for</h6>
+            <div class="col-md-6 form-group">
+              <input type="radio" name="editBudgetMonth" [(ngModel)]="budgetObj.budgetOption" value="This Month" checked>&nbsp;
+              <label>This month only</label>
+            </div>
+            <div class="col-md-6 form-group">
+              <input type="radio" name="editBudgetMonth" [(ngModel)]="budgetObj.budgetOption" value="Every Month">&nbsp;
+              <label>Every month</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" [disabled]="editBudgetDataLoading" class="btn add-account-btn b47PM-default-btn">UPDATE</button>
+      <img *ngIf="editBudgetDataLoading" src="/assets/img/loader/spin.gif" />
+      <!-- ".disabled" Remove disable class when all Fields are validated-->
+  
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #deleteBudgetModal>
+  <div class="modal-header">
+      <button type="button" (click)="closeBudgetModal()" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form accept-charset="utf-8" (submit)="deleteBudget()">
+        <div class="row clearfix">
+          <div class="col-md-12" align="center">
+            <p>Are you sure want to delete budget permanently.</p>
+          </div>
+          <div class="col-md-12" align="center">
+            <input type="radio" name="deleteBudgetMonth" [(ngModel)]="budgetObj.budgetOption" value="This Month" checked>&nbsp;
+            <label style="margin-right: 5%;">This month only</label>
+            <input type="radio" name="deleteBudgetMonth" [(ngModel)]="budgetObj.budgetOption" value="Every Month">&nbsp;
+            <label>Every month</label>
+          </div>
+          <div class="col-md-12" align="center">
+            <input type="submit" class="b47PM-deltran-btn" value="DELETE">
+            <img *ngIf="deleteBudgetDataLoading" src="/assets/img/loader/spin.gif" />
+            <input type="button" (click)="closeBudgetModal()" class="b47PM-dCancel-btn" data-dismiss="modal" value="CANCEL">
+          </div>
+        </div>
+      </form>
+    </div>
+</ng-template>
+
+<ng-template #deleteTransactionModal>
+    <div class="modal-header">
+      <button type="button" (click)="closeDeleteTransactionModal()" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row clearfix">
+        <div class="col-md-12" align="center">
+          <p>Are you sure want to delete transaction permanently.</p>
+        </div>
+        <div class="col-md-12" align="center">
+          <input type="button" class="b47PM-deltran-btn" [disabled]="delTxnDataLoading" value="DELETE" (click)="deleteTransaction()">
+          <img *ngIf="delTxnDataLoading" src="/assets/img/loader/spin.gif" />
+          <input type="button" (click)="closeDeleteTransactionModal()" class="b47PM-dCancel-btn" data-dismiss="modal" value="CANCEL">
+        </div>
+      </div>
+    </div>
+  </ng-template>

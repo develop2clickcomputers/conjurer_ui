@@ -1,0 +1,102 @@
+.upload-selection input[type=radio], .upload-selection input[type=checkbox] {
+		display:none;
+	}
+
+.upload-selection input[type=radio] + label, .upload-selection input[type=checkbox] + label {
+	display:inline-block;
+	margin:-2px;
+	margin-right: 8px;
+	padding: 4px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333;
+	text-align: center;
+	/* text-shadow: 0 1px 1px rgba(255,255,255,0.75); */
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: #f5f5f5;
+	background-image: -moz-linear-gradient(top,#fff,#e6e6e6);
+	background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));
+	background-image: -webkit-linear-gradient(top,#fff,#e6e6e6);
+	background-image: -o-linear-gradient(top,#fff,#e6e6e6);
+	background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+	background-repeat: repeat-x;
+	border: 1px solid #ccc;
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+	border-bottom-color: #b3b3b3;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+	box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+}
+
+.upload-selection input[type=radio]:checked + label, .upload-selection input[type=checkbox]:checked + label{
+	background-image: none;
+	outline: 0;
+	-webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+	-moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+	box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+	background-color:#003863;
+	color: #fff;
+	margin-right: 8px;
+}
+
+.pm-stmt-pass-btn{
+    font-size: 14px;
+    padding: 0px 7px 2px 7px;
+    background: #4269ce none repeat scroll 0 0;
+    border: 1px solid #4269ce;
+    color: #fff;
+    line-height: 25px;
+    width: 30%;
+}
+
+/*for property add and delete button*/
+#Properties-content .table.b47PM-miscRecord-row td button.edit-property-btn {
+    margin: 0 15px;
+}
+#Properties-content .table.b47PM-miscRecord-row td button.edit-property-btn {
+    margin: 0 10px;
+}
+#Properties-content .table.b47PM-miscRecord-row td button.edit-property-btn {
+    margin: 0 10px;
+}
+.manage-acc-quad button.edit-property-btn, button.edit-property-btn {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    color: #b4761f;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 22px;
+    padding: 5px;
+}
+#Properties-content .table.b47PM-miscRecord-row td button.delete-property-btn {
+    margin-left: 15px;
+}
+#Properties-content .table.b47PM-miscRecord-row td button.delete-property-btn {
+    margin-left: 10px;
+}
+#Properties-content .table.b47PM-miscRecord-row td button.delete-property-btn {
+    margin-left: 10px;
+}
+.manage-acc-quad button.delete-property-btn, button.delete-property-btn {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    color: #ea5859;
+    font-size: 18px;
+    line-height: 22px;
+    margin-left: 22px;
+    padding: 5px;
+}
+.radio-container .col-sm-6 {
+	background-color: #e6e6e6;
+    PADDING-TOP: 6px;
+    padding-bottom: 8px;
+}
+.alert-info label {
+	display: block;
+	font-size: 12px;
+}

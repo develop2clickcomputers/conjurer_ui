@@ -1,0 +1,68 @@
+
+<span (click)="openDropdownModal()">
+    <i class="fa fa-plus-square" aria-hidden="true"></i><br />Add Dropdown
+</span>
+
+<ng-template #dropDownModal>
+    <div class="modal-header">
+        <button type="button" (click)="closeDropdownModal()" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title">Add Dropdown Element</h3>
+    </div>
+    <form [formGroup]="dropdownForm" novalidate (ngSubmit)="submitDropdownElement()">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="misc-table-showcase">
+                        <div class="table b47PM-misc-table1 b47PM-transac-tbl1 b47PM-transaction-tbl1">
+                            <!-- <header class="clearfix">
+                                <div>Plan Type</div>
+                                <div>&nbsp;</div>
+                            </header> -->
+                            <div class="col-md-12 col-sm-12" style="margin: 6px 0px 8px 0px;">
+                                <input type="text" class="form-control" formControlName="dropdown_type" placeholder="Type">
+                            </div>
+                            <ng-container formArrayName="dropdownList">
+                                <div *ngFor="let drop of dropdownForm['controls'].dropdownList['controls']; let i = index" class="record-row transc-row">
+                                    <table width="100%" class="table inner-data-table inner-dropdown-table">
+                                        <thead [formGroupName]="i" class="edit_no" style="cursor: pointer;">
+                                            <tr style="background-color: #bce8f1;height: 30px" *ngIf="i === 0">
+                                                <th>Display Text</th>
+                                                <th>Value</th>
+                                                <th>&nbsp;</th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    <input type="text" formControlName="display_text" class="form-control" placeholder="Display Text">
+                                                </th>
+                                                <th>
+                                                    <input type="text" formControlName="value" class="form-control" placeholder="Value">
+                                                </th>
+                                                <th>
+                                                    <!-- add, edit and delete -->
+                                                    <button type="button" class="pull-right btn split-dropdown-btn" (click)="addNewDropdownRow()" title="Add New">
+                                                        <img src="/assets/img/transaction/add.svg" width="15px">
+                                                    </button>
+                                                    <button type="button" class="pull-right btn delete-dropdown-btn"
+                                                        (click)="removeDrodownRow(i)" title="Delete">
+                                                        <img src="/assets/img/transaction/delete2.svg" width="18px">
+                                                    </button>
+                                                    <div class="clearfix"></div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer dropdown-modal-footer">
+            <input type="submit" class="b47PM-default-btn" value="SUBMIT">
+            <input type="button" (click)="closeDropdownModal()" class="b47PM-dCancel-btn" value="CANCEL">
+        </div>
+    </form>
+</ng-template>

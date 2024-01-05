@@ -1,0 +1,2456 @@
+
+  <div class="b47PM-wrapper logged-in"><!-- "logged-in" add this class when user login successfully -->
+
+    <!-- Header Part Html Starts -->
+    <app-authorised-header (callBackOnAccountAdded)="callBackOnAccountAdded($event)" #authorisedHeader></app-authorised-header> <!-- [currentRefresh]="currentRefresh" -->
+    <!-- Header Part Html Ends -->
+
+    <!-- Main Display Html Starts -->
+
+  <!-- Loader section -->
+  <div class="b47PM-center-body" *ngIf="!displayAccountPage" > <!--  *ngIf="!overviewPageLoad && !overviewError" -->
+    <div class="container-fluid b47PM-container investment-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-investment-quad1" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <img src="/assets/img/loader/page_loading.gif">
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- main display start when there is no transaction -->
+  <div class="b47PM-center-body" *ngIf="overviewPageLoad"> <!-- *ngIf="overviewError || overviewPageLoad" -->
+    <div class="container-fluid b47PM-container goals-landing-page">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="b47PM-budget-quad1 grey-quad" align="center">
+            <div class="col-sm-8 col-sm-offset-2">
+              <h4>Oops! Something went wrong!!!</h4>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  *ngIf="overviewPageLoad && !overviewError" -->
+  <!-- <div class="b47PM-center-body">
+      <div class="container-fluid b47PM-container">
+        <div class="row clearfix  currency-notifi-quad">
+
+        </div>
+        <div class="row clearfix">
+          <div class="col-md-12">
+            <div class="b47PM-add-Account-quad grey-quad" align="center">
+              <button class="btn add-acc-btn" data-toggle="modal" data-target=".addAccountModal" (click)="prepareAddAccountPrompt()">
+                ONLINE ACCOUNT
+              </button>
+              <button class="btn upload-statement-btn" data-toggle="modal" data-target=".uploadStatementModal" (click)="prepareUploadStatement()">
+                PDF STATEMENT
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+  </div> -->
+
+  <!--  ng-show = "displayPageFlag && !overviewError" -->
+  <div class="b47PM-center-body" *ngIf="displayAccountPage && !overviewError"> <!--  *ngIf="displayPageFlag && !overviewError" -->
+      <div class="container-fluid b47PM-container">
+        <div class="col-md-12">
+          <div class="row clearfix  currency-notifi-quad">
+            <!-- <div class="dropdown b47PM-notifi-quad1 pull-right">
+              <button class="btn btn-default dropdown-toggle" type="button" id="notifi-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <i class="fa fa-bell-o" aria-hidden="true"></i>
+                <sup id="alert-fade" ng-if="alertCount"><span class="alert-icon">{{alertCount}}</span></sup>
+              </button>
+              <ul class="dropdown-menu list-unstyled" aria-labelledby="notifi-btn">
+                <li ng-repeat="alertmsg in alertData">
+                  <a href="" ng-if="alertmsg.accountFlag">{{alertmsg.message}} {{alertmsg.instName}} <span class="cursor" style="text-decoration: underline;color:#4c629A" ng-click="recovedData(alertmsg.instCode)">Recover</span></a>
+                  <a href="" ng-if="!alertmsg.accountFlag">{{alertmsg.message}} </a>
+                </li>
+                <li ng-if="!alertCount">
+                  <a href="">You have no new alerts</a>
+                </li>
+              </ul>
+            </div> -->
+            <div class="dropdown b47PM-currency-quad1 pull-right">
+              <button class="btn btn-default dropdown-toggle" type="button" id="preferredCurrency" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" (click)="editCurrency = !editCurrency">
+                <i class="fa fa-eur" aria-hidden="true"></i>
+                <i class="fa fa-usd" aria-hidden="true"></i>
+                  <span>{{preferredCurrency}}</span>
+                <span class="caret"></span>
+              </button>
+            </div>
+            <div class="dropdown b47PM-currency-quad1 pull-right">
+              <select style="border-radius: 0;width: 65%;display: table-cell;" *ngIf="editCurrency"
+                name="currency" [(ngModel)]="preferredCurrencyChoice" (change)="changePreferredCurrency();" class="form-control selectedCurrency pull-right" id="addPropertyCurrency" required>
+                <!--<option ng-repeat="currency in currencyListData" value="{{currency.code}}">{{currency.name}} ({{currency.code}})</option>-->
+                <optgroup label="Popular Currency">
+                  <ng-container *ngFor="let currency of currencyListData">
+                    <option *ngIf="currency.popular" value="{{currency.code}}">{{currency.name}} ({{currency.code}})</option>                     
+                  </ng-container>
+                </optgroup>
+                <optgroup label="All Currencies">
+                    <ng-container *ngFor="let currency of currencyListData">
+                    <option value="{{currency.code}}">{{currency.name}} ({{currency.code}})</option>
+                    </ng-container>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          <!-- header charts -->
+            <div class="row clearfix">
+              <div class="b47PM-Account-quad1 b47PM-Account-added">
+                <div class="row">
+                  <div class="col-sm-4 manage-acc-quad">
+                    <div class="">
+                      <div class="dropdown manage-acc-quad-inner">
+                        <button class="btn dropdown-toggle pull-right manage-account-drop" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                          MANAGE ACCOUNTS
+                        </button>
+                        <div class="clearfix"></div>
+                        <div class="dropdown-menu manage-account-dropQuad" aria-labelledby="manage-account-drop">
+                          <header>
+                            <img src="/assets/img/landing-page/acc-icon.png" alt="">
+                            <h4>
+                              Your Accounts
+                            </h4>
+                            <button class="uploadStatement-btn" data-toggle="modal" data-target=".uploadStatementModal" (click)="prepareUploadStatement()">
+                              UPLOAD STATEMENT
+                            </button>
+                            <button class="addAccount-btn" data-toggle="modal" data-target=".addAccountModal" (click)="prepareAddAccountPrompt()">
+                              LINK ACCOUNT
+                            </button>
+                            <div class="clearfix"></div>
+                          </header>
+                          <ul class="list-unstyled">
+                            <div *ngFor="let account of userInstitutionListData; let index = index">
+                              <li *ngIf="account.bankId.indexOf('pimoney') > -1">
+                                <i class="fa fa-circle pull-left" aria-hidden="true"></i>
+                                <span class="bank-name">{{account.institutionName}} ({{account.accountNumber}})</span>
+                                <button class="pull-right delete-btn {{account.bankId}} account-action" title="Delete" (click)="prepareDeleteAccount(account);" data-toggle="modal" data-target="#deleteAccountModal">
+                                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </button>
+                                <button class="pull-right edit-btn {{account.bankId}} account-action" title="Edit" (click)="prepareEditAccount(account.bankId, account.institutionName)" data-toggle="modal" data-target="#editAccountCredential">
+                                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                                </button>
+                                <button class="pull-right refresh-btn {{account.bankId}} account-action" title="Refresh Data" (click)="accountRefresh(account.bankId, account.institutionName)">
+                                  <i class="fa fa-refresh" aria-hidden="true"></i>
+                                </button>
+                                <div class="clearfix"></div>
+                              </li>
+                            </div>
+                            <div *ngFor="let account of manualAccounts; let j = index">
+                              <li> <!--  *ngIf="account.bankId.indexOf('manual') > -1" -->
+                                <i class="fa fa-circle pull-left" aria-hidden="true"></i>
+                                <span class="bank-name">{{account.institutionName}} - {{account.stmtGroupId}}</span>
+                                <button class="pull-right delete-btn" title="Delete Account" (click)="prepareDeleteManualAccountModal(account)">
+                                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </button>
+                                <button class="pull-right edit-btn" title="Account Statements" (click)="redirectToRepository()">
+                                  <img src="/assets/img/icon/statementrepository.png" style="width: 15px;height: 18px">
+                                </button>
+                                <button class="pull-right refresh-btn" title="Refresh Account" (click)="manualAccountRefresh(account)">
+                                  <i class="fa fa-refresh" aria-hidden="true"></i>
+                                </button>
+                                <div class="clearfix"></div>
+                              </li>
+                            </div>
+                            <!-- <div *ngFor="data in userManualInstitutionData">
+                              <li>
+                                <i class="fa fa-circle pull-left" aria-hidden="true"></i>
+                                <span class="bank-name">{{data.institutionName}} ({{data.accountNumber}})</span>
+                                <button class="pull-right delete-btn" title="Delete Account" ng-click="deleteManualAccountModal(data)">
+                                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </button>
+                                <button class="pull-right edit-btn" title="Account Statements" ng-click="redirectToRepository()">
+                                  <img src="img/icon/statementrepository.png" style="width: 15px;height: 18px">
+                                </button>
+                                <button class="pull-right refresh-btn" title="Refresh Account" ng-click="manualAccountRefresh(data)">
+                                  <i class="fa fa-refresh" aria-hidden="true"></i>
+                                </button>
+                                <div class="clearfix"></div>
+                              </li>
+                            </div> -->
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+    
+                  </div>
+                  <div class="col-sm-8 " *ngIf="displayOwnData || displayOweData">
+                    <div class="b47PM-networth-quad1" align="center" *ngIf="netWorth < 0">
+                      You are doing Awesome this month, your net worth is <span class="pm-red">{{netWorth | number:0 | currencySymbol:preferredCurrency}}</span>
+                    </div>
+                    <div class="b47PM-networth-quad1" align="center" *ngIf="netWorth >= 0">
+                      You are doing Awesome this month, your net worth is <span class="pm-green">{{netWorth | number:0 | currencySymbol:preferredCurrency}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row b47PM-account-charts clearfix" style="margin-top: 8px"> <!-- *ngIf="displayOwnData || displayOweData" -->
+    
+                  <div class="col-sm-12 col-md-12 col-lg-4 b47PM-accChart-quad" *ngIf="!displayOwnData && !displayOweData">
+                    <div class="hav-no-acc-quad">
+                      <p>You haven't added any account yet. Please add accounts to get complete insight of your finances.</p>
+                      <button class="add-account-basic-btn" data-toggle="modal" data-target=".combineLinkUploadStModal" (click)="openCombineLinkUploadStModal()">ADD ACCOUNT</button>
+                    </div>
+                  </div>
+    
+                  <div class="col-sm-12 col-md-12 col-lg-4 b47PM-accChart-quad" align="center" *ngIf="!displayOwnData && displayOweData">
+                    <h6>You Own</h6>
+                    <div style="height: 220px;padding-top: 26%;background-image: url(/assets/img/landing-page/blank_circle.png); background-position: center center;background-repeat: no-repeat;">
+                      <label style="font-weight: bold;line-height: 15px;">You Own  <br />{{ 0 | currencySymbol:preferredCurrency}}</label>
+                    </div>
+                  </div>
+    
+                  <div class="col-sm-6 col-lg-4 b47PM-accChart-quad" align="center" *ngIf="displayOwnData">
+                    <h6>You Own</h6>
+                    <div id="ownHeaderChart_content" style="height: 220px;">
+                      <canvas id="ownHeaderChart"></canvas>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 col-md-4 col-lg-4 b47PM-accChart-quad" align="center" *ngIf="!displayOwnData && !displayOweData">
+                    <h6>Your Finances</h6>
+                    <div style="height: 220px;padding-top: 26%;background-image: url(/assets/img/landing-page/blank_circle.png); background-position: center center;background-repeat: no-repeat;">
+                      <label>No accounts found.</label><br />
+                      <a href="" data-toggle="modal" data-target=".combineLinkUploadStModal" (click)="openCombineLinkUploadStModal()">Add bank Accounts</a>
+                    </div>
+                  </div>  
+                  <div class="col-sm-6 col-md-12 col-lg-4 b47PM-accChart-quad" align="center" *ngIf="displayOwnData && !displayOweData">
+                    <h6>You Owe</h6>
+                    <div style="height: 220px;padding-top: 26%;background-image: url(/assets/img/landing-page/blank_circle.png); background-position: center center;background-repeat: no-repeat;">
+                      <label style="font-weight: bold;line-height: 15px;">You Owe   <br />{{ 0 | currencySymbol:preferredCurrency}}</label>
+                    </div>
+                  </div>              
+                  <div class="col-sm-6 col-lg-4 b47PM-accChart-quad" align="center" *ngIf="displayOweData">
+                    <h6>You Owe</h6>
+                    <!--<div id="oweHeaderChart" style="height: 220px;"></div>-->
+                    <div id="oweHeaderChart_content" style="height: 220px;">
+                      <canvas id="oweHeaderChart"></canvas>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-4 b47PM-accChart-quad" align="center" *ngIf="showBudgetFlag">
+                    <h6>How you are doing this month</h6>
+                    <div style="height: 220px;padding-top: 26%;background-image: url(/assets/img/landing-page/blank_circle.png); background-position: center center;background-repeat: no-repeat;">
+                      <label>Mark Your Budget</label><br />
+                      <a class="cursor" (click)="getBudgetDteails('createBudget')">Add Budget</a>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="col-sm-6 col-lg-4 b47PM-accChart-quad" align="center" *ngIf="!showBudgetFlag">
+                    <h6>How you are doing this month</h6>
+                    <div id="budget_status_content" style="height: 220px">
+                      <canvas id="budget_status" class="chart-canvas"></canvas>
+                    </div>
+                    <div class="pull-left budget-quad" *ngIf="budgetChartData">Total Budget<br/><span>{{budgetChartData.totalBudgetAmount | number:0 | currencySymbol:preferredCurrency}}</span></div>
+                    <div class="pull-right consumed-quad" *ngIf="budgetChartData">You Spent<br/><span>{{budgetChartData.totalSpentAmount | number:0 | currencySymbol:preferredCurrency}}</span></div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <!-- <div class="col-sm-6 col-lg-3 b47PM-accChart-quad" align="center" *ngIf="showGoalFlag">
+                    <h6>Goal Summary</h6>
+                    <div style="height: 220px;padding-top: 32%;background-image: url(/assets/img/landing-page/blank_circle.png); background-position: center center;background-repeat: no-repeat;">
+                      <label>Set Your Goals</label><br />
+                      <a href="" ng-click="getGoalDteails('createGoal')">Add Goal</a>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div> -->
+                  <!-- <div class="col-sm-6 col-lg-3 b47PM-accChart-quad" align="center" *ngIf="!showGoalFlag">
+                    <h6>Goal Summary</h6>
+                    <div id="goal_status_content" style="height: 220px">
+                      <canvas id="goal_status"></canvas>
+                    </div>
+                    <div class="pull-left budget-quad" *ngIf="goalBudgetChartData">Total Target<br/><span>{{goalBudgetChartData.goalStatusDetails.totalGoalAmount | number:0 | currencySymbol:preferredCurrency}}</span></div>
+                    <div class="pull-right consumed-quad" *ngIf="goalBudgetChartData">You Achieved<br/><span>{{goalBudgetChartData.goalStatusDetails.totalGoalAchievedAmount | number:0 | currencySymbol:preferredCurrency}}</span></div>
+                    <div class="clearfix"></div>
+                  </div>  -->
+                </div>
+              </div>
+            </div>
+            <div class="row b47PM-finances-quad1 clearfix">
+                <h4><span>Your finances in one place</span>
+                <!-- <span ng-if="currentRefresh.refreshStatus == null" class="infoMessageforRefresh infoMessageBottom pm-green" style="display: none"><i class="fa fa-circle-o faa-burst animated info-burst"></i>Refreshing {{currentRefresh.institutionName}}... this might take a few minutes.</span>
+                <span ng-if="currentRefresh.refreshStatus == null" class="infoMessageforAdd infoMessageBottom pm-green" style="display: none"><i class="fa fa-circle-o faa-burst animated info-burst"></i>Adding {{currentRefresh.institutionName}}... this might take a few minutes.</span> -->
+                <!-- <span class="infoMessageforAdd infoMessageforRefresh infoMessageBottom pm-green" style="display: none;font-size: 12px;"><i class="fa fa-circle-o faa-burst animated info-burst"></i>{{currentRefresh.refreshStatus}} - {{currentRefresh.institutionName}}... this might take a few minutes.</span> -->
+                </h4>
+              <div class="misc-table-showcase">
+                <div class="b47PM-financesTab-quad1">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                      <a href="" data-target="#Banks-content" aria-controls="home" role="tab" data-toggle="tab" (click)="drawBankChart()">Banks</a>
+                    </li>
+                    <li role="presentation">
+                      <a href="" data-target="#Creditcard-content" aria-controls="profile" role="tab" data-toggle="tab" (click)="drawCreditCardChart()">Credit Cards</a>
+                    </li>
+                    <li role="presentation">
+                      <a href="" data-target="#Investment-content" aria-controls="messages" role="tab" data-toggle="tab" (click)="drawInvestmentChart()">Investments</a>
+                    </li>
+                    <li role="presentation">
+                      <a href="" data-target="#Loans-content" aria-controls="settings" role="tab" data-toggle="tab" (click)="drawLoanChart()">Loans</a>
+                    </li>
+                    <li role="presentation">
+                      <a href="" data-target="#Deposits-content" aria-controls="settings" role="tab" data-toggle="tab" (click)="drawDepositChart()">Deposits</a>
+                    </li>
+                    <li role="presentation">
+                      <a href="" data-target="#Properties-content" aria-controls="settings" role="tab" data-toggle="tab" (click)="drawPropertiesChart()">Properties</a>
+                    </li>
+                    <!-- <li role="presentation">
+                      <a href="" data-target="#Retirement-content" aria-controls="settings" role="tab" data-toggle="tab" (click)="drawRetirementChart()">Retirement</a>
+                    </li> -->
+                    <li role="presentation">
+                      <a href="" data-target="#Insurance-content" aria-controls="settings" role="tab" data-toggle="tab" (click)="drawInsuranceChart('death')">Insurance</a>
+                    </li>
+                  </ul>
+    
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="Banks-content">
+                      <div class="dummy-content-div pull-left" *ngIf="dashboardServiceData.banks.accounts.length == 0">
+                        <p>You haven't added any account yet</p>
+                      </div>
+                      <div *ngIf="dashboardServiceData.banks.accounts.length == 0" ng-if="dashboardServiceData.banks.unconfirmedAccount > 0" class="col-xs-12 col-sm-4 col-md-4">
+                        <!-- <p class="unconfirmed-para">You have {{dashboardServiceData.banks.unconfirmedAccount}} unconfirmed statement from manual upload, please <a href="#/transactionpreview">Click here</a> to confirm or reject these balances.</p> -->
+                      </div>
+                      <div class="row bank-TotalBal-quad1 clearfix" *ngIf="dashboardServiceData.banks.accounts.length > 0">
+                        <div class="col-xs-12 col-sm-8 col-md-8">
+                          <div class="row">
+                            <div class="col-xs-4 first">
+                              <h5>
+                                Bank Balance<br>
+                                <span>{{dashboardServiceData.banks.totalBalance | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5>
+                            </div>
+                            <div class="col-xs-4" align="center">
+                              <!-- <h5>
+                                Allocated to Goal<br>
+                                <span class="red">{{dashboardServiceData.banks.allocatedToGoal | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5> -->
+                            </div>
+                            <div class="col-xs-4 last" align="right">
+                              <!-- <h5>
+                                Available Balance<br>
+                                <span class="green">{{dashboardServiceData.banks.availableBalance | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5> -->
+                            </div>
+                          </div>
+                        </div>
+                        <div ng-if="dashboardServiceData.banks.unconfirmedAccount > 0" class="col-xs-12 col-sm-4 col-md-4">
+                          <!-- <p class="unconfirmed-para">You have {{dashboardServiceData.banks.unconfirmedAccount}} unconfirmed statement from manual upload, please <a href="#/transactionpreview">Click here</a> to confirm or reject these balances.</p> -->
+                        </div>
+                      </div>
+                      <div class="row clearfix" *ngIf="dashboardServiceData.banks.accounts.length > 0">
+                        <div class="col-xs-12 col-sm-9 col-md-8">
+                          <div class="row clearfix" style="padding-left:15px">
+                            <table class="table b47PM-miscRecord-row" *ngFor="let bankData of bankMetaData"> <!-- *ngFor="bankMetaData in bankMetaData" -->
+                              <thead>
+                                <tr class="row-body">
+                                  <th colspan="3" style="width: 75%;">
+                                    <span class="pull-left bank-logo-icon">
+                                      <img src="/assets/{{bankData.key.institutionIcon}}" alt="" style="width: 20px" title="{{bankData.key.institutionName}}">
+                                    </span>
+                                    <h4 class="accountsunderline cursor" ng-click="getAccountDetails(bankData.key)">{{bankData.key.institutionName}}</h4>
+                                  </th>
+                                  <th style="width: 25%;">
+                                    <span class="total-quad">
+                                      Total Balance : {{bankData.key.totalBalance | number:'1.1-2' | currencySymbol: preferredCurrency}}
+                                    </span>
+                                    <span class="last-update-quad">
+                                      Last updated : {{bankData.key.updatedAt | date:'dd-MM-yyyy'}}
+                                    </span>
+                                    <button class="pull-right refresh-btn account-action" *ngIf="bankData.key.bankId.indexOf('manual') == -1" (click)="accountRefresh(bankData.key.bankId, bankData.key.institutionName)" title="Refresh">
+                                      <i class="fa fa-refresh" aria-hidden="true"></i>
+                                    </button>
+                                    <!-- <button class="pull-right refresh-btn" *ngIf="bankData.key.bankId.indexOf('manual') != -1" (click)="manualAccountRefresh(bankData.key)" title="Refresh">
+                                      <i class="fa fa-refresh" aria-hidden="true"></i>
+                                    </button> -->
+                                    <div class="clearfix"></div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody class="row-body">
+                                <tr>
+                                  <td>Account Number</td>
+                                  <!-- <td>Allocated to Goal</td>
+                                  <td align="right">Available Balance</td> -->
+                                  <td>&nbsp;</td>
+                                  <td>&nbsp;</td>
+                                  <td align="right">Available Balance<br>
+                                </tr>
+                                <tr class="bank-TotalBal-quad1" *ngFor="let bank of bankData.value">
+                                  <td style="width: 30%;">
+                                    <h5>
+                                      <span>{{bank.accountNumber}}</span>
+                                    </h5>
+                                  </td>
+                                  <td align="center">
+                                    <!-- <h5>
+                                      <span class="red">{{bank.allocatedToGoal | number:'1.1-2' | currencySymbol:bank.currency}}</span>
+                                    </h5> -->
+                                  </td>
+                                  <td align="right">
+                                    <!-- <h5>
+                                      <span class="green">{{bank.availableBalance | number:'1.1-2' | currencySymbol:bank.currency}}</span>
+                                    </h5> -->
+                                  </td>
+                                  <td align="right">
+                                    <h5>
+                                      <span>{{bank.accountBalance | number:'1.1-2' | currencySymbol:bank.currency}}</span>
+                                    </h5>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="col-sm-3 col-md-4">
+                          <div class="overall-status-chart" style="padding: 54px 39px;">
+                            <!--<img src="../img/landing-page/tube-chart-5.png" alt="" >-->
+                            <div id="bank-chart-content" style="height: 260px;">
+                              <canvas id="bank_chart"></canvas>
+                            </div>
+                            <!-- legends -->
+                            <div class="account-legend-container">
+                              <div id="bank-legend" class="account-chart-legend"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="Creditcard-content">
+                      <div class="dummy-content-div pull-left" *ngIf="dashboardServiceData.creditcards.accounts.length == 0">
+                        <p>You haven't added any account yet</p>
+                      </div>
+                      <div *ngIf="dashboardServiceData.creditcards.accounts.length == 0" ng-if="dashboardServiceData.creditcards.unconfirmedAccount > 0" class="col-xs-12 col-sm-4 col-md-4">
+                        <!-- <p class="unconfirmed-para">You have {{dashboardServiceData.creditcards.unconfirmedAccount}} unconfirmed statement from manual upload, please <a href="#/transactionpreview">Click here</a> to confirm or reject these balances.</p> -->
+                      </div>
+                      <div class="row bank-TotalBal-quad1 clearfix" *ngIf="dashboardServiceData.creditcards.accounts.length > 0">
+                        <div class="col-xs-12 col-sm-8 col-md-8">
+                          <!-- <div class="row">
+                            <div class="col-xs-4 first">
+                              <h5>
+                                Credit Limit<br>
+                                <span>{{dashboardServiceData.creditcards.totalCreditLimit | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5>
+                            </div>
+                            <div class="col-xs-4" align="center">
+                              <h5 style="text-align:right; margin-left:auto; margin-right:auto; display:inline-block">
+                                Amount Spent<br>
+                                <span class="red">{{dashboardServiceData.creditcards.totalAmountSpent | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5>
+                            </div>
+                            <div class="col-xs-4 last" align="right">
+                              <h5>
+                                Available Limit<br>
+                                <span class="green">{{dashboardServiceData.creditcards.totalAvailableLimit | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5>
+                            </div>
+                          </div> -->
+                        </div>
+                        <div ng-if="dashboardServiceData.creditcards.unconfirmedAccount > 0" class="col-xs-12 col-sm-4 col-md-4">
+                          <!-- <p class="unconfirmed-para">You have {{dashboardServiceData.creditcards.unconfirmedAccount}} unconfirmed statement from manual upload, please <a href="#/transactionpreview">Click here</a> to confirm or reject these balances.</p> -->
+                        </div>
+                      </div>
+                      <div class="row clearfix" *ngIf="dashboardServiceData.creditcards.accounts.length > 0" style="margin-top: 5px;">
+                        <div class="col-sm-9 col-md-8">
+                          <div class="row clearfix" style="padding-left:15px">
+                            <table class="table b47PM-miscRecord-row" *ngFor="let creditcardData of creditcardMetaData"> <!--  *ngFor="creditcardMetaData in creditcardMetaData" -->
+                              <thead>
+                                <tr class="row-body">
+                                  <th colspan="3" style="width: 75%;">
+                                    <span class="pull-left bank-logo-icon">
+                                      <img src="/assets/{{creditcardData.key.institutionIcon}}"  alt="" style="width: 20px" title="{{creditcardData.key.institutionName}}">
+                                    </span>
+                                    <h4 class="accountsunderline cursor" ng-click="getAccountDetails(creditcardData.key)">{{creditcardData.key.institutionName}}</h4>
+                                  </th>
+                                  <th style="width: 25%;">
+                                    <span class="total-quad">
+                                      Total Spent : {{creditcardData.key.totalBalance | number:'1.1-2' | currencySymbol: preferredCurrency}}
+                                    </span>
+                                    <span class="last-update-quad">
+                                      Last updated : {{creditcardData.key.updatedAt | date:'dd-MM-yyyy'}}
+                                    </span>
+                                    <button class="pull-right refresh-btn account-action" *ngIf="creditcardData.key.bankId.indexOf('manual') == -1" (click)="accountRefresh(creditcardData.key.bankId, creditcardData.key.institutionName)" title="Refresh">
+                                      <i class="fa fa-refresh" aria-hidden="true"></i>
+                                    </button>
+                                    <!-- <button class="pull-right refresh-btn" *ngIf="creditcardData.key.bankId.indexOf('manual') != -1"  (click)="manualAccountRefresh(creditcardData.key)" title="Refresh">
+                                      <i class="fa fa-refresh" aria-hidden="true"></i>
+                                    </button> -->
+                                    <div class="clearfix"></div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody class="row-body">
+                                <tr>
+                                  <td>&nbsp;</td>
+                                  <td>Credit Limit</td>
+                                  <td align="center">Amount Spent</td>
+                                  <td align="right">Available Limit</td>
+                                  <!-- <td>&nbsp;</td>
+                                  <td>&nbsp;</td> -->
+                                </tr>
+                                <tr class="bank-TotalBal-quad1" *ngFor="let creditcard of creditcardData.value">
+                                  <td style="width: 30%;">
+                                    <h5>
+                                      <span>{{creditcard.accountNumber}}</span>
+                                    </h5>
+                                  </td>
+                                  <td>
+                                    <h5>
+                                      <span>{{removeSpecialCharacter(creditcard.totalLimit) | number:'1.1-2' | currencySymbol:creditcard.currency}}</span>
+                                    </h5>
+                                  </td>
+                                  <td align="center">
+                                    <h5 style="margin:0 auto; text-align:right; display:inline-block">
+                                      <span class="red">{{removeSpecialCharacter(creditcard.amountDue) | number:'1.1-2' | currencySymbol:creditcard.currency}}</span>
+                                    </h5>
+                                  </td>
+                                  <td align="right">
+                                    <h5 style="margin-right:6px">
+                                      <span class="green">{{removeSpecialCharacter(creditcard.availableCredit) | number:'1.1-2' | currencySymbol:creditcard.currency}}</span>
+                                    </h5>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          
+                        </div>
+                        <div class="col-sm-3 col-md-4">
+                          <div class="overall-status-chart">
+                            <!--<img src="../img/landing-page/tube-chart-5.png" alt="" width="100%">-->
+                            <!--<div id="creditCard_chart" style="height: 450px;"></div>-->
+                            <div id="creditCard-chart-content" style="height: 260px;">
+                              <canvas id="creditCard_chart"></canvas>
+                            </div>
+                            <!-- legends -->
+                            <div class="account-legend-container">
+                              <div id="creditCard-legend" class="account-chart-legend"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="Investment-content">
+                      <div class="dummy-content-div" *ngIf="dashboardServiceData.investments.accounts.length == 0">
+                        <p>You haven't added any account yet</p>
+                      </div>
+                      <div class="row bank-TotalBal-quad1 clearfix" *ngIf="dashboardServiceData.investments.accounts.length > 0">
+                        <div class="col-xs-12 col-sm-8 col-md-8">
+                          <div class="row">
+                            <div class="col-xs-4 first">
+                              <h5>
+                                Amount Invested<br>
+                                <span>{{dashboardServiceData.investments.totalBalance | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5>
+                            </div>
+                            <div class="col-xs-4" align="center">
+                              <!-- <h5 style="text-align:right; margin-left:auto; margin-right:auto; display:inline-block">
+                                Allocated To Goal<br>
+                                <span class="red">{{dashboardServiceData.investments.allocatedToGoal | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5> -->
+                            </div>
+                            <div class="col-xs-4 last" align="right">
+                              <!-- <h5>
+                                Available Balance<br>
+                                <span class="green">{{dashboardServiceData.investments.availableBalance | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row clearfix" *ngIf="dashboardServiceData.investments.accounts.length > 0">
+                        <div class="col-sm-9 col-md-8">
+                          <div class="row clearfix" style="padding-left:15px">
+                            <table class="table b47PM-miscRecord-row" *ngFor="let investmentData of investmentMetaData; let i = index"> <!--  *ngFor="investmentMetaData in investmentMetaData" -->
+                              <thead>
+                                <tr class="row-body">
+                                  <th colspan="3" style="width: 75%;">
+                                    <span class="pull-left bank-logo-icon">
+                                      <img src="/assets/{{investmentData.key.institutionIcon}}"  alt="" style="width: 20px" title="{{investmentData.institutionName}}">
+                                    </span>
+                                    <h4 class="accountsunderline cursor" ng-click="redirectToInvestmentPage()">{{investmentData.key.institutionName}}</h4>
+                                  </th>
+                                  <th style="width: 25%;">
+                                    <span class="total-quad">
+                                      Total Balance : {{investmentData.key.totalBalance | number:'1.1-2' | currencySymbol:preferredCurrency}}
+                                    </span>
+                                    <span class="last-update-quad">
+                                      Last updated : {{investmentData.key.updatedAt | date:'dd-MM-yyyy'}}
+                                    </span>
+                                    <button class="pull-right refresh-btn account-action" *ngIf="investmentData.key.bankId.indexOf('manual') == -1" (click)="accountRefresh(investmentData.bankId, investmentData.institutionName)" title="Refresh">
+                                      <!-- <i class="fa fa-refresh" aria-hidden="true"></i> -->
+                                    </button>
+                                    <!-- <button class="pull-right refresh-btn account-action" *ngIf="investmentData.key.bankId.indexOf('manual') != -1" (click)="manualAccountRefresh(investmentData.key)">
+                                     <i class="fa fa-refresh" aria-hidden="true"></i>
+                                    </button> -->
+                                    <div class="clearfix"></div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody class="row-body">
+                                <tr>
+                                  <td style="width: 30%;">Account Number</td>
+                                  <!-- <td>Allocated To Goal</td> -->
+                                  <!-- <td style="text-align: right;">Available Balance</td> -->
+                                  <td>&nbsp;</td>
+                                  <td>&nbsp;</td>
+                                  <td style="text-align: right;">Amount Invested</td>
+                                </tr>
+                                <tr class="bank-TotalBal-quad1" *ngFor="let investment of investmentData.value">
+                                  <td style="width: 30%;">
+                                    <h5>
+                                      <span>{{investment.accountNumber}}</span>
+                                    </h5>
+                                  </td>
+                                  <td align="center">
+                                    <!-- <h5 style="margin:0 auto; text-align:right; display:inline-block">
+                                      <span class="red">{{investment.allocatedToGoal | number:'1.1-2' | currencySymbol:investment.currency}}</span>
+                                    </h5> -->
+                                  </td>
+                                  <td align="right">
+                                    <!-- <h5 style="margin-right:6px">
+                                      <span class="green">{{investment.availableBalance | number:'1.1-2' | currencySymbol:investment.currency}}</span>
+                                    </h5> -->
+                                  </td>
+                                  <td align="right">
+                                    <h5>
+                                      <span>{{investment.balance | number:'1.1-2' | currencySymbol:investment.currency}}</span>
+                                    </h5>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          
+                        </div>
+                        <div class="col-sm-3 col-md-4">
+                          <div class="overall-status-chart">
+                            <!--<img src="../img/landing-page/tube-chart-5.png" alt="" width="100%">-->
+                            <!--<div id="investment_chart" style="height: 400px;"></div>-->
+                            <div id="investment-chart-content" style="height: 260px;">
+                              <canvas id="investment_chart"></canvas>
+                            </div>
+                            <!-- legends -->
+                            <div class="account-legend-container">
+                              <div id="investment-legend" class="account-chart-legend"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="Loans-content">
+                      <div class="dummy-content-div" *ngIf="dashboardServiceData.loans.accounts.length == 0">
+                        <p>You haven't added any account yet</p>
+                      </div>
+                      <div class="row bank-TotalBal-quad1 clearfix" *ngIf="dashboardServiceData.loans.accounts.length > 0">
+                        <div class="col-xs-12 col-sm-8 col-md-8">
+                          <div class="row">
+                            <div class="col-xs-4 first">
+                              <h5>
+                                Amount outstanding<br>
+                                <span>{{dashboardServiceData.loans.totalBalance | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row clearfix" *ngIf="dashboardServiceData.loans.accounts.length > 0">
+                        <div class="col-sm-9 col-md-8">
+                          <div class="row clearfix" style="padding-left:15px">
+                            <table class="table b47PM-miscRecord-row" *ngFor="let loanData of loanMetaData">
+                              <thead>
+                                <tr class="row-body">
+                                  <th colspan="3" style="width: 75%;">
+                                    <span class="pull-left bank-logo-icon">
+                                      <img src="/assets/{{loanData.key.institutionIcon}}"  alt="" style="width: 20px" title="{{loanData.key.institutionName}}">
+                                    </span>
+                                    <h4 class="accountsunderline cursor">{{loanData.key.accountName}}</h4>
+                                  </th>
+                                  <th style="width: 25%;">
+                                    <span class="total-quad">
+                                      Total Amount : {{loanData.key.totalBalance | number:'1.1-2' | currencySymbol: preferredCurrency}}
+                                    </span>
+                                    <span class="last-update-quad">
+                                      Last updated : {{loanData.key.updatedAt | date:'dd-MM-yyyy'}}
+                                    </span>
+                                    <button class="pull-right refresh-btn account-action" *ngIf="loanData.key.institutionName.indexOf('manual') == -1" (click)="accountRefresh(loanData.key.bankId, loanData.key.institutionName)" title="Refresh">
+                                      <!-- <i class="fa fa-refresh" aria-hidden="true"></i> -->
+                                    </button>
+                                    <button class="pull-right refresh-btn account-action" *ngIf="loanData.key.institutionName.indexOf('manual') != -1">
+                                      <!--<i class="fa fa-refresh" aria-hidden="true"></i>-->
+                                    </button>
+                                    <div class="clearfix"></div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody class="row-body">
+                                <tr>
+                                  <td style="width: 30%;">Account Number</td>
+                                  <td>&nbsp;</td>
+                                  <td>&nbsp;</td>
+                                  <td align="right">Amount outstanding</td>
+                                </tr>
+                                <tr class="bank-TotalBal-quad1" *ngFor="let loan of loanData.value">
+                                  <td style="width: 30%;">
+                                    <h5>
+                                      <span>{{loan.accountNumber}}</span>
+                                    </h5>
+                                  </td>
+                                  <td align="center">
+                                    <!-- <h5 style="margin:0 auto; text-align:right; display:inline-block">
+                                      <span class="red">{{loan.allocatedToGoal | number:'1.1-2' | currencySymbol:investment.currency}}</span>
+                                    </h5> -->
+                                  </td>
+                                  <td align="right">
+                                    <!-- <h5 style="margin-right:6px">
+                                      <span class="green">{{loan.availableBalance | number:'1.1-2' | currencySymbol:investment.currency}}</span>
+                                    </h5> -->
+                                  </td>
+                                  <td align="right">
+                                    <h5>
+                                      <span>{{loan.balance | number:'1.1-2' | currencySymbol:loan.currency}}</span>
+                                    </h5>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          
+                        </div>
+                        <div class="col-sm-3 col-md-4">
+                          <div class="overall-status-chart">
+                            <!--<img src="../img/landing-page/tube-chart-5.png" alt="" width="100%">-->
+                            <!--<div id="loan_chart" style="height: 400px;"></div>-->
+                            <div id="loan-chart-content" style="height: 260px;">
+                              <canvas id="loan_chart"></canvas>
+                            </div>
+                            <!-- legends -->
+                            <div class="account-legend-container">
+                              <div id="loan-legend" class="account-chart-legend"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="Deposits-content">
+                      <div class="dummy-content-div" *ngIf="dashboardServiceData.deposits.accounts.length == 0">
+                        <p>You haven't added any account yet</p>
+                      </div>
+                      <div class="row bank-TotalBal-quad1 clearfix" *ngIf="dashboardServiceData.deposits.accounts.length > 0">
+                        <div class="col-xs-12 col-sm-8 col-md-8">
+                          <div class="row">
+                            <div class="col-xs-4 first">
+                              <!-- <h5>
+                                Amount outstanding<br>
+                                <span>{{dashboardServiceData.deposits.totalBalance | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5> -->
+                              <h5>
+                                Bank Balance<br>
+                                <span>{{dashboardServiceData.deposits.totalBalance | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row clearfix" *ngIf="dashboardServiceData.deposits.accounts.length > 0">
+                        <div class="col-sm-9 col-md-8">
+                          <div class="row clearfix" style="padding-left:15px">
+                            <table class="table b47PM-miscRecord-row" *ngFor="let depositData of depositMetaData">
+                              <thead>
+                                <tr class="row-body">
+                                  <th colspan="3">
+                                    <span class="pull-left bank-logo-icon">
+                                      <img src="/assets/{{depositData.key.institutionIcon}}"  alt="" style="width: 20px" title="{{depositData.key.institutionName}}">
+                                    </span>
+                                    <h4 class="accountsunderline cursor" ng-click="getAccountDetails(depositData.key)">{{depositData.key.accountName}}</h4>
+                                  </th>
+                                  <th>
+                                    <span class="total-quad">
+                                      Total Amount : {{depositData.key.totalBalance | number:'1.1-2' | currencySymbol: preferredCurrency}}
+                                    </span>
+                                    <span class="last-update-quad">
+                                      Last updated : {{depositData.key.updatedAt | date:'dd-MM-yyyy'}}
+                                    </span>
+                                    <button class="pull-right refresh-btn account-action" *ngIf="depositData.key.institutionName.indexOf('manual') == -1" (click)="accountRefresh(depositData.key.bankId, depositData.key.institutionName)" title="Refresh">
+                                      <!-- <i class="fa fa-refresh" aria-hidden="true"></i> -->
+                                    </button>
+                                    <!-- <button class="pull-right refresh-btn account-action" *ngIf="depositData.key.institutionName.indexOf('manual') != -1">
+                                      <i class="fa fa-refresh" aria-hidden="true"></i>
+                                    </button> -->
+                                    <div class="clearfix"></div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody class="row-body">
+                                <tr>
+                                  <td>Account Number</td>
+                                  <!-- <td>Allocated to Goal</td>
+                                  <td align="right">Available Balance</td> -->
+                                  <td>&nbsp;</td>
+                                  <td>&nbsp;</td>
+                                  <td align="right">Available Balance<br>
+                                </tr>
+                                <tr class="bank-TotalBal-quad1" *ngFor="let deposit of depositData.value">
+                                  <td style="width: 30%;">
+                                    <h5>
+                                      <span>{{deposit.accountNumber}}</span>
+                                    </h5>
+                                  </td>
+                                  <td align="center">
+                                    <!-- <h5>
+                                      <span class="red">{{deposit.allocatedToGoal | number:'1.1-2' | currencySymbol:deposit.currency}}</span>
+                                    </h5> -->
+                                  </td>
+                                  <td align="right">
+                                    <!-- <h5>
+                                      <span class="green">{{deposit.availableBalance | number:'1.1-2' | currencySymbol:deposit.currency}}</span>
+                                    </h5> -->
+                                  </td>
+                                  <td align="right">
+                                    <h5>
+                                      <span>{{deposit.accountBalance | number:'1.1-2' | currencySymbol:deposit.currency}}</span>
+                                    </h5>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          
+                        </div>
+                        <div class="col-sm-3 col-md-4">
+                          <div class="overall-status-chart">
+                            <!--<img src="../img/landing-page/tube-chart-5.png" alt="" width="100%">-->
+                            <!--<div id="loan_chart" style="height: 400px;"></div>-->
+                            <div id="deposit-chart-content" style="height: 260px;">
+                              <canvas id="deposit_chart"></canvas>
+                            </div>
+                            <!-- legends -->
+                            <div class="account-legend-container">
+                              <div id="deposit-legend" class="account-chart-legend"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="Properties-content">
+                      <div class="row totalProperty-quad1 clearfix" style="margin-left: -5px;" *ngIf="dashboardServiceData.properties.property.length == 0">
+                        <div class="col-sm-8 text-center blank-content-div">
+                          <p>You haven't added any property yet</p>
+                        </div>
+                        <div class="col-sm-4" align="right">
+                          <button class="add-misc-btn" (click)="prepareAddProperty(addPropertyModal)" style="margin: 23px 0;" data-toggle="modal" data-target=".addPropertyModal">
+                            Add Property
+                          </button>
+                        </div>
+                      </div>
+                      <div class="row totalProperty-quad1 clearfix" *ngIf="dashboardServiceData.properties.property.length > 0">
+                        <div class="col-sm-8">
+                          <h5>
+                            Your Total Property Amount : <span class="green">{{dashboardServiceData.properties.totalBalance | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                          </h5>
+                        </div>
+                        <div class="col-sm-4" align="right">
+                          <button class="add-misc-btn" (click)="prepareAddProperty(addPropertyModal)" style="margin: 23px 0;" data-toggle="modal" data-target=".addPropertyModal">
+                            Add Property
+                          </button>
+                        </div>
+                      </div>
+                      <div class="row clearfix" *ngIf="dashboardServiceData.properties.property.length > 0">
+                        <div class="col-sm-8">
+                          <div class="row clearfix" style="padding-left:15px">
+                            <table class="table b47PM-miscRecord-row">
+                              <thead>
+                                <tr class="row-body">
+                                  <th>
+                                    <h4>Property Name</h4>
+                                  </th>
+                                  <th>
+                                    <h4>Property Value</h4>
+                                  </th>
+                                  <th>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody class="row-body">
+                                <tr class="bank-TotalBal-quad1" *ngFor="let property of dashboardServiceData.properties.property">
+                                  <td class="truncatequd">
+                                    {{property.name}}
+                                  </td>
+                                  <td>
+                                    {{property.amount | number:'1.1-2' | currencySymbol:property.currency}}
+                                  </td>
+                                  <td>
+                                    <button class="pull-right delete-property-btn" data-toggle="modal" data-target="#deletePropertyModal" (click)="prepareDeleteProperty(deletePropertyModal, property.id)" title="Delete">
+                                      <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="pull-right edit-property-btn" data-toggle="modal" data-target=".editPropertyModal" (click)="prepareEditProperty(addPropertyModal, property.id, property.amount, property)" title="Edit">
+                                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </button>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="overall-status-chart">
+                            <!--<div id="properties_chart" style="height: 400px;"></div>-->
+                            <div id="properties-chart-content" style="height: 260px;">
+                              <canvas id="properties_chart"></canvas>
+                            </div>
+                            <!-- legends -->
+                            <div class="account-legend-container">
+                              <div id="properties-legend" class="account-chart-legend"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div role="tabpanel" class="tab-pane" id="Retirement-content">
+                      <div class="dummy-content-div" *ngIf="dashboardServiceData.retirements.accounts.length == 0">
+                        <p>You haven't added any account yet</p>
+                      </div>
+                      <div class="row bank-TotalBal-quad1 clearfix" *ngIf="dashboardServiceData.retirements.accounts.length > 0">
+                        <div class="col-xs-12 col-sm-8 col-md-8">
+                          <div class="row">
+                            <div class="col-xs-4 first">
+                              <h5>
+                                Account Balance<br>
+                                <span>{{dashboardServiceData.retirements.totalBalance | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5>
+                            </div>
+                            <div class="col-xs-4">
+                              <h5>
+                                Allocated to Goal<br>
+                                <span class="red">{{dashboardServiceData.retirements.allocatedToGoal | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5>
+                            </div>
+                            <div class="col-xs-4 last">
+                              <h5>
+                                Available Balance<br>
+                                <span class="green">{{dashboardServiceData.retirements.availableBalance | number:'1.1-2' | currencySymbol:preferredCurrency}}</span>
+                              </h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row clearfix" *ngIf="dashboardServiceData.retirements.accounts.length > 0">
+                        <div class="col-xs-12 col-sm-9 col-md-8">
+                          <div class="row clearfix" style="padding-left:15px">
+                            <table class="table b47PM-miscRecord-row">
+                              <thead>
+                                <tr class="row-body">
+                                  <th colspan="2" style="width: 75%;">
+                                    <span class="pull-left bank-logo-icon">
+                                      <img src="/assets/{{retirementMetaData.institutionIcon}}" alt="" style="width: 20px" title="{{retirementMetaData.institutionName}}">
+                                    </span>
+                                    <h4 class="accountsunderline cursor" ng-click="getAccountDetails(retirementMetaData)">{{retirementMetaData.accountName}}</h4>
+                                  </th>
+                                  <th style="width: 25%;">
+                                    <span class="last-update-quad">
+                                      Total Balance : {{retirementMetaData.totalBalance | number:'1.1-2' | currencySymbol: preferredCurrency}}
+                                    </span>
+                                    <span class="last-update-quad">
+                                      Last updated : {{retirementMetaData.updatedAt | date:'dd-MM-yyyy'}}
+                                    </span>
+                                    <button class="pull-right refresh-btn account-action" ng-if="retirementMetaData.institutionName.indexOf('manual') == -1" ng-click="accountRefresh(retirementMetaData.bankId, retirementMetaData.institutionName)" title="Refresh">
+                                      <i class="fa fa-refresh" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="pull-right refresh-btn account-action" ng-if="retirementMetaData.institutionName.indexOf('manual') != -1">
+                                    </button>
+                                    <div class="clearfix"></div>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody class="row-body">
+                                <tr>
+                                  <td style="width: 30%;">&nbsp;</td>
+                                  <td>Account Balance</td>
+                                  <td>Allocated to Goal</td>
+                                  <td>Available Balance</td>
+                                </tr>
+                                <tr class="bank-TotalBal-quad1">
+                                  <td style="width: 30%;">
+                                    <h5>
+                                      <span>{{retirementMetaData.accountNumber}}</span>
+                                    </h5>
+                                  </td>
+                                  <td>
+                                    <h5>
+                                      <span>{{retirementMetaData.balance | number:'1.1-2' | currencySymbol:retirementMetaData.currency}}</span>
+                                    </h5>
+                                  </td>
+                                  <td>
+                                    <h5 align="center">
+                                      <span class="red">{{retirementMetaData.allocatedToGoal | number:'1.1-2' | currencySymbol:retirementMetaData.currency}}</span>
+                                    </h5>
+                                  </td>
+                                  <td>
+                                    <h5 align="right">
+                                      <span class="green">{{retirementMetaData.availableBalance | number:'1.1-2' | currencySymbol:retirementMetaData.currency}}</span>
+                                    </h5>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-4">
+                          <div class="overall-status-chart">
+                            <div id="retirement-chart-content" style="height: 260px;">
+                              <canvas id="retirement_chart"></canvas>
+                            </div>
+                            <div class="account-legend-container">
+                              <div id="retirement-legend" class="account-chart-legend"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div> -->
+                    <div role="tabpanel" class="tab-pane" id="Insurance-content">
+                      <div class="row total-quad1 clearfix" *ngIf="policyData.length == 0 && insuranceData.length === 0">
+                        <div class="col-sm-8 text-center blank-content-div">
+                          <p>You haven't added any insurance yet</p>
+                        </div>
+                        <div class="col-sm-4" align="right">
+                          <button class="add-misc-btn" (click)="addNewPolicy('addnew')">Add Insurance</button>
+                        </div>
+                      </div>
+                      <div class="row total-quad1 clearfix" *ngIf="policyData.length > 0 || insuranceData.length > 0">
+                        <div class="col-xs-8 col-sm-8">
+                          <div class="row">
+                            <div class="col-xs-3 col-md-3 first">
+                              <!-- <h5>
+                                Total Protection Cover<br>
+                                <span>{{insuranceData.totalProtectionAmount | number:'1.1-2' | currencySymbol:insuranceData.userPreferredCurrency}}</span>
+                              </h5> -->
+                            </div>
+                            <div class="col-xs-3 col-md-3">
+                              <!-- <h5>
+                                Total Savings<br>
+                                <span class="green">{{insuranceData.totalSavingAmount | number:'1.1-2' | currencySymbol:insuranceData.userPreferredCurrency}}</span>
+                              </h5> -->
+                            </div>
+                            <div class="col-xs-3 col-md-3 last">
+                              <!-- <h5>
+                                Total Investments<br>
+                                <span class="green">{{insuranceData.totalInvestmentAmount | number:'1.1-2' | currencySymbol:insuranceData.userPreferredCurrency}}</span>
+                              </h5> -->
+                            </div>
+                            <div class="col-xs-3 col-md-3 last">
+                              <!-- <h5>
+                                Allocated to Goal<br>
+                                <span class="red">{{insuranceData.totalGoalAmount | number:'1.1-2' | currencySymbol:insuranceData.userPreferredCurrency}}</span>
+                              </h5> -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-4 col-sm-4" align="right">
+                          <button class="add-misc-btn" (click)="addNewPolicy('addnew')">Add Insurance</button>
+                        </div>
+                      </div>
+                      <div class="row clearfix" > <!-- ng-show="insuranceData.insurances.length > 0" -->
+                        <div class="col-sm-8">
+                          <!-- <h5 class="pull-left" style="margin-bottom:20px; font-weight:700">Insurance</h5> -->
+                          <ng-container *ngFor="let mainPolicyObject of policyData; let i = index">
+                            <div class="container-fluid" style="padding-left: 0px; padding-right: 0px">
+                              <div class="master-head">
+                                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                      <figure class="thumbnail image">
+                                          <img class="img-responsive" src="/assets/img/icon/insurance_logo.png"/>
+                                      </figure>
+                                  </div>
+                                  <div *ngIf="mainPolicyObject['carrierName']" class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                      <header class="text-left">
+                                          <div class="text-title">
+                                              <!-- {{mainPolicyObject['name'] | ValidateValue}} -->
+                                              {{mainPolicyObject['carrierName'] | ValidateValue}}
+                                          </div>
+                                      </header>
+                                      <div *ngIf="mainPolicyObject['planName']">
+                                          <div class="span4">
+                                              <div class="left-section">
+                                                  <span class="left-section-heading">Plan Name</span><span class="colon-span">:</span>
+                                              </div>
+                                              <div class="right-section">
+                                                  <span>{{mainPolicyObject['planName'] | ValidateValue}}</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div *ngIf="mainPolicyObject['planType']">
+                                          <div class="span4">
+                                              <div class="left-section">
+                                                  <span class="left-section-heading">Plan Type</span><span class="colon-span">:</span>
+                                              </div>
+                                              <div class="right-section">
+                                                  <span>{{mainPolicyObject['planType'].displayText | ValidateValue}}</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-right">
+                                      <div class="span4">
+                                          <!-- <button type="button" (click)="openDeletePolicyModal()"
+                                              class="btn btn-danger btn-xs" title="Delete Policy">
+                                              <span class="glyphicon glyphicon-trash"></span>
+                                          </button> -->
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--profile-head close-->
+                            </div>
+
+                            <div class="container-fluid wm-container">
+                              <div class="row">
+                                  <!-- main policy section -->
+                                  <div class="col-sm-12 col-sm-12">
+                                      <div class="panel panel-info wm-panel-info">
+                                          <div class="panel-heading wm-panel-heading">
+                                              <h3 class="panel-title">
+                                                  Main Policy
+                                              </h3>
+                                          </div>
+                                          <div class="panel-body wm-panel-body">
+                                              <div class="row">
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Basic Face Value
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              {{mainPolicyObject?.basicFaceValue?.amount | number:'1.2-2' | currencySymbol: mainPolicyObject['currency'] | ValidateValue}}
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div *ngIf="!mainPolicyObject['targetPremiumApplicable']; else targetP" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Premium
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              {{mainPolicyObject?.premium?.amount | number:'1.2-2' | currencySymbol: mainPolicyObject['currency'] | ValidateValue}}
+                                                              <span *ngIf="mainPolicyObject['premiumFrequency']">({{mainPolicyObject['premiumFrequency']}})</span>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <ng-template #targetP>
+                                                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                          <div class="row">
+                                                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                                  Target Premium
+                                                              </div>
+                                                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                                  {{mainPolicyObject?.targetPremium?.amount | number:'1.2-2' | currencySymbol: mainPolicyObject['currency'] | ValidateValue}}
+                                                                  <span *ngIf="mainPolicyObject['premiumFrequency']">({{mainPolicyObject['targetPremiumFrequency']}})</span>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </ng-template>
+                                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              <label><strong>Sum Assured:</strong></label>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Death
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              {{mainPolicyObject?.death?.amount | number:'1.2-2' | currencySymbol: mainPolicyObject['currency'] | ValidateValue}}
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Accidental Death
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                               {{mainPolicyObject?.accidentalDeath?.amount | number:'1.2-2' | currencySymbol: mainPolicyObject['currency'] | ValidateValue}}
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Permanent Disability
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                               {{mainPolicyObject?.permanentDisability?.amount | number:'1.2-2' | currencySymbol: mainPolicyObject['currency'] | ValidateValue}}
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Critical Illness
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                               {{mainPolicyObject?.criticalIllness?.amount | number:'1.2-2' | currencySymbol: mainPolicyObject['currency'] | ValidateValue}}
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!-- Rider premium section -->
+                                  <div class="col-sm-12 col-sm-12">
+                                    <div *ngFor="let item of mainPolicyObject['riderPremium']; let i = index">
+                                      <div class="panel panel-info rider-panel-info">
+                                          <div class="panel-heading rider-panel-heading cursor" (click)="item.showRiderMetaData =! item.showRiderMetaData">
+                                            <!-- <h3 class="panel-title">{{item.name}}</h3> -->
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                    <h3 class="panel-title">{{item.name}}</h3>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right">
+                                                    Premium : {{item?.premium?.amount | number:'1.2-2' | currencySymbol: mainPolicyObject['currency'] | ValidateValue}}
+                                                    <span *ngIf="mainPolicyObject['premiumFrequency']">({{mainPolicyObject['premiumFrequency']}})</span>
+                                                </div>
+                                            </div>
+                                          </div>
+                                          <div class="panel-body rider-panel-body" [hidden]="!item.showRiderMetaData">
+                                              <div class="row">
+                                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                      <div class="row">
+                                                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                              <label><strong>Sum Assured:</strong></label>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Death
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                               {{item?.death?.amount | number:'1.2-2' | currencySymbol: mainPolicyObject['currency'] | ValidateValue}}
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Accidental Death
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                               {{item?.accidentalDeath?.amount | number:'1.2-2' | currencySymbol: mainPolicyObject['currency'] | ValidateValue}}
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Permanent Disability
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                               {{item?.permanentDisability?.amount | number:'1.2-2' | currencySymbol: mainPolicyObject['currency'] | ValidateValue}}
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Critical Illness
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                               {{item?.criticalIllness?.amount | number:'1.2-2' | currencySymbol: mainPolicyObject['currency'] | ValidateValue}}
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </ng-container>
+
+                          <!-- pimoney everest data -->
+                          <ng-container *ngFor="let policyObj of insuranceData; let i = index">
+                            <div class="container-fluid pimoney-everest" style="padding-left: 0px; padding-right: 0px">
+                              <div class="master-head">
+                                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                      <figure class="thumbnail image">
+                                          <img class="img-responsive" src="/assets/img/icon/insurance_logo.png"/>
+                                      </figure>
+                                  </div>
+                                  <div *ngIf="policyObj['carrierName']" class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                      <header class="text-left">
+                                          <div class="text-title">
+                                              <!-- {{policyObj['name'] | ValidateValue}} -->
+                                              {{policyObj?.carrierName | ValidateValue}}
+                                          </div>
+                                      </header>
+                                      <div *ngIf="policyObj['planName']">
+                                          <div class="span4">
+                                              <div class="left-section">
+                                                  <span class="left-section-heading">Plan Name</span><span class="colon-span">:</span>
+                                              </div>
+                                              <div class="right-section">
+                                                  <span>{{policyObj?.planName | ValidateValue}}</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div *ngIf="policyObj['planType']">
+                                          <div class="span4">
+                                              <div class="left-section">
+                                                  <span class="left-section-heading">Plan Type</span><span class="colon-span">:</span>
+                                              </div>
+                                              <div class="right-section">
+                                                  <span>{{policyObj?.planType | ValidateValue}}</span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-right">
+                                      <div class="span4">
+                                          <!-- <button type="button" (click)="openDeletePolicyModal()"
+                                              class="btn btn-danger btn-xs" title="Delete Policy">
+                                              <span class="glyphicon glyphicon-trash"></span>
+                                          </button> -->
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--profile-head close-->
+                            </div>
+
+                            <div class="container-fluid wm-container">
+                              <div class="row">
+                                  <!-- main policy section -->
+                                  <div class="col-sm-12 col-sm-12">
+                                      <div class="panel panel-info wm-panel-info">
+                                          <div class="panel-heading wm-panel-heading">
+                                              <h3 class="panel-title">
+                                                  Main Policy
+                                              </h3>
+                                          </div>
+                                          <div class="panel-body wm-panel-body">
+                                              <div class="row">
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Basic Face Value
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <span *ngIf="!policyObj['basicFaceValue']"> - </span>
+                                                            <span *ngIf="policyObj['basicFaceValue']">
+                                                              {{policyObj['basicFaceValue'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}}
+                                                            </span>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div *ngIf="!policyObj['targetPremiumApplicable']; else targetP" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Premium
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              <span *ngIf="!policyObj['premium']"> - </span>
+                                                              <span *ngIf="policyObj['premium']">
+                                                                {{policyObj['premium'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}}
+                                                              </span>
+                                                              <span *ngIf="policyObj['premiumFrequency']">({{policyObj['premiumFrequency']}})</span>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <ng-template #targetP>
+                                                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                          <div class="row">
+                                                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                                  Target Premium
+                                                              </div>
+                                                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                                  <span *ngIf="!policyObj['targetPremium']"> - </span>
+                                                                  <span *ngIf="policyObj['targetPremium']">
+                                                                    {{policyObj['targetPremium'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}}
+                                                                  </span>
+                                                                  <!-- {{policyObj['targetPremium'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}} -->
+                                                                  <span *ngIf="policyObj['premiumFrequency']">({{policyObj['targetPremiumFrequency']}})</span>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </ng-template>
+                                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              <label><strong>Sum Assured:</strong></label>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Death
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              <span *ngIf="!policyObj['death']"> - </span>
+                                                              <span *ngIf="policyObj['death']">
+                                                                {{policyObj['death'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}}
+                                                              </span>
+                                                              <!-- {{policyObj['death'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}} -->
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Accidental Death
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              <span *ngIf="!policyObj['accidentalDeath']"> - </span>
+                                                              <span *ngIf="policyObj['accidentalDeath']">
+                                                                {{policyObj['accidentalDeath'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}}
+                                                              </span>
+                                                              <!-- {{policyObj['accidentalDeath'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}} -->
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Permanent Disability
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              <span *ngIf="!policyObj['permanentDisability']"> - </span>
+                                                              <span *ngIf="policyObj['permanentDisability']">
+                                                                {{policyObj['permanentDisability'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}}
+                                                              </span>
+                                                              <!-- {{policyObj['permanentDisability'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}} -->
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Critical Illness
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              <span *ngIf="!policyObj['criticalIllness']"> - </span>
+                                                              <span *ngIf="policyObj['criticalIllness']">
+                                                                {{policyObj['criticalIllness'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}}
+                                                              </span>
+                                                              <!-- {{policyObj['criticalIllness'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}} -->
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!-- Rider premium section -->
+                                  <div class="col-sm-12 col-sm-12">
+                                    <div *ngFor="let item of policyObj['riderPremium']; let i = index">
+                                      <div class="panel panel-info rider-panel-info">
+                                          <div class="panel-heading rider-panel-heading cursor" (click)="item.showRiderMetaData =! item.showRiderMetaData">
+                                            <!-- <h3 class="panel-title">{{item.name}}</h3> -->
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                    <h3 class="panel-title">{{item.name}}</h3>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right">
+                                                    Premium : {{item.premium | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}}
+                                                    <span *ngIf="policyObj['premiumFrequency']">({{policyObj['premiumFrequency']}})</span>
+                                                </div>
+                                            </div>
+                                          </div>
+                                          <div class="panel-body rider-panel-body" [hidden]="!item.showRiderMetaData">
+                                              <div class="row">
+                                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                      <div class="row">
+                                                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                              <label><strong>Sum Assured:</strong></label>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Death
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              <span *ngIf="!item['death']"> - </span>
+                                                              <span *ngIf="item['death']">
+                                                                {{item['death'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}}
+                                                              </span>
+                                                              <!-- {{item.death | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}} -->
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Accidental Death
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              <span *ngIf="!item['accidentalDeath']"> - </span>
+                                                              <span *ngIf="item['accidentalDeath']">
+                                                                {{item['accidentalDeath'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}}
+                                                              </span>
+                                                              <!-- {{item.accidentalDeath | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}} -->
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Permanent Disability
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              <span *ngIf="!item['permanentDisability']"> - </span>
+                                                              <span *ngIf="item['permanentDisability']">
+                                                                {{item['permanentDisability'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}}
+                                                              </span>
+                                                              <!-- {{item.permanentDisability | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}} -->
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                      <div class="row">
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              Critical Illness
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                              <span *ngIf="!item['criticalIllness']"> - </span>
+                                                              <span *ngIf="item['criticalIllness']">
+                                                                {{item['criticalIllness'] | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}}
+                                                              </span>
+                                                              <!-- {{item.criticalIllness | number:'1.2-2' | currencySymbol: policyObj['currency'] | ValidateValue}} -->
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </ng-container>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="col-sm-12" style="background: #F0F0F0; padding-top: 10px;">
+                              <span class="pull-left" style="margin-right:20px">Sum Assured</span>
+                              <select class="form-control pull-left" id="graphviewchange" style="width:120px;" [(ngModel)]="insuranceGraphView" (change)="insuranceGraphViewChange()">
+                                <option *ngFor="let item of sumAssuredList" value="{{item.value}}">{{item.label}}</option>
+                              </select>
+                          </div>
+                          <div class="col-sm-12 overall-status-chart">
+                            <!--<img src="../img/landing-page/tube-chart-5.png" alt="" width="100%">-->
+                            <!--<div id="insurance_chart" style="height: 400px;"></div>-->
+                            <div id="insurance-chart-content" style="height: 260px;">
+                              <canvas id="insurance_chart"></canvas>
+                            </div>
+                            <!-- legends -->
+                            <div class="account-legend-container">
+                              <div id="insurance-legend" class="account-chart-legend"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+  </div>
+  <!-- Main Display Html Ends -->
+
+  <!-- Footer Part Html Starts -->
+   <!-- <div class="b47PM-footer clearfix" ng-include="'template/afterloginfooter.html'"></div>  -->
+   <app-authorised-footer></app-authorised-footer>
+  <!-- Footer Part Html Ends -->
+
+</div>
+
+<!-- addAccountModal -->
+
+<ng-template #addAccountModal>
+    <div class="modal-header">
+      <button type="button" class="close" (click)="closeAccountModalDetails()" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h5>Link your account</h5>
+      <div class="clearfix"></div>
+    </div>
+    <div class="modal-body">
+      <ul class="list-unstyled step-quad">
+        <li class="step-counter done">
+          <div>
+            <span>Step 1</span>
+          </div>
+        </li>
+        <li class="step-counter steps">
+          <div>
+            <span>Step 2</span>
+          </div>
+        </li>
+      </ul>
+      <div class="row clearfix">
+        <div class="col-sm-6 form-group">
+          <select class="form-control" name="institution_name" id = "institution_name" [(ngModel)]="instCode" (change)="getPrompts(instCode)">
+            <option value="">Select institution</option>
+            <option *ngFor="let inst of institutions" value="{{inst.instituteCode}}">{{inst.instituteName}}</option>
+          </select>
+        </div>
+
+        <div *ngIf="showLoginField" id="bankCredential">
+          <ng-container *ngFor="let field of loginFields">
+            <div class="clearfix"></div>
+            <div class="col-sm-6 form-group " *ngIf="field.field.indexOf('mfaField') < 0 && field.field.indexOf('scrapingPref') < 0 && field.field.indexOf('typeChoice') < 0 && field.field.indexOf('persistCredentials') < 0">
+              <label>{{ field.label }}</label>
+              <input type="{{ field.type }}" name="{{ field.field }}" [(ngModel)]="field.value" id="{{ field.loginFieldCode }}" class="form-control cred-field allowRestrictedChar" [required]="field.optional == 0" autocomplete="new-password"/>
+            </div>
+            <div class="col-sm-6 form-group " *ngIf="field.field.indexOf('persistCredentials') > -1">
+              <label>
+              <input type="checkbox" name="{{ field.persistCredentials }}" [(ngModel)]="field.value">
+              Save Login Credentials
+              </label>
+            </div>
+            <div class="col-sm-6 form-group" *ngIf="field.field.indexOf('typeChoice') > -1" ng-hide="true">
+              <label>{{ field.label }}</label>
+                <div class="checkbox" *ngFor="let option of field.options">
+                  <label>
+                    <input type="checkbox" [value]="option.optionCode" ng-init="option.selected=true" [(ngModel)]="option.selected" *ngIf="option.isDefaultOption" checked>
+                    <input type="checkbox" [value]="option.optionCode" ng-init="option.selected=false" [(ngModel)]="option.selected" *ngIf="!option.isDefaultOption">
+                    {{option.optionText}}
+                  </label>
+                </div>
+            </div>
+            <div class="col-sm-6 form-group " *ngIf="field.field.indexOf('scrapingPref') > -1" ng-hide="true">
+              <label>{{field.label}}</label>
+                <select id="scrapingPref" [(ngModel)]="field.value" (change)="checkMFAOption(field.value)"> <!-- ng-init="field.value = ''" -->
+                <option value="">Choose option</option>
+                <ng-container *ngFor="let option of field.options; let index = index">
+                  <option *ngIf="index == 0" value="{{option.optionCode}}">{{option.optionText}}</option>
+                </ng-container>
+                <ng-container *ngFor="let option of field.options; let index = index">
+                  <option *ngIf="index > 0" value="{{option.optionCode}}">{{option.optionText}}</option>
+                </ng-container>
+                </select>
+            </div>
+            <div class="col-sm-6 form-group " *ngIf="field.field.indexOf('mfaField') > -1"> <!-- ng-show="showMFAOption || mfaLevel == 0" -->
+              <label>{{ field.label }}</label>
+              <select ng-init="field.value = ''" [(ngModel)]="field.value">
+                  <option value="">Choose option</option>
+                  <ng-container *ngFor="let option of field.options; let index = index">
+                    <option *ngIf="index == 0" value="{{option.optionCode}}">{{option.optionText}}</option>
+                  </ng-container>
+                  <ng-container *ngFor="let option of field.options; let index = index">
+                    <option *ngIf="index > 0" value="{{option.optionCode}}">{{option.optionText}}</option>
+                  </ng-container>
+                </select>
+            </div>
+          </ng-container>
+        </div>
+        <div class="clearfix"></div>
+        <!--<div class="col-sm-6 form-group">
+          <input type="text" class="form-control" [(ngModel)]="destFolder" placeholder="Destination Folder">
+        </div>-->
+        <!-- <div class="col-md-12">
+          <label>Destination Details</label>
+        </div>
+        <div class="col-sm-12 form-group" style="padding: 0px;margin-top: 0px;margin-bottom: 20px;">
+            <div class="col-sm-6" style="margin-top: 10px;">
+                <input type="text" [(ngModel)]="destHost" class="form-control" placeholder="Host" required/>
+            </div>
+            <div class="col-sm-6" style="margin-top: 10px;">
+                <input type="text" [(ngModel)]="destLocation" class="form-control " placeholder="Destination Location" required/>
+            </div>
+            <div class="col-sm-6" style="margin-top: 10px;">
+                <input type="text" [(ngModel)]="destUsername" class="form-control" placeholder="Username" required/>
+            </div>
+            <div class="col-sm-6" style="margin-top: 10px;">
+                <input type="password" [(ngModel)]="destPass" class="form-control" placeholder="Password" autocomplete="off" required/>
+            </div>
+        </div>
+
+        <div class="clearfix"></div> -->
+        <div class="col-sm-12">
+            <div id="acaErrorMessage"></div>
+            <div id="addAccountLoader" style="display: none">
+              <img src="/assets/img/overview/greenloader.gif" width="30px" height="30px"><span style="padding-left: 10px;color: #4C629A;" class="table-filter" id="infoMessage">Fetching your data...This might take a few minutes</span>
+            </div>
+        </div>
+
+        <!-- <div class="clearfix"></div>
+        <div class="col-sm-12">
+          <p class="warn-quad" style="display:inline-block">*Rest assured no one including PiSight has access to your login credentials</p>
+        </div> -->
+      </div>
+    </div>
+    <div class="modal-footer input-group">
+      <button id="addAccountbtn" type="button" class="btn add-account-btn add-account pull-left" (click)="addAccount()">ADD ACCOUNT</button>
+      <!-- ".disabled" Remove disable class when all Fields are validated-->
+      <!--<button id="addAccountBG" style="display: none" type="button" class="btn add-account-btn add-account pull-right" ng-click="addAccountInBackground()">KEEP IN BACKGROUND</button>-->
+    </div>
+</ng-template>
+
+<!-- Upload statement Modal -->
+<ng-template #uploadStatementModal>
+  <div class="modal-header">
+      <button type="button" class="close" [disabled]=" !uploadStmtLoader" (click)="cancelStatementUploadDetails()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h5>Upload account statement</h5>
+    </div>
+    <div class="modal-body">
+      <ul class="nav nav-tabs">
+          <li class="active"><a href data-target="#Login" data-toggle="tab">Single File</a></li>
+          <li><a href data-target="#Registration" data-toggle="tab">Batch Upload</a></li>
+      </ul>
+      <div class="tab-content" style="margin-top: 15px;">
+          <div class="tab-pane active" id="Login">
+              <form (ngSubmit)="uploadStatementForm.form.valid && uploadStatement(uploadSt)" #uploadStatementForm="ngForm">
+                <div class="row clearfix">
+                  <div class="col-md-12">
+                    <div class="row clearfix">
+                      <!-- <div class="col-sm-12 form-group" [ngClass]="{ 'has-error': uploadStatementForm.submitted && !stmtCountryRefVar.valid }">
+                        <select class="form-control" name="manualCountry" [(ngModel)]="uploadSt.manualCountry" #stmtCountryRefVar="ngModel" (change)="fetchStatementInstitutions(uploadSt)" required>
+                          <option [value]="selectUndefinedOptionValue">Select country</option>
+                          <option *ngFor="let stmtCountry of statementCountries | orderBy: 'name': false" [value]="stmtCountry.code">{{stmtCountry.name}}</option>
+                        </select>
+                        <span class="help-block" *ngIf="uploadStatementForm.submitted && !stmtCountryRefVar.valid">country is required</span>
+                      </div>
+                      <div class="clearfix"></div> -->
+                      <div class="col-sm-12 form-group" [ngClass]="{ 'has-error': uploadStatementForm.submitted && !stmtInstRefVar.valid }">
+                        <select class="form-control" name="manualInst" [(ngModel)]="uploadSt.manualInst" #stmtInstRefVar="ngModel" required>
+                          <option value="">Select institution</option>
+                          <option *ngFor="let stmtInst of statementInstitutions | orderBy: 'name': false" [value]="stmtInst.code">{{stmtInst.name}}</option>
+                        </select>
+                        <span class="help-block" *ngIf="uploadStatementForm.submitted && !stmtInstRefVar.valid">Institution is required</span>
+                      </div>
+                      <div class="clearfix"></div>
+                      <!-- <div class="col-md-12">
+                        <label>Destination Details</label>
+                      </div> -->
+                      <div class="col-sm-12 form-group" style="padding: 0px;margin-top: 0px;margin-bottom: 20px;">
+                          <!--<input type="text" [(ngModel)]="uploadSt.destination" class="form-control" placeholder="Destination Folder" required/>-->
+                          <!--<div class="col-sm-6" style="margin-top: 10px;">
+                              <input type="text" [(ngModel)]="uploadSt.dflHost" class="form-control" placeholder="Host" required/>
+                          </div>
+                          <div class="col-sm-6" style="margin-top: 10px;">
+                              <input type="text" [(ngModel)]="uploadSt.dfl" class="form-control" placeholder="Destination Location" required/>
+                          </div>-->
+                          <!-- <div class="col-sm-6" style="margin-top: 10px;">
+                              <input type="text" [(ngModel)]="uploadSt.dflUname" class="form-control" placeholder="Username" required/>
+                          </div>
+                          <div class="col-sm-6" style="margin-top: 10px;">
+                              <input type="password" [(ngModel)]="uploadSt.dflPass" class="form-control" placeholder="Password" autocomplete="off" required/>
+                          </div> -->
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="col-sm-12 form-group">
+                        <div class="btn custom-file-uploader">
+                          Choose File
+                          <input type="file" class="form-control" name="pdfFile" [(ngModel)]="uploadSt.pdfFile" (change)="validateStatement($event)">
+                        </div>
+                        <span>{{uploadSt.statementFileName}}</span>
+                        <br>
+                        <small style="margin:10px 0 0 0; display:block">* only PDF format upto 15MB size is supported.</small>
+                      </div>
+                      <div *ngIf="statementUploadPrefShow" class="clearfix"></div>
+                      <div *ngIf="statementUploadPrefShow" class="col-sm-12 form-group radio-container">
+                        <div>
+                          <div class="col-sm-6"> <!--  style="margin: 18px 0px 12px 0px" -->
+                            <!-- <input type="radio" id="radio2" [(ngModel)]="uploadSt.statementUploadPref" (change)="resetOutputFileFormatButton()" name="radios" value="pimoney">
+                            <label for="radio2">Use in PiMoney</label>
+                            <input type="radio" id="radio1" [(ngModel)]="uploadSt.statementUploadPref" (change)="resetOutputFileFormatButton()" name="radios" value="gx">
+                            <label for="radio1">Generate Output</label> -->
+                            <label class="radio-inline">
+                              <input type="radio" id="radio2" [(ngModel)]="uploadSt.statementUploadPref" (change)="resetOutputFileFormatButton()" name="radios" value="pimoney">Use in Conjurer
+                            </label>
+                          </div>
+                          <div class="col-sm-6">
+                            <label class="radio-inline">
+                              <input type="radio" id="radio1" [(ngModel)]="uploadSt.statementUploadPref" (change)="resetOutputFileFormatButton()" name="radios" value="gx">Generate Output
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div *ngIf="uploadSt.statementUploadPref === 'gx'" (change)="headerGroupOnChange()" class="col-sm-12 form-group">
+                        <select class="form-control text-capitalize" name="headerGroup" [(ngModel)]="uploadSt.headerGroup">
+                          <option *ngFor="let item of headerGroupList" value="{{item.value}}">{{item.displayText}}</option>
+                          <!-- <option *ngFor="let item of headerGroupList" value="{{item.headerGroup}}">{{item.headerGroup}}<span *ngIf="item?.fieldType">&nbsp;({{item?.fieldType}})</span></option> -->
+                        </select>
+                      </div>
+                      <div *ngIf="uploadSt.statementUploadPref === 'gx'" class="col-sm-12 form-group">
+                        <select class="form-control" name="outputFileFormat" [(ngModel)]="uploadSt.outputFileFormat">
+                            <option *ngFor="let item of outputFileGroupList" value="{{item.value}}">{{item.displayText}}</option>
+                        </select>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="col-sm-12" style="margin-top: 5px;">
+                        <label *ngIf="fileSizeExceeds" class="pm-red">File size exceeds the maximum allowable size of 15MB</label>
+                        <label *ngIf="fileFormatNotMatched" class="pm-red">Only PDF allowed</label>
+                        <label *ngIf="pdfFileRequired" class="pm-red">File is required</label>
+                      </div>
+                      <div class="col-sm-12" style="margin-top: 5px;">
+                        <label id="uploadStErrorMsg" class="pm-red"></label>
+                      </div>
+                      <div class="col-sm-12" [hidden]="uploadStmtLoader" style="margin-bottom: 15px;">
+                        <img src="/assets/img/overview/greenloader.gif" width="30px" height="30px"><span style="padding-left: 10px;color: #4C629A;" class="table-filter">Please wait while we process your request...</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" [disabled]="uploadStSubmitButton || !uploadStmtLoader" class="btn b47PM-default-btn">UPLOAD STATEMENT</button>
+              </form>
+          </div>
+          <div class="tab-pane" id="Registration">
+            <form role="form" (ngSubmit)="uploadMultipleStatement(uploadMulSt)" class="form-horizontal">
+              <div class="row clearfix">
+                  <div class="col-md-12">
+                    <div class="clearfix">
+                        <div class="col-md-12 form-group" style="margin-bottom: 1px;">
+                          <!-- <label>Source Details</label> -->
+                          <div class="alert alert-info">
+                            <label><strong>Tips:</strong></label>
+                            <label>Press <strong>Ctrl</strong> (<strong>Command</strong> for Mac) + <strong>A</strong>  to select all files in a folder</label>
+                            <label>Press <strong>Ctrl</strong> (<strong>Command</strong> for Mac) and select file to select multiple files</label>
+                            <label><strong>Notes:</strong></label>
+                            <label>File Name should be in <strong>(InstituteName_Identifier.pdf/PDF)</strong> format.</label> <!-- CountryCode_ -->
+                          </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                          <div class="panel panel-default">
+                            <div class="panel-body">
+                              <div class="btn custom-file-uploader">
+                                Choose File
+                                <input type="file" id="files" class="form-control" name="files[]" [(ngModel)]="uploadMulSt.pdfFile" (change)="validateMultipleStatement($event)" multiple>
+                              </div>
+                              <small style="margin:10px 0 0 0; display:block">* only PDF format upto 15MB size is supported.</small>
+
+                              <!-- <output id="list"></output> -->
+                              <div id="list" class="col-md-12 form-group ouput-file" style="margin-top: 15px;"></div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                      <div class="col-sm-12" style="margin-top: 5px;">
+                        <label *ngIf="multipleFileSizeExceeds" class="pm-red">File size exceeds the maximum allowable size of 15MB</label>
+                        <label *ngIf="multipleFileFormatNotMatched" class="pm-red">Only PDF allowed</label>
+                        <label *ngIf="multiplePdfFileRequired" class="pm-red">File is required</label>
+                      </div>
+                      <div class="col-sm-12" style="margin-top: 5px;">
+                        <label id="uploadMulStErrorMsg" class="pm-red"></label>
+                      </div>
+                      <div class="col-sm-12" [hidden]="uploadMulStmtLoader" style="margin-bottom: 15px;">
+                        <img src="/assets/img/overview/greenloader.gif" width="30px" height="30px"><span style="padding-left: 10px;color: #4C629A;" class="table-filter" id="infoMessage">Please wait while we process your request...</span>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <button type="submit" [disabled]="multipleUploadStSubmitButton || !uploadMulStmtLoader" class="btn b47PM-default-btn">UPLOAD</button>
+            </form>
+          </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+    </div>
+</ng-template>
+
+<!-- Password Protection Model-->
+<ng-template #passwordModal>
+  <div class="modal-header">
+      <button type="button" class="close" aria-label="Close" (click)="goBackFromStatementPassword()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h5>Password Required</h5>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <form (ngSubmit)="uploadStatementPassForm.form.valid && uploadStatementWithPassword(uploadStPass)" #uploadStatementPassForm="ngForm" role="form">
+        <div class="col-md-12 text-center">
+          <p>It seems the file you have uploaded for your statement is protected by a password and we would like to refrain from hacking a file of such importance. Please provide the password for proceeding.</p>
+        </div>
+        <div class="col-md-12" align="center">
+          <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" [ngClass]="{ 'has-error': uploadStatementPassForm.submitted && !verifyStmtPassRefVar.valid }">
+                <input class="form-control" name="statementPass" type="password" [(ngModel)]="uploadStPass.verify_stmt_pass" #verifyStmtPassRefVar="ngModel" required>
+                <span class="help-block" *ngIf="uploadStatementPassForm.submitted && !verifyStmtPassRefVar.valid">Password is required</span>
+              </div>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+        <div class="col-sm-12 text-center" style="margin-top: -2%;">
+            <label id="uploadStErrorPass" class="pm-red"></label>
+          </div>
+        <div class="col-md-12 text-center filter-button">
+          <input type="button" class="pm-stmt-pass-btn" value="Go Back" (click)="goBackFromStatementPassword()">
+          <input type="submit" class="pm-stmt-pass-btn" value="Ok">
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #addPropertyModal>
+  <div class="modal-header">
+    <button type="button" class="close" (click)="cancelPropertyDetails()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h5>Add Property</h5>
+  </div>
+  <form [formGroup]="propertyForm" (submit)="addProperty(purchaseDate, lastResetDate)">
+    <div class="modal-body">
+      <!-- first section -->
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="panel panel-info">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Property Name</label>
+                    <div class="col-sm-9 form-group">
+                      <input type="text" class="form-control" formControlName="name" id="addPropertyName" required placeholder="Name of Property"
+                        autocomplete="off">
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Ownership</label>
+                    <div class="col-sm-9 form-group">
+                      <label class="radio-inline">
+                        <input type="radio" name="ownership" formControlName="ownership" value="joint">Joint
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="ownership" formControlName="ownership" value="single">Single
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Property Type</label>
+                    <div class="col-sm-9 form-group">
+                      <label class="radio-inline">
+                        <input type="radio" name="propertyType" formControlName="propertyType" value="residential">Residential
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="propertyType" formControlName="propertyType" value="commercial">Commercial
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Purpose</label>
+                    <div class="col-sm-9 form-group">
+                      <label class="radio-inline">
+                        <input type="radio" name="purpose" formControlName="purpose" value="selfOccupied">Self Occupied
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="purpose" formControlName="purpose" value="investment">Investment
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Purchase Date</label>
+                    <div class="col-sm-9 form-group">
+                      <input type="text" formControlName="purchaseDate" class="form-control purchaseDate" id="addPropertyPurchaseDate" placeholder="Date of Last Valuation"
+                        autocomplete="off" onkeydown="return false;" required #purchaseDate>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- second section -->
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="panel panel-info">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Currency</label>
+                    <div class="col-sm-9 form-group">
+                      <!-- <select formControlName="currency" (change)="onCurrencyChange()" class="form-control ignoreSelect" id="addPropertyCurrency" required>
+                        <option value="">Select Currency</option>
+                        <option *ngFor="let currency of currencyListData" value="{{currency.code}}">{{currency.name}}</option>
+                      </select> -->
+                      <select formControlName="currency" (change)="onCurrencyChange()" class="form-control ignoreSelect" id="addPropertyCurrency" required>
+                        <optgroup label="Popular Currency">
+                          <ng-container *ngFor="let currency of currencyListData | orderBy: 'name': false">
+                            <option *ngIf="currency.popular" value="{{currency.code}}">{{currency.name}} ({{currency.code}})</option>
+                          </ng-container>
+                        </optgroup>
+                        <optgroup label="All Currencies">
+                          <ng-container *ngFor="let currency of currencyListData | orderBy: 'name': false">
+                            <option value="{{currency.code}}">{{currency.name}} ({{currency.code}})</option>
+                          </ng-container>
+                        </optgroup>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Amount</label>
+                    <div class="col-sm-9 form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                        <input type="text" formControlName="amount" class="form-control number" id="addPropertyAmount" maxlength="10" required placeholder="Amount"
+                          autocomplete="off">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Market Value</label>
+                    <div class="col-sm-9 form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                        <input type="text" class="form-control" formControlName="marketValue" id="addPropertyName" required placeholder="Market Value"
+                          autocomplete="off">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Loan (Current Outstanding)</label>
+                    <div class="col-sm-9 form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">{{selcectedCurrencySymbol}}</span>
+                        <input type="text" class="form-control" id="addPropertyName" formControlName="loan" required placeholder="Loan (Current Outstanding)"
+                          autocomplete="off">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Loan Residual Terms (years)</label>
+                    <div class="col-sm-9 form-group">
+                      <input type="text" class="form-control" formControlName="loanResidualTerms" placeholder="Loan Resudual Terms (years)">
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- third section -->
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="panel panel-info">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Interest Type</label>
+                    <div class="col-sm-9 form-group">
+                      <label class="radio-inline">
+                        <input type="radio" name="interestType" formControlName="interestType" value="fixed">Fixed
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="interestType" formControlName="interestType" value="floating">Floating
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div [hidden]="propertyForm.controls.interestType.value !== 'floating'" class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Reset Frequency</label>
+                    <div class="col-sm-9 form-group">
+                      <select formControlName="resetFrequency" class="form-control">
+                        <option value="" selected>-select-</option>
+                        <option *ngFor="let type of resetFrequency | orderBy: 'displayText': false" [value]="type.value">{{type.displayText}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div [hidden]="propertyForm.controls.interestType.value !== 'floating'" class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Last Reset Date</label>
+                    <div class="col-sm-9 form-group">
+                      <input type="text" formControlName="lastResetDate" class="form-control lastResetDate" placeholder="Date of Last Reset" autocomplete="off"
+                        onkeydown="return false;" required #lastResetDate>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Interest Rate (%)</label>
+                    <div class="col-sm-9 form-group">
+                      <input type="text" class="form-control" formControlName="interestRate" placeholder="Interest Rate">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- fourth section -->
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="panel panel-info">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Address</label>
+                    <div class="col-sm-9 form-group">
+                      <input type="text" class="form-control" formControlName="address" id="addPropertyAddress" required placeholder="Address"
+                        autocomplete="off">
+                    </div>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-sm-12">
+                  <div class="row">
+                    <label for="" class="col-sm-3 control-label">Remarks</label>
+                    <div class="col-sm-9 form-group">
+                      <textarea formControlName="remarks" row="2" class="form-control" placeholder="Remarks"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <span class="pm-red" id="addPropertyErrMsg"></span>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="modal-footer">
+      <span *ngIf="addPropertyFlag" >
+        <button type="submit" class="btn add-account-btn b47PM-default-btn" [disabled]="addPropertyDataLoading">Add Property</button>
+      </span>
+      <span *ngIf="!addPropertyFlag">
+        <button type="button" (click)="editProperty(purchaseDate, lastResetDate)" class="btn add-account-btn b47PM-default-btn" [disabled]="addPropertyDataLoading">Update</button>
+      </span>
+      <img *ngIf="addPropertyDataLoading" src="/assets/img/loader/spin.gif" />
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #editPropertyModal>
+    <div class="modal-header">
+      <button type="button" (click)="cancelPropertyDetails()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <h5>Edit Property</h5>
+    </div>
+    <form method="post" accept-charset="utf-8" (submit)="editProperty()">
+      <div class="modal-body">
+        <div class="row clearfix">
+          <div class="col-md-8">
+            <div class="row clearfix">
+              <div class="col-md-12 form-group">
+                <input class="form-control" id="editPropertyId" name="editProperty" type="hidden">
+                <label> Update Property Value</label>
+                <input class="form-control number" name="amount" [(ngModel)]="propertyObj.amount" id="editPropertyAmount" placeholder="Amount" maxlength="10" required>
+              </div>
+              <div class="col-md-12">
+                <span class="pm-red" id="editPropertyErrMsg"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" [disabled]="editPropertyDataLoading" class="btn add-account-btn b47PM-default-btn">UPDATE</button>
+        <img *ngIf="editPropertyDataLoading" src="/assets/img/loader/spin.gif" />
+      </div>
+    </form>
+</ng-template>
+
+<ng-template #deletePropertyModal>
+  <div class="modal-header">
+    <button type="button" (click)="cancelPropertyDetails()" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-md-12" align="center">
+        <p>Are you sure want to delete property permanently.</p>
+      </div>
+      <div class="col-md-12 text-center">
+        <span class="pm-red" id="delPropertyErrMsg"></span>
+      </div>
+      <div class="col-md-12" align="center">
+        <input type="button" class="b47PM-deltran-btn" [disabled]="delPropertyDataLoading" value="DELETE" (click)="deleteProperty()">
+        <input (click)="cancelPropertyDetails()" type="button" class="b47PM-dCancel-btn" data-dismiss="modal" value="CANCEL">
+        <img *ngIf="delPropertyDataLoading" src="/assets/img/loader/spin.gif" />
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- <ng-template #manualAccounDeleteModal>
+  <div class="modal-header">
+    <button type="button" (click)="closeManulaAccountDeleteModal()" class="close" data-dismiss="modal" [disabled]="deleteManualAccountDataLoading" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <form (submit)="deleteManualAccount()">
+        <div class="col-md-12" align="center">
+          <div class="row b47PM-budget-tbl-quad1">
+            <div class="table b47PM-misc-table1 b47PM-budget-tbl1">
+              <header class="clearfix">
+                <div style="width: 5%;">
+                  <input type="checkbox" name="selectCheck" [(ngModel)]="isAllSelected" (click)="toggleAllAccount()"/>
+                </div>
+                <div align="left" style="width: 36%;">Account Number</div>
+                <div>Institution Name</div>
+              </header>
+              <div>
+                <div class="record-row transc-row" *ngFor="let manualaccount of selectedManualInstitution">
+                  <table class="table inner-data-table">
+                    <thead>
+                      <tr>
+                        <th style="width: 6%;">
+                          <input type="checkbox" name="checkBoxAccount" class="checkBoxAccount" [(ngModel)]="manualaccount.selected" (change)="optionToggled(manualaccount)"/>
+                        </th>
+                        <th style="width: 40%;">
+                          {{manualaccount.accountNumber}}
+                        </th>
+                        <th style="width: 40%">
+                          {{manualaccount.institutionName}} 
+                        </th>
+                        <div class="clearfix"></div>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12" align="center">
+          <span class="pm-red" id="deleteManualAccountErr"></span>
+        </div>
+        <div class="col-md-12" align="center">
+          <input type="submit" id="deleteSubmit" class="b47PM-deltran-btn" [disabled]="deleteManualAccountDataLoading" value="DELETE">
+          <img *ngIf="deleteManualAccountDataLoading" src="/assets/img/loader/spin.gif" />
+          <input type="button" (click)="closeManulaAccountDeleteModal()" class="b47PM-dCancel-btn" [disabled]="deleteManualAccountDataLoading" data-dismiss="modal" value="CANCEL">
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template> -->
+<ng-template #manualAccounDeleteModal>
+  <div class="modal-header">
+    <button type="button" (click)="closeManulaAccountDeleteModal()" class="close" data-dismiss="modal" [disabled]="deleteManualAccountDataLoading" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-md-12" align="center">
+        <p>Are you sure want to delete Account permanently.</p>
+      </div>
+      <div class="col-md-12" align="center">
+        <span class="pm-red" id="deleteManualAccountErr"></span>
+      </div>
+      <div class="col-md-12" align="center">
+        <img *ngIf="deleteManualAccountDataLoading" src="/assets/img/loader/spin.gif" />
+        <input type="button" class="b47PM-deltran-btn" [disabled]="deleteManualAccountDataLoading" value="DELETE" (click)="deleteManualAccount()">
+        <input type="button" class="b47PM-dCancel-btn" (click)="closeManulaAccountDeleteModal()" value="CANCEL">
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #editAccountCredential>
+  <div class="modal-header">
+    <button type="button" (click)="closeEditAccountCredentialModal()" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h5>Edit Account</h5>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="edit" align="left">
+          <div id="getPromptLoading" *ngIf="getPromptLoading">
+            <p>
+              <!-- <h4>Fetching login form... this might take few seconds.
+                <i class="fa fa-circle-o faa-burst animated"></i>
+              </h4> -->
+            </p>
+          </div>
+          <div class="col-sm-6 form-group " *ngIf="showEditField">
+            <h4>
+              <a (click)="editCred = !editCred" class="cursor nodecor">
+                <i class="fa fa-plus-circle" *ngIf="!editCred" aria-hidden="true"></i>
+                <i class="fa fa-minus-circle" *ngIf="editCred" aria-hidden="true"></i>
+                &nbsp;&nbsp;Edit Credentials
+              </a>
+            </h4>
+          </div>
+          <!-- -->
+          <div id="bankCredential">
+            <div *ngFor="let field of loginFieldsEdit">
+              <div *ngIf="!getPromptLoading">
+                <div class="clearfix"></div>
+                <div class="col-sm-6 form-group " *ngIf="editCred">
+                  <div *ngIf="field.field.indexOf('mfaField') < 0 && field.field.indexOf('scrapingPref') < 0 && field.field.indexOf('typeChoice') < 0 && field.field.indexOf('persistCredentials') < 0">
+                    <label>{{ field.label }}</label>
+                    <input type="{{ field.type }}" name="{{ field.field }}" [(ngModel)]="field.value" id="{{ field.loginFieldCode }}" class="form-control cred-field allowRestrictedChar"
+                      ng-required="field.optional == 0" autocomplete="new-password" />
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-sm-6 form-group " *ngIf="field.field.indexOf('persistCredentials') > -1">
+                  <label>
+                    <input (change)="showHideUpdate(field.value)" type="checkbox" name="{{ field.persistCredentials }}" [(ngModel)]="field.value"
+                      ng-init="showHideEdit(field.value)"> Save Login Credentials <!--  [appNgInit]="showHideEdit(field.value)" -->
+                  </label>
+                </div>
+                <div class="col-sm-6 form-group " *ngIf="field.field.indexOf('typeChoice') > -1">
+                  <label>{{ field.label }}</label>
+                  <div class="checkbox" *ngFor="let option of field.options">
+                    <label>
+                      <input type="checkbox" [(ngModel)]="option.selected" checked *ngIf="option.selected">
+                      <input type="checkbox" [(ngModel)]="option.selected" *ngIf="!option.selected"> {{option.optionText}}
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm-6 form-group " *ngIf="field.field.indexOf('scrapingPref') > -1">
+                  <label>{{field.label}}</label>
+                  <select id="scrapingPref" [(ngModel)]="field.value" (change)="checkMFAOption(field.value)">
+                    <option *ngFor="let option of field.options" value="{{option.optionCode}}">{{option.optionText}}</option>
+                  </select>
+                </div>
+                <div class="col-sm-6 form-group " *ngIf="field.field.indexOf('mfaField') > -1">
+                  <div *ngIf="showMFAOption || mfaLevel == 0">
+                    <label>{{ field.label }}</label>
+                    <select [(ngModel)]="field.value">
+                      <option value="">Choose option</option>
+                      <option *ngFor="let option of field.options" value="{{option.optionCode}}">{{option.optionText}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="col-sm-12">
+        <div id="editErrorMessage" class="col-sm-12"></div>
+        <div id="editAccountLoader" style="display: none">
+          <img src="/assets/img/overview/greenloader.gif" width="30px" height="30px">
+          <span style="padding-left: 10px;color: #4C629A;" class="table-filter" id="editInfoMessage">Updating your account details...This might take a few seconds</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer" *ngIf="!getPromptLoading">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-4 col-sm-4 col-xs-12" *ngIf="showUpdateButton">
+          <button id="editAccountbtn" type="button" class="btn edit-account-btn edit-account" (click)="editAccount()">UPDATE ACCOUNT</button>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <button id="editRefreshAccountbtn" type="button" class="btn edit-account-btn edit-account" (click)="editRefreshAccount()">UPDATE AND REFRESH</button>
+        </div>
+      </div>
+    </div>
+    <!-- ".disabled" Remove disable class when all Fields are validated-->
+  </div>
+</ng-template>
+
+<ng-template #deleteAccountModal>
+  <div class="modal-header">
+    <button type="button" (click)="closeDeleteAccountModal()" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-md-12" align="center">
+        <p>Are you sure want to delete Account permanently.</p>
+      </div>
+      <div class="col-md-12" align="center">
+        <img *ngIf="deleteAccountDetailLoading" src="/assets/img/loader/spin.gif" />
+        <input type="button" class="b47PM-deltran-btn" ng-disabled="deleteAccountDetailLoading" value="DELETE" (click)="deleteOnlineAccount()">
+        <input type="button" class="b47PM-dCancel-btn" (click)="closeDeleteAccountModal()" value="CANCEL">
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #combineLinkUploadStModal>
+  <div class="modal-header">
+    <button type="button" (click)="closeCombineLinkUploadStModal()" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h5>ADD ACCOUNT</h5>
+  </div>
+  <div class="modal-body">
+    <div class="row clearfix">
+      <div class="col-md-12">
+        <div class="row clearfix">
+          <div class="col-md-12 form-group text-center">
+            <div class="add-account-dropQuad text-center">
+              <header>
+                <button class="addAccount-btn" data-toggle="modal" data-target=".addAccountModal" (click)="prepareAddAccountPrompt()">
+                  LINK ACCOUNT
+                </button>
+                <button class="uploadStatement-btn" data-toggle="modal" data-target=".uploadStatementModal" (click)="prepareUploadStatement()">
+                  UPLOAD STATEMENT
+                </button>
+                <div class="clearfix"></div>
+              </header>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Notification component -->
+<app-common-notification [notificationMessage]="notificationMessage" #notificationComponent></app-common-notification>
+
+<!-- Add new policy component -->
+<app-new-policy #newPolicyComponent (onNewPolicyChanged)="onNewPolicyChanged($event)"></app-new-policy>

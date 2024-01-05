@@ -1,0 +1,3294 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>conjurer documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">conjurer documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>CommonHelperService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/helpers/common/common.helper.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Common helper serivce class</p>
+
+            </p>
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#emailPattern">emailPattern</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getCurrencySymbol">getCurrencySymbol</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#numberWithCommas">numberWithCommas</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#pwdPattern">pwdPattern</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toGetCurrencySymbol">toGetCurrencySymbol</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#unamePattern">unamePattern</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#XMLViewData">XMLViewData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#abbreviateNumber">abbreviateNumber</a>
+                            </li>
+                            <li>
+                                <a href="#checkForDuplicateFieldsValue">checkForDuplicateFieldsValue</a>
+                            </li>
+                            <li>
+                                <a href="#checkForDuplicateValue">checkForDuplicateValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#displayDateFormat">displayDateFormat</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#displayDateFormatMyDatePicker">displayDateFormatMyDatePicker</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#displayJqueryDateFormat">displayJqueryDateFormat</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#formatNumber">formatNumber</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#formatNumberWithComma">formatNumberWithComma</a>
+                            </li>
+                            <li>
+                                <a href="#getConvertedMonth">getConvertedMonth</a>
+                            </li>
+                            <li>
+                                <a href="#getCountryCode">getCountryCode</a>
+                            </li>
+                            <li>
+                                <a href="#getCountrySymbol">getCountrySymbol</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getCurrentDate">getCurrentDate</a>
+                            </li>
+                            <li>
+                                <a href="#getCurrentDateToDisplay">getCurrentDateToDisplay</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getCurrentMomentDate">getCurrentMomentDate</a>
+                            </li>
+                            <li>
+                                <a href="#getDayList">getDayList</a>
+                            </li>
+                            <li>
+                                <a href="#getDropdownRequestStructure">getDropdownRequestStructure</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getMaturityDate">getMaturityDate</a>
+                            </li>
+                            <li>
+                                <a href="#getMonthList">getMonthList</a>
+                            </li>
+                            <li>
+                                <a href="#getMudraStructure">getMudraStructure</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getUserPreferredCurrency">getUserPreferredCurrency</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getXMLFileViewData">getXMLFileViewData</a>
+                            </li>
+                            <li>
+                                <a href="#getYearList">getYearList</a>
+                            </li>
+                            <li>
+                                <a href="#numberFormat">numberFormat</a>
+                            </li>
+                            <li>
+                                <a href="#numberToLocalstring">numberToLocalstring</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#prepareServiceDate">prepareServiceDate</a>
+                            </li>
+                            <li>
+                                <a href="#removeDuplicates">removeDuplicates</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeSpecialCharacters">removeSpecialCharacters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sanitizeDataObject">sanitizeDataObject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#serviceDateFormat">serviceDateFormat</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setPreferredCurrency">setPreferredCurrency</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setXMLFileViewData">setXMLFileViewData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="abbreviateNumber"></a>
+                        <span class="name">
+                            <b>
+                            abbreviateNumber
+                            </b>
+                            <a href="#abbreviateNumber"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>abbreviateNumber(value)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="535" class="link-to-prism">src/app/helpers/common/common.helper.ts:535</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To abbreviate number - to format number</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>value</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checkForDuplicateFieldsValue"></a>
+                        <span class="name">
+                            <b>
+                            checkForDuplicateFieldsValue
+                            </b>
+                            <a href="#checkForDuplicateFieldsValue"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>checkForDuplicateFieldsValue(obj, list, fieldName1, fieldName2)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="478" class="link-to-prism">src/app/helpers/common/common.helper.ts:478</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To check statement date</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>obj</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>list</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>fieldName1</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>fieldName2</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="checkForDuplicateValue"></a>
+                        <span class="name">
+                            <b>
+                            checkForDuplicateValue
+                            </b>
+                            <a href="#checkForDuplicateValue"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>checkForDuplicateValue(obj, list, fieldName)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="463" class="link-to-prism">src/app/helpers/common/common.helper.ts:463</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To check statement date</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>obj</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>list</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>fieldName</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayDateFormat"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            displayDateFormat
+                            </b>
+                            <a href="#displayDateFormat"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>displayDateFormat(date)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="363" class="link-to-prism">src/app/helpers/common/common.helper.ts:363</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To display date format into input field</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>date</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>{ date: { year: any; month: any; day: any; }; }</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayDateFormatMyDatePicker"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            displayDateFormatMyDatePicker
+                            </b>
+                            <a href="#displayDateFormatMyDatePicker"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>displayDateFormatMyDatePicker(value)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="244" class="link-to-prism">src/app/helpers/common/common.helper.ts:244</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To change date format for my date picker</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>value</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayJqueryDateFormat"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            displayJqueryDateFormat
+                            </b>
+                            <a href="#displayJqueryDateFormat"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>displayJqueryDateFormat(value, format?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="271" class="link-to-prism">src/app/helpers/common/common.helper.ts:271</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To display jquery date format</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>value</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>format</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formatNumber"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            formatNumber
+                            </b>
+                            <a href="#formatNumber"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>formatNumber(x, fractionSize?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/app/helpers/common/common.helper.ts:101</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>With dynamic number and fractionSize</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>x</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>fractionSize</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formatNumberWithComma"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            formatNumberWithComma
+                            </b>
+                            <a href="#formatNumberWithComma"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>formatNumberWithComma(x)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/app/helpers/common/common.helper.ts:89</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>For comma separated number (&quot;num&quot; is input number)</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>x</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getConvertedMonth"></a>
+                        <span class="name">
+                            <b>
+                            getConvertedMonth
+                            </b>
+                            <a href="#getConvertedMonth"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getConvertedMonth(month, year)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="418" class="link-to-prism">src/app/helpers/common/common.helper.ts:418</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To convert year and month in months</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>month</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>year</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCountryCode"></a>
+                        <span class="name">
+                            <b>
+                            getCountryCode
+                            </b>
+                            <a href="#getCountryCode"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCountryCode(currencyCode: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="503" class="link-to-prism">src/app/helpers/common/common.helper.ts:503</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get country code</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>currencyCode</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCountrySymbol"></a>
+                        <span class="name">
+                            <b>
+                            getCountrySymbol
+                            </b>
+                            <a href="#getCountrySymbol"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCountrySymbol(countryName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="518" class="link-to-prism">src/app/helpers/common/common.helper.ts:518</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get country symbol</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>countryName</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCurrentDate"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getCurrentDate
+                            </b>
+                            <a href="#getCurrentDate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getCurrentDate()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="283" class="link-to-prism">src/app/helpers/common/common.helper.ts:283</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get current date</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>{ year: any; month: any; day: any; }</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCurrentDateToDisplay"></a>
+                        <span class="name">
+                            <b>
+                            getCurrentDateToDisplay
+                            </b>
+                            <a href="#getCurrentDateToDisplay"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCurrentDateToDisplay()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="385" class="link-to-prism">src/app/helpers/common/common.helper.ts:385</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get current date</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>{ date: { year: any; month: any; day: any; }; }</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCurrentMomentDate"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getCurrentMomentDate
+                            </b>
+                            <a href="#getCurrentMomentDate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getCurrentMomentDate(format?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="297" class="link-to-prism">src/app/helpers/common/common.helper.ts:297</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get curent date based on formats</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>format</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getDayList"></a>
+                        <span class="name">
+                            <b>
+                            getDayList
+                            </b>
+                            <a href="#getDayList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getDayList()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="320" class="link-to-prism">src/app/helpers/common/common.helper.ts:320</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get days to populate it into dropdown</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>{}</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getDropdownRequestStructure"></a>
+                        <span class="name">
+                            <b>
+                            getDropdownRequestStructure
+                            </b>
+                            <a href="#getDropdownRequestStructure"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getDropdownRequestStructure(type: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="432" class="link-to-prism">src/app/helpers/common/common.helper.ts:432</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To create common structure for dropdown to send
+it into any request structure</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>type</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>value</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getMaturityDate"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getMaturityDate
+                            </b>
+                            <a href="#getMaturityDate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getMaturityDate(month)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="309" class="link-to-prism">src/app/helpers/common/common.helper.ts:309</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get maturity date based on month</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>month</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getMonthList"></a>
+                        <span class="name">
+                            <b>
+                            getMonthList
+                            </b>
+                            <a href="#getMonthList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getMonthList()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="334" class="link-to-prism">src/app/helpers/common/common.helper.ts:334</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get months to populate it into dropdown</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>{}</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getMudraStructure"></a>
+                        <span class="name">
+                            <b>
+                            getMudraStructure
+                            </b>
+                            <a href="#getMudraStructure"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getMudraStructure(amount: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, currency: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="448" class="link-to-prism">src/app/helpers/common/common.helper.ts:448</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To create common structure for mudra(currency and amount) to send
+it into any request structure</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>amount</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>currency</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getUserPreferredCurrency"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getUserPreferredCurrency
+                            </b>
+                            <a href="#getUserPreferredCurrency"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getUserPreferredCurrency()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="194" class="link-to-prism">src/app/helpers/common/common.helper.ts:194</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get user preffered currency</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getXMLFileViewData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getXMLFileViewData
+                            </b>
+                            <a href="#getXMLFileViewData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getXMLFileViewData()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/helpers/common/common.helper.ts:64</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get xml file view data</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getYearList"></a>
+                        <span class="name">
+                            <b>
+                            getYearList
+                            </b>
+                            <a href="#getYearList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getYearList()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="348" class="link-to-prism">src/app/helpers/common/common.helper.ts:348</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To get years to populate it into dropdown</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>{}</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="numberFormat"></a>
+                        <span class="name">
+                            <b>
+                            numberFormat
+                            </b>
+                            <a href="#numberFormat"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>numberFormat(n)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">src/app/helpers/common/common.helper.ts:117</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Number format</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>n</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="numberToLocalstring"></a>
+                        <span class="name">
+                            <b>
+                            numberToLocalstring
+                            </b>
+                            <a href="#numberToLocalstring"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>numberToLocalstring(number: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="140" class="link-to-prism">src/app/helpers/common/common.helper.ts:140</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Convert number lo string</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>number</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="prepareServiceDate"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            prepareServiceDate
+                            </b>
+                            <a href="#prepareServiceDate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>prepareServiceDate(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="224" class="link-to-prism">src/app/helpers/common/common.helper.ts:224</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To change date format</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>value</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeDuplicates"></a>
+                        <span class="name">
+                            <b>
+                            removeDuplicates
+                            </b>
+                            <a href="#removeDuplicates"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>removeDuplicates(myArr, prop)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="493" class="link-to-prism">src/app/helpers/common/common.helper.ts:493</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To remove duplicates object form list</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>myArr</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>prop</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeSpecialCharacters"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            removeSpecialCharacters
+                            </b>
+                            <a href="#removeSpecialCharacters"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>removeSpecialCharacters(str: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">src/app/helpers/common/common.helper.ts:170</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To remove special characters</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>str</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sanitizeDataObject"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            sanitizeDataObject
+                            </b>
+                            <a href="#sanitizeDataObject"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>sanitizeDataObject(object: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/helpers/common/common.helper.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To remove special characters from object</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>object</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="serviceDateFormat"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            serviceDateFormat
+                            </b>
+                            <a href="#serviceDateFormat"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>serviceDateFormat(value, format?)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="210" class="link-to-prism">src/app/helpers/common/common.helper.ts:210</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To change date format</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>value</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>format</td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setPreferredCurrency"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setPreferredCurrency
+                            </b>
+                            <a href="#setPreferredCurrency"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>setPreferredCurrency(curr: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="181" class="link-to-prism">src/app/helpers/common/common.helper.ts:181</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To store preferred currency</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>curr</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setXMLFileViewData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            setXMLFileViewData
+                            </b>
+                            <a href="#setXMLFileViewData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>setXMLFileViewData(repoId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fileName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/helpers/common/common.helper.ts:53</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>To set file Name and repo Id</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>repoId</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>fileName</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="emailPattern"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            emailPattern</b>
+                            <a href="#emailPattern"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;^[_a-z0-9]+(\\.[_a-z0-9]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{1,4})$&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/helpers/common/common.helper.ts:22</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Regex for email </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getCurrencySymbol"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getCurrencySymbol</b>
+                            <a href="#getCurrencySymbol"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="401" class="link-to-prism">src/app/helpers/common/common.helper.ts:401</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>To get currency symbol</p>
+</div>
+                    </td>
+                </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                          <div class="io-description">
+                                  <b>Parameters :</b>
+                                  <table class="params">
+                                      <thead>
+                                          <tr>
+                                                <td>Name</td>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                                <tr>
+                                                        <td>fromcurrency</td>
+                                                </tr>
+                                      </tbody>
+                                  </table>
+                          </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="numberWithCommas"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            numberWithCommas</b>
+                            <a href="#numberWithCommas"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/helpers/common/common.helper.ts:77</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>To get number format with comma</p>
+</div>
+                    </td>
+                </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                          <div class="io-description">
+                                  <b>Parameters :</b>
+                                  <table class="params">
+                                      <thead>
+                                          <tr>
+                                                <td>Name</td>
+                                                    <td>Description</td>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                                <tr>
+                                                        <td>any</td>
+                                                        <td>
+                                                                <code><p>x</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                      </tbody>
+                                  </table>
+                          </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pwdPattern"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            pwdPattern</b>
+                            <a href="#pwdPattern"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;^(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z])(?&#x3D;.*\\d)(?&#x3D;.*[$@$!%*?&amp;#~^])[A-Za-z\\d$@$!%*?&amp;#~^]{8,20}$&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/helpers/common/common.helper.ts:25</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Regex for password </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toGetCurrencySymbol"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            toGetCurrencySymbol</b>
+                            <a href="#toGetCurrencySymbol"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">src/app/helpers/common/common.helper.ts:154</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>To get currency symbol</p>
+</div>
+                    </td>
+                </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                          <div class="io-description">
+                                  <b>Parameters :</b>
+                                  <table class="params">
+                                      <thead>
+                                          <tr>
+                                                <td>Name</td>
+                                                    <td>Description</td>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                                <tr>
+                                                        <td>string</td>
+                                                        <td>
+                                                                <code><p>fromcurrency</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                      </tbody>
+                                  </table>
+                          </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="unamePattern"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            unamePattern</b>
+                            <a href="#unamePattern"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;^[a-z0-9_-]{8,15}$&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/helpers/common/common.helper.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Regex for username </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="XMLViewData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            XMLViewData</b>
+                            <a href="#XMLViewData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/helpers/common/common.helper.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>xml view data </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+
+import { CurrencySymbol } from &#x27;../../shared/currency-symbol&#x27;;
+import { CommonConstant } from &#x27;../../constants/common/common.constant&#x27;;
+
+import * as moment from &#x27;moment&#x27;;
+import { coutries } from &#x27;../common/coutries&#x27;;
+
+/**
+ * Common helper serivce class
+ */
+@Injectable()
+export class CommonHelperService {
+
+    /** xml view data */
+    private XMLViewData: any &#x3D; {};
+
+    /** Regex for username */
+    public unamePattern &#x3D; &#x27;^[a-z0-9_-]{8,15}$&#x27;;
+
+    /** Regex for email */
+    public emailPattern &#x3D; &#x27;^[_a-z0-9]+(\\.[_a-z0-9]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{1,4})$&#x27;;
+
+    /** Regex for password */
+    public pwdPattern &#x3D; &#x27;^(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z])(?&#x3D;.*\\d)(?&#x3D;.*[$@$!%*?&amp;#~^])[A-Za-z\\d$@$!%*?&amp;#~^]{8,20}$&#x27;;
+
+    /** @ignore */
+    constructor() { }
+
+    /**
+     * To remove special characters from object
+     * @param any object
+     */
+    public sanitizeDataObject(object: any) {
+        if (object) {
+            for (const key in object) {
+                if (object.hasOwnProperty(key)) {
+                    if (object[key] &amp;&amp; isNaN(object[key])) {
+                        object[key] &#x3D; object[key].toString().replace(/[&lt;&gt;%]/g, &#x27;&#x27;);
+                    }
+                }
+            }
+
+            return object;
+        }
+    }
+
+    /**
+     * To set file Name and repo Id
+     * @param string id
+     * @param string filename
+     */
+    public setXMLFileViewData(repoId: string, fileName: string) {
+        this.XMLViewData &#x3D; {};
+        this.XMLViewData[CommonConstant.REPO_ID] &#x3D; repoId;
+        this.XMLViewData[CommonConstant.NAME] &#x3D; fileName;
+        this.XMLViewData &#x3D; JSON.stringify(this.XMLViewData);
+        sessionStorage.setItem(&#x27;XMLViewData&#x27;, this.XMLViewData);
+    }
+
+    /**
+     * To get xml file view data
+     */
+    public getXMLFileViewData() {
+        let xmlFileData &#x3D; sessionStorage.getItem(&#x27;XMLViewData&#x27;);
+        if (xmlFileData) {
+            xmlFileData &#x3D; JSON.parse(xmlFileData);
+            return xmlFileData;
+        }
+        return {};
+    }
+
+    /**
+     * To get number format with comma
+     * @param any x
+     */
+    public numberWithCommas &#x3D; (x): any &#x3D;&gt; {
+        // return x.toString().replace(/\B(?&#x3D;(\d{3})+(?!\d))/g, &#x27;,&#x27;);
+        const p &#x3D; parseFloat(x).toFixed(2).split(&#x27;.&#x27;);
+        return p[0].split(&#x27;&#x27;).reverse().reduce((acc, num, i) &#x3D;&gt; {
+            return num + (i &amp;&amp; !(i % 3) ? &#x27;,&#x27; : &#x27;&#x27;) + acc;
+        }, &#x27;&#x27;) + &#x27;.&#x27; + p[1];
+    }
+
+    /**
+     * For comma separated number (&quot;num&quot; is input number)
+     * @param any x
+     */
+    public formatNumberWithComma(x) {
+        const p &#x3D; x.toFixed(2).split(&#x27;.&#x27;);
+        return p[0].split(&#x27;&#x27;).reverse().reduce((acc, num, i) &#x3D;&gt; {
+            return num + (i &amp;&amp; !(i % 3) ? &#x27;,&#x27; : &#x27;&#x27;) + acc;
+        }, &#x27;&#x27;) + &#x27;.&#x27; + p[1];
+    }
+
+    /**
+     * With dynamic number and fractionSize
+     * @param any x
+     * @param any fractionSize
+     */
+    public formatNumber(x, fractionSize?) {
+        let p;
+        if (fractionSize) {
+            p &#x3D; x.toFixed(fractionSize).split(&#x27;.&#x27;);
+        } else {
+            p &#x3D; x.toFixed(2).split(&#x27;.&#x27;);
+        }
+        return p[0].split(&#x27;&#x27;).reverse().reduce((acc, num, i) &#x3D;&gt; {
+            return num + (i &amp;&amp; !(i % 3) ? &#x27;,&#x27; : &#x27;&#x27;) + acc;
+        }, &#x27;&#x27;) + &#x27;.&#x27; + p[1];
+    }
+
+    /**
+     * Number format
+     * @param number n
+     */
+    numberFormat(n): string {
+        let negativeValue: boolean;
+        if (Math.sign(n) &#x3D;&#x3D;&#x3D; -1) {
+            n &#x3D; String(n);
+            n &#x3D; n.replace(&#x27;-&#x27;, &#x27;&#x27;);
+            negativeValue &#x3D; true;
+        }
+        n &#x3D; parseFloat(n);
+        let returnVal;
+        returnVal &#x3D; n.toFixed(2).replace(/./g, function (c, i, a) {
+            return i &gt; 0 &amp;&amp; c !&#x3D;&#x3D; &#x27;.&#x27; &amp;&amp; (a.length - i) % 3 &#x3D;&#x3D;&#x3D; 0 ? &#x27;,&#x27; + c : c;
+        });
+        if (negativeValue) {
+            return &#x27;-&#x27; + returnVal;
+        } else {
+            return returnVal;
+        }
+    }
+
+    /**
+     * Convert number lo string
+     * @param any number
+     */
+    numberToLocalstring(number: any) {
+        if (number) {
+            number &#x3D; number.toFixed(2).split(&#x27;.&#x27;);
+
+            number &#x3D; number.toLocaleString();
+            return number;
+        }
+        return number;
+    }
+
+    /**
+     * To get currency symbol
+     * @param string fromcurrency
+     */
+    public toGetCurrencySymbol &#x3D; (fromcurrency: string) &#x3D;&gt; {
+        let targeted_symbol;
+        const fromCurrency &#x3D; fromcurrency;
+        if (fromCurrency in CurrencySymbol) {
+            targeted_symbol &#x3D; CurrencySymbol[fromCurrency];
+            return targeted_symbol;
+        } else {
+            targeted_symbol &#x3D; &#x27;&#x27;;
+            return targeted_symbol;
+        }
+    }
+
+    /**
+     * To remove special characters
+     * @param string str
+     */
+    public removeSpecialCharacters(str: string) {
+        if (str) {
+            str &#x3D; str.replace(/,/g, &#x27;&#x27;);
+        }
+        return str;
+    }
+
+    /**
+     * To store preferred currency
+     * @param string curr
+     */
+    public setPreferredCurrency(curr: string) {
+        let userData: any &#x3D; {};
+        if (curr) {
+            userData[CommonConstant.PREFERRED_CURRENCY] &#x3D; curr;
+
+            userData &#x3D; JSON.stringify(userData);
+            sessionStorage.setItem(&#x27;userData&#x27;, userData);
+        }
+    }
+
+    /**
+     * To get user preffered currency
+     */
+    public getUserPreferredCurrency() {
+        let userData &#x3D; sessionStorage.getItem(&#x27;userData&#x27;);
+        let preferredCurr: string;
+        if (userData) {
+            userData &#x3D; JSON.parse(userData);
+            preferredCurr &#x3D; userData[CommonConstant.PREFERRED_CURRENCY];
+
+            return preferredCurr;
+        }
+    }
+
+    /**
+     * To change date format
+     * @param value
+     * @param format
+     */
+    public serviceDateFormat(value, format?) {
+        if (format) {
+            value &#x3D; moment(value).format(format)
+        } else {
+            value &#x3D; moment(value, &#x27;DD-MM-YYYY&#x27;).format(&#x27;YYYY-MM-DD&#x27;);
+        }
+        return value;
+    }
+
+    /**
+     * To change date format
+     * @param value
+     * @param format
+     */
+    public prepareServiceDate(value: any) {
+        if (typeof value &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+            let requiredDate;
+            if (value.hasOwnProperty(&#x27;date&#x27;)) {
+                let month &#x3D; value[&#x27;date&#x27;].month;
+                month &#x3D; (&#x27;0&#x27; + month).slice(-2);
+                let date &#x3D; value[&#x27;date&#x27;].day;
+                date &#x3D; (&#x27;0&#x27; + (date)).slice(-2);
+                requiredDate &#x3D; value[&#x27;date&#x27;].year + &#x27;-&#x27; + month + &#x27;-&#x27; + date;
+            }
+            return requiredDate;
+        }
+        return value;
+    }
+
+    /**
+     * To change date format for my date picker
+     * @param value
+     * @param format
+     */
+    public displayDateFormatMyDatePicker(value) {
+        if (value !&#x3D; null &amp;&amp; value !&#x3D;&#x3D; &#x27;&#x27;) {
+            let month;
+            let year;
+            let date;
+            month &#x3D; moment(value).month();
+            month &#x3D; (&#x27;0&#x27; + (month + 1)).slice(-2);
+            year &#x3D; moment(value).year();
+            date &#x3D; moment(value).date();
+            date &#x3D; (&#x27;0&#x27; + (date)).slice(-2);
+            const res &#x3D; {
+                date: {
+                    year: parseInt(year, 10),
+                    month: parseInt(month, 10),
+                    day: parseInt(date, 10)
+                }
+            }
+            return res;
+        }
+        return value;
+    }
+
+    /**
+     * To display jquery date format
+     * @param value
+     * @param format
+     */
+    public displayJqueryDateFormat(value, format?) {
+        if (format) {
+            value &#x3D; moment(value).format(format)
+        } else {
+            value &#x3D; moment(value, &#x27;DD-MM-YYYY&#x27;).format(&#x27;YYYY-MM-DD&#x27;);
+        }
+        return value;
+    }
+
+    /**
+     * To get current date
+     */
+    public getCurrentDate() {
+        const date &#x3D; new Date();
+        // Disable dates after current date
+        date.setDate(date.getDate() + 1);
+        const currentDate &#x3D; {
+            year: date.getFullYear(), month: date.getMonth() + 1, day: date.getDate()
+        }
+        return currentDate;
+    }
+
+    /**
+     * To get curent date based on formats
+     * @param format
+     */
+    public getCurrentMomentDate(format?) {
+        const currDate &#x3D; moment();
+        if (format) {
+            return currDate.format(format);
+        }
+        return currDate;
+    }
+
+    /**
+     * To get maturity date based on month
+     * @param month
+     */
+    public getMaturityDate(month) {
+        const currDate &#x3D; moment();
+        month &#x3D; Number(month);
+        const matDate &#x3D; currDate.add(month, &#x27;months&#x27;);
+        const finalDate &#x3D; matDate.subtract(1, &#x27;days&#x27;);
+        return finalDate;
+    }
+
+    /**
+     * To get days to populate it into dropdown
+     */
+    getDayList() {
+        const min &#x3D; 0;
+        const max &#x3D; 30;
+        const days: number[] &#x3D; [];
+        for (let i &#x3D; min; i &lt;&#x3D; max; i++) {
+            days.push(i);
+        }
+
+        return days;
+    }
+
+    /**
+     * To get months to populate it into dropdown
+     */
+    getMonthList() {
+        const min &#x3D; 0;
+        const max &#x3D; 11;
+        const months: number[] &#x3D; [];
+        for (let i &#x3D; min; i &lt;&#x3D; max; i++) {
+            months.push(i);
+        }
+
+        return months;
+    }
+
+    /**
+     * To get years to populate it into dropdown
+     */
+    getYearList() {
+        const min &#x3D; 0;
+        const max &#x3D; 99;
+        const years: number[] &#x3D; [];
+        for (let i &#x3D; min; i &lt;&#x3D; max; i++) {
+            years.push(i);
+        }
+
+        return years;
+    }
+
+    /**
+     * To display date format into input field
+     * @param date
+     */
+    public displayDateFormat(date) {
+        let month;
+        let year;
+        let day;
+        month &#x3D; date[&#x27;month&#x27;];
+        month &#x3D; (&#x27;0&#x27; + (month)).slice(-2);
+        year &#x3D; date[&#x27;year&#x27;];
+        day &#x3D; date[&#x27;day&#x27;];
+        day &#x3D; (&#x27;0&#x27; + (day)).slice(-2);
+        const res &#x3D; {
+            date: {
+                year: parseInt(year, 10),
+                month: parseInt(month, 10),
+                day: parseInt(day, 10)
+            }
+        }
+        return res;
+    }
+
+    /**
+     * To get current date
+     */
+    getCurrentDateToDisplay() {
+        const date &#x3D; new Date();
+        const currentDate &#x3D; {
+            date: {
+                year: date.getFullYear(),
+                month: date.getMonth() + 1,
+                day: date.getDate()
+            }
+        }
+        return currentDate;
+    }
+
+    /**
+     * To get currency symbol
+     * @param fromcurrency
+     */
+    public getCurrencySymbol &#x3D; (fromcurrency) &#x3D;&gt; {
+        let targeted_symbol;
+        const fromCurrency &#x3D; fromcurrency;
+        if (fromCurrency in CurrencySymbol) {
+            targeted_symbol &#x3D; CurrencySymbol[fromCurrency];
+            return targeted_symbol;
+        } else {
+            targeted_symbol &#x3D; &#x27;&#x27;;
+            return targeted_symbol;
+        }
+    }
+
+    /**
+     * To convert year and month in months
+     * @param month
+     * @param year
+     */
+    getConvertedMonth(month, year) {
+        month &#x3D; Number(month);
+        year &#x3D; Number(year);
+        let requiredMonth: number;
+        requiredMonth &#x3D; year * 12 + month;
+        return requiredMonth;
+    }
+
+    /**
+     * To create common structure for dropdown to send
+     * it into any request structure
+     * @param type
+     * @param value
+     */
+    getDropdownRequestStructure(type: any, value: any) {
+        const dropdownObj: any &#x3D; {};
+        if (value) {
+            dropdownObj[CommonConstant.TYPE] &#x3D; type;
+            dropdownObj[CommonConstant.VALUE] &#x3D; value;
+            return dropdownObj;
+        }
+        return null;
+    }
+
+    /**
+   * To create common structure for mudra(currency and amount) to send
+   * it into any request structure
+   * @param amount
+   * @param currency
+   */
+    getMudraStructure(amount: any, currency: any) {
+        const mudraObject: any &#x3D; {};
+        if (amount &amp;&amp; currency) {
+            mudraObject[CommonConstant.AMOUNT] &#x3D; amount;
+            mudraObject[CommonConstant.CURRENCY] &#x3D; currency;
+            return mudraObject;
+        }
+        return null;
+    }
+
+    /**
+     * To check statement date
+     * @param obj
+     * @param list
+     */
+    checkForDuplicateValue(obj, list, fieldName) {
+        let i;
+        for (i &#x3D; 0; i &lt; list.length; i++) {
+            if (list[i][fieldName] &#x3D;&#x3D;&#x3D; obj[fieldName]) {
+                return i;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * To check statement date
+     * @param obj
+     * @param list
+     */
+    checkForDuplicateFieldsValue(obj, list, fieldName1, fieldName2) {
+        let i;
+        for (i &#x3D; 0; i &lt; list.length; i++) {
+            if (list[i][fieldName1] &#x3D;&#x3D;&#x3D; obj[fieldName1] &amp;&amp; list[i][fieldName2] &#x3D;&#x3D;&#x3D; obj[fieldName2]) {
+                return i;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * To remove duplicates object form list
+     * @param myArr
+     * @param prop
+     */
+    removeDuplicates(myArr, prop) {
+        return myArr.filter((obj, pos, arr) &#x3D;&gt; {
+            return arr.map(mapObj &#x3D;&gt; mapObj[prop]).indexOf(obj[prop]) &#x3D;&#x3D;&#x3D; pos;
+        });
+    }
+
+    /**
+     * To get country code
+     * @param currencyCode
+     */
+    getCountryCode(currencyCode: string): string {
+        const currency &#x3D; currencyCode; // coutries
+        const filteredCoutries &#x3D; coutries.filter((element) &#x3D;&gt; {
+            return element[&#x27;currencyCode&#x27;] &#x3D;&#x3D;&#x3D; currency;
+        });
+        if (filteredCoutries.length &gt; 0) {
+            return filteredCoutries[0][&#x27;isoAlpha3&#x27;]
+        }
+        return &#x27;&#x27;;
+    }
+
+    /**
+     * To get country symbol
+     * @param currencyCode
+     */
+    getCountrySymbol(countryName: string): string {
+        const country &#x3D; countryName; // coutries
+        const filteredCoutries &#x3D; coutries.filter((element) &#x3D;&gt; {
+            return element[&#x27;countryName&#x27;] &#x3D;&#x3D;&#x3D; country;
+        });
+        if (filteredCoutries.length &gt; 0) {
+            const currecnyCode &#x3D; filteredCoutries[0][&#x27;currencyCode&#x27;];
+            const currencySymbol &#x3D; this.getCurrencySymbol(currecnyCode);
+            return currencySymbol;
+        }
+        return &#x27;&#x27;;
+    }
+
+    /**
+     * To abbreviate number - to format number
+     * @param value
+     */
+    abbreviateNumber(value) {
+        let newValue &#x3D; value;
+        if (value &gt;&#x3D; 1000) {
+            value &#x3D; parseInt(value, 10);
+            const suffixes &#x3D; [&#x27;&#x27;, &#x27;K&#x27;, &#x27;M&#x27;, &#x27;B&#x27;, &#x27;T&#x27;];
+            const suffixNum &#x3D; Math.floor((&#x27;&#x27; + value).length / 3);
+            let shortValue: number;
+            for (let precision &#x3D; 2; precision &gt;&#x3D; 1; precision--) {
+                shortValue &#x3D; parseFloat((suffixNum !&#x3D;&#x3D; 0 ? (value / Math.pow(1000, suffixNum)) : value).toPrecision(precision));
+                const dotLessShortValue &#x3D; (shortValue + &#x27;&#x27;).replace(/[^a-zA-Z 0-9]+/g, &#x27;&#x27;);
+                if (dotLessShortValue.length &lt;&#x3D; 2) { break; }
+            }
+            if (shortValue % 1 !&#x3D;&#x3D; 0) {
+                shortValue &#x3D; Number(shortValue.toFixed(1));
+            };
+            newValue &#x3D; shortValue + suffixes[suffixNum];
+        } else {
+            newValue &#x3D; this.formatNumberWithComma(newValue);
+        }
+        return newValue;
+    }
+}
+
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CommonHelperService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

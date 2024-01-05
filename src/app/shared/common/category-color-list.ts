@@ -1,0 +1,30 @@
+/**
+ * Category color Object
+ */
+export const categoryColorList = {
+    'Income'                   : '#50be0d',
+    'Misc'                     : '#567c83',
+    'Entertainment'            : '#f0b32d',
+    'Education'                : '#32da85',
+    'Shopping'                 : '#bc5fec',
+    'Personal and Lifestyle'   : '#ecdc29',
+    'Doctors and Medicine'     : '#2b74e1',
+    'Kids'                     : '#f1b423',
+    'Food and Dining'          : '#83a617',
+    'Gifts and Donations'      : '#f24479',
+    'Investments'              : '#31821c',
+    'Bills and Utilities'      : '#ee3011',
+    'Auto and Transport'       : '#a5532f',
+    'Travel and Holiday'       : '#6466ae',
+    'Fees and Charges'         : '#5e6b23',
+    'Business Expense'         : '#310f6a',
+    'Taxes'                    : '#aa2610',
+    'Home and Utilities'       : '#51c8e9',
+    'Insurance'                : '#2b6397',
+    'Pet Care'                 : '#a6a413',
+    'Savings'                  : '#f67ad1',
+    'Transfer'                 : '#2fb0ae',
+    'Clubs and Memberships'    : '#971a5e',
+    'uncategorised'            : '#2a495e',
+    'Debt Repayment'           : '#ff0202',
+}

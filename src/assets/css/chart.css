@@ -1,0 +1,188 @@
+/*canvas#race{position:relative; z-index:10000;}
+* {
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}*/
+
+.overall-status-chart ul {
+  list-style: none;
+}
+
+#chartjs-tooltip {
+  opacity: 1;
+  position: absolute;
+  background: none;
+  color: #FFFFFF;
+  font-size: 10px;
+  padding: 3px;
+}
+
+#chartjs-tooltip.below {
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
+#chartjs-tooltip.below:before {
+  border: solid;
+  border-color: #111 transparent;
+  border-color: rgba(255, 255, 255, .8) transparent;
+  border-width: 0 8px 8px 8px;
+  bottom: 1em;
+  content: "";
+  display: block;
+  left: 50%;
+  position: absolute;
+  z-index: 99;
+  -webkit-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
+}
+
+#chartjs-tooltip.above {
+  -webkit-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
+}
+
+#chartjs-tooltip.above:before {
+  border: solid;
+  border-color: #111 transparent;
+  border-color: rgba(255, 255, 255, .8) transparent;
+  border-width: 8px 8px 0 8px;
+  bottom: 1em;
+  content: "";
+  display: block;
+  left: 50%;
+  top: 100%;
+  position: absolute;
+  z-index: 99;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
+.chart-canvas {
+    display: inline-block;
+    border: 1px solid black;
+    width:100%;
+    height:100%;
+}
+
+/*budget page*/
+.chart-legend li {
+  font-size: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.chart-legend li span{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.chart-legend{
+  height: 137px;
+  overflow-y: auto;
+  vertical-align: top;
+}
+.chart-legend ul {
+  position: relative;
+  list-style: none;
+  transform: translateY(-36%);
+  top: 50%;
+}
+.budget-chart-container {
+  padding: 0px;
+  padding-top: 3%;
+  width: 72%
+}
+.budget-legend-container {
+  padding: 0px;
+  width: 37%;
+  display: inline-block;
+  position: absolute;
+  top: 28%;
+  /*right: 24px;*/
+  right: -8px;
+}
+
+/*goal page*/
+.goal-chart-legend li {
+  font-size: 12px;
+}
+
+.goal-chart-legend li span{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.goal-chart-legend{
+  height: 172px;
+  overflow-y: auto;
+  vertical-align: top;
+}
+/* To show the list right the middle of a div tag */
+.goal-chart-legend ul {
+  position: relative;
+  list-style: none;
+  transform: translateY(-43%);
+  top: 50%;
+}
+.goal-chart-container {
+  width: 60%;
+}
+.goal-legend-container {
+  width: 25%;
+  display: inline-block;
+  position: absolute;
+  top: 22%;
+  right: 38px;
+}
+
+/*overview page*/
+.account-chart-legend li {
+  font-size: 12px;
+}
+
+.account-chart-legend li span{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.account-chart-legend{
+  text-align: center;
+  max-height: 130px;
+  overflow-y: auto;
+}
+.account-legend-container {
+  margin-top: 16px;
+}
+
+/*investment page*/
+.investment-chart-container {
+  width: 60%;
+  padding-top: 3%;
+}
+.investment-legend-container {
+  padding: 0px;
+  width: 30%;
+  display: inline-block;
+  position: absolute;
+  top: 28%;
+}

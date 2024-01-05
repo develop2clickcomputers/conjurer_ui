@@ -1,0 +1,64 @@
+<div class="b47PM-wrapper before-login">
+   <!-- ".before-login" add this Class when user is not loged in -->
+   <app-before-login-header></app-before-login-header>
+   <div class="b47PM-center-body b47PM-signin-page">
+      <div class="b47PM-LR-quad">
+         <div class="row clearfix">
+            <div class="col-sm-7 col-md-7">
+               <div class="left-form-quad">
+                  <header>
+                     <!-- <img src="/assets/img/login-registration/piemony-logo.png" alt=""> -->
+                     Conjurer
+                     <br>
+                     <span>Sign in to start your session</span>
+                  </header>
+                  <div>
+                     <!--<div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>-->
+                     <alert></alert>
+                     <form name="form" (ngSubmit)="loginForm.form.valid && login()" #loginForm="ngForm" role="form" autocomplete="off">
+                        <div class="form-group" [ngClass]="{ 'has-error': loginForm.submitted && !usernameRefVar.valid }">
+                           <!-- ".has-error" add this class for showing validations when input is not filled by user  -->
+                           <label>Email or Username</label>
+                           <input appRestrictSplChar type="text" name="username" class="form-control restrictSplChr" [(ngModel)]="user.username" #usernameRefVar="ngModel"
+                              required autocomplete="off" />
+                           <span class="help-block" *ngIf="loginForm.submitted && !usernameRefVar.valid">Username is required</span>
+                        </div>
+                        <div class="form-group" [ngClass]="{ 'has-error': loginForm.submitted && !passwordRefVar.valid }">
+                           <label>Password</label>
+                           <input type="password" name="password" class="form-control" [(ngModel)]="user.password" #passwordRefVar="ngModel" required/>
+                           <span class="help-block" *ngIf="loginForm.submitted && !passwordRefVar.valid">Password is required</span>
+                        </div>
+                        <!-- <div *ngIf="showRecaptcha" class="form-group" [ngClass]="{ 'has-error': loginForm.submitted && !captchaControl.valid }">
+                           <div class="g-recaptcha">
+                              <re-captcha [(ngModel)]="user.captcha" name="captcha" required siteKey="6LdpOGoUAAAAAPcEpM26JUDdlzUQwJ2DpBnaHAo1" #captchaControl="ngModel"></re-captcha>
+                           </div>
+                           <span class="help-block" *ngIf="loginForm.submitted && !captchaControl.valid">Captcha is required</span>
+                        </div> -->
+
+                        <div class="form-group">
+                           <button type="submit" class="btn signin-btn">SIGN IN</button>
+                           <!--<img src=/assets/img/loader/spin.gif" />-->
+                        </div>
+                        <div class="form-group mr0">
+                           <!--  Don't have account, <a href="" [routerLink]="['/signup']">register a new account</a>
+                      <hr> -->
+                           <a href="" [routerLink]="['/forgotpassword']">Forgot your password?</a>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm-5 col-md-5">
+               <div class="app-request-quad">
+                  <footer>
+                     <h2>AUTOMATION
+                        <br>DELIVERED</h2>
+                  </footer>
+                  <div class="clearfix"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <app-before-login-footer></app-before-login-footer>
+</div>

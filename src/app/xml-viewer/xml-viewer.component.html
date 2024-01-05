@@ -1,0 +1,79 @@
+<div class="b47PM-wrapper logged-in">
+  <!-- "logged-in" add this class when user login successfully -->
+  <!-- Header Part Html Starts -->
+  <app-authorised-header></app-authorised-header>
+  <!-- Header Part Html Ends -->
+
+  <!-- Main Display Html Starts -->
+  <div class="b47PM-center-body">
+    <div class="container-fluid b47PM-container">
+      <div class="col-xs-12 b47PM-preview-quad" style="margin-top: 20px;">
+        <div class="row clearfix">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12" style="padding-left: 0px;">
+            <!-- <h2>XML Review</h2> -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">XML View</h3>
+                </div>
+                <div class="panel-body xml-panel-body">
+                  <div id="appendXmlView"></div>
+                </div>
+            </div>
+          </div>
+          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+            <div class="text-center button-section">
+              <button type="button" (click)="exportXMLFile()" class="btn btn-primary xml-button" [disabled]="saveXMLButton">Save</button><br />
+              <button type="button" (click)="downloadXMLFile()" class="btn btn-primary xml-button">Download</button><br />
+              <button type="button" (click)="cancelXMLFileUpdate()" class="btn btn-warning xml-button">Cancel</button>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+            <div class="row">
+              <div class="panel panel-default xml-panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Update XML</h3>
+                  </div>
+                  <div class="panel-body xml-panel-body">
+                      <div *ngIf="tableHead.length === 0">
+                          There are no row selected
+                      </div>
+                      <div *ngIf="tableHead.length > 0">
+                        <div class="table-responseviness">
+                          <div class="table">
+                            <thead>
+                              <tr>
+                                <th>Tag</th>
+                                <th *ngFor="let item of tableHead">{{item}}</th>
+                              </tr>
+                            </thead>
+                            <tbody *ngFor="let tag of tableFileds" >
+                              <tr>
+                                <td>
+                                  {{tag}}
+                                </td>
+                                <td *ngFor="let item of tableHead; let idx = index">
+                                  <input type="text" id="{{rowClass}}_sibling-{{idx + 1}}_{{tag}}_{{idx + 1}}" (input)="updateValue($event)" (focus)="hightlightCorrespondingElement($event)"
+                                    class="form-control">
+                                </td>
+                              </tr>
+                            </tbody>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Part Html Starts -->
+  <app-authorised-footer></app-authorised-footer>
+  <!-- Footer Part Html Ends -->
+
+  <!-- Notification component -->
+  <app-common-notification [notificationMessage]="notificationMessage" #notificationComponent></app-common-notification>
+
+</div>
