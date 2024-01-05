@@ -28,7 +28,7 @@ import { CommonHttpAdapterService } from '../../adapters/common-http-adapter.ser
 export class StatementRepositoryComponent implements OnInit, OnDestroy {
 
   /** Delete statement modal reference */
-  @ViewChild('deleteStatementModal') deleteStatementModal: TemplateRef<any>
+  @ViewChild('deleteStatementModal', {static: false}) deleteStatementModal: TemplateRef<any>
 
   public statmentRepositoryData: any = [];
   public xmlFileList: any = [];

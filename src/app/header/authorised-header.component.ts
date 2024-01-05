@@ -38,16 +38,16 @@ import { CustomOutputComponent } from '../custom-output/custom-output.component'
 export class AuthorisedHeaderComponent implements OnInit, AfterViewInit {
 
     /** Notification component reference */
-    @ViewChild('notificationComponent') notificationComponent: CommonNotificationComponent;
+    @ViewChild('notificationComponent', {static: false}) notificationComponent: CommonNotificationComponent;
 
     /** MFA modal reference */
-    @ViewChild('mfaModal') mfaModal: TemplateRef<any>;
+    @ViewChild('mfaModal', {static: false}) mfaModal: TemplateRef<any>;
 
     /** Setting modal reference */
-    @ViewChild('settingModal') settingModal: TemplateRef<any>;
+    @ViewChild('settingModal', {static: false}) settingModal: TemplateRef<any>;
 
     /** Custom modal reference */
-    @ViewChild('customOutputComponent') customOutputComponent: CustomOutputComponent;
+    @ViewChild('customOutputComponent', {static: false}) customOutputComponent: CustomOutputComponent;
 
     @Output() callBackOnAccountAdded: EventEmitter<any> = new EventEmitter();
 

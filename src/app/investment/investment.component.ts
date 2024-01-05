@@ -46,13 +46,13 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 export class InvestmentComponent implements OnInit, OnDestroy, AfterViewInit {
 
   /** @ignore */
-  @ViewChild('holdingAssetModal') holdingAssetModal: TemplateRef<any>;
+  @ViewChild('holdingAssetModal', {static: false}) holdingAssetModal: TemplateRef<any>;
 
   /** @ignore */
-  @ViewChild('holdingAssetByCategoryModal') holdingAssetByCategoryModal: TemplateRef<any>;
+  @ViewChild('holdingAssetByCategoryModal', {static: false}) holdingAssetByCategoryModal: TemplateRef<any>;
 
   /** @ignore */
-  @ViewChild('deleteAssetTransactionModal') deleteAssetTxnModal: TemplateRef<any>;
+  @ViewChild('deleteAssetTransactionModal', {static: false}) deleteAssetTxnModal: TemplateRef<any>;
 
   public investments: any = [];
   public investmentByAccount: any = [];

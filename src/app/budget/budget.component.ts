@@ -47,13 +47,13 @@ export class BudgetComponent implements OnInit, OnDestroy {
   delTxnDataLoading: boolean;
 
   /** Notification component class reference */
-  @ViewChild('notificationComponent') notificationComponent: CommonNotificationComponent;
+  @ViewChild('notificationComponent', {static: false}) notificationComponent: CommonNotificationComponent;
 
   /** Add budget modal */
-  @ViewChild('addBudgetModal') addBudgetModal: TemplateRef<any>;
+  @ViewChild('addBudgetModal', {static: false}) addBudgetModal: TemplateRef<any>;
 
   /** Delete Transaction Modal */
-  @ViewChild('deleteTransactionModal') deleteTransactionModal: TemplateRef<any>;
+  @ViewChild('deleteTransactionModal', {static: false}) deleteTransactionModal: TemplateRef<any>;
 
   public preferredCurrency: string;
   public budgetListData: any = {};

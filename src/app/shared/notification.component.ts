@@ -18,7 +18,7 @@ import { ModalConfig } from './common/modal.config';
 export class CommonNotificationComponent implements OnInit, OnDestroy {
 
     /** Notification modal component class */
-    @ViewChild('commonNotificationModal') commonNotificationModal: TemplateRef<any>;
+    @ViewChild('commonNotificationModal', {static: false}) commonNotificationModal: TemplateRef<any>;
 
     /** To grab notification message if present */
     @Input() notificationMessage: any;

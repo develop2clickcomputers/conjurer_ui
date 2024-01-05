@@ -46,10 +46,10 @@ declare var $: any;
 export class RiderCommissionComponent implements OnInit, OnDestroy {
 
   /** rider comm rate delete modal reference */
-  @ViewChild('riderCommRateDeleteModal') riderCommRateDeleteModal: TemplateRef<any>;
+  @ViewChild('riderCommRateDeleteModal', {static: false}) riderCommRateDeleteModal: TemplateRef<any>;
 
   /** Notification component reference */
-  @ViewChild('notificationComponent') notificationComponent: CommonNotificationComponent;
+  @ViewChild('notificationComponent', {static: false}) notificationComponent: CommonNotificationComponent;
 
   public riderCommissionFlag = 'riderCommissionFlag';
   public riderCommForm: FormGroup;

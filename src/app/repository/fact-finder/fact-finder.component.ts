@@ -30,22 +30,22 @@ import { FactFinderService } from './fact-finder.service';
 export class FactFinderComponent implements OnInit, OnDestroy {
 
   /** Detele fact finder history modal reference */
-  @ViewChild('deleteFactFinderHistoryModal') deleteFactFinderHistoryModal: TemplateRef<any>;
+  @ViewChild('deleteFactFinderHistoryModal', {static: false}) deleteFactFinderHistoryModal: TemplateRef<any>;
 
   /** pdf preview modal reference */
-  @ViewChild('pdfPreviewModal') pdfPreviewModal: TemplateRef<any>;
+  @ViewChild('pdfPreviewModal', {static: false}) pdfPreviewModal: TemplateRef<any>;
 
   /** Fact finder form modal reference */
-  @ViewChild('factFinderFormModal') factFinderFormModal: TemplateRef<any>;
+  @ViewChild('factFinderFormModal', {static: false}) factFinderFormModal: TemplateRef<any>;
 
   /** Review fact finder form modal reference */
-  @ViewChild('reviewFormModal') reviewFormModal: TemplateRef<any>;
+  @ViewChild('reviewFormModal', {static: false}) reviewFormModal: TemplateRef<any>;
 
   /** Notification component reference */
-  @ViewChild('notificationComponent') notificationComponent: CommonNotificationComponent;
+  @ViewChild('notificationComponent', {static: false}) notificationComponent: CommonNotificationComponent;
 
   /** Otp modal reference */
-  @ViewChild('otpModal') otpModal: TemplateRef<any>;
+  @ViewChild('otpModal', {static: false}) otpModal: TemplateRef<any>;
 
   public factFinderHistory: any[] = [];
   public clientObject: any = {};

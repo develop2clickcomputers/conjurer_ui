@@ -48,16 +48,16 @@ declare var $: any;
 export class PolicyInformationComponent implements OnInit, OnDestroy {
 
   /** Carrier sidebar menu component reference */
-  @ViewChild('carrierSidebarMenu') carrierSidebarMenu: CarrierMenuComponent;
+  @ViewChild('carrierSidebarMenu', {static: false}) carrierSidebarMenu: CarrierMenuComponent;
 
   /** Plan data delete modal reference */
-  @ViewChild('planDataDeleteModal') planDataDeleteModal: TemplateRef<any>;
+  @ViewChild('planDataDeleteModal', {static: false}) planDataDeleteModal: TemplateRef<any>;
 
   /** Notification component reference */
-  @ViewChild('notificationComponent') notificationComponent: CommonNotificationComponent;
+  @ViewChild('notificationComponent', {static: false}) notificationComponent: CommonNotificationComponent;
 
   /** Client policy detail reference */
-  @ViewChild('clientPolicyDetailModal') clientPolicyDetailModal: TemplateRef<any>;
+  @ViewChild('clientPolicyDetailModal', {static: false}) clientPolicyDetailModal: TemplateRef<any>;
 
   public policyInformationFlag = 'policyInformationFlag';
   public policyInfoForm: FormGroup;

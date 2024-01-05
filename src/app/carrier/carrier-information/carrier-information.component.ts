@@ -43,16 +43,16 @@ declare var $: any;
 export class CarrierInformationComponent implements OnInit, OnDestroy {
 
   /** Address modal details component reference */
-  @ViewChild('addressDetailsModal') addressDetailsModal: TemplateRef<any>;
+  @ViewChild('addressDetailsModal', {static: false}) addressDetailsModal: TemplateRef<any>;
 
   /** Carrier meta data delete modal reference */
-  @ViewChild('carrierDataDeleteModal') carrierDataDeleteModal: TemplateRef<any>;
+  @ViewChild('carrierDataDeleteModal', {static: false}) carrierDataDeleteModal: TemplateRef<any>;
 
   /** Dropdown component reference */
-  @ViewChild('dropdownComponent') dropdownComponent: DropdownComponent;
+  @ViewChild('dropdownComponent', {static: false}) dropdownComponent: DropdownComponent;
 
   /** Notification component reference */
-  @ViewChild('notificationComponent') notificationComponent: CommonNotificationComponent;
+  @ViewChild('notificationComponent', {static: false}) notificationComponent: CommonNotificationComponent;
 
   public carrierFlag = 'carrierFlag';
   private contactObj: any = {};

@@ -26,13 +26,13 @@ import { DropdownService } from '../dropdown/dropdown.service';
 export class DropdownComponent implements OnInit {
 
     /** Dropdown modal reference */
-    @ViewChild('dropdownModal') dropdownModal: TemplateRef<any>;
+    @ViewChild('dropdownModal', {static: false}) dropdownModal: TemplateRef<any>;
 
     /** Dropdown delete modal reference */
-    @ViewChild('dropdownDeleteModal') dropdownDeleteModal: TemplateRef<any>;
+    @ViewChild('dropdownDeleteModal', {static: false}) dropdownDeleteModal: TemplateRef<any>;
 
     /** Dropdown remove modal */
-    @ViewChild('dropdownRemoveModal') dropdownRemoveModal: TemplateRef<any>;
+    @ViewChild('dropdownRemoveModal', {static: false}) dropdownRemoveModal: TemplateRef<any>;
 
     public dropdownList: Array<any> = [];
     public tempDropdownList: Array<any> = [];

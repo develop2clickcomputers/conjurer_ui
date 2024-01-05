@@ -17,62 +17,53 @@ let APP_MAIN_URL: any;
 
 if (environment.production) { /** For production */
   APP_MAIN_URL = {
-    //apiMainUrl: 'http://conjurer.us-east-2.elasticbeanstalk.com/',  // redirecting to k2 service using server(k2 service - 13.126.213.79)
-    //SSOUrl: 'http://authengine.us-east-2.elasticbeanstalk.com/',
-    //everestUrl: 'http://auctor.us-east-2.elasticbeanstalk.com/',
+    //apiMainUrl: 'https://conjurerdev.infiniopes.com/conjurer/',  // redirecting to k2 service using server(k2 service - 13.126.213.79)
+    //SSOUrl: 'https://conjurerdev.infiniopes.com/auth/',
+    //everestUrl: 'https://auctordev.infiniopes.com/auctor/',
+
     //everestUrl: 'http://localhost:12014/',
     //apiMainUrl: 'http://localhost:8080/',
     //SSOUrl: 'http://localhost:12012/',
 
-    //apiMainUrl:'http://conjurer.us-east-2.elasticbeanstalk.com/',
-    //SSOUrl: 'http://authengine.us-east-2.elasticbeanstalk.com/',
-    //everestUrl:'http://auctor.us-east-2.elasticbeanstalk.com/',
+    //apiMainUrl:'http://conjurerapi.us-east-2.elasticbeanstalk.com/',
+    //SSOUrl: 'http://authapi.us-east-2.elasticbeanstalk.com/',
+    //everestUrl:'http://auctorapi.us-east-2.elasticbeanstalk.com/',
 
-    apiMainUrl:'http://localhost:8080',
-    SSOUrl: 'http://localhost:12012/',
-    everestUrl:'http://localhost:12014/',
+    apiMainUrl: 'http://192.168.0.17:11011/',
+    SSOUrl: 'http://192.168.0.17:12012/',
+    everestUrl: 'http://192.168.0.16:8080/',
 
-    //apiMainUrl:'http://conjurer.us-east-2.elasticbeanstalk.com/',
-    //SSOUrl: 'http://authengine.us-east-2.elasticbeanstalk.com/',
-    //everestUrl:'http://auctor.us-east-2.elasticbeanstalk.com/',
-
-    // apiMainUrl: 'http://192.168.0.17:11011/',
-    // SSOUrl: 'http://192.168.0.17:12012/',
-    // everestUrl: 'http://192.168.0.16:8080/',
     authkey: 'g0EOi4npoPOg3hwI98OHxD1WgWz3MKqx'
   }
 } else {
   APP_MAIN_URL = { /** For development */
-
-    //apiMainUrl:'http://conjurer.us-east-2.elasticbeanstalk.com/',
-    //SSOUrl: 'http://authengine.us-east-2.elasticbeanstalk.com/',
-    //everestUrl:'http://auctor.us-east-2.elasticbeanstalk.com/',
-
-    apiMainUrl:'http://localhost:8080',
-    SSOUrl: 'http://localhost:12012/',
-    everestUrl:'http://localhost:12014/',
-
-    //apiMainUrl:'http://conjurer.us-east-2.elasticbeanstalk.com/',
-    //SSOUrl: 'http://authengine.us-east-2.elasticbeanstalk.com/',
-    //everestUrl:'http://auctor.us-east-2.elasticbeanstalk.com/',
-
-
-    //apiMainUrl: 'http://conjurer.us-east-2.elasticbeanstalk.com/',
-    //SSOUrl: 'http://authengine.us-east-2.elasticbeanstalk.com/',
+    //apiMainUrl: 'https://conjurerdev.infiniopes.com/conjurer/',
+    //SSOUrl: 'https://conjurerdev.infiniopes.com/auth/',
     
     //apiMainUrl: 'http://localhost:8080/',
     //apiMainUrl:'http://pimoney-env-1.eba-zsw3yt7t.us-east-2.elasticbeanstalk.com/',
     
     //SSOUrl: 'http://localhost:12012/',
     //SSOUrl: 'http://authapi-env.eba-r3hmjwdz.us-east-2.elasticbeanstalk.com/',
-    //everestUrl: 'http://auctor.us-east-2.elasticbeanstalk.com/',
+    //everestUrl: 'https://auctordev.infiniopes.com/auctor/',
     
     //everestUrl: 'http://localhost:12014/',
     //everestUrl:'http://auctor-env.eba-npnyqpfr.us-east-2.elasticbeanstalk.com/',
 
-    // apiMainUrl: 'http://192.168.0.20:11011/',
-    // SSOUrl: 'http://192.168.0.17:12012/',
-    // everestUrl: 'http://192.168.0.16:8080/',
+    //apiMainUrl: 'http://192.168.0.20:11011/',
+    //SSOUrl: 'http://192.168.0.17:12012/',
+    //everestUrl: 'http://192.168.0.16:8080/',
+
+    everestUrl: 'http://localhost:12014/',
+    apiMainUrl: 'http://localhost:8080/',
+    SSOUrl: 'http://localhost:12012/',
+
+
+    
+    //apiMainUrl:'http://conjurerapi.us-east-2.elasticbeanstalk.com/',
+    //SSOUrl: 'http://authapi.us-east-2.elasticbeanstalk.com/',
+    //everestUrl:'http://auctorapi.us-east-2.elasticbeanstalk.com/',
+
     authkey: 'g0EOi4npoPOg3hwI98OHxD1WgWz3MKqx'
   }
 }

@@ -31,10 +31,10 @@ import { CommonHelperService } from '../../helpers/common/common.helper';
 export class XmlfileComponent implements OnInit, OnDestroy {
 
   /** Delete statement modal reference */
-  @ViewChild('deleteStatementModal') deleteStatementModal: TemplateRef<any>;
+  @ViewChild('deleteStatementModal', {static: false}) deleteStatementModal: TemplateRef<any>;
 
   /** View XML file modal reference */
-  @ViewChild('viewXMLFileModal') viewXMLFileModal: TemplateRef<any>;
+  @ViewChild('viewXMLFileModal', {static: false}) viewXMLFileModal: TemplateRef<any>;
 
   public xmlFilesData: any = [];
   public xmlFilesDataByDate: Array<any> = [];

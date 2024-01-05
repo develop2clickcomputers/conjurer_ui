@@ -28,7 +28,7 @@ declare var $: any;
 export class XMLViewerComponent implements OnInit, OnDestroy {
 
   /** notification component reference */
-  @ViewChild('notificationComponent') notificationComponent: CommonNotificationComponent;
+  @ViewChild('notificationComponent', {static: false}) notificationComponent: CommonNotificationComponent;
 
   public xmlString: string;
   public xmlViewData: any;

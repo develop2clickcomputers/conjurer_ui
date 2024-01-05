@@ -45,28 +45,28 @@ declare var $: any;
 export class NewPolicyComponent implements OnInit, OnDestroy {
 
   /** Policy modal reference */
-  @ViewChild('policyModal') policyModal: TemplateRef<any>;
+  @ViewChild('policyModal', {static: false}) policyModal: TemplateRef<any>;
 
   /** Commission projection modal reference */
-  @ViewChild('commissionProjectionModal') commissionProjectionModal: TemplateRef<any>;
+  @ViewChild('commissionProjectionModal', {static: false}) commissionProjectionModal: TemplateRef<any>;
 
   /** Dropdown component reference */
-  @ViewChild('dropdownComponent') dropdownComponent: DropdownComponent;
+  @ViewChild('dropdownComponent', {static: false}) dropdownComponent: DropdownComponent;
 
   /** Combine import new rider modal reference */
-  @ViewChild('combineImportAddNewRiderModal') combineImportAddNewRiderModal: TemplateRef<any>;
+  @ViewChild('combineImportAddNewRiderModal', {static: false}) combineImportAddNewRiderModal: TemplateRef<any>;
 
   /** Date picker reference */
-  @ViewChild('myDatePicker', { read: ViewContainerRef }) myDatePicker: MyDatePicker;
+  @ViewChild('myDatePicker',  { static: false, read: ViewContainerRef }) myDatePicker: MyDatePicker;
 
   /** Carrier modal  */
-  @ViewChild('carrierInfoModal') carrierInfoModal: TemplateRef<any>;
+  @ViewChild('carrierInfoModal', {static: false}) carrierInfoModal: TemplateRef<any>;
 
   /** Plan info modal reference */
-  @ViewChild('planInfoModal') planInfoModal: TemplateRef<any>;
+  @ViewChild('planInfoModal', {static: false}) planInfoModal: TemplateRef<any>;
 
   /** rider modal reference */
-  @ViewChild('riderModal') riderModal: TemplateRef<any>;
+  @ViewChild('riderModal', {static: false}) riderModal: TemplateRef<any>;
 
   public carriers: any[] = [];
   public clientData: any[] = [];

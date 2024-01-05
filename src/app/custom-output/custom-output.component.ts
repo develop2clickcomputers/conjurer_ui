@@ -28,28 +28,28 @@ import { DeleteComponent } from '../shared/delete/delete.component';
 export class CustomOutputComponent implements OnInit, OnDestroy {
 
   /** Available header modal reference */
-  @ViewChild('availableHeaderModal') availableHeaderModal: TemplateRef<any>;
+  @ViewChild('availableHeaderModal', {static: false}) availableHeaderModal: TemplateRef<any>;
 
   /** Output type modal reference */
-  @ViewChild('outputTypeModal') outputTypeModal: TemplateRef<any>;
+  @ViewChild('outputTypeModal', {static: false}) outputTypeModal: TemplateRef<any>;
 
   /** New header modal reference */
-  @ViewChild('newHeaderModal') newHeaderModal: TemplateRef<any>;
+  @ViewChild('newHeaderModal', {static: false}) newHeaderModal: TemplateRef<any>;
 
   /** Delete modal reference */
-  @ViewChild('deleteModal') deleteModal: TemplateRef<any>;
+  @ViewChild('deleteModal', {static: false}) deleteModal: TemplateRef<any>;
 
   /** Import header modal reference */
-  @ViewChild('importHeaderFieldModal') importHeaderFieldModal: TemplateRef<any>;
+  @ViewChild('importHeaderFieldModal', {static: false}) importHeaderFieldModal: TemplateRef<any>;
 
   /** View Custom Header output modal reference */
-  @ViewChild('viewCustomHeaderOutputModal') viewCustomHeaderOutputModal: TemplateRef<any>;
+  @ViewChild('viewCustomHeaderOutputModal', {static: false}) viewCustomHeaderOutputModal: TemplateRef<any>;
 
   /** Delete component reference */
-  @ViewChild('deleteComponent') private deleteComponent: DeleteComponent;
+  @ViewChild('deleteComponent', {static: false}) private deleteComponent: DeleteComponent;
 
   /** Notification component reference */
-  @ViewChild('notificationComponent') private notificationComponent: CommonNotificationComponent
+  @ViewChild('notificationComponent', {static: false}) private notificationComponent: CommonNotificationComponent
 
   availableHeaderModalRef: BsModalRef;
   outputTypeModalRef: BsModalRef;

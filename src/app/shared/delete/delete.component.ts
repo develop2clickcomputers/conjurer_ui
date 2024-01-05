@@ -21,10 +21,10 @@ import { CommonNotificationComponent } from '../notification.component';
 export class DeleteComponent implements OnInit, OnDestroy {
 
     /** Delete modal reference */
-    @ViewChild('deleteModal') deleteModal: TemplateRef<any>;
+    @ViewChild('deleteModal', {static: false}) deleteModal: TemplateRef<any>;
 
     /** Notification component reference */
-    @ViewChild('notificationComponent')
+    @ViewChild('notificationComponent', {static: false})
     private notificationComponent: CommonNotificationComponent;
 
     // tslint:disable-next-line:no-output-on-prefix

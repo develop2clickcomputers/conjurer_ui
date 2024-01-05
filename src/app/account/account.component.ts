@@ -43,34 +43,34 @@ import * as moment from 'moment';
 export class AccountComponent implements OnInit, OnDestroy {
 
   /** header component reference */
-  @ViewChild('authorisedHeader') authorisedHeader: AuthorisedHeaderComponent;
+  @ViewChild('authorisedHeader',{static: false}) authorisedHeader: AuthorisedHeaderComponent;
 
   /** notification component reference */
-  @ViewChild('notificationComponent') notificationComponent: CommonNotificationComponent;
+  @ViewChild('notificationComponent', {static: false}) notificationComponent: CommonNotificationComponent;
 
   /** combine modal for online account and manual account */
-  @ViewChild('combineLinkUploadStModal') combineLinkUploadStModal: TemplateRef<any>;
+  @ViewChild('combineLinkUploadStModal', {static: false}) combineLinkUploadStModal: TemplateRef<any>;
 
   /** new policy component reference */
-  @ViewChild('newPolicyComponent') newPolicyComponent: NewPolicyComponent;
+  @ViewChild('newPolicyComponent', {static: false}) newPolicyComponent: NewPolicyComponent;
 
   /** password modal for pdf statement */
-  @ViewChild('passwordModal') stmtPasswordModal: TemplateRef<any>;
+  @ViewChild('passwordModal', {static: false}) stmtPasswordModal: TemplateRef<any>;
 
   /** add account modal for online account */
-  @ViewChild('addAccountModal') addAccountModal: TemplateRef<any>;
+  @ViewChild('addAccountModal', {static: false}) addAccountModal: TemplateRef<any>;
 
   /** upload statement modal for single upload and multi upload */
-  @ViewChild('uploadStatementModal') uploadStmtModal: TemplateRef<any>;
+  @ViewChild('uploadStatementModal', {static: false}) uploadStmtModal: TemplateRef<any>;
 
   /** manual account delete mdoal */
-  @ViewChild('manualAccounDeleteModal') manualAccounDeleteModal: TemplateRef<any>;
+  @ViewChild('manualAccounDeleteModal', {static: false}) manualAccounDeleteModal: TemplateRef<any>;
 
   /** edit account credential modal */
-  @ViewChild('editAccountCredential') editAccountCredential: TemplateRef<any>;
+  @ViewChild('editAccountCredential', {static: false}) editAccountCredential: TemplateRef<any>;
 
   /** delete account modal */
-  @ViewChild('deleteAccountModal') deleteAccountModal: TemplateRef<any>;
+  @ViewChild('deleteAccountModal', {static: false}) deleteAccountModal: TemplateRef<any>;
 
   delPropertyDataLoading: boolean;
   editPropertyDataLoading: boolean;

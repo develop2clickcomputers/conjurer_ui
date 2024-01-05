@@ -98,9 +98,9 @@ let APP_MAIN_URL: any;
 
 if (environment.production) { /** For production */
   APP_MAIN_URL &#x3D; {
-    apiMainUrl: &#x27;http://conjurer.us-east-2.elasticbeanstalk.com/&#x27;,  // redirecting to k2 service using server(k2 service - 13.126.213.79)
-    SSOUrl: &#x27;http://authengine.us-east-2.elasticbeanstalk.com/&#x27;,
-    everestUrl: &#x27;http://auctor.us-east-2.elasticbeanstalk.com/&#x27;,
+    apiMainUrl: &#x27;https://conjurerdev.infiniopes.com/conjurer/&#x27;,  // redirecting to k2 service using server(k2 service - 13.126.213.79)
+    SSOUrl: &#x27;https://conjurerdev.infiniopes.com/auth/&#x27;,
+    everestUrl: &#x27;https://auctordev.infiniopes.com/auctor/&#x27;,
     // apiMainUrl: &#x27;http://192.168.0.17:11011/&#x27;,
     // SSOUrl: &#x27;http://192.168.0.17:12012/&#x27;,
     // everestUrl: &#x27;http://192.168.0.16:8080/&#x27;,
@@ -108,9 +108,9 @@ if (environment.production) { /** For production */
   }
 } else {
   APP_MAIN_URL &#x3D; { /** For development */
-    apiMainUrl: &#x27;http://conjurer.us-east-2.elasticbeanstalk.com/&#x27;,
-    SSOUrl: &#x27;http://authengine.us-east-2.elasticbeanstalk.com/&#x27;,
-    everestUrl: &#x27;http://auctor.us-east-2.elasticbeanstalk.com/&#x27;,
+    apiMainUrl: &#x27;https://conjurerdev.infiniopes.com/conjurer/&#x27;,
+    SSOUrl: &#x27;https://conjurerdev.infiniopes.com/auth/&#x27;,
+    everestUrl: &#x27;https://auctordev.infiniopes.com/auctor/&#x27;,
     // apiMainUrl: &#x27;http://192.168.0.20:11011/&#x27;,
     // SSOUrl: &#x27;http://192.168.0.17:12012/&#x27;,
     // everestUrl: &#x27;http://192.168.0.16:8080/&#x27;,

@@ -20,7 +20,7 @@ import { DropdownService } from './dropdown.service';
 })
 export class AdminDropdownComponent implements OnInit {
 
-    @ViewChild('dropDownModal') dropDownModal: TemplateRef<any>;
+    @ViewChild('dropDownModal', {static: false}) dropDownModal: TemplateRef<any>;
 
     public dropDownModalRef: BsModalRef;
 

@@ -30,16 +30,16 @@ import { CommonNotificationComponent } from '../../shared/notification.component
 export class BatchReportComponent implements OnInit, OnDestroy {
 
   /** Delete statement modal reference */
-  @ViewChild('deleteStatementModal') deleteStatementModal: TemplateRef<any>;
+  @ViewChild('deleteStatementModal', {static: false}) deleteStatementModal: TemplateRef<any>;
 
   /** View batch file data modal reference */
-  @ViewChild('viewBatchFileModal') viewBatchFileModal: TemplateRef<any>;
+  @ViewChild('viewBatchFileModal', {static: false}) viewBatchFileModal: TemplateRef<any>;
 
   /** Notification component reference */
-  @ViewChild('notificationComponent') notificationComponent: CommonNotificationComponent;
+  @ViewChild('notificationComponent', {static: false}) notificationComponent: CommonNotificationComponent;
 
   /** Set credential modal reference for password protected files */
-  @ViewChild('setCredentialModal') setCredentialModal: TemplateRef<any>;
+  @ViewChild('setCredentialModal', {static: false}) setCredentialModal: TemplateRef<any>;
 
   public batchReportData: any = [];
   public xmlFileList: any = [];

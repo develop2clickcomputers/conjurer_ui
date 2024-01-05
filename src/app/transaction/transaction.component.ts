@@ -43,13 +43,13 @@ import { TransactionService } from './transaction.service';
 export class TransactionComponent implements OnInit, OnDestroy {
 
   /** Notification component reference */
-  @ViewChild('notificationComponent') notificationComponent: CommonNotificationComponent;
+  @ViewChild('notificationComponent', {static: false}) notificationComponent: CommonNotificationComponent;
 
   /** Add transaction modal */
-  @ViewChild('addTransactionModal') addTransactionModal: TemplateRef<any>;
+  @ViewChild('addTransactionModal', {static: false}) addTransactionModal: TemplateRef<any>;
 
   /** Delete transaction modal */
-  @ViewChild('deleteTransactionModal') deleteTransactionModal: TemplateRef<any>;
+  @ViewChild('deleteTransactionModal', {static: false}) deleteTransactionModal: TemplateRef<any>;
 
   statementCountries: any;
   statementInstitutions: any;

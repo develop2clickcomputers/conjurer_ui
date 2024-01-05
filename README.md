@@ -68,3 +68,13 @@ for more information [visit here](https://compodoc.app/guides/usage.html)
 
 - Add script `"serve-docs": "compodoc -s src/tsconfig.app.json --port 4202"` to package.json file
 - Run `npm run serve-docs` in you project root folder, Navigate to `http://localhost:4202/` to view the documentation, for more information [visit here](https://compodoc.app/guides/usage.html)
+
+
+## Upgraded from Angular 6 to Angular 8 
+# node V16.10.0 recommended and then run below command
+# ng version
+# npm install --force
+# npm run start
+## If process.binding('http_parser') is deprecated occured run below commands
+# set NODE_OPTIONS=--openssl-legacy-provider
+# npm run start

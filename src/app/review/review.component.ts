@@ -35,7 +35,7 @@ declare var $: any;
 export class ReviewComponent implements OnInit, OnDestroy {
 
   /** Holding asset modal reference */
-  @ViewChild('holdingAssetModal') holdingAssetModal: TemplateRef<any>;
+  @ViewChild('holdingAssetModal', {static: false}) holdingAssetModal: TemplateRef<any>;
 
   bankDataLoading: boolean;
   creditcardDataLoading: boolean;

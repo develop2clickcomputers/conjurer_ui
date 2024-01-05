@@ -16,7 +16,7 @@ import { CommonNotificationComponent } from '../shared/notification.component';
 export class ClientAdvisorsComponent implements OnInit {
 
   /** Notification component class reference */
-  @ViewChild('notificationComponent') notificationComponent: CommonNotificationComponent;
+  @ViewChild('notificationComponent', {static: false}) notificationComponent: CommonNotificationComponent;
 
   advisorList: any[] = [];
   advisorObj: any = {};
